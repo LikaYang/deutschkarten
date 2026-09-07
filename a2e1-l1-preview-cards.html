@@ -1,0 +1,1331 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Deutschstadt · A2E1L1 Vorbereitung</title>
+  <style>
+    :root {
+      --orange: #f5821f;
+      --orange-dark: #c75f13;
+      --cream: #fff7ea;
+      --paper: #fffdf8;
+      --ink: #2d211b;
+      --muted: #8a7869;
+      --line: #f0c89d;
+      --green: #4f9f6f;
+      --red: #c65a4a;
+      --shadow: 0 18px 44px rgba(109, 70, 33, .16);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100dvh;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, rgba(255, 247, 234, .88), rgba(255, 239, 215, .94)),
+        #f7e2c8;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+
+    button, input { font: inherit; }
+
+    button {
+      border: 0;
+      cursor: pointer;
+    }
+
+    .app {
+      width: min(100%, 780px);
+      min-height: 100dvh;
+      margin: 0 auto;
+      padding: 16px 14px calc(20px + env(safe-area-inset-bottom));
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr) auto;
+      gap: 12px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .eyebrow {
+      margin: 0 0 3px;
+      color: var(--orange-dark);
+      font-size: 12px;
+      font-weight: 1000;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(24px, 7vw, 40px);
+      line-height: 1;
+    }
+
+    .top-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .chip-button,
+    .ghost-button,
+    .primary-button {
+      min-height: 38px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0 13px;
+      color: var(--orange-dark);
+      background: rgba(255, 253, 248, .82);
+      font-weight: 950;
+    }
+
+    .primary-button {
+      color: #fff;
+      background: var(--orange);
+      border-color: var(--orange);
+    }
+
+    .ghost-button.active {
+      color: #fff;
+      background: var(--orange);
+      border-color: var(--orange);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .stat {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 8px 10px;
+      background: rgba(255, 253, 248, .72);
+      text-align: center;
+      font-weight: 950;
+    }
+
+    .stat span {
+      display: block;
+      margin-bottom: 2px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .card-stage {
+      position: relative;
+      min-height: 0;
+      display: grid;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      align-content: start;
+      min-height: 0;
+      overflow: auto;
+      padding-bottom: 4px;
+    }
+
+    .grid-card {
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) auto auto;
+      gap: 7px;
+      min-height: 210px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 8px;
+      color: var(--ink);
+      background: rgba(255, 253, 248, .9);
+      box-shadow: 0 10px 24px rgba(109, 70, 33, .1);
+      text-align: left;
+      overflow: hidden;
+    }
+
+    .grid-image {
+      display: grid;
+      place-items: center;
+      min-height: 0;
+      border: 1px solid rgba(240, 200, 157, .72);
+      border-radius: 14px;
+      background: #fff7ea;
+      overflow: hidden;
+    }
+
+    .grid-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .grid-card strong {
+      overflow-wrap: anywhere;
+      font-size: clamp(15px, 4.6vw, 20px);
+      line-height: 1.05;
+    }
+
+    .grid-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 950;
+    }
+
+    .study-card {
+      min-height: 0;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255, 253, 248, .94);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      perspective: 1200px;
+    }
+
+    .flip-inner {
+      position: relative;
+      height: 100%;
+      min-height: min(66dvh, 720px);
+      transition: transform .5s cubic-bezier(.2, .72, .24, 1);
+      transform-style: preserve-3d;
+    }
+
+    .study-card.flipped .flip-inner {
+      transform: rotateY(180deg);
+    }
+
+    .face {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr) auto;
+      gap: 12px;
+      padding: clamp(14px, 4vw, 24px);
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+
+    .back {
+      transform: rotateY(180deg);
+      background: linear-gradient(180deg, #fffdf8, #fff2df);
+    }
+
+    .card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      color: #9b6130;
+      font-size: 13px;
+      font-weight: 1000;
+      text-transform: uppercase;
+    }
+
+    .image-frame {
+      display: grid;
+      place-items: center;
+      min-height: 0;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background:
+        radial-gradient(circle at 50% 46%, rgba(255, 255, 255, .95) 0 30%, rgba(255, 224, 173, .5) 31% 70%, rgba(255, 245, 230, .92) 71%),
+        #fff7ea;
+      overflow: hidden;
+    }
+
+    .image-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .placeholder {
+      display: grid;
+      place-items: center;
+      width: 86%;
+      height: 86%;
+      border: 2px dashed rgba(245, 130, 31, .38);
+      border-radius: 18px;
+      color: var(--muted);
+      text-align: center;
+      font-weight: 950;
+    }
+
+    .front-word,
+    .back-panel {
+      border: 1px solid rgba(232, 190, 141, .86);
+      border-radius: 20px;
+      padding: clamp(14px, 4vw, 22px);
+      background: rgba(255, 253, 248, .9);
+      text-align: center;
+    }
+
+    .front-word strong {
+      display: block;
+      overflow-wrap: anywhere;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(34px, 10vw, 62px);
+      line-height: 1;
+    }
+
+    .front-word span,
+    .back-panel span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .xp-row {
+      display: grid;
+      gap: 5px;
+      margin-top: 9px;
+    }
+
+    .xp-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      color: #9b6130;
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .xp-track {
+      height: 8px;
+      border-radius: 999px;
+      background: #f1dec6;
+      overflow: hidden;
+    }
+
+    .xp-fill {
+      height: 100%;
+      border-radius: inherit;
+      background: var(--orange);
+    }
+
+    .back-panel {
+      display: grid;
+      align-content: center;
+      gap: 12px;
+      min-height: 0;
+      text-align: left;
+    }
+
+    .meaning {
+      margin: 0;
+      color: var(--ink);
+      font-size: clamp(28px, 8vw, 48px);
+      font-weight: 1000;
+      line-height: 1.05;
+    }
+
+    .example {
+      margin: 0;
+      color: #6f5f52;
+      font-size: clamp(18px, 5vw, 28px);
+      font-weight: 900;
+      line-height: 1.25;
+    }
+
+    .example-cn {
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(15px, 4vw, 20px);
+      font-weight: 850;
+    }
+
+    .audio-button {
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      width: 40px;
+      min-height: 40px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: #fff;
+      background: var(--orange);
+    }
+
+    .back .audio-button {
+      color: var(--orange);
+      background: #fffaf2;
+    }
+
+    .word-line,
+    .example-line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .example-line {
+      justify-content: flex-start;
+    }
+
+    .speaker {
+      display: block;
+      width: 22px;
+      height: 19px;
+    }
+
+    .card-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .card-actions button {
+      min-height: 48px;
+      border-radius: 16px;
+      font-weight: 1000;
+    }
+
+    .review {
+      color: var(--orange-dark);
+      background: #fffaf2;
+      border: 1px solid var(--line);
+    }
+
+    .known {
+      color: #fff;
+      background: var(--green);
+      border: 1px solid var(--green);
+    }
+
+    .nav {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav span {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .nav button:disabled {
+      opacity: .42;
+      cursor: not-allowed;
+    }
+
+    .sheet {
+      position: fixed;
+      inset: 0;
+      display: none;
+      place-items: end center;
+      padding: 14px;
+      background: rgba(45, 33, 27, .32);
+      z-index: 20;
+    }
+
+    .sheet.open { display: grid; }
+
+    .sheet-card {
+      width: min(100%, 640px);
+      max-height: 86dvh;
+      overflow: auto;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 18px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .sheet-card h2 { margin: 0 0 10px; }
+    .sheet-card textarea {
+      width: 100%;
+      min-height: 180px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px;
+      color: var(--ink);
+      background: #fffaf2;
+      font: 12px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    .sheet-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .empty {
+      display: grid;
+      place-items: center;
+      min-height: 60dvh;
+      border: 1px dashed var(--line);
+      border-radius: 24px;
+      color: var(--muted);
+      background: rgba(255, 253, 248, .7);
+      text-align: center;
+      font-weight: 950;
+    }
+
+    @media (min-width: 860px) {
+      .app { width: min(100%, 960px); }
+      .card-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .flip-inner { min-height: min(68dvh, 760px); }
+      .face {
+        grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr);
+        grid-template-rows: auto minmax(0, 1fr);
+      }
+      .card-head { grid-column: 1 / -1; }
+      .front-word,
+      .back-panel { align-self: stretch; display: grid; align-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <header>
+      <div class="topbar">
+        <div>
+          <p class="eyebrow">Deutschstadt · Preview</p>
+          <h1>A2E1L1 预习卡牌</h1>
+        </div>
+        <div class="top-actions">
+          <button class="ghost-button" id="gridBtn" type="button">全部卡牌</button>
+          <button class="ghost-button active" id="onlyReadyBtn" type="button">只看已有图</button>
+          <button class="ghost-button" id="reviewOnlyBtn" type="button">只练复习</button>
+        </div>
+      </div>
+      <section class="stats" aria-label="学习统计">
+        <div class="stat"><span>已认识</span><strong id="knownCount">0</strong></div>
+        <div class="stat"><span>待复习</span><strong id="reviewCount">0</strong></div>
+        <div class="stat"><span>当前卡包</span><strong id="visibleCount">0</strong></div>
+      </section>
+    </header>
+
+    <section class="card-stage" id="stage"></section>
+
+    <footer class="nav">
+      <button class="chip-button" id="prevBtn" type="button">上一张</button>
+      <span id="progressText">0 / 0</span>
+      <button class="chip-button" id="nextBtn" type="button">下一张</button>
+      <button class="chip-button" id="resetBtn" type="button">重置</button>
+      <button class="primary-button" id="exportBtn" type="button">复制反馈码</button>
+      <button class="chip-button" id="flipBtn" type="button">翻面</button>
+    </footer>
+  </main>
+
+  <div class="sheet" id="sheet" aria-hidden="true">
+    <section class="sheet-card">
+      <h2>反馈码 / 迁移码</h2>
+      <p>正式版上线后，可以用这段记录恢复本次预习的大致状态；也可以直接发给老师查看。</p>
+      <textarea id="exportText" readonly></textarea>
+      <div class="sheet-actions">
+        <button class="primary-button" id="copyBtn" type="button">复制</button>
+        <button class="chip-button" id="closeSheetBtn" type="button">关闭</button>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const PACK_ID = "A2E1L1-preparation-v0.1";
+    const STORE_KEY = "deutschstadt.preview.a2e1l1.v01";
+    const IMG = "assets/art/a2e1-l1-preparation/";
+
+    const cards = [
+  // =========================
+  // Persönliche Daten / Familie
+  // =========================
+
+  {
+    id: "geboren-sein",
+    group: "Persönliche Daten / Familie",
+    front: "geboren sein",
+    zh: "出生",
+    example: "Ich bin in Berlin geboren.",
+    exampleCn: "我出生在柏林。",
+    image: IMG + "card-geboren-sein.png"
+  },
+
+  {
+    id: "allein-leben",
+    group: "Persönliche Daten / Familie",
+    front: "allein leben",
+    zh: "独自生活",
+    example: "Nina lebt allein.",
+    exampleCn: "Nina 独自生活。",
+    image: IMG + "card-allein-leben.png"
+  },
+
+  {
+    id: "ledig",
+    group: "Persönliche Daten / Familie",
+    front: "ledig",
+    zh: "未婚的",
+    example: "Sie ist ledig.",
+    exampleCn: "她未婚。",
+    image: IMG + "card-ledig.png"
+  },
+
+  {
+    id: "verheiratet",
+    group: "Persönliche Daten / Familie",
+    front: "verheiratet",
+    zh: "已婚的",
+    example: "Er ist verheiratet.",
+    exampleCn: "他已婚。",
+    image: IMG + "card-verheiratet.png"
+  },
+
+  {
+    id: "geschieden",
+    group: "Persönliche Daten / Familie",
+    front: "geschieden",
+    zh: "离婚的",
+    example: "Sie ist geschieden.",
+    exampleCn: "她离婚了。",
+    image: IMG + "card-geschieden.png"
+  },
+
+  {
+    id: "partner-partnerin",
+    group: "Persönliche Daten / Familie",
+    front: "der Partner, - / die Partnerin, -nen",
+    zh: "伴侣",
+    example: "Das ist meine Partnerin.",
+    exampleCn: "这是我的伴侣。",
+    image: IMG + "card-Partner.png"
+  },
+
+  {
+    id: "eltern",
+    group: "Persönliche Daten / Familie",
+    front: "die Eltern (Pl.)",
+    zh: "父母",
+    example: "Meine Eltern wohnen auf dem Land.",
+    exampleCn: "我的父母住在乡下。",
+    image: IMG + "card-eltern.png"
+  },
+
+  {
+    id: "kind",
+    group: "Persönliche Daten / Familie",
+    front: "das Kind, -er",
+    zh: "孩子",
+    example: "Das Kind schläft.",
+    exampleCn: "孩子在睡觉。",
+    image: IMG + "card-Kind.png"
+  },
+
+  {
+    id: "bruder",
+    group: "Persönliche Daten / Familie",
+    front: "der Bruder, ¨-",
+    zh: "兄弟；哥哥；弟弟",
+    example: "Leo ist Ninas Bruder.",
+    exampleCn: "Leo 是 Nina 的弟弟。",
+    image: IMG + "card-bruder.png"
+  },
+
+  {
+    id: "zusammenleben",
+    group: "Persönliche Daten / Familie",
+    front: "zusammenleben",
+    zh: "共同生活，住在一起",
+    example: "Tobias und Amir leben zusammen.",
+    exampleCn: "Tobias 和 Amir 住在一起。",
+    image: IMG + "card-zusammenleben.png"
+  },
+
+  {
+  id: "schwester",
+  group: "Persönliche Daten / Familie",
+  front: "die Schwester, -n",
+  zh: "姐妹；姐姐；妹妹",
+  example: "Nina ist Leos Schwester.",
+  exampleCn: "Nina 是 Leo 的姐姐。",
+  image: IMG + "card-schwester.png"
+},
+
+{
+  id: "geschwister",
+  group: "Persönliche Daten / Familie",
+  front: "das Geschwister, -",
+  zh: "兄弟姐妹",
+  example: "Nina und Leo sind Geschwister.",
+  exampleCn: "Nina 和 Leo 是兄妹。",
+  image: IMG + "card-geschwister.png"
+},
+
+{
+  id: "auf-dem-land",
+  group: "Wohnen",
+  front: "auf dem Land",
+  zh: "在乡下；在农村",
+  example: "Meine Eltern wohnen auf dem Land.",
+  exampleCn: "我的父母住在乡下。",
+  image: IMG + "card-auf-dem-Land.png"
+},
+
+{
+  id: "in-der-stadt",
+  group: "Wohnen",
+  front: "in der Stadt",
+  zh: "在城市里",
+  example: "Nina wohnt in der Stadt.",
+  exampleCn: "Nina 住在城里。",
+  image: IMG + "card-in-der-Stadt.png"
+},
+  // =========================
+  // Wohnen
+  // =========================
+
+  {
+    id: "haus",
+    group: "Wohnen",
+    front: "das Haus, ¨-er",
+    zh: "房子",
+    example: "Das Haus ist auf dem Land.",
+    exampleCn: "这栋房子在乡下。",
+    image: IMG + "card-haus.png"
+  },
+
+  {
+    id: "wohnung",
+    group: "Wohnen",
+    front: "die Wohnung, -en",
+    zh: "公寓，住房",
+    example: "Die Wohnung ist hell.",
+    exampleCn: "这套公寓很明亮。",
+    image: IMG + "card-wohnung.png"
+  },
+
+  // =========================
+  // Studium & Arbeit
+  // =========================
+
+  {
+    id: "studium",
+    group: "Studium & Arbeit",
+    front: "das Studium, Studien",
+    zh: "大学学业；大学学习",
+    example: "Das Studium ist interessant.",
+    exampleCn: "大学学习很有意思。",
+    image: IMG + "card-studium.png"
+  },
+
+  {
+    id: "studieren",
+    group: "Studium & Arbeit",
+    front: "studieren",
+    zh: "上大学；攻读",
+    example: "Nina studiert in Berlin.",
+    exampleCn: "Nina 在柏林上大学。",
+    image: IMG + "card-studieren.png"
+  },
+
+  {
+    id: "ausbildung",
+    group: "Studium & Arbeit",
+    front: "die Ausbildung, -en",
+    zh: "职业培训",
+    example: "Lea macht eine Ausbildung.",
+    exampleCn: "Lea 在接受职业培训。",
+    image: IMG + "card-ausbildung-pflege.png"
+  },
+
+  {
+    id: "ausbildung-machen",
+    group: "Studium & Arbeit",
+    front: "eine Ausbildung machen",
+    zh: "接受职业培训",
+    example: "Sie macht eine Ausbildung im Krankenhaus.",
+    exampleCn: "她在医院接受职业培训。",
+    image: IMG + "card-ausbildung-pflege.png"
+  },
+
+  {
+    id: "beruf",
+    group: "Studium & Arbeit",
+    front: "der Beruf, -e",
+    zh: "职业",
+    example: "Was sind Sie von Beruf?",
+    exampleCn: "您的职业是什么？",
+    image: IMG + "card-Beruf.png"
+  },
+
+  {
+    id: "als-arbeiten",
+    group: "Studium & Arbeit",
+    front: "als ... arbeiten",
+    zh: "作为……工作；从事……职业",
+    example: "Etzel arbeitet als Lehrerin.",
+    exampleCn: "Etzel 是老师。",
+    image: IMG + "card-als-arbeiten.png"
+  },
+
+  {
+    id: "bei-arbeiten",
+    group: "Studium & Arbeit",
+    front: "bei ... arbeiten",
+    zh: "在……工作",
+    example: "Samira arbeitet bei einer Firma.",
+    exampleCn: "Samira 在一家公司工作。",
+    image: IMG + "card-bei-arbeiten.png"
+  },
+
+  {
+    id: "praktikum",
+    group: "Studium & Arbeit",
+    front: "das Praktikum, Praktika",
+    zh: "实习",
+    example: "Das Praktikum beginnt im Mai.",
+    exampleCn: "实习五月开始。",
+    image: IMG + "card-Praktikum.png"
+  },
+
+  {
+    id: "praktikum-machen",
+    group: "Studium & Arbeit",
+    front: "ein Praktikum machen",
+    zh: "做实习",
+    example: "Felix macht ein Praktikum.",
+    exampleCn: "Felix 在做实习。",
+    image: IMG + "card-ein-Praktikum-machen.png"
+  },
+
+  // =========================
+  // Sprachen
+  // =========================
+
+  {
+    id: "muttersprache",
+    group: "Sprachen",
+    front: "die Muttersprache, -n",
+    zh: "母语",
+    example: "Meine Muttersprache ist Chinesisch.",
+    exampleCn: "我的母语是中文。",
+    image: IMG + "card-muttersprache.png"
+  },
+
+  {
+    id: "sprache-lernen",
+    group: "Sprachen",
+    front: "eine Sprache lernen",
+    zh: "学习一门语言",
+    example: "Nina lernt eine Sprache.",
+    exampleCn: "Nina 在学习一门语言。",
+    image: IMG + "card-sprache-lernen.png"
+  },
+
+  {
+    id: "chinesisch-sprechen",
+    group: "Sprachen",
+    front: "Chinesisch sprechen",
+    zh: "说中文",
+    example: "Etzel spricht ein bisschen Chinesisch.",
+    exampleCn: "Etzel 会说一点中文。",
+    image: IMG + "card-chinesisch-deutsch-sprechen.png"
+  },
+
+  {
+    id: "deutsch-sprechen",
+    group: "Sprachen",
+    front: "Deutsch sprechen",
+    zh: "说德语",
+    example: "Ich spreche Deutsch.",
+    exampleCn: "我说德语。",
+    image: IMG + "card-chinesisch-deutsch-sprechen.png"
+  },
+
+  {
+    id: "englisch-sprechen",
+    group: "Sprachen",
+    front: "Englisch sprechen",
+    zh: "说英语",
+    example: "Ich spreche Englisch.",
+    exampleCn: "我说英语。",
+    image: ""
+  },
+
+  {
+    id: "fliessend",
+    group: "Sprachen",
+    front: "fließend",
+    zh: "流利地",
+    example: "Sofia spricht fließend Deutsch.",
+    exampleCn: "Sofia 德语说得很流利。",
+    image: IMG + "card-fliessend.png"
+  },
+
+  {
+    id: "ein-bisschen",
+    group: "Sprachen",
+    front: "ein bisschen",
+    zh: "一点儿",
+    example: "Ich spreche ein bisschen Deutsch.",
+    exampleCn: "我会说一点德语。",
+    image: IMG + "card-ein-bisschen.png"
+  },
+
+  // =========================
+  // Freizeit
+  // =========================
+
+  {
+    id: "freizeit",
+    group: "Freizeit",
+    front: "die Freizeit, -en",
+    zh: "空闲时间",
+    example: "Was machst du in der Freizeit?",
+    exampleCn: "你空闲时间做什么？",
+    image: IMG + "card-Freizeit.png"
+  },
+
+  {
+    id: "in-der-freizeit",
+    group: "Freizeit",
+    front: "in der Freizeit",
+    zh: "在空闲时间",
+    example: "In der Freizeit lese ich gern.",
+    exampleCn: "空闲时间我喜欢阅读。",
+    image: IMG + "card-in-der-Freizeit.png"
+  },
+
+  {
+    id: "freunde-treffen",
+    group: "Freizeit",
+    front: "sich mit Freunden treffen",
+    zh: "和朋友见面",
+    example: "Ich treffe mich mit Freunden.",
+    exampleCn: "我和朋友见面。",
+    image: IMG + "card-freunde-treffen.png"
+  },
+
+  {
+    id: "sport-machen",
+    group: "Freizeit",
+    front: "Sport machen",
+    zh: "做运动",
+    example: "Ich mache gern Sport.",
+    exampleCn: "我喜欢运动。",
+    image: IMG + "card-Sport-machen.png"
+  },
+
+  {
+    id: "musik-hoeren",
+    group: "Freizeit",
+    front: "Musik hören",
+    zh: "听音乐",
+    example: "Am Abend höre ich Musik.",
+    exampleCn: "晚上我听音乐。",
+    image: IMG + "card-Musik-hoeren.png"
+  },
+
+  {
+    id: "lesen",
+    group: "Freizeit",
+    front: "lesen",
+    zh: "阅读",
+    example: "Nina liest gern.",
+    exampleCn: "Nina 喜欢阅读。",
+    image: IMG + "card-lesen.png"
+  },
+
+  {
+    id: "kochen",
+    group: "Freizeit",
+    front: "kochen",
+    zh: "做饭",
+    example: "Am Wochenende koche ich.",
+    exampleCn: "周末我做饭。",
+    image: IMG + "card-kochen.png"
+  },
+
+  {
+    id: "spazieren-gehen",
+    group: "Freizeit",
+    front: "spazieren gehen",
+    zh: "散步",
+    example: "Wir gehen spazieren.",
+    exampleCn: "我们去散步。",
+    image: IMG + "card-spazieren-gehen.png"
+  },
+
+  {
+    id: "ins-kino-gehen",
+    group: "Freizeit",
+    front: "ins Kino gehen",
+    zh: "去电影院",
+    example: "Sie gehen ins Kino.",
+    exampleCn: "他们去电影院。",
+    image: IMG + "card-ins-Kino-gehen.png"
+  },
+
+  {
+    id: "ins-restaurant-gehen",
+    group: "Freizeit",
+    front: "ins Restaurant gehen",
+    zh: "去餐厅",
+    example: "Wir gehen ins Restaurant.",
+    exampleCn: "我们去餐厅。",
+    image: IMG + "card-ins-Restaurant-gehen.png"
+  },
+
+  // =========================
+  // Vergangenheit vorbereiten
+  // =========================
+
+  {
+    id: "beginnen",
+    group: "Vergangenheit vorbereiten",
+    front: "beginnen",
+    zh: "开始",
+    example: "Der Kurs beginnt um neun.",
+    exampleCn: "课程九点开始。",
+    image: IMG + "card-beginnen.png"
+  },
+
+  {
+    id: "beenden-abschliessen",
+    group: "Vergangenheit vorbereiten",
+    front: "beenden / abschließen",
+    zh: "结束；完成",
+    example: "Ich schließe die Ausbildung ab.",
+    exampleCn: "我完成职业培训。",
+    image: IMG + "card-abschliessen.png"
+  }
+];
+    let state = loadState();
+    let index = 0;
+    let flipped = false;
+    let onlyReady = true;
+    let reviewOnly = false;
+    let viewMode = "study";
+    let preferredGermanVoice = null;
+
+    const els = {
+      stage: document.getElementById("stage"),
+      knownCount: document.getElementById("knownCount"),
+      reviewCount: document.getElementById("reviewCount"),
+      visibleCount: document.getElementById("visibleCount"),
+      progressText: document.getElementById("progressText"),
+      prevBtn: document.getElementById("prevBtn"),
+      nextBtn: document.getElementById("nextBtn"),
+      flipBtn: document.getElementById("flipBtn"),
+      resetBtn: document.getElementById("resetBtn"),
+      exportBtn: document.getElementById("exportBtn"),
+      gridBtn: document.getElementById("gridBtn"),
+      onlyReadyBtn: document.getElementById("onlyReadyBtn"),
+      reviewOnlyBtn: document.getElementById("reviewOnlyBtn"),
+      sheet: document.getElementById("sheet"),
+      exportText: document.getElementById("exportText"),
+      copyBtn: document.getElementById("copyBtn"),
+      closeSheetBtn: document.getElementById("closeSheetBtn")
+    };
+
+    function loadState() {
+      try {
+        return { known: {}, review: {}, xp: {}, updatedAt: "", ...JSON.parse(localStorage.getItem(STORE_KEY) || "{}") };
+      } catch {
+        return { known: {}, review: {}, xp: {}, updatedAt: "" };
+      }
+    }
+
+    function saveState() {
+      state.updatedAt = new Date().toISOString();
+      localStorage.setItem(STORE_KEY, JSON.stringify(state));
+      renderStats();
+    }
+
+    function visibleCards() {
+      return cards.filter((card) => {
+        if (onlyReady && !card.image) return false;
+        if (reviewOnly && !state.review[card.id]) return false;
+        return true;
+      });
+    }
+
+    function currentCard() {
+      const list = visibleCards();
+      if (!list.length) return null;
+      index = Math.max(0, Math.min(index, list.length - 1));
+      return list[index];
+    }
+
+    function render() {
+      const list = visibleCards();
+      const card = currentCard();
+      flipped = false;
+      renderStats();
+      els.gridBtn.classList.toggle("active", viewMode === "grid");
+      els.flipBtn.textContent = viewMode === "grid" ? "学习" : "翻面";
+      if (viewMode === "grid") {
+        renderGrid(list);
+        return;
+      }
+      els.prevBtn.disabled = index <= 0;
+      els.nextBtn.disabled = index >= list.length - 1;
+      els.progressText.textContent = list.length ? `${index + 1} / ${list.length}` : "0 / 0";
+
+      if (!card) {
+        els.stage.innerHTML = `<div class="empty">当前筛选下没有卡牌。<br>可以关闭“只练复习”或“只看已有图”。</div>`;
+        return;
+      }
+
+      els.stage.innerHTML = `
+        <article class="study-card" id="studyCard">
+          <div class="flip-inner">
+            <section class="face front">
+              <div class="card-head"><span>${card.group}</span><span>${card.image ? "Bild bereit" : "Bild folgt"}</span></div>
+              <div class="image-frame">${card.image ? `<img src="${card.image}" alt="">` : `<div class="placeholder">待补插图<br>${card.front}</div>`}</div>
+              <div class="front-word">
+                <div class="word-line"><strong>${card.front}</strong><button class="audio-button" data-audio="front" type="button" aria-label="播放德语">${speakerIcon()}</button></div>
+                ${renderXp(card)}
+                <span>点击卡片翻面</span>
+              </div>
+            </section>
+            <section class="face back">
+              <div class="card-head"><span>${card.group}</span><span>${card.image ? "A2E1L1" : "待补图"}</span></div>
+              <div class="back-panel">
+                <p class="meaning">${card.zh}</p>
+                <div class="example-line"><p class="example">${card.example}</p><button class="audio-button" data-audio="example" type="button" aria-label="播放例句">${speakerIcon()}</button></div>
+                <p class="example-cn">${card.exampleCn}</p>
+                ${renderXp(card)}
+              </div>
+              <div class="card-actions">
+                <button class="review" data-mark="review" type="button">还要复习</button>
+                <button class="known" data-mark="known" type="button">认识</button>
+              </div>
+            </section>
+          </div>
+        </article>
+      `;
+
+      const cardNode = document.getElementById("studyCard");
+      cardNode.addEventListener("click", (event) => {
+        if (event.target.closest("button")) return;
+        flip();
+      });
+      els.stage.querySelectorAll("[data-mark]").forEach((button) => {
+        button.addEventListener("click", () => {
+          mark(card.id, button.dataset.mark);
+          go(1);
+        });
+      });
+      els.stage.querySelectorAll("[data-audio]").forEach((button) => {
+        button.addEventListener("click", (event) => {
+          event.stopPropagation();
+          speakGerman(button.dataset.audio === "example" ? card.example : card.front);
+        });
+      });
+    }
+
+    function renderGrid(list) {
+      els.prevBtn.disabled = true;
+      els.nextBtn.disabled = true;
+      els.progressText.textContent = `${list.length} 张`;
+      if (!list.length) {
+        els.stage.innerHTML = `<div class="empty">当前筛选下没有卡牌。<br>可以关闭“只练复习”或“只看已有图”。</div>`;
+        return;
+      }
+      els.stage.innerHTML = `
+        <section class="card-grid" aria-label="全部卡牌">
+          ${list.map((card, cardIndex) => `
+            <button class="grid-card" data-grid-index="${cardIndex}" type="button">
+              <div class="grid-image">${card.image ? `<img src="${card.image}" alt="">` : `<div class="placeholder">待补<br>${card.front}</div>`}</div>
+              <strong>${card.front}</strong>
+              <div>
+                <div class="grid-meta"><span>${getCardStatus(card)}</span><span>${getCardXp(card)} / 100</span></div>
+                <div class="xp-track"><div class="xp-fill" style="width:${getCardXp(card)}%"></div></div>
+              </div>
+            </button>
+          `).join("")}
+        </section>
+      `;
+      els.stage.querySelectorAll("[data-grid-index]").forEach((button) => {
+        button.addEventListener("click", () => {
+          index = Number(button.dataset.gridIndex) || 0;
+          viewMode = "study";
+          render();
+        });
+      });
+    }
+
+    function renderStats() {
+      const known = Object.keys(state.known).length;
+      const review = Object.keys(state.review).length;
+      els.knownCount.textContent = known;
+      els.reviewCount.textContent = review;
+      els.visibleCount.textContent = visibleCards().length;
+    }
+
+    function flip() {
+      flipped = !flipped;
+      document.getElementById("studyCard")?.classList.toggle("flipped", flipped);
+    }
+
+    function go(delta) {
+      const list = visibleCards();
+      if (!list.length) return render();
+      index = Math.max(0, Math.min(index + delta, list.length - 1));
+      render();
+    }
+
+    function mark(id, type) {
+      delete state.known[id];
+      delete state.review[id];
+      state[type][id] = Date.now();
+      const gain = type === "known" ? 20 : 8;
+      state.xp[id] = Math.min(100, (state.xp[id] || 0) + gain);
+      saveState();
+    }
+
+    function getCardXp(card) {
+      return Math.min(100, state.xp?.[card.id] || 0);
+    }
+
+    function getCardStatus(card) {
+      const xp = getCardXp(card);
+      if (xp >= 100) return "Master";
+      if (state.known[card.id]) return "已认识";
+      if (state.review[card.id]) return "待复习";
+      if (xp > 0) return "学习中";
+      return "未开始";
+    }
+
+    function renderXp(card) {
+      const xp = getCardXp(card);
+      return `
+        <div class="xp-row">
+          <div class="xp-label"><span>卡牌经验</span><span>${getCardStatus(card)} · ${xp} / 100</span></div>
+          <div class="xp-track"><div class="xp-fill" style="width:${xp}%"></div></div>
+        </div>
+      `;
+    }
+
+    function exportCode() {
+      const knownIds = Object.keys(state.known);
+      const reviewIds = Object.keys(state.review);
+      const payload = {
+        type: "deutschstadt-preview-progress",
+        packId: PACK_ID,
+        exportedAt: new Date().toISOString(),
+        known: knownIds,
+        review: reviewIds,
+        xp: state.xp || {}
+      };
+      const text = [
+        `Deutschstadt A2E1L1 预习反馈`,
+        `已认识：${knownIds.length} 张`,
+        `待复习：${reviewIds.length} 张`,
+        `Master：${cards.filter((card) => getCardXp(card) >= 100).length} 张`,
+        `待复习卡：${reviewIds.map((id) => cards.find((card) => card.id === id)?.front || id).join("、") || "无"}`,
+        "",
+        `迁移码：${btoa(unescape(encodeURIComponent(JSON.stringify(payload))))}`
+      ].join("\n");
+      els.exportText.value = text;
+      els.sheet.classList.add("open");
+      els.sheet.setAttribute("aria-hidden", "false");
+    }
+
+    function copyExport() {
+      els.exportText.select();
+      const text = els.exportText.value;
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).catch(() => document.execCommand("copy"));
+      } else {
+        document.execCommand("copy");
+      }
+    }
+
+    function speakGerman(text) {
+      if (!("speechSynthesis" in window)) return;
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = "de-DE";
+      utterance.rate = .86;
+      const voices = window.speechSynthesis.getVoices();
+      preferredGermanVoice = preferredGermanVoice
+        || voices.find((voice) => voice.lang === "de-DE")
+        || voices.find((voice) => /^de[-_]/i.test(voice.lang))
+        || null;
+      if (preferredGermanVoice) utterance.voice = preferredGermanVoice;
+      window.speechSynthesis.speak(utterance);
+    }
+
+    function speakerIcon() {
+      return `
+        <svg class="speaker" viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <path d="M3.5 9h5l7-5.5v17l-7-5.5h-5z" fill="currentColor"></path>
+          <path d="M18.5 8.5c1.2.9 1.9 2.1 1.9 3.5s-.7 2.6-1.9 3.5" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"></path>
+          <path d="M21.5 6c2 1.5 3.1 3.6 3.1 6s-1.1 4.5-3.1 6" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"></path>
+        </svg>
+      `;
+    }
+
+    els.prevBtn.addEventListener("click", () => go(-1));
+    els.nextBtn.addEventListener("click", () => go(1));
+    els.flipBtn.addEventListener("click", () => {
+      if (viewMode === "grid") {
+        viewMode = "study";
+        render();
+        return;
+      }
+      flip();
+    });
+    els.gridBtn.addEventListener("click", () => {
+      viewMode = viewMode === "grid" ? "study" : "grid";
+      render();
+    });
+    els.exportBtn.addEventListener("click", exportCode);
+    els.copyBtn.addEventListener("click", copyExport);
+    els.closeSheetBtn.addEventListener("click", () => {
+      els.sheet.classList.remove("open");
+      els.sheet.setAttribute("aria-hidden", "true");
+    });
+    els.resetBtn.addEventListener("click", () => {
+      state = { known: {}, review: {}, xp: {}, updatedAt: "" };
+      saveState();
+      index = 0;
+      render();
+    });
+    els.onlyReadyBtn.addEventListener("click", () => {
+      onlyReady = !onlyReady;
+      els.onlyReadyBtn.classList.toggle("active", onlyReady);
+      index = 0;
+      render();
+    });
+    els.reviewOnlyBtn.addEventListener("click", () => {
+      reviewOnly = !reviewOnly;
+      els.reviewOnlyBtn.classList.toggle("active", reviewOnly);
+      index = 0;
+      render();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft") go(-1);
+      if (event.key === "ArrowRight") go(1);
+      if (event.key === " ") {
+        event.preventDefault();
+        flip();
+      }
+    });
+
+    render();
+  </script>
+</body>
+</html>
