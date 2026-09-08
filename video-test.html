@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Deutschstadt｜A2E1 Vorbereitung</title>
+  <title>YouTube Embed 最简测试</title>
 
   <style>
     * {
@@ -18,8 +18,7 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
         "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
       background: #fffaf5;
-      color: #2f2f2f;
-      line-height: 1.7;
+      color: #333;
     }
 
     .container {
@@ -27,14 +26,146 @@
       margin: 0 auto;
     }
 
-    .page-title {
+    h1 {
       text-align: center;
       margin-bottom: 8px;
-      font-size: 28px;
     }
 
-    .page-subtitle {
+    .intro {
       text-align: center;
+      color: #777;
+      margin-bottom: 30px;
+      line-height: 1.7;
+    }
+
+    .test-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 18px;
+      margin-bottom: 28px;
+      border: 1px solid #eee;
+    }
+
+    .video-wrap {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      margin-top: 16px;
+    }
+
+    .video-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .note {
+      margin-top: 14px;
+      color: #666;
+      line-height: 1.7;
+    }
+
+    .result {
+      background: #fff1e4;
+      padding: 18px;
+      border-radius: 14px;
+      line-height: 1.9;
+    }
+  </style>
+</head>
+
+
+<body>
+
+  <div class="container">
+
+    <h1>Deutschstadt 视频访问测试</h1>
+
+    <p class="intro">
+      本页没有使用 YouTube API、自动跳转或其他脚本。<br>
+      只测试最普通的 YouTube iframe。
+    </p>
+
+
+    <!-- 517 -->
+    <div class="test-card">
+
+      <h2>测试 1｜Easy German 517</h2>
+
+      <p>
+        How Germans Spend Their Free Time
+      </p>
+
+      <div class="video-wrap">
+
+        <iframe
+          src="https://www.youtube.com/embed/nuGpXkhxx6o"
+          title="Easy German 517"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>
+
+      </div>
+
+      <p class="note">
+        观察：播放器是否出现？能否点击播放？正片是否正常播放？
+      </p>
+
+    </div>
+
+
+    <!-- 437 -->
+    <div class="test-card">
+
+      <h2>测试 2｜Easy German 437</h2>
+
+      <p>
+        What Did You Do After School?
+      </p>
+
+      <div class="video-wrap">
+
+        <iframe
+          src="https://www.youtube.com/embed/LifHreI5AwA"
+          title="Easy German 437"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>
+
+      </div>
+
+      <p class="note">
+        观察：播放器是否出现？能否点击播放？正片是否正常播放？
+      </p>
+
+    </div>
+
+
+    <div class="result">
+
+      <strong>这次请只记录：</strong><br><br>
+
+      517：<br>
+      □ 页面加载完成<br>
+      □ 播放器出现<br>
+      □ 可以播放正片<br><br>
+
+      437：<br>
+      □ 页面加载完成<br>
+      □ 播放器出现<br>
+      □ 可以播放正片<br><br>
+
+      另外看一下浏览器顶部是否还一直显示“加载中”。
+
+    </div>
+
+  </div>
+
+</body>
+
+</html>      text-align: center;
       color: #777;
       margin-bottom: 32px;
     }
