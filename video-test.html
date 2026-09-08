@@ -1,52 +1,155 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Deutschstadt × Easy German 测试</title>
+  <title>Deutschstadt × Easy German 视频测试</title>
 
   <style>
     body {
       font-family: Arial, sans-serif;
+      background: #fffaf5;
+      color: #333;
+      margin: 0;
+      padding: 30px 20px;
+    }
+
+    .container {
       max-width: 760px;
-      margin: 40px auto;
-      padding: 0 20px;
+      margin: 0 auto;
+    }
+
+    h1 {
       text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .intro {
+      text-align: center;
+      color: #666;
+      margin-bottom: 35px;
+    }
+
+    .test-box {
+      background: white;
+      border: 1px solid #eee;
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 20px;
     }
 
     .video-wrap {
       width: 100%;
       aspect-ratio: 16 / 9;
-      margin-top: 24px;
+      margin-top: 15px;
     }
 
     .video-wrap iframe {
       width: 100%;
       height: 100%;
       border: 0;
-      border-radius: 16px;
+      border-radius: 12px;
+    }
+
+    .note {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #777;
+      line-height: 1.6;
+    }
+
+    .result {
+      background: #fff3e8;
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 30px;
+      line-height: 1.8;
     }
   </style>
 </head>
 
+
 <body>
 
-  <h1>Deutschstadt 视频测试</h1>
+  <div class="container">
 
-  <p>
-    Easy German 517<br>
-    从 00:40 开始播放
-  </p>
+    <h1>🏘️ Deutschstadt 视频测试</h1>
 
-  <div class="video-wrap">
-    <iframe
-      src="https://www.youtube.com/embed/nuGpXkhxx6o?start=40"
-      title="Easy German 517"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen>
-    </iframe>
+    <p class="intro">
+      Easy German 517 · How Germans Spend Their Free Time
+    </p>
+
+
+    <!-- 测试 1 -->
+    <div class="test-box">
+
+      <h2>测试 1｜普通 YouTube Embed</h2>
+
+      <div class="video-wrap">
+
+        <iframe
+          src="https://www.youtube.com/embed/nuGpXkhxx6o"
+          title="Easy German 517 - YouTube Embed Test"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>
+
+      </div>
+
+      <p class="note">
+        请不开 VPN 测试：广告是否能播放？跳过广告以后正片是否能播放？
+      </p>
+
+    </div>
+
+
+    <!-- 测试 2 -->
+    <div class="test-box">
+
+      <h2>测试 2｜YouTube Privacy Enhanced</h2>
+
+      <div class="video-wrap">
+
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/nuGpXkhxx6o"
+          title="Easy German 517 - YouTube No Cookie Test"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>
+
+      </div>
+
+      <p class="note">
+        这是 YouTube 的隐私增强嵌入方式。也请测试广告和正片。
+      </p>
+
+    </div>
+
+
+    <div class="result">
+
+      <strong>测试时只需要记录：</strong><br><br>
+
+      测试 1：广告 □ 能播　正片 □ 能播<br>
+      测试 2：广告 □ 能播　正片 □ 能播<br><br>
+
+      测试环境：中国大陆普通网络，不开 VPN。
+
+    </div>
+
   </div>
 
 </body>
+
 </html>
