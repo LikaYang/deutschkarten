@@ -149,6 +149,235 @@
       cursor: not-allowed;
     }
 
+    .route-view {
+      display: grid;
+      gap: 12px;
+      align-content: start;
+      min-height: 0;
+      overflow: auto;
+      padding-bottom: 4px;
+    }
+
+    .course-hero,
+    .route-card,
+    .step-card {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: rgba(255, 253, 248, .88);
+      box-shadow: 0 12px 28px rgba(109, 70, 33, .1);
+    }
+
+    .course-hero {
+      padding: 18px;
+      background:
+        linear-gradient(135deg, rgba(255, 250, 242, .94), rgba(255, 236, 206, .82)),
+        var(--paper);
+    }
+
+    .course-hero h2 {
+      margin: 0 0 6px;
+      font-size: clamp(26px, 7vw, 42px);
+      line-height: 1;
+    }
+
+    .course-hero p {
+      margin: 0;
+      color: var(--muted);
+      font-weight: 900;
+      line-height: 1.35;
+    }
+
+    .route-card {
+      padding: 14px;
+    }
+
+    .route-card h3 {
+      margin: 0 0 10px;
+      color: var(--orange-dark);
+      font-size: 18px;
+      line-height: 1.1;
+    }
+
+    .step-list {
+      display: grid;
+      gap: 9px;
+    }
+
+    .step-card {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 10px;
+      padding: 12px;
+      color: var(--ink);
+      text-align: left;
+    }
+
+    .step-icon {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 14px;
+      color: #fff;
+      background: var(--orange);
+      font-weight: 1000;
+    }
+
+    .step-card h4 {
+      margin: 0 0 4px;
+      font-size: 16px;
+      line-height: 1.15;
+    }
+
+    .step-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 850;
+      line-height: 1.35;
+    }
+
+    .step-card strong {
+      color: var(--ink);
+    }
+
+    .step-card.disabled {
+      cursor: default;
+      opacity: .72;
+    }
+
+    .route-note {
+      margin: 0;
+      border: 1px dashed rgba(245, 130, 31, .44);
+      border-radius: 16px;
+      padding: 12px;
+      color: #7e6758;
+      background: rgba(255, 250, 242, .72);
+      font-size: 13px;
+      font-weight: 850;
+      line-height: 1.45;
+    }
+
+    .video-task-page {
+      display: grid;
+      gap: 12px;
+      align-content: start;
+      min-height: 0;
+      overflow: auto;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: clamp(16px, 4vw, 24px);
+      background: rgba(255, 253, 248, .92);
+      box-shadow: var(--shadow);
+    }
+
+    .video-task-page h2 {
+      margin: 0;
+      font-size: clamp(24px, 6.4vw, 38px);
+      line-height: 1.05;
+    }
+
+    .video-task-watch {
+      width: fit-content;
+      border: 1px solid rgba(245, 130, 31, .34);
+      border-radius: 999px;
+      padding: 7px 12px;
+      color: var(--orange-dark);
+      background: #fff3df;
+      font-weight: 1000;
+    }
+
+    .video-task-player {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 1px solid rgba(232, 190, 141, .86);
+      border-radius: 18px;
+      background: #1f1712;
+      overflow: hidden;
+    }
+
+    .video-task-player iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .video-task-links {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    .video-task-link {
+      display: grid;
+      place-items: center;
+      min-height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 8px 12px;
+      color: var(--orange-dark);
+      background: #fffaf2;
+      font-weight: 1000;
+      text-decoration: none;
+    }
+
+    .video-task-link.primary {
+      color: #fff;
+      background: var(--orange);
+      border-color: var(--orange);
+    }
+
+    .video-task-link:disabled {
+      opacity: .58;
+      cursor: not-allowed;
+    }
+
+    .video-task-question {
+      display: grid;
+      gap: 8px;
+      border: 1px solid rgba(232, 190, 141, .86);
+      border-radius: 18px;
+      padding: 14px;
+      background: #fffaf2;
+    }
+
+    .video-task-question p {
+      margin: 0;
+      font-size: clamp(19px, 5vw, 28px);
+      font-weight: 1000;
+      line-height: 1.2;
+    }
+
+    .video-task-hints {
+      display: grid;
+      gap: 6px;
+    }
+
+    .video-task-hint,
+    .video-task-soft-note,
+    .video-task-submission {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 850;
+      line-height: 1.45;
+    }
+
+    .video-task-hint {
+      border-radius: 12px;
+      padding: 8px 10px;
+      background: rgba(255, 253, 248, .84);
+    }
+
+    .video-task-back {
+      min-height: 46px;
+      border-radius: 16px;
+      color: #fff;
+      background: var(--orange);
+      font-weight: 1000;
+    }
+
     .stat {
       border: 1px solid var(--line);
       border-radius: 14px;
@@ -464,6 +693,11 @@
       gap: 8px;
     }
 
+    .nav.hidden,
+    .is-route .card-tools {
+      display: none;
+    }
+
     .nav span {
       color: var(--muted);
       font-size: 13px;
@@ -545,7 +779,7 @@
   </style>
 </head>
 <body>
-  <main class="app">
+  <main class="app" id="app">
     <header>
       <div class="topbar">
         <div>
@@ -553,9 +787,10 @@
           <h1 id="lessonTitle">A2E1L1 预习卡牌</h1>
         </div>
         <div class="top-actions">
-          <button class="ghost-button" id="gridBtn" type="button">全部卡牌</button>
-          <button class="ghost-button active" id="onlyReadyBtn" type="button">只看已有图</button>
-          <button class="ghost-button" id="reviewOnlyBtn" type="button">只练复习</button>
+          <button class="ghost-button active" id="routeBtn" type="button">课程路线</button>
+          <button class="ghost-button card-tools" id="gridBtn" type="button">全部卡牌</button>
+          <button class="ghost-button active card-tools" id="onlyReadyBtn" type="button">只看已有图</button>
+          <button class="ghost-button card-tools" id="reviewOnlyBtn" type="button">只练复习</button>
         </div>
       </div>
       <section class="stats" aria-label="学习统计">
@@ -568,7 +803,7 @@
 
     <section class="card-stage" id="stage"></section>
 
-    <footer class="nav">
+    <footer class="nav hidden" id="cardNav">
       <button class="chip-button" id="prevBtn" type="button">上一张</button>
       <span id="progressText">0 / 0</span>
       <button class="chip-button" id="nextBtn" type="button">下一张</button>
@@ -591,11 +826,78 @@
   </div>
 
   <script src="data/a2e1-l1-cards.js"></script>
+  <script src="data/a2e1-video-tasks.js"></script>
   <script>
     const STORE_KEY = "deutschstadt.preview.a2e1l1.v01";
     const PROGRESS_STORE_KEY = "deutschstadt.preview.lessons.v01";
     const CURRENT_LESSON_KEY = "deutschstadt.preview.currentLesson";
     const lessons = window.DEUTSCHSTADT_PREVIEW_LESSONS || [];
+    const videoTasks = window.A2E1_VIDEO_TASKS || {};
+    const courseRoute = {
+      title: "A2E1｜Und was machst du?",
+      thema: "Über mich · Verabredungen · Restaurant",
+      units: [
+        {
+          title: "U1 Vorbereitung｜Über mich",
+          status: "现在可用",
+          steps: [
+            {
+              type: "cards",
+              icon: "1",
+              title: "Wortschatz",
+              text: "先认识本课核心词汇，不需要全部背下来。",
+              action: "开始词卡",
+              lessonId: "A2E1L1"
+            },
+            {
+              type: "video",
+              icon: "2",
+              title: "Themen-Input｜Freizeit",
+              videoId: "freizeit-eg517",
+              text: "看 Easy German 517 推荐片段。思考：Was machen die Personen gern in ihrer Freizeit?",
+              action: "打开视频任务"
+            },
+            {
+              type: "video",
+              icon: "3",
+              title: "Themen-Input｜Nach der Schule",
+              videoId: "nach-der-schule-eg437",
+              text: "看 Easy German 437。找一找：studiert / Ausbildung gemacht / gearbeitet / gereist ...",
+              action: "打开视频任务"
+            },
+            {
+              type: "classin",
+              icon: "4",
+              title: "Probier mal! 🎙️",
+              text: "Erzähl kurz von dir: Was machst du gern in deiner Freizeit? Was hast du nach der Schule gemacht? 30–60 秒语音，不需要准备完整稿子。",
+              action: "去 ClassIn 发表",
+              url: "https://t.eeo.cn/3FnMe="
+            }
+          ]
+        },
+        {
+          title: "U1 Wiederholung｜课后复习",
+          status: "预留",
+          steps: [
+            { type: "note", icon: "R", title: "复习卡牌 + 视频复现", text: "课后根据课堂重点和不熟卡牌生成复习入口。", action: "即将开放" }
+          ]
+        },
+        {
+          title: "U2 Vorbereitung｜Pläne & Verabredung",
+          status: "预留",
+          steps: [
+            { type: "note", icon: "U2", title: "计划与约见", text: "后续接入词卡、短视频和课堂前思考问题。", action: "即将开放" }
+          ]
+        },
+        {
+          title: "U3 Vorbereitung｜Treffen & Essen",
+          status: "预留",
+          steps: [
+            { type: "note", icon: "U3", title: "见面与餐厅", text: "后续接入词卡、教材视频任务和餐厅场景准备。", action: "即将开放" }
+          ]
+        }
+      ]
+    };
 
     let progressStore = loadProgressStore();
     let currentLessonId = progressStore.currentLessonId || localStorage.getItem(CURRENT_LESSON_KEY) || lessons[0].id;
@@ -606,11 +908,13 @@
     let flipped = false;
     let onlyReady = true;
     let reviewOnly = false;
-    let viewMode = "study";
+    let viewMode = "route";
     let preferredGermanVoice = null;
 
     const els = {
+      app: document.getElementById("app"),
       stage: document.getElementById("stage"),
+      cardNav: document.getElementById("cardNav"),
       knownCount: document.getElementById("knownCount"),
       reviewCount: document.getElementById("reviewCount"),
       visibleCount: document.getElementById("visibleCount"),
@@ -620,6 +924,7 @@
       flipBtn: document.getElementById("flipBtn"),
       resetBtn: document.getElementById("resetBtn"),
       exportBtn: document.getElementById("exportBtn"),
+      routeBtn: document.getElementById("routeBtn"),
       gridBtn: document.getElementById("gridBtn"),
       lessonTitle: document.getElementById("lessonTitle"),
       lessonStrip: document.getElementById("lessonStrip"),
@@ -683,6 +988,23 @@
       render();
     }
 
+    function openVideoTask(videoId) {
+      if (!videoTasks[videoId]) return;
+      viewMode = "video";
+      renderVideoTask(videoId);
+    }
+
+    function openCards(lessonId) {
+      currentLesson = getLesson(lessonId);
+      currentLessonId = currentLesson.id;
+      state = loadState();
+      index = 0;
+      flipped = false;
+      viewMode = "study";
+      saveState();
+      render();
+    }
+
     function visibleCards() {
       return currentLesson.cards.filter((card) => {
         if (onlyReady && !card.image) return false;
@@ -699,12 +1021,19 @@
     }
 
     function render() {
+      if (viewMode === "route") {
+        renderCourseRoute();
+        return;
+      }
       const list = visibleCards();
       const card = currentCard();
       flipped = false;
       renderLessonHeader();
       renderLessonStrip();
       renderStats();
+      els.app.classList.remove("is-route");
+      els.cardNav.classList.remove("hidden");
+      els.routeBtn.classList.remove("active");
       els.gridBtn.classList.toggle("active", viewMode === "grid");
       els.flipBtn.textContent = viewMode === "grid" ? "学习" : "翻面";
       if (viewMode === "grid") {
@@ -766,6 +1095,122 @@
           speakGerman(button.dataset.audio === "example" ? card.example : card.front);
         });
       });
+    }
+
+    function renderCourseRoute() {
+      els.app.classList.add("is-route");
+      els.cardNav.classList.add("hidden");
+      els.routeBtn.classList.add("active");
+      els.gridBtn.classList.remove("active");
+      els.lessonTitle.textContent = courseRoute.title;
+      document.title = "Deutschcards · A2E1";
+      renderStats();
+      renderLessonStrip();
+      els.progressText.textContent = "";
+      els.stage.innerHTML = `
+        <section class="route-view" aria-label="A2E1 学习路线">
+          <div class="course-hero">
+            <p class="eyebrow">Deutschcards · Kursweg</p>
+            <h2>${courseRoute.title}</h2>
+            <p>Thema：${courseRoute.thema}</p>
+          </div>
+          ${courseRoute.units.map((unit) => `
+            <article class="route-card">
+              <h3>${unit.title} · ${unit.status}</h3>
+              <div class="step-list">
+                ${unit.steps.map((step) => `
+                  <button class="step-card ${step.type === "cards" || step.type === "video" || step.type === "classin" ? "" : "disabled"}" ${step.type === "cards" ? `data-open-cards="${step.lessonId}"` : ""} ${step.type === "video" ? `data-open-video="${step.videoId}"` : ""} ${step.type === "classin" ? `data-open-classin="${escapeHtml(step.url)}"` : ""} type="button">
+                    <span class="step-icon">${step.icon}</span>
+                    <span>
+                      <h4>${step.title}</h4>
+                      <p>${step.text}</p>
+                      <p><strong>${step.action}</strong></p>
+                    </span>
+                  </button>
+                `).join("")}
+              </div>
+            </article>
+          `).join("")}
+          <p class="route-note">ClassIn 主要负责直播课、提交、录屏和老师反馈；这里负责预习、词卡、视频输入和复习路线。视频链接先留空，找到 B 站搬运链接后再补。</p>
+        </section>
+      `;
+      els.stage.querySelectorAll("[data-open-cards]").forEach((button) => {
+        button.addEventListener("click", () => openCards(button.dataset.openCards));
+      });
+      els.stage.querySelectorAll("[data-open-video]").forEach((button) => {
+        button.addEventListener("click", () => openVideoTask(button.dataset.openVideo));
+      });
+      els.stage.querySelectorAll("[data-open-classin]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const url = button.dataset.openClassin;
+          if (!url) return;
+          window.open(url, "_blank", "noopener,noreferrer");
+        });
+      });
+    }
+
+    function renderVideoTask(videoId) {
+      const task = videoTasks[videoId];
+      if (!task) return renderCourseRoute();
+      els.app.classList.add("is-route");
+      els.cardNav.classList.add("hidden");
+      els.routeBtn.classList.add("active");
+      els.lessonTitle.textContent = "A2E1 视频预习";
+      document.title = `Deutschcards · ${task.videoId}`;
+      const promptZhHtml = Array.isArray(task.promptZh)
+        ? task.promptZh.map((item) => `<div class="video-task-hint">${escapeHtml(item)}</div>`).join("")
+        : "";
+      const bilibiliLink = task.source?.bilibiliUrl
+        ? `<a class="video-task-link primary" href="${escapeHtml(task.source.bilibiliUrl)}" target="_blank" rel="noopener noreferrer">在 B站观看</a>`
+        : `<button class="video-task-link primary" type="button" disabled>B站链接待补</button>`;
+      const bilibiliPlayer = task.source?.bilibiliEmbedUrl
+        ? `
+          <div class="video-task-player">
+            <iframe
+              src="${escapeHtml(task.source.bilibiliEmbedUrl)}"
+              title="${escapeHtml(task.title)}"
+              allow="fullscreen; autoplay; encrypted-media; picture-in-picture"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen>
+            </iframe>
+          </div>
+        `
+        : "";
+      const youtubeLink = task.source?.youtubeUrl
+        ? `<a class="video-task-link" href="${escapeHtml(task.source.youtubeUrl)}" target="_blank" rel="noopener noreferrer">YouTube 原始来源</a>`
+        : "";
+      els.stage.innerHTML = `
+        <section class="video-task-page" aria-label="视频预习任务">
+          <p class="eyebrow">Themen-Input</p>
+          <h2>${escapeHtml(task.title)}</h2>
+          <div class="video-task-watch">${escapeHtml(task.watchLabel)}</div>
+          ${bilibiliPlayer}
+          <div class="video-task-links">
+            ${bilibiliLink}
+            ${youtubeLink}
+          </div>
+          <p class="video-task-soft-note">看视频的时候，不需要听懂每一句。先抓主题、人物和你听出来的关键词。</p>
+          <div class="video-task-question">
+            <p lang="de">${escapeHtml(task.promptDe)}</p>
+            <div class="video-task-hints">${promptZhHtml}</div>
+          </div>
+          <p class="video-task-submission">${escapeHtml(task.submission?.text || "不需要提交答案，课堂上会继续讨论。")}</p>
+          <button class="video-task-back" id="videoBackBtn" type="button">返回 U1 Vorbereitung</button>
+        </section>
+      `;
+      document.getElementById("videoBackBtn")?.addEventListener("click", () => {
+        viewMode = "route";
+        renderCourseRoute();
+      });
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
     }
 
     function renderLessonHeader() {
@@ -942,6 +1387,10 @@
 
     els.prevBtn.addEventListener("click", () => go(-1));
     els.nextBtn.addEventListener("click", () => go(1));
+    els.routeBtn.addEventListener("click", () => {
+      viewMode = "route";
+      render();
+    });
     els.flipBtn.addEventListener("click", () => {
       if (viewMode === "grid") {
         viewMode = "study";
