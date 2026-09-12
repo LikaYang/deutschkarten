@@ -884,8 +884,9 @@
         },
         {
           title: "U2 Vorbereitung｜Pläne & Verabredung",
-          status: "预留",
+          status: "现在可用",
           steps: [
+            { type: "rueckblick", icon: "R", title: "Rückblick｜Perfekt 激活", text: "回顾昨天发生的事情，重新激活 haben / sein + Partizip II。", action: "开始回顾", url: "rueckblick.html" },
             { type: "note", icon: "U2", title: "计划与约见", text: "后续接入词卡、短视频和课堂前思考问题。", action: "即将开放" }
           ]
         },
@@ -1119,7 +1120,7 @@
               <h3>${unit.title} · ${unit.status}</h3>
               <div class="step-list">
                 ${unit.steps.map((step) => `
-                  <button class="step-card ${step.type === "cards" || step.type === "video" || step.type === "classin" ? "" : "disabled"}" ${step.type === "cards" ? `data-open-cards="${step.lessonId}"` : ""} ${step.type === "video" ? `data-open-video="${step.videoId}"` : ""} ${step.type === "classin" ? `data-open-classin="${escapeHtml(step.url)}"` : ""} type="button">
+                  <button class="step-card ${step.type === "cards" || step.type === "video" || step.type === "classin" || step.type === "rueckblick" ? "" : "disabled"}" ${step.type === "cards" ? `data-open-cards="${step.lessonId}"` : ""} ${step.type === "video" ? `data-open-video="${step.videoId}"` : ""} ${step.type === "classin" ? `data-open-classin="${escapeHtml(step.url)}"` : ""} ${step.type === "rueckblick" ? `data-open-rueckblick="${escapeHtml(step.url)}"` : ""} type="button">
                     <span class="step-icon">${step.icon}</span>
                     <span>
                       <h4>${step.title}</h4>
@@ -1145,6 +1146,13 @@
           const url = button.dataset.openClassin;
           if (!url) return;
           window.open(url, "_blank", "noopener,noreferrer");
+        });
+      });
+      els.stage.querySelectorAll("[data-open-rueckblick]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const url = button.dataset.openRueckblick;
+          if (!url) return;
+          window.location.href = url;
         });
       });
     }
@@ -1440,3 +1448,4 @@
   </script>
 </body>
 </html>
+
