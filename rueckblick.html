@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Rückblick · A2E1 L2</title>
+  <style>
+    :root {
+      --orange: #f5821f;
+      --orange-dark: #c75f13;
+      --cream: #fff7ea;
+      --paper: #fffdf8;
+      --ink: #2d211b;
+      --muted: #8a7869;
+      --line: #f0c89d;
+      --green: #4f9f6f;
+      --red: #c65a4a;
+      --shadow: 0 18px 44px rgba(109, 70, 33, .15);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100dvh;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, rgba(255, 247, 234, .9), rgba(255, 239, 215, .96)),
+        #f7e2c8;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+    button, input { font: inherit; }
+    button { border: 0; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+    .app { width: min(100%, 780px); min-height: 100dvh; margin: 0 auto; padding: 14px 14px calc(18px + env(safe-area-inset-bottom)); display: grid; gap: 12px; }
+    .topbar, .panel { border: 1px solid var(--line); border-radius: 22px; background: rgba(255, 253, 248, .96); box-shadow: var(--shadow); }
+    .topbar { display: grid; gap: 10px; padding: 14px; }
+    .top-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .eyebrow { margin: 0; color: var(--orange-dark); font-size: 12px; font-weight: 1000; letter-spacing: .04em; text-transform: uppercase; }
+    .back-button, .secondary { min-height: 42px; padding: 0 14px; border-radius: 14px; color: var(--orange-dark); background: #fff6e8; font-weight: 950; }
+    .counter { flex: 0 0 auto; padding: 8px 12px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); background: #fff6e8; font-weight: 950; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { margin-bottom: 0; font-size: clamp(32px, 8vw, 52px); line-height: .98; }
+    h2 { margin-bottom: 8px; font-size: clamp(24px, 6vw, 36px); line-height: 1.05; }
+    h3 { margin-bottom: 8px; font-size: 18px; }
+    .subtitle { margin: 0; color: var(--muted); font-size: clamp(16px, 4vw, 20px); font-weight: 850; }
+    .panel { display: grid; gap: 14px; padding: clamp(16px, 4vw, 26px); }
+    .intro-panel { align-content: center; min-height: min(62dvh, 580px); }
+    .moon { font-size: 30px; }
+    .scene-image-placeholder { display: grid; place-items: center; min-height: 138px; aspect-ratio: 16 / 7; border: 1px dashed var(--line); border-radius: 18px; color: var(--muted); background: #fff4e3; font-weight: 900; }
+    .scene-image { display: block; width: 100%; aspect-ratio: 16 / 7; object-fit: cover; border-radius: 18px; }
+    .scene-copy { color: var(--muted); font-weight: 800; line-height: 1.5; }
+    .translation { margin: 0; border: 1px solid rgba(240, 200, 157, .8); border-radius: 13px; background: #fffaf2; }
+    .translation summary { padding: 9px 11px; color: var(--orange-dark); cursor: pointer; font-size: 13px; font-weight: 950; }
+    .translation p { margin: 0; padding: 0 11px 10px; color: var(--muted); font-size: 14px; font-weight: 800; line-height: 1.5; }
+    .sentence-board { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; min-height: 70px; padding: 12px; border: 1px solid var(--line); border-radius: 18px; background: #fff8ef; }
+    .sentence-slot { min-height: 42px; padding: 7px 11px; border: 1px dashed #d7a66e; border-radius: 12px; color: var(--muted); background: #fffdf8; font-weight: 950; }
+    .sentence-slot.filled { border-style: solid; color: var(--ink); background: #fff; }
+    .sentence-slot.correct { border-color: var(--green); color: #276b48; background: #eefbf4; }
+    .chunk-bank { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chunk { min-height: 44px; padding: 8px 13px; border: 1px solid var(--line); border-radius: 14px; color: var(--ink); background: #fff; font-weight: 950; touch-action: manipulation; }
+    .chunk:hover, .chunk:focus-visible { border-color: var(--orange); box-shadow: 0 0 0 3px rgba(245, 130, 31, .14); }
+    .chunk.used { opacity: .35; pointer-events: none; }
+    .hint, .feedback { min-height: 24px; margin: 0; color: var(--muted); font-weight: 850; line-height: 1.45; }
+    .feedback.good { color: var(--green); }
+    .feedback.try { color: var(--red); }
+    .actions { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
+    .primary { min-height: 48px; padding: 0 18px; border-radius: 15px; color: #fff; background: var(--orange); font-weight: 1000; }
+    .primary:disabled { opacity: .45; cursor: not-allowed; }
+    .discover-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .category { min-height: 150px; padding: 12px; border: 1px solid var(--line); border-radius: 18px; background: #fff8ef; }
+    .category h3 { color: var(--orange-dark); }
+    .category.over { outline: 3px solid rgba(245, 130, 31, .2); }
+    .category.done { border-color: rgba(79, 159, 111, .55); background: #eefbf4; }
+    .discovery-word { display: inline-flex; min-height: 40px; align-items: center; margin: 4px; padding: 7px 10px; border: 1px solid var(--line); border-radius: 12px; color: var(--ink); background: #fff; font-weight: 900; touch-action: manipulation; }
+    .discovery-word.placed { opacity: .35; pointer-events: none; }
+    .rule { padding: 14px; border-left: 5px solid var(--orange); border-radius: 14px; background: #fff6e8; font-size: clamp(18px, 4.5vw, 24px); font-weight: 1000; }
+    .question-list { display: grid; gap: 10px; }
+    .question { display: grid; gap: 5px; }
+    .answer-list { display: grid; gap: 10px; width: 100%; text-align: left; }
+    .answer-list .question { padding: 10px 12px; border-radius: 13px; background: #fff8ef; }
+    .answer-list strong { font-size: 18px; }
+    .question label { color: var(--muted); font-size: 14px; font-weight: 900; }
+    .keyword-input { width: 100%; min-height: 46px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 13px; color: var(--ink); background: #fff; }
+    .quick-options { display: flex; flex-wrap: wrap; gap: 8px; }
+    .quick-option { min-height: 40px; padding: 7px 11px; border: 1px solid var(--line); border-radius: 999px; color: var(--orange-dark); background: #fff6e8; font-weight: 900; }
+    .quick-option.selected { color: #fff; border-color: var(--orange); background: var(--orange); }
+    .keyword-list { display: flex; flex-wrap: wrap; gap: 7px; }
+    .keyword-tag { padding: 7px 10px; border-radius: 999px; color: #276b48; background: #eefbf4; font-weight: 900; }
+    .complete { display: none; text-align: center; }
+    .complete.active { display: grid; place-items: center; gap: 10px; min-height: min(68dvh, 560px); }
+    .complete h2 { margin-bottom: 0; }
+    .xp { color: var(--orange-dark); font-size: 22px; font-weight: 1000; }
+    @media (max-width: 480px) {
+      .app { padding-inline: 10px; }
+      .panel { padding: 14px; }
+      .scene-image-placeholder { min-height: 112px; }
+      .discover-grid { grid-template-columns: 1fr; }
+      .actions { justify-content: stretch; }
+      .actions button { flex: 1 1 150px; }
+      .sentence-board { gap: 6px; padding: 9px; }
+      .sentence-slot { min-height: 38px; padding: 6px 8px; font-size: 14px; }
+      .chunk { min-height: 42px; padding-inline: 10px; font-size: 15px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="app" id="app">
+    <section class="topbar">
+      <div class="top-row">
+        <button class="back-button" id="backBtn" type="button">← Deutschstadt</button>
+        <span class="counter" id="progressCounter">Start</span>
+      </div>
+      <p class="eyebrow">A2E1 L2 · Aktivierung</p>
+      <h1>Rückblick</h1>
+      <p class="subtitle">Was ist gestern passiert?</p>
+    </section>
+
+    <section id="gameArea"></section>
+  </main>
+
+  <script>
+    const rueckblickGame = {
+      id: "a2e1-rueckblick-01",
+      title: "Rückblick",
+      subtitle: "Was ist gestern passiert?",
+      npc: "nina",
+      xpReward: 10,
+      intro: {
+        eyebrow: "🌙 Gestern in Deutschstadt",
+        text: "Nina erinnert sich an gestern. Hilf ihr, die Erinnerungen zu ordnen.",
+        translation: "昨天在德语小镇：Nina 正在回忆昨天发生的事情。请帮助她整理这些记忆。"
+      },
+      scenes: [
+        { id: "cafe", place: "Café", characters: ["nina", "lea"], image: "", text: "Nina und Lea waren im Café.", translation: "Nina 和 Lea 在咖啡馆。", sentenceParts: ["Nina", "hat", "mit Lea", "Kaffee", "getrunken"], chunkOrder: [2, 4, 0, 3, 1], correctSentence: "Nina hat mit Lea Kaffee getrunken.", auxiliary: "haben", participle: "getrunken" },
+        { id: "restaurant", place: "Restaurant", characters: ["nina", "lea"], image: "", text: "Danach haben Nina und Lea zusammen gegessen.", translation: "之后 Nina 和 Lea 一起吃了饭。", sentenceParts: ["Sie", "haben", "zusammen", "gegessen"], chunkOrder: [2, 0, 3, 1], correctSentence: "Sie haben zusammen gegessen.", auxiliary: "haben", participle: "gegessen" },
+        { id: "kino", place: "Kino", characters: ["nina", "lea"], image: "", text: "Am Abend sind sie noch ins Kino gegangen.", translation: "晚上她们还去了电影院。", sentenceParts: ["Sie", "sind", "ins Kino", "gegangen"], chunkOrder: [3, 1, 0, 2], correctSentence: "Sie sind ins Kino gegangen.", auxiliary: "sein", participle: "gegangen" },
+        { id: "zuhause", place: "Zuhause", characters: ["nina"], image: "", text: "Später war Nina wieder zu Hause.", translation: "后来 Nina 回到了家。", sentenceParts: ["Nina", "ist", "zu Hause", "gewesen"], chunkOrder: [2, 0, 3, 1], correctSentence: "Nina ist zu Hause gewesen.", auxiliary: "sein", participle: "gewesen" }
+      ],
+      discovery: { rule: "haben / sein + Partizip II", translation: "你发现了吗？Perfekt 由 haben 或 sein 加上第二分词构成。这里只做重新激活，不展开完整语法讲解。", words: ["getrunken", "gegessen", "gegangen", "gewesen"] },
+      reflection: {
+        questions: ["Was hast du gemacht?", "Wen hast du getroffen?", "Wo bist du gewesen?"],
+        translation: "想一想你上个周末的经历：你做了什么？遇到了谁？在哪里？",
+        quickOptions: ["Freunde", "Familie", "Restaurant", "Kino", "Sport", "lernen", "arbeiten", "zu Hause"],
+        quickOptionsByQuestion: [["Sport", "lernen", "arbeiten", "Kino", "Restaurant"], ["Freunde", "Familie"], ["zu Hause", "Kino", "Restaurant"]]
+      }
+    };
+
+    const STORE_KEY = "deutschstadt.rueckblick.a2e1l2.v01";
+    const state = loadState();
+    const els = { area: document.getElementById("gameArea"), counter: document.getElementById("progressCounter") };
+    let screen = state.completed ? "complete" : "intro";
+    let sceneIndex = state.completedScenes.length;
+    let placed = [];
+    let currentFeedback = "";
+    let selectedKeywords = [...state.reflectionKeywords];
+
+    function loadState() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(STORE_KEY) || "{}");
+        return {
+          completedScenes: Array.isArray(saved.completedScenes) ? saved.completedScenes : [],
+          reflectionKeywords: Array.isArray(saved.reflectionKeywords) ? saved.reflectionKeywords : [],
+          reflectionAnswers: Array.isArray(saved.reflectionAnswers) ? saved.reflectionAnswers : ["", "", ""],
+          completed: Boolean(saved.completed),
+          xpClaimed: Boolean(saved.xpClaimed)
+        };
+      } catch (_) {
+        return { completedScenes: [], reflectionKeywords: [], completed: false, xpClaimed: false };
+      }
+    }
+
+    function saveState() {
+      localStorage.setItem(STORE_KEY, JSON.stringify(state));
+    }
+
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;" }[char]));
+    }
+
+    function translationBlock(text) {
+      return `<details class="translation"><summary>查看中文翻译</summary><p>${escapeHtml(text)}</p></details>`;
+    }
+
+    function render() {
+      if (screen === "intro") return renderIntro();
+      if (screen === "scene") return renderScene();
+      if (screen === "discovery") return renderDiscovery();
+      if (screen === "reflection") return renderReflection();
+      renderComplete();
+    }
+
+    function renderIntro() {
+      els.counter.textContent = "Start";
+      els.area.innerHTML = `<section class="panel intro-panel"><p class="eyebrow">${rueckblickGame.intro.eyebrow}</p><h2>Hilf Nina!</h2><p class="subtitle">${rueckblickGame.intro.text}</p>${translationBlock(rueckblickGame.intro.translation)}<p class="scene-copy">Ordne vier kleine Erinnerungen. Danach entdeckst du selbst, was bei diesen Sätzen gleich ist.</p>${translationBlock("请把四段小记忆整理好。之后你会自己发现这些句子的共同点。")}<div class="actions"><button class="primary" id="startBtn" type="button">Rückblick starten</button></div></section>`;
+      document.getElementById("startBtn").addEventListener("click", () => { screen = "scene"; sceneIndex = 0; render(); });
+    }
+
+    function renderScene() {
+      const scene = rueckblickGame.scenes[sceneIndex];
+      els.counter.textContent = `${sceneIndex + 1} / ${rueckblickGame.scenes.length}`;
+      const image = scene.image ? `<img class="scene-image" src="${escapeHtml(scene.image)}" alt="${escapeHtml(scene.place)}">` : `<div class="scene-image-placeholder">Szenenbild folgt</div>`;
+      const board = scene.sentenceParts.map((part, index) => `<button class="sentence-slot ${placed[index] ? "filled" : ""}" data-slot="${index}" type="button">${escapeHtml(placed[index] || "…")}</button>`).join("");
+      const isFilled = placed.filter(Boolean).length === scene.sentenceParts.length;
+      const bank = scene.chunkOrder.map((index) => scene.sentenceParts[index]).map((part, index) => {
+        const originalIndex = scene.chunkOrder[index];
+        return `<button class="chunk ${placed.includes(part) ? "used" : ""}" data-chunk-index="${originalIndex}" type="button">${escapeHtml(part)}</button>`;
+      }).join("");
+      els.area.innerHTML = `<section class="panel"><p class="eyebrow">Erinnerung ${sceneIndex + 1} · ${escapeHtml(scene.place)}</p>${image}<p class="scene-copy">${escapeHtml(scene.text)}</p>${translationBlock(scene.translation)}<div><h2>Was ist passiert?</h2><p class="hint">Klicke die Satzteile in der richtigen Reihenfolge an.</p>${translationBlock("发生了什么？请点击正确顺序的句子成分。")}</div><div class="sentence-board" id="sentenceBoard">${board}</div><div class="chunk-bank" id="chunkBank">${bank}</div><p class="feedback ${currentFeedback ? "try" : ""}" id="sceneFeedback">${currentFeedback}</p><div class="actions"><button class="primary" id="checkSceneBtn" type="button" ${isFilled ? "" : "disabled"}>${isFilled ? "Prüfen" : "Weiter"}</button></div></section>`;
+      wireScene(scene);
+    }
+
+    function wireScene(scene) {
+      document.querySelectorAll("[data-chunk-index]").forEach((button) => {
+        button.addEventListener("click", () => placeChunk(Number(button.dataset.chunkIndex)));
+      });
+      document.querySelectorAll("[data-slot]").forEach((slot) => {
+        slot.addEventListener("click", () => {
+          placed[Number(slot.dataset.slot)] = "";
+          currentFeedback = "";
+          renderScene();
+        });
+      });
+      document.getElementById("checkSceneBtn").addEventListener("click", checkScene);
+    }
+
+    function placeChunk(chunkIndex, targetIndex) {
+      const scene = rueckblickGame.scenes[sceneIndex];
+      if (!Number.isInteger(targetIndex)) {
+        const nextIndex = placed.findIndex((value) => !value);
+        targetIndex = nextIndex >= 0 ? nextIndex : placed.length;
+      }
+      if (!Number.isInteger(chunkIndex) || chunkIndex < 0 || targetIndex < 0 || targetIndex >= scene.sentenceParts.length) return;
+      const part = scene.sentenceParts[chunkIndex];
+      const existingIndex = placed.indexOf(part);
+      if (existingIndex >= 0 && existingIndex !== targetIndex) placed[existingIndex] = "";
+      placed[targetIndex] = part;
+      currentFeedback = "";
+      renderScene();
+      if (placed.filter(Boolean).length === scene.sentenceParts.length) {
+        const completeButton = document.getElementById("checkSceneBtn");
+        completeButton.disabled = false;
+        completeButton.textContent = "Prüfen";
+      }
+    }
+
+    function checkScene() {
+      const scene = rueckblickGame.scenes[sceneIndex];
+      const feedback = document.getElementById("sceneFeedback");
+      if (placed.join(" ") !== scene.sentenceParts.join(" ")) {
+        currentFeedback = "Noch einmal 🙂 Die Satzteile kommen in eine andere Reihenfolge.";
+        renderScene();
+        return;
+      }
+      if (currentFeedback.startsWith("✓")) return completeScene();
+      currentFeedback = `✓ ${scene.correctSentence} · ${scene.auxiliary} … ${scene.participle}`;
+      feedback.className = "feedback good";
+      feedback.textContent = currentFeedback;
+      document.getElementById("checkSceneBtn").textContent = sceneIndex === rueckblickGame.scenes.length - 1 ? "Entdecken" : "Nächste Erinnerung";
+    }
+
+    function completeScene() {
+      const scene = rueckblickGame.scenes[sceneIndex];
+      if (placed.join(" ") !== scene.sentenceParts.join(" ")) return checkScene();
+      if (!state.completedScenes.includes(scene.id)) state.completedScenes.push(scene.id);
+      saveState();
+      if (sceneIndex < rueckblickGame.scenes.length - 1) { sceneIndex += 1; placed = []; currentFeedback = ""; renderScene(); }
+      else { screen = "discovery"; render(); }
+    }
+
+    function renderDiscovery() {
+      els.counter.textContent = "Entdecken";
+      els.area.innerHTML = `<section class="panel"><p class="eyebrow">🔍 Was fällt dir auf?</p><h2>Was ist gleich?</h2><p class="scene-copy">Klicke ein Partizip und danach auf HABEN oder SEIN.</p>${translationBlock(rueckblickGame.discovery.translation)}<div class="discover-grid"><div class="category" data-category="haben"><h3>HABEN</h3><div class="category-words"></div></div><div class="category" data-category="sein"><h3>SEIN</h3><div class="category-words"></div></div></div><div class="chunk-bank" id="discoveryBank"></div><p class="feedback" id="discoveryFeedback"></p><div class="rule" id="rule" hidden>Perfekt = haben / sein + Partizip II</div><div class="actions"><button class="primary" id="discoveryBtn" type="button" disabled>Weiter</button></div></section>`;
+      const assignments = { getrunken: "haben", gegessen: "haben", gegangen: "sein", gewesen: "sein" };
+      let selected = null;
+      let placedWords = {};
+      const bank = document.getElementById("discoveryBank");
+      bank.innerHTML = rueckblickGame.discovery.words.map((word) => `<button class="discovery-word" data-word="${word}" type="button">${word}</button>`).join("");
+      const feedback = document.getElementById("discoveryFeedback");
+      function put(word, category) {
+        if (!word || placedWords[word]) return;
+        if (assignments[word] !== category) { feedback.className = "feedback try"; feedback.textContent = "Noch einmal 🙂"; return; }
+        placedWords[word] = category;
+        const target = document.querySelector(`[data-category="${category}"] .category-words`);
+        target.insertAdjacentHTML("beforeend", `<span class="discovery-word placed">${word}</span>`);
+        document.querySelector(`[data-word="${word}"]`)?.classList.add("placed");
+        feedback.className = "feedback good";
+        feedback.textContent = "Gut beobachtet!";
+        if (Object.keys(placedWords).length === rueckblickGame.discovery.words.length) {
+          document.getElementById("rule").hidden = false;
+          document.getElementById("discoveryBtn").disabled = false;
+          document.getElementById("discoveryBtn").textContent = "Und du?";
+        }
+      }
+      document.querySelectorAll("[data-word]").forEach((wordButton) => {
+        wordButton.addEventListener("click", () => { selected = wordButton.dataset.word; feedback.textContent = "Jetzt HABEN oder SEIN auswählen."; });
+      });
+      document.querySelectorAll("[data-category]").forEach((category) => {
+        category.addEventListener("click", () => put(selected, category.dataset.category));
+      });
+      document.getElementById("discoveryBtn").addEventListener("click", () => { screen = "reflection"; render(); });
+    }
+
+    function renderReflection() {
+      els.counter.textContent = "Und du?";
+      const questions = rueckblickGame.reflection.questions.map((question, index) => `<div class="question"><label for="question-${index}">${question}</label><input class="keyword-input" id="question-${index}" value="${escapeHtml(state.reflectionAnswers[index] || "")}" maxlength="80" placeholder="2–5 kurze Wörter reichen"><div class="quick-options">${rueckblickGame.reflection.quickOptionsByQuestion[index].map((option) => `<button class="quick-option" data-question="${index}" data-option="${option}" type="button">${option}</button>`).join("")}</div></div>`).join("");
+      els.area.innerHTML = `<section class="panel"><p class="eyebrow">🪞 Und du?</p><h2>Denk an dein letztes Wochenende.</h2><p class="scene-copy">Schreibe ein paar Stichwörter oder klicke eine Auswahl an. Deine Eingaben werden nicht auf Grammatik geprüft.</p>${translationBlock(rueckblickGame.reflection.translation)}<div class="question-list">${questions}</div><p class="hint">Deine Stichwörter</p><div class="keyword-list" id="keywordList">${selectedKeywords.map((keyword) => `<span class="keyword-tag">${escapeHtml(keyword)}</span>`).join("")}</div><div class="actions"><button class="primary" id="finishReflectionBtn" type="button">Geschichte mitnehmen</button></div></section>`;
+      document.querySelectorAll("[data-option]").forEach((button) => button.addEventListener("click", () => {
+        const questionIndex = Number(button.dataset.question);
+        state.reflectionAnswers[questionIndex] = button.dataset.option;
+        selectedKeywords = [...new Set(state.reflectionAnswers.filter(Boolean))];
+        state.reflectionKeywords = selectedKeywords;
+        saveState();
+        renderReflection();
+      }));
+      document.querySelectorAll(".keyword-input").forEach((input) => input.addEventListener("change", () => {
+        const questionIndex = Number(input.id.replace("question-", ""));
+        state.reflectionAnswers[questionIndex] = input.value.trim();
+        const values = input.value.split(/[、,，\s]+/).map((item) => item.trim()).filter(Boolean);
+        selectedKeywords = [...new Set([...selectedKeywords, ...values])].slice(0, 5);
+        state.reflectionKeywords = selectedKeywords;
+        saveState();
+        renderReflection();
+      }));
+      document.getElementById("finishReflectionBtn").addEventListener("click", () => {
+        document.querySelectorAll(".keyword-input").forEach((input) => { state.reflectionAnswers[Number(input.id.replace("question-", ""))] = input.value.trim(); });
+        selectedKeywords = [...new Set([...state.reflectionAnswers, ...selectedKeywords].filter(Boolean))].slice(0, 8);
+        state.reflectionKeywords = selectedKeywords;
+        state.completed = true;
+        if (!state.xpClaimed) state.xpClaimed = true;
+        saveState();
+        screen = "complete";
+        render();
+      });
+    }
+
+    function renderComplete() {
+      els.counter.textContent = "Fertig";
+      const answerRows = rueckblickGame.reflection.questions.map((question, index) => `<div class="question"><label>${question}</label><strong>${escapeHtml(state.reflectionAnswers[index] || "—")}</strong></div>`).join("");
+      els.area.innerHTML = `<section class="panel complete active"><p class="eyebrow">🎒 Vorbereitung abgeschlossen</p><h2>Mein Wochenende</h2><div class="answer-list">${answerRows}</div><p class="scene-copy">Sehr gut. Hier wird nichts auf Grammatik geprüft. Kopiere diesen Inhalt oder mache einen Screenshot und bring deine Geschichte mit in den Unterricht.</p><p class="xp">+${rueckblickGame.xpReward} XP</p><div class="actions"><button class="secondary" id="restartBtn" type="button">Noch einmal</button><button class="primary" id="homeBtn" type="button">Zurück nach Deutschstadt</button></div></section>`;
+      document.getElementById("restartBtn").addEventListener("click", () => {
+        state.completed = false;
+        state.completedScenes = [];
+        state.xpClaimed = false;
+        selectedKeywords = [];
+        state.reflectionKeywords = [];
+        state.reflectionAnswers = ["", "", ""];
+        saveState();
+        sceneIndex = 0;
+        placed = [];
+        screen = "intro";
+        render();
+      });
+      document.getElementById("homeBtn").addEventListener("click", () => { window.location.href = "index.html"; });
+    }
+
+    document.getElementById("backBtn").addEventListener("click", () => { window.location.href = "index.html"; });
+    render();
+  </script>
+</body>
+</html>
+
