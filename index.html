@@ -789,7 +789,7 @@
         <div class="top-actions">
           <button class="ghost-button active" id="routeBtn" type="button">课程路线</button>
           <button class="ghost-button card-tools" id="gridBtn" type="button">全部卡牌</button>
-          <button class="ghost-button active card-tools" id="onlyReadyBtn" type="button">只看已有图</button>
+          <button class="ghost-button card-tools" id="onlyReadyBtn" type="button">只看已有图</button>
           <button class="ghost-button card-tools" id="reviewOnlyBtn" type="button">只练复习</button>
         </div>
       </div>
@@ -826,6 +826,7 @@
   </div>
 
   <script src="data/a2e1-l1-cards.js"></script>
+  <script src="data/a2e1-l1-review-cards.js"></script>
   <script src="data/a2e1-video-tasks.js"></script>
   <script>
     const STORE_KEY = "deutschstadt.preview.a2e1l1.v01";
@@ -877,9 +878,11 @@
         },
         {
           title: "U1 Wiederholung｜课后复习",
-          status: "预留",
+          status: "现在可用",
           steps: [
-            { type: "note", icon: "R", title: "复习卡牌 + 视频复现", text: "课后根据课堂重点和不熟卡牌生成复习入口。", action: "即将开放" }
+            { type: "cards", icon: "R", title: "复习卡牌｜A2E1L1", text: "课后复习个人信息、家庭、学习工作和 Freizeit 中的重点词汇。", action: "开始复习", lessonId: "A2E1L1-review" },
+            { type: "nachsprechen", icon: "S", title: "Nachsprechen｜跟读", text: "听一听、看着课文朗读，再跟着五位人物练习流利度。", action: "开始跟读", url: "nachsprechen.html" },
+            { type: "classin", icon: "H", title: "Hausaufgaben｜作业", text: "Hören & Übungsbuch · Aussprache & Flüssigkeit（二选一）· Schreiben 8–10 Sätze。完成后在 ClassIn 上传。", action: "去 ClassIn 提交", url: "https://t.eeo.cn/1WwC=6" }
           ]
         },
         {
@@ -907,7 +910,7 @@
     let state = loadState();
     let index = 0;
     let flipped = false;
-    let onlyReady = true;
+    let onlyReady = false;
     let reviewOnly = false;
     let viewMode = "route";
     let preferredGermanVoice = null;
@@ -1120,7 +1123,7 @@
               <h3>${unit.title} · ${unit.status}</h3>
               <div class="step-list">
                 ${unit.steps.map((step) => `
-                  <button class="step-card ${step.type === "cards" || step.type === "video" || step.type === "classin" || step.type === "rueckblick" ? "" : "disabled"}" ${step.type === "cards" ? `data-open-cards="${step.lessonId}"` : ""} ${step.type === "video" ? `data-open-video="${step.videoId}"` : ""} ${step.type === "classin" ? `data-open-classin="${escapeHtml(step.url)}"` : ""} ${step.type === "rueckblick" ? `data-open-rueckblick="${escapeHtml(step.url)}"` : ""} type="button">
+                  <button class="step-card ${step.type === "cards" || step.type === "video" || step.type === "classin" || step.type === "nachsprechen" || step.type === "rueckblick" ? "" : "disabled"}" ${step.type === "cards" ? `data-open-cards="${step.lessonId}"` : ""} ${step.type === "video" ? `data-open-video="${step.videoId}"` : ""} ${step.type === "classin" ? `data-open-classin="${escapeHtml(step.url)}"` : ""} ${step.type === "nachsprechen" ? `data-open-nachsprechen="${escapeHtml(step.url)}"` : ""} ${step.type === "rueckblick" ? `data-open-rueckblick="${escapeHtml(step.url)}"` : ""} type="button">
                     <span class="step-icon">${step.icon}</span>
                     <span>
                       <h4>${step.title}</h4>
@@ -1132,7 +1135,7 @@
               </div>
             </article>
           `).join("")}
-          <p class="route-note">ClassIn 主要负责直播课、提交、录屏和老师反馈；这里负责预习、词卡、视频输入和复习路线。视频链接先留空，找到 B 站搬运链接后再补。</p>
+          <p class="route-note">ClassIn 主要负责直播课、提交、录屏和老师反馈；这里负责预习、词卡、视频输入和复习路线。</p>
         </section>
       `;
       els.stage.querySelectorAll("[data-open-cards]").forEach((button) => {
@@ -1146,6 +1149,13 @@
           const url = button.dataset.openClassin;
           if (!url) return;
           window.open(url, "_blank", "noopener,noreferrer");
+        });
+      });
+      els.stage.querySelectorAll("[data-open-nachsprechen]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const url = button.dataset.openNachsprechen;
+          if (!url) return;
+          window.location.href = url;
         });
       });
       els.stage.querySelectorAll("[data-open-rueckblick]").forEach((button) => {
@@ -1448,4 +1458,3 @@
   </script>
 </body>
 </html>
-
