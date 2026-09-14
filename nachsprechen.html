@@ -590,7 +590,7 @@
 
     <section class="task-card">
       <figure class="visual">
-        <img id="personImage" src="" alt="">
+        <img id="personImage" src="" alt="" decoding="async" fetchpriority="high">
       </figure>
 
       <div class="text-panel">
@@ -630,7 +630,7 @@
         </div>
         <button class="word-close" id="wordCloseBtn" type="button" aria-label="关闭词卡">×</button>
       </div>
-      <img class="word-card-image" id="wordCardImage" alt="">
+      <img class="word-card-image" id="wordCardImage" alt="" decoding="async" fetchpriority="high">
       <p class="word-meaning" id="wordCardMeaning"></p>
       <p class="word-example" id="wordCardExample"></p>
       <button class="word-play" id="wordPlayBtn" type="button">🔊 Wort anhören</button>
@@ -640,13 +640,23 @@
   <script src="data/a2e1-l1-cards.js"></script>
   <script>
     const ASSET_AUDIO = "assets/audio/a2/e1/l1/";
-    const ASSET_IMAGE = "assets/images/a2/e1/l1/";
+    const ASSET_IMAGE = "assets/images/a2/e1/l1/webp/";
+    const preloadedTaskImages = new Set();
+
+    function preloadTaskImage(src) {
+      if (!src || preloadedTaskImages.has(src)) return;
+      preloadedTaskImages.add(src);
+      const image = new Image();
+      image.decoding = "async";
+      image.src = src;
+      if (image.decode) image.decode().catch(() => {});
+    }
 
     const readingTasks = [
       {
         id: "ben",
         name: "Ben",
-        image: `${ASSET_IMAGE}ben.png`,
+        image: `${ASSET_IMAGE}ben.webp`,
         audio: `${ASSET_AUDIO}Ben.m4a`,
         text: "Ich heiße Ben. Meine Eltern sind schon Rentner und leben auf dem Land. Ich habe einen Bruder und eine Schwester. Mein Bruder ist geschieden und hat eine Tochter. Sie ist total süß. Meine Schwester hat noch keine Kinder. Ich auch nicht, aber in ein paar Jahren möchte ich gern Kinder haben.",
         segments: [
@@ -662,7 +672,7 @@
       {
         id: "marie",
         name: "Marie",
-        image: `${ASSET_IMAGE}marie.png`,
+        image: `${ASSET_IMAGE}marie.webp`,
         audio: `${ASSET_AUDIO}Marie.m4a`,
         text: "Nach der Schule habe ich eine Ausbildung gemacht und jetzt arbeite ich als Bankkauffrau. Ich habe nette Kollegen und meine Arbeit macht mir Spaß. Aber vielleicht studiere ich auch noch an der Uni, mal sehen.",
         segments: [
@@ -674,7 +684,7 @@
       {
         id: "matteo",
         name: "Matteo",
-        image: `${ASSET_IMAGE}matteo.png`,
+        image: `${ASSET_IMAGE}matteo.webp`,
         audio: `${ASSET_AUDIO}Matteo.m4a`,
         text: "Ich heiße Matteo. Meine Mutter kommt aus Österreich und mein Vater ist in Italien geboren. Ich habe also zwei Muttersprachen und spreche Italienisch und Deutsch fließend. Ich habe auch Englisch und Französisch gelernt, aber Französisch spreche ich nur ein bisschen.",
         segments: [
@@ -687,7 +697,7 @@
       {
         id: "jonas",
         name: "Jonas",
-        image: `${ASSET_IMAGE}jonas.png`,
+        image: `${ASSET_IMAGE}jonas.webp`,
         audio: `${ASSET_AUDIO}Jonas.m4a`,
         text: "Ich komme aus Basel und lebe jetzt in Zürich. Meine Freundin und ich haben ein Apartment im Stadtzentrum. Wir haben es zusammen renoviert. Es ist klein, aber schön. Uns gefällt das Leben in der Stadt, aber manchmal ist es auch ein bisschen laut und stressig.",
         segments: [
@@ -701,7 +711,7 @@
       {
         id: "julia",
         name: "Julia",
-        image: `${ASSET_IMAGE}julia.png`,
+        image: `${ASSET_IMAGE}julia.webp`,
         audio: `${ASSET_AUDIO}Julia.m4a`,
         text: "Guten Tag, ich bin Julia. Ich treffe gern meine Freundinnen und Freunde. Dann kochen wir zusammen oder gehen ins Restaurant. Ich mache auch gern Sport. Ich spiele Basketball und ich reite. Meine Eltern haben ein Pferd. Am Wochenende auf dem Sofa liegen und ein gutes Buch lesen – das finde ich auch toll.",
         segments: [
@@ -830,6 +840,9 @@
       els.counter.textContent = `${state.index + 1} / ${readingTasks.length}`;
       els.image.src = task.image;
       els.image.alt = task.name;
+      [state.index + 1, state.index - 1].forEach((neighborIndex) => {
+        preloadTaskImage(readingTasks[neighborIndex]?.image);
+      });
       renderReadingText(task.text);
       updateAudioControls();
       els.dots.innerHTML = readingTasks.map((item, index) => {

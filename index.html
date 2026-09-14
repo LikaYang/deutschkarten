@@ -914,6 +914,25 @@
     let reviewOnly = false;
     let viewMode = "route";
     let preferredGermanVoice = null;
+    const preloadedCardImages = new Set();
+
+    // Card images: WebP, 512-768px long edge, quality 80-85. Load the current
+    // card immediately, preload only its neighbors, and lazy-load grid images.
+    function preloadCardImage(src) {
+      if (!src || preloadedCardImages.has(src)) return;
+      preloadedCardImages.add(src);
+      const image = new Image();
+      image.decoding = "async";
+      image.src = src;
+      if (image.decode) image.decode().catch(() => {});
+    }
+
+    function preloadAdjacentCardImages(cards, currentIndex) {
+      [currentIndex + 1, currentIndex - 1].forEach((neighborIndex) => {
+        const image = cards[neighborIndex]?.image;
+        if (image) preloadCardImage(image);
+      });
+    }
 
     const els = {
       app: document.getElementById("app"),
@@ -1058,7 +1077,7 @@
           <div class="flip-inner">
             <section class="face front">
               <div class="card-head"><span>${card.group}</span><span>${card.image ? "Bild bereit" : "Bild folgt"}</span></div>
-              <div class="image-frame">${card.image ? `<img src="${card.image}" alt="">` : `<div class="placeholder">待补插图<br>${card.front}</div>`}</div>
+              <div class="image-frame">${card.image ? `<img src="${card.image}" alt="" decoding="async" fetchpriority="high">` : `<div class="placeholder">待补插图<br>${card.front}</div>`}</div>
               <div class="front-word">
                 <div class="word-line"><strong>${card.front}</strong><button class="audio-button" data-audio="front" type="button" aria-label="播放德语">${speakerIcon()}</button></div>
                 ${renderXp(card)}
@@ -1081,6 +1100,8 @@
           </div>
         </article>
       `;
+
+      preloadAdjacentCardImages(list, index);
 
       const cardNode = document.getElementById("studyCard");
       cardNode.addEventListener("click", (event) => {
@@ -1266,7 +1287,7 @@
         <section class="card-grid" aria-label="全部卡牌">
           ${list.map((card, cardIndex) => `
             <button class="grid-card" data-grid-index="${cardIndex}" type="button">
-              <div class="grid-image">${card.image ? `<img src="${card.image}" alt="">` : `<div class="placeholder">待补<br>${card.front}</div>`}</div>
+              <div class="grid-image">${card.image ? `<img src="${card.image}" alt="" loading="lazy" decoding="async">` : `<div class="placeholder">待补<br>${card.front}</div>`}</div>
               <strong>${card.front}</strong>
               <div>
                 <div class="grid-meta"><span>${getCardStatus(card)}</span><span>${getCardXp(card)} / 100</span></div>

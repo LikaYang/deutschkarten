@@ -1,5 +1,5 @@
 (function () {
-  const IMG = "assets/art/a2e1-l1-preparation/";
+  const IMG = "assets/art/a2e1-l1-preparation/webp/";
   const A2E1L1_CARDS = [
 
   // =========================
@@ -13,7 +13,7 @@
     zh: "出生",
     example: "Ich bin in Berlin geboren.",
     exampleCn: "我出生在柏林。",
-    image: IMG + "card-geboren-sein.png"
+    image: IMG + "card-geboren-sein.webp"
   },
 
   {
@@ -23,7 +23,7 @@
     zh: "独自生活",
     example: "Nina lebt allein.",
     exampleCn: "Nina 独自生活。",
-    image: IMG + "card-allein-leben.png"
+    image: IMG + "card-allein-leben.webp"
   },
 
   {
@@ -33,7 +33,7 @@
     zh: "未婚的",
     example: "Sie ist ledig.",
     exampleCn: "她未婚。",
-    image: IMG + "card-ledig.png"
+    image: IMG + "card-ledig.webp"
   },
 
   {
@@ -43,7 +43,7 @@
     zh: "已婚的",
     example: "Er ist verheiratet.",
     exampleCn: "他已婚。",
-    image: IMG + "card-verheiratet.png"
+    image: IMG + "card-verheiratet.webp"
   },
 
   {
@@ -53,7 +53,7 @@
     zh: "离婚的",
     example: "Sie ist geschieden.",
     exampleCn: "她离婚了。",
-    image: IMG + "card-geschieden.png"
+    image: IMG + "card-geschieden.webp"
   },
 
   {
@@ -63,7 +63,7 @@
     zh: "伴侣",
     example: "Das ist meine Partnerin.",
     exampleCn: "这是我的伴侣。",
-    image: IMG + "card-Partner.png"
+    image: IMG + "card-Partner.webp"
   },
 
   {
@@ -73,7 +73,7 @@
     zh: "父母",
     example: "Meine Eltern wohnen auf dem Land.",
     exampleCn: "我的父母住在乡下。",
-    image: IMG + "card-eltern.png"
+    image: IMG + "card-eltern.webp"
   },
 
   {
@@ -83,7 +83,7 @@
     zh: "孩子",
     example: "Das Kind schläft.",
     exampleCn: "孩子在睡觉。",
-    image: IMG + "card-Kind.png"
+    image: IMG + "card-Kind.webp"
   },
 
   {
@@ -93,7 +93,7 @@
     zh: "兄弟；哥哥；弟弟",
     example: "Leo ist Ninas Bruder.",
     exampleCn: "Leo 是 Nina 的弟弟。",
-    image: IMG + "card-bruder.png"
+    image: IMG + "card-bruder.webp"
   },
 
   {
@@ -103,7 +103,7 @@
     zh: "共同生活，住在一起",
     example: "Tobias und Amir leben zusammen.",
     exampleCn: "Tobias 和 Amir 住在一起。",
-    image: IMG + "card-zusammenleben.png"
+    image: IMG + "card-zusammenleben.webp"
   },
 
   {
@@ -113,7 +113,7 @@
   zh: "姐妹；姐姐；妹妹",
   example: "Nina ist Leos Schwester.",
   exampleCn: "Nina 是 Leo 的姐姐。",
-  image: IMG + "card-schwester.png"
+  image: IMG + "card-schwester.webp"
 },
 
 {
@@ -123,7 +123,7 @@
   zh: "兄弟姐妹",
   example: "Nina und Leo sind Geschwister.",
   exampleCn: "Nina 和 Leo 是兄妹。",
-  image: IMG + "card-geschwister.png"
+  image: IMG + "card-geschwister.webp"
 },
 
 {
@@ -133,7 +133,7 @@
   zh: "在乡下；在农村",
   example: "Meine Eltern wohnen auf dem Land.",
   exampleCn: "我的父母住在乡下。",
-  image: IMG + "card-auf-dem-Land.png"
+  image: IMG + "card-auf-dem-Land.webp"
 },
 
 {
@@ -143,7 +143,7 @@
   zh: "在城市里",
   example: "Nina wohnt in der Stadt.",
   exampleCn: "Nina 住在城里。",
-  image: IMG + "card-in-der-Stadt.png"
+  image: IMG + "card-in-der-Stadt.webp"
 },
   // =========================
   // Wohnen
@@ -156,7 +156,7 @@
     zh: "房子",
     example: "Das Haus ist auf dem Land.",
     exampleCn: "这栋房子在乡下。",
-    image: IMG + "card-haus.png"
+    image: IMG + "card-haus.webp"
   },
 
   {
@@ -166,7 +166,7 @@
     zh: "公寓，住房",
     example: "Die Wohnung ist hell.",
     exampleCn: "这套公寓很明亮。",
-    image: IMG + "card-wohnung.png"
+    image: IMG + "card-wohnung.webp"
   },
 
   // =========================
@@ -180,7 +180,7 @@
     zh: "大学学业；大学学习",
     example: "Das Studium ist interessant.",
     exampleCn: "大学学习很有意思。",
-    image: IMG + "card-studium.png"
+    image: IMG + "card-studium.webp"
   },
 
   {
@@ -190,7 +190,7 @@
     zh: "上大学；攻读",
     example: "Nina studiert in Berlin.",
     exampleCn: "Nina 在柏林上大学。",
-    image: IMG + "card-studieren.png"
+    image: IMG + "card-studieren.webp"
   },
 
   {
@@ -200,7 +200,7 @@
     zh: "职业培训",
     example: "Lea macht eine Ausbildung.",
     exampleCn: "Lea 在接受职业培训。",
-    image: IMG + "card-ausbildung-pflege.png"
+    image: IMG + "card-ausbildung-pflege.webp"
   },
 
   {
@@ -210,7 +210,7 @@
     zh: "接受职业培训",
     example: "Sie macht eine Ausbildung im Krankenhaus.",
     exampleCn: "她在医院接受职业培训。",
-    image: IMG + "card-ausbildung-pflege.png"
+    image: IMG + "card-ausbildung-pflege.webp"
   },
 
   {
@@ -220,7 +220,7 @@
     zh: "职业",
     example: "Was sind Sie von Beruf?",
     exampleCn: "您的职业是什么？",
-    image: IMG + "card-Beruf.png"
+    image: IMG + "card-Beruf.webp"
   },
 
   {
@@ -230,7 +230,7 @@
     zh: "作为……工作；从事……职业",
     example: "Etzel arbeitet als Lehrerin.",
     exampleCn: "Etzel 是老师。",
-    image: IMG + "card-als-arbeiten.png"
+    image: IMG + "card-als-arbeiten.webp"
   },
 
   {
@@ -240,7 +240,7 @@
     zh: "在……工作",
     example: "Samira arbeitet bei einer Firma.",
     exampleCn: "Samira 在一家公司工作。",
-    image: IMG + "card-bei-arbeiten.png"
+    image: IMG + "card-bei-arbeiten.webp"
   },
 
   {
@@ -250,7 +250,7 @@
     zh: "实习",
     example: "Das Praktikum beginnt im Mai.",
     exampleCn: "实习五月开始。",
-    image: IMG + "card-Praktikum.png"
+    image: IMG + "card-Praktikum.webp"
   },
 
   {
@@ -260,7 +260,7 @@
     zh: "做实习",
     example: "Felix macht ein Praktikum.",
     exampleCn: "Felix 在做实习。",
-    image: IMG + "card-ein-Praktikum-machen.png"
+    image: IMG + "card-ein-Praktikum-machen.webp"
   },
 
   // =========================
@@ -274,7 +274,7 @@
     zh: "母语",
     example: "Meine Muttersprache ist Chinesisch.",
     exampleCn: "我的母语是中文。",
-    image: IMG + "card-muttersprache.png"
+    image: IMG + "card-muttersprache.webp"
   },
 
   {
@@ -284,7 +284,7 @@
     zh: "学习一门语言",
     example: "Nina lernt eine Sprache.",
     exampleCn: "Nina 在学习一门语言。",
-    image: IMG + "card-sprache-lernen.png"
+    image: IMG + "card-sprache-lernen.webp"
   },
 
   {
@@ -294,7 +294,7 @@
     zh: "说中文",
     example: "Etzel spricht ein bisschen Chinesisch.",
     exampleCn: "Etzel 会说一点中文。",
-    image: IMG + "card-chinesisch-deutsch-sprechen.png"
+    image: IMG + "card-chinesisch-deutsch-sprechen.webp"
   },
 
   {
@@ -304,7 +304,7 @@
     zh: "说德语",
     example: "Ich spreche Deutsch.",
     exampleCn: "我说德语。",
-    image: IMG + "card-chinesisch-deutsch-sprechen.png"
+    image: IMG + "card-chinesisch-deutsch-sprechen.webp"
   },
 
   {
@@ -314,7 +314,7 @@
     zh: "说英语",
     example: "Ich spreche Englisch.",
     exampleCn: "我说英语。",
-    image: IMG + "card-chinesisch-deutsch-sprechen.png"
+    image: IMG + "card-chinesisch-deutsch-sprechen.webp"
   },
 
   {
@@ -324,7 +324,7 @@
     zh: "流利地",
     example: "Sofia spricht fließend Deutsch.",
     exampleCn: "Sofia 德语说得很流利。",
-    image: IMG + "card-fliessend.png"
+    image: IMG + "card-fliessend.webp"
   },
 
   {
@@ -334,7 +334,7 @@
     zh: "一点儿",
     example: "Ich spreche ein bisschen Deutsch.",
     exampleCn: "我会说一点德语。",
-    image: IMG + "card-ein-bisschen.png"
+    image: IMG + "card-ein-bisschen.webp"
   },
 
   // =========================
@@ -348,7 +348,7 @@
     zh: "空闲时间",
     example: "Was machst du in der Freizeit?",
     exampleCn: "你空闲时间做什么？",
-    image: IMG + "card-Freizeit.png"
+    image: IMG + "card-Freizeit.webp"
   },
 
   {
@@ -358,7 +358,7 @@
     zh: "在空闲时间",
     example: "In der Freizeit lese ich gern.",
     exampleCn: "空闲时间我喜欢阅读。",
-    image: IMG + "card-in-der-Freizeit.png"
+    image: IMG + "card-in-der-Freizeit.webp"
   },
 
   {
@@ -368,7 +368,7 @@
     zh: "和朋友见面",
     example: "Ich treffe mich mit Freunden.",
     exampleCn: "我和朋友见面。",
-    image: IMG + "card-freunde-treffen.png"
+    image: IMG + "card-freunde-treffen.webp"
   },
 
   {
@@ -378,7 +378,7 @@
     zh: "做运动",
     example: "Ich mache gern Sport.",
     exampleCn: "我喜欢运动。",
-    image: IMG + "card-Sport-machen.png"
+    image: IMG + "card-Sport-machen.webp"
   },
 
   {
@@ -388,7 +388,7 @@
     zh: "听音乐",
     example: "Am Abend höre ich Musik.",
     exampleCn: "晚上我听音乐。",
-    image: IMG + "card-Musik-hoeren.png"
+    image: IMG + "card-Musik-hoeren.webp"
   },
 
   {
@@ -398,7 +398,7 @@
     zh: "阅读",
     example: "Nina liest gern.",
     exampleCn: "Nina 喜欢阅读。",
-    image: IMG + "card-lesen.png"
+    image: IMG + "card-lesen.webp"
   },
 
   {
@@ -408,7 +408,7 @@
     zh: "做饭",
     example: "Am Wochenende koche ich.",
     exampleCn: "周末我做饭。",
-    image: IMG + "card-kochen.png"
+    image: IMG + "card-kochen.webp"
   },
 
   {
@@ -418,7 +418,7 @@
     zh: "散步",
     example: "Wir gehen spazieren.",
     exampleCn: "我们去散步。",
-    image: IMG + "card-spazieren-gehen.png"
+    image: IMG + "card-spazieren-gehen.webp"
   },
 
   {
@@ -428,7 +428,7 @@
     zh: "去电影院",
     example: "Sie gehen ins Kino.",
     exampleCn: "他们去电影院。",
-    image: IMG + "card-ins-Kino-gehen.png"
+    image: IMG + "card-ins-Kino-gehen.webp"
   },
 
   {
@@ -438,7 +438,7 @@
     zh: "去餐厅",
     example: "Wir gehen ins Restaurant.",
     exampleCn: "我们去餐厅。",
-    image: IMG + "card-ins-Restaurant-gehen.png"
+    image: IMG + "card-ins-Restaurant-gehen.webp"
   },
 
   // =========================
@@ -452,7 +452,7 @@
     zh: "开始",
     example: "Der Kurs beginnt um neun.",
     exampleCn: "课程九点开始。",
-    image: IMG + "card-beginnen.png"
+    image: IMG + "card-beginnen.webp"
   },
 
   {
@@ -462,7 +462,7 @@
     zh: "结束；完成",
     example: "Ich schließe die Ausbildung ab.",
     exampleCn: "我完成职业培训。",
-    image: IMG + "card-abschliessen.png"
+    image: IMG + "card-abschliessen.webp"
   }
   ];
 
