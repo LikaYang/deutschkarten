@@ -11,7 +11,7 @@
     ["im Stadtzentrum", "在市中心", "Adverbial"], ["in der Stadt", "在城里", "Adverbial"], ["auf dem Land", "在乡下", "Adverbial"],
     ["die Wohnung", "公寓；住宅", "Nomen"], ["das Haus", "房子", "Nomen"], ["renovieren", "翻修", "Verb"], ["mieten", "租住", "Verb"],
     ["der Vater", "父亲", "Nomen"], ["der Papa", "爸爸（口语）", "Nomen"], ["die Mutter", "母亲", "Nomen"], ["die Mama", "妈妈（口语）", "Nomen"],
-    ["die Eltern", "父母", "Nomen"], ["der Bruder", "兄弟", "Nomen"], ["die Schwester", "姐妹", "Nomen"], ["das Geschwister", "兄弟姐妹", "Nomen"],
+    ["die Eltern", "父母", "Nomen"], ["der Bruder", "兄弟", "Nomen"], ["die Schwester", "姐妹", "Nomen"], ["die Geschwister (Pl.)", "兄弟姐妹", "Nomen"],
     ["der Großvater", "祖父；外祖父", "Nomen"], ["der Opa", "爷爷；姥爷（口语）", "Nomen"], ["die Großmutter", "祖母；外祖母", "Nomen"],
     ["die Oma", "奶奶；姥姥（口语）", "Nomen"], ["der Partner", "伴侣；同伴", "Nomen"], ["die Partnerin", "女伴侣；同伴", "Nomen"],
     ["der Ehemann", "丈夫", "Nomen"], ["die Ehefrau", "妻子", "Nomen"], ["das Paar", "夫妻；一双", "Nomen"], ["das Ehepaar", "夫妻", "Nomen"],
@@ -25,7 +25,7 @@
     ["zusammen kochen", "一起做饭", "Verbphrase"], ["Basketball spielen", "打篮球", "Verbphrase"], ["Musik hören", "听音乐", "Verbphrase"],
     ["wandern", "徒步", "Verb"], ["fernsehen", "看电视", "Verb"], ["spazieren gehen", "散步", "Verbphrase"], ["Computerspiele spielen", "玩电脑游戏", "Verbphrase"],
     ["ein Buch lesen", "读书", "Verbphrase"], ["auf dem Sofa liegen", "躺在沙发上", "Verbphrase"], ["ins Restaurant gehen", "去餐厅", "Verbphrase"],
-    ["ins Kino gehen", "去电影院", "Verbphrase"], ["reite", "骑马（ich）", "Verbform"], ["das Pferd", "马", "Nomen"],
+    ["ins Kino gehen", "去电影院", "Verbphrase"], ["reiten", "骑马", "Verb"], ["das Pferd", "马", "Nomen"],
     ["der Rentner", "退休人员", "Nomen"], ["total", "非常；完全", "Adverb"], ["die Bankkauffrau", "银行女职员", "Nomen"],
     ["mal sehen", "到时看看", "Redemittel"], ["fließend", "流利地", "Adverb"], ["renoviert", "翻修过的", "Adjektiv"], ["stressig", "压力大的", "Adjektiv"]
   ].map(([front, meaning, wordType], index) => ({
