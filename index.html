@@ -869,6 +869,7 @@
   <script src="data/a2e1-l1-review-cards.js"></script>
   <script src="data/a2e1-l1-review-assets.js"></script>
   <script src="data/a2e1-l2-review-cards.js"></script>
+  <script src="data/a2e1-u3-cards.js"></script>
   <script src="data/a2e1-video-tasks.js"></script>
   <script>
     const STORE_KEY = "deutschstadt.preview.a2e1l1.v01";
@@ -931,8 +932,7 @@
           title: "U2 Vorbereitung｜Pläne & Verabredung",
           status: "现在可用",
           steps: [
-            { type: "rueckblick", icon: "R", title: "Rückblick｜Perfekt 激活", text: "回顾昨天发生的事情，重新激活 haben / sein + Partizip II。", action: "开始回顾", url: "rueckblick.html" },
-            { type: "note", icon: "U2", title: "计划与约见", text: "后续接入词卡、短视频和课堂前思考问题。", action: "即将开放" }
+            { type: "rueckblick", icon: "R", title: "Rückblick｜Perfekt 激活", text: "回顾昨天发生的事情，重新激活 haben / sein + Partizip II。", action: "开始回顾", url: "rueckblick.html" }
           ]
         },
         {
@@ -975,9 +975,54 @@
         },
         {
           title: "U3 Vorbereitung｜Treffen & Essen",
-          status: "预留",
+          status: "现在可用",
           steps: [
-            { type: "note", icon: "U3", title: "见面与餐厅", text: "后续接入词卡、教材视频任务和餐厅场景准备。", action: "即将开放" }
+            {
+              type: "cards",
+              icon: "1",
+              title: "Wortschatz｜词汇预热",
+              text: "Diese Wörter und Ausdrücke brauchst du bald. Gesehen reicht!",
+              action: "开始预习词卡",
+              lessonId: "A2E1U3-preparation"
+            },
+            {
+              type: "video",
+              icon: "2",
+              title: "Themen-Input｜Treffen · P3",
+              text: "Hast du am Samstag Zeit? 看看 Anna und ihre Freunde 见面时发生了什么。",
+              action: "打开 Video 1",
+              videoId: "a2e1-u3-video-p3"
+            },
+            {
+              type: "video",
+              icon: "3",
+              title: "Themen-Input｜Essen · P4",
+              text: "Wollen wir zusammen essen gehen? 听听大家对 Essen 说了什么。",
+              action: "打开 Video 2",
+              videoId: "a2e1-u3-video-p4"
+            }
+          ]
+        },
+        {
+          title: "U3 Wiederholung｜课后复习",
+          status: "卡牌与跟读已开放",
+          steps: [
+            {
+              type: "cards",
+              icon: "R",
+              title: "复习卡牌｜Treffen & Restaurant",
+              text: "复习完整 Aktiv-Wortschatz；预习时见过的卡牌会保留相同 cardId。",
+              action: "开始复习",
+              lessonId: "A2E1U3-review"
+            },
+            {
+              type: "nachsprechen",
+              icon: "S",
+              title: "Nachsprechen｜L3–L4 跟读",
+              text: "复习 Lea 与 Ben 的约见，以及 Gloria 与 Nele 的 Essen ohne Licht 对话。点击句子可从对应位置播放。",
+              action: "开始跟读",
+              url: "nachsprechen-u3.html"
+            }
           ]
         }
       ]
@@ -1315,7 +1360,7 @@
             <div class="video-task-hints">${promptZhHtml}</div>
           </div>
           <p class="video-task-submission">${escapeHtml(task.submission?.text || "不需要提交答案，课堂上会继续讨论。")}</p>
-          <button class="video-task-back" id="videoBackBtn" type="button">返回 U1 Vorbereitung</button>
+          <button class="video-task-back" id="videoBackBtn" type="button">返回课程路线</button>
         </section>
       `;
       document.getElementById("videoBackBtn")?.addEventListener("click", () => {
@@ -1417,14 +1462,22 @@
     }
 
     function getCardXp(card) {
-      return Math.min(100, state.xp?.[card.id] || 0);
+      const lessonStates = Object.values(progressStore.lessons || {});
+      const sharedXp = lessonStates.reduce((highest, lessonState) => {
+        return Math.max(highest, Number(lessonState?.xp?.[card.id]) || 0);
+      }, Number(state.xp?.[card.id]) || 0);
+      return Math.min(100, sharedXp);
     }
 
     function getCardStatus(card) {
       const xp = getCardXp(card);
+      const lessonStates = Object.values(progressStore.lessons || {});
+      const allStates = [state, ...lessonStates];
+      const latestKnown = Math.max(0, ...allStates.map((lessonState) => Number(lessonState?.known?.[card.id]) || 0));
+      const latestReview = Math.max(0, ...allStates.map((lessonState) => Number(lessonState?.review?.[card.id]) || 0));
       if (xp >= 100) return "Master";
-      if (state.known[card.id]) return "已认识";
-      if (state.review[card.id]) return "待复习";
+      if (latestKnown > latestReview) return "已认识";
+      if (latestReview) return "待复习";
       if (xp > 0) return "学习中";
       return "未开始";
     }

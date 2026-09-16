@@ -191,6 +191,10 @@
     }
   ];
 
+  cards.forEach((card) => {
+    card.exampleSource = "course_text";
+  });
+
   const lessons = window.DEUTSCHSTADT_PREVIEW_LESSONS || [];
   const existingLesson = lessons.find((lesson) => lesson.id === "A2E1L2-review");
   const lesson = {

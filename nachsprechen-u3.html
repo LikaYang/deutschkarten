@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nachsprechen | A2E1 U3 · L3–L4</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --orange: #f5821f;
+      --orange-dark: #c85f11;
+      --cream: #fff8ef;
+      --line: #f0c89d;
+      --ink: #2b211b;
+      --muted: #7e7168;
+      --soft: #fffdf9;
+      --green: #38a169;
+      --shadow: 0 18px 42px rgba(129, 82, 35, .13);
+      --radius: 18px;
+    }
+
+    body {
+      min-height: 100dvh;
+      margin: 0;
+      padding: max(14px, env(safe-area-inset-top)) 12px max(18px, env(safe-area-inset-bottom));
+      color: var(--ink);
+      background:
+        linear-gradient(rgba(255, 250, 244, .92), rgba(255, 250, 244, .96)),
+        repeating-linear-gradient(90deg, rgba(240, 200, 157, .2) 0 1px, transparent 1px 96px),
+        repeating-linear-gradient(0deg, rgba(240, 200, 157, .16) 0 1px, transparent 1px 96px),
+        #fff7eb;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    }
+
+    button {
+      border: 0;
+      font: inherit;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .app {
+      display: grid;
+      gap: 12px;
+      width: min(100%, 720px);
+      min-height: calc(100dvh - 32px);
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: grid;
+      gap: 10px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 253, 249, .94);
+      box-shadow: var(--shadow);
+    }
+
+    .back-button {
+      justify-self: start;
+      min-height: 46px;
+      padding: 0 14px;
+      border-radius: 16px;
+      color: #fff;
+      background: var(--orange);
+      font-weight: 950;
+    }
+
+    .eyebrow {
+      margin: 0;
+      color: var(--orange-dark);
+      font-size: 12px;
+      font-weight: 950;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .title-row {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(28px, 9vw, 44px);
+      line-height: .95;
+    }
+
+    .counter {
+      flex: 0 0 auto;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 12px;
+      color: var(--muted);
+      background: #fff6e8;
+      font-weight: 950;
+    }
+
+    .dots {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 6px;
+    }
+
+    .dot {
+      min-width: 0;
+      min-height: 34px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: #fff;
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .dot.active {
+      color: #fff;
+      border-color: var(--orange);
+      background: var(--orange);
+    }
+
+    .dot.done {
+      color: var(--green);
+      border-color: rgba(56, 161, 105, .35);
+      background: #eefbf4;
+    }
+
+    .task-card {
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr) auto;
+      gap: 12px;
+      min-height: 0;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 12px;
+      background: rgba(255, 253, 249, .96);
+      box-shadow: var(--shadow);
+    }
+
+    .visual {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fff1df;
+    }
+
+    .visual img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      object-position: 50% 20%;
+    }
+
+    .visual.empty { display: grid; place-items: center; min-height: 150px; padding: 18px; color: var(--muted); font-weight: 900; text-align: center; }
+    .visual.empty::after { content: "人物插图待补"; }
+    .visual.empty img { display: none; }
+
+    .text-panel {
+      display: grid;
+      gap: 12px;
+      min-height: 0;
+      overflow: auto;
+      padding: 2px 2px 4px;
+    }
+
+    .instruction {
+      margin: 0;
+      border-left: 5px solid var(--orange);
+      border-radius: 14px;
+      padding: 12px 13px;
+      background: #fff6e8;
+      color: var(--ink);
+      font-size: clamp(15px, 4.5vw, 18px);
+      font-weight: 900;
+      line-height: 1.45;
+    }
+
+    .reading-text {
+      margin: 0;
+      border: 1px solid rgba(240, 200, 157, .8);
+      border-radius: 16px;
+      padding: clamp(16px, 5vw, 24px);
+      background: #fff;
+      font-size: clamp(18px, 5.3vw, 24px);
+      font-weight: 760;
+      line-height: 1.75;
+    }
+
+    .sentence {
+      display: inline;
+      margin: 0;
+      padding: 0 2px;
+      border: 0;
+      border-radius: 6px;
+      color: inherit;
+      background: transparent;
+      text-align: left;
+      cursor: pointer;
+      transition: background .15s ease, box-shadow .15s ease;
+    }
+
+    .sentence:hover,
+    .sentence:focus-visible,
+    .sentence.active {
+      outline: 0;
+      background: #fff0d8;
+      box-shadow: 0 0 0 2px rgba(245, 130, 31, .2);
+    }
+
+    .word-token {
+      display: inline;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      color: inherit;
+      background: transparent;
+      font-weight: inherit;
+      text-decoration: underline dotted rgba(245, 130, 31, .5);
+      text-underline-offset: 4px;
+      cursor: pointer;
+    }
+
+    .audio-controls {
+      display: grid;
+      grid-template-columns: auto auto minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+      padding: 8px 10px;
+      border: 1px solid rgba(240, 200, 157, .8);
+      border-radius: 14px;
+      background: #fff8ef;
+    }
+
+    .audio-small {
+      min-width: 44px;
+      min-height: 40px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 0 10px;
+      color: var(--orange-dark);
+      background: #fff;
+      font-weight: 950;
+    }
+
+    .audio-small:disabled {
+      opacity: .48;
+      cursor: not-allowed;
+    }
+
+    .audio-progress {
+      width: 100%;
+      accent-color: var(--orange);
+    }
+
+    .audio-time {
+      min-width: 70px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .note {
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(13px, 3.8vw, 15px);
+      font-weight: 800;
+      line-height: 1.55;
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      padding-top: 2px;
+    }
+
+    .primary,
+    .secondary {
+      min-height: 54px;
+      border-radius: 16px;
+      padding: 0 14px;
+      font-size: clamp(16px, 4.8vw, 20px);
+      font-weight: 950;
+    }
+
+    .primary {
+      color: #fff;
+      background: var(--orange);
+      box-shadow: 0 10px 18px rgba(248, 130, 31, .18);
+    }
+
+    .secondary {
+      border: 1px solid var(--line);
+      color: var(--orange-dark);
+      background: #fff;
+    }
+
+    .complete {
+      display: none;
+      align-content: center;
+      justify-items: center;
+      gap: 16px;
+      min-height: calc(100dvh - 32px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      text-align: center;
+      background: rgba(255, 253, 249, .96);
+      box-shadow: var(--shadow);
+    }
+
+    .complete h2 {
+      margin: 0;
+      font-size: clamp(30px, 10vw, 48px);
+      line-height: 1;
+    }
+
+    .complete p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+      font-weight: 850;
+      line-height: 1.5;
+    }
+
+    .coming-soon {
+      min-height: 48px;
+      border: 1px dashed var(--line);
+      border-radius: 999px;
+      padding: 0 18px;
+      color: var(--muted);
+      background: #fff8ef;
+      font-weight: 950;
+      cursor: not-allowed;
+    }
+
+    .word-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 10;
+      display: none;
+      place-items: center;
+      padding: 16px;
+      background: rgba(45, 33, 27, .38);
+    }
+
+    .word-modal.open {
+      display: grid;
+    }
+
+    .word-card {
+      display: grid;
+      gap: 14px;
+      width: min(100%, 520px);
+      max-height: min(86dvh, 620px);
+      overflow: auto;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 20px;
+      background: var(--soft);
+      box-shadow: 0 24px 60px rgba(45, 33, 27, .24);
+    }
+
+    .word-card-head {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .word-card h2 {
+      margin: 0;
+      font-size: clamp(30px, 9vw, 48px);
+      line-height: 1;
+    }
+
+    .word-card .word-meta {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-weight: 900;
+    }
+
+    .word-card-image {
+      display: none;
+      width: 100%;
+      max-height: 170px;
+      object-fit: contain;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff8ef;
+    }
+
+    .word-card-image.visible {
+      display: block;
+    }
+
+    .word-close {
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: var(--orange-dark);
+      background: #fff3df;
+      font-size: 24px;
+      font-weight: 900;
+    }
+
+    .word-meaning,
+    .word-example {
+      margin: 0;
+      border-radius: 14px;
+      padding: 12px 14px;
+      line-height: 1.55;
+    }
+
+    .word-meaning { background: #fff3df; font-weight: 900; }
+    .word-example { border: 1px solid var(--line); background: #fff; font-weight: 800; }
+
+    .word-play {
+      min-height: 48px;
+      border-radius: 14px;
+      color: #fff;
+      background: var(--orange);
+      font-weight: 950;
+    }
+
+    .finished .topbar,
+    .finished .task-card {
+      display: none;
+    }
+
+    .finished .complete {
+      display: grid;
+    }
+
+    @media (max-width: 759px) {
+      body {
+        padding: max(8px, env(safe-area-inset-top)) 8px max(10px, env(safe-area-inset-bottom));
+      }
+
+      .app {
+        width: min(100%, 520px);
+        min-height: calc(100dvh - 18px);
+        gap: 8px;
+      }
+
+      .topbar {
+        gap: 6px;
+        padding: 9px 10px;
+      }
+
+      .topbar h1 {
+        font-size: clamp(25px, 8vw, 36px);
+      }
+
+      .counter {
+        padding: 6px 9px;
+        font-size: 13px;
+      }
+
+      .task-card {
+        gap: 8px;
+        padding: 8px;
+      }
+
+      .visual {
+        width: min(100%, 112px);
+        aspect-ratio: 1;
+        justify-self: center;
+        border-radius: 50%;
+      }
+
+      .visual img {
+        height: 100%;
+        aspect-ratio: 1;
+        object-position: 50% 18%;
+      }
+
+      .text-panel {
+        gap: 7px;
+        overflow: auto;
+      }
+
+      .instruction {
+        padding: 8px 10px;
+        font-size: clamp(12px, 3.6vw, 15px);
+        line-height: 1.3;
+      }
+
+      .reading-text {
+        padding: 10px 11px;
+        font-size: clamp(15px, 4.8vw, 20px);
+        line-height: 1.45;
+      }
+
+      .note {
+        font-size: clamp(11px, 3.1vw, 13px);
+        line-height: 1.35;
+      }
+
+      .audio-controls {
+        gap: 5px;
+        padding: 5px 6px;
+      }
+
+      .audio-small {
+        min-width: 40px;
+        min-height: 36px;
+        padding: 0 7px;
+        border-radius: 10px;
+        font-size: 13px;
+      }
+
+      .audio-time {
+        min-width: 58px;
+        font-size: 11px;
+      }
+
+      .actions {
+        gap: 0;
+      }
+
+      .actions .primary {
+        min-height: 44px;
+        font-size: 16px;
+      }
+    }
+
+    @media (min-width: 760px) {
+      body {
+        padding: 24px;
+      }
+
+      .app {
+        width: min(100%, 1040px);
+        min-height: calc(100dvh - 48px);
+        grid-template-rows: auto 1fr;
+      }
+
+      .task-card {
+        grid-template-columns: minmax(290px, 38%) 1fr;
+        grid-template-rows: minmax(0, 1fr) auto;
+        align-items: stretch;
+        padding: 16px;
+      }
+
+      .visual {
+        grid-row: 1 / span 2;
+      }
+
+      .visual img {
+        height: 100%;
+        aspect-ratio: auto;
+      }
+
+      .actions {
+        grid-column: 2;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .dot {
+        min-height: 32px;
+        padding: 0 4px;
+        font-size: 11px;
+      }
+
+      .actions {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="app" id="app">
+    <section class="topbar" aria-label="Fortschritt">
+      <button class="back-button" id="backBtn" type="button">← 返回复习</button>
+      <p class="eyebrow">Nachsprechen · A2E1 U3 · L3–L4</p>
+      <div class="title-row">
+        <h1 id="personName">L3 · Lea & Ben</h1>
+        <span class="counter" id="counter">1 / 2</span>
+      </div>
+      <div class="dots" id="personDots" aria-label="Personen"></div>
+    </section>
+
+    <section class="task-card">
+      <figure class="visual">
+        <img id="personImage" src="" alt="" decoding="async" fetchpriority="high">
+      </figure>
+
+      <div class="text-panel">
+        <p class="instruction">Hören Sie zuerst zu. Lesen Sie dann laut mit.</p>
+        <p class="reading-text" id="readingText"></p>
+        <p class="note">Flüssig lesen ist der erste Schritt. Danach erzählen Sie mit eigenen Worten.</p>
+      </div>
+
+      <div class="audio-controls" aria-label="Audio-Steuerung">
+        <button class="audio-small" id="pauseBtn" type="button" disabled>Ⅱ Pause</button>
+        <button class="audio-small" id="restartAudioBtn" type="button" disabled>↺</button>
+        <input class="audio-progress" id="audioProgress" type="range" min="0" max="100" value="0" step="0.1" aria-label="Audio-Fortschritt">
+        <span class="audio-time" id="audioTime">0:00 / 0:00</span>
+      </div>
+
+      <div class="actions">
+        <button class="primary" id="doneBtn" type="button">✓ Fertig</button>
+      </div>
+    </section>
+
+    <section class="complete" aria-live="polite">
+      <p class="eyebrow">Aussprache & Leseflüssigkeit</p>
+      <h2>Sehr gut!</h2>
+      <p>Sie haben die Texte aus L3 und L4 geübt.</p>
+      <p>Nächster Schritt: Frei erzählen.</p>
+      <button class="coming-soon" type="button" disabled>Frei erzählen · kommt später</button>
+      <button class="secondary" id="restartBtn" type="button">Noch einmal üben</button>
+    </section>
+  </main>
+
+  <div class="word-modal" id="wordModal" aria-hidden="true">
+    <section class="word-card" role="dialog" aria-modal="true" aria-labelledby="wordCardTitle">
+      <div class="word-card-head">
+        <div>
+          <h2 id="wordCardTitle"></h2>
+          <p class="word-meta" id="wordCardMeta"></p>
+        </div>
+        <button class="word-close" id="wordCloseBtn" type="button" aria-label="关闭词卡">×</button>
+      </div>
+      <img class="word-card-image" id="wordCardImage" alt="" decoding="async" fetchpriority="high">
+      <p class="word-meaning" id="wordCardMeaning"></p>
+      <p class="word-example" id="wordCardExample"></p>
+      <button class="word-play" id="wordPlayBtn" type="button">🔊 Wort anhören</button>
+    </section>
+  </div>
+
+  <script src="data/a2e1-u3-cards.js"></script>
+  <script src="data/a2e1-u3-nachsprechen.js"></script>
+  <script>
+    const ASSET_AUDIO = "assets/audio/a2/e1/l2/source/";
+    const ASSET_IMAGE = "assets/images/a2/e1/l1/webp/";
+    const preloadedTaskImages = new Set();
+
+    function preloadTaskImage(src) {
+      if (!src || preloadedTaskImages.has(src)) return;
+      preloadedTaskImages.add(src);
+      const image = new Image();
+      image.decoding = "async";
+      image.src = src;
+      if (image.decode) image.decode().catch(() => {});
+    }
+
+    const legacyReadingTasks = [
+      {
+        id: "jonas-l2",
+        name: "Jonas",
+        image: `${ASSET_IMAGE}jonas.webp`,
+        audio: "assets/audio/a2/e1/l2/derived/Jonas-L2-male.m4a",
+        text: "Leben und studieren in Zürich. Ich bin letztes Jahr umgezogen, wohne jetzt in Zürich und studiere Biologie. Im Herbst habe ich mein Studium angefangen. Zuerst habe ich keine Wohnung gefunden, aber ich habe immer weitergesucht und jetzt habe ich ein Apartment im Zentrum. Das hat mir gleich gefallen. Meine Freundin ist dann auch nach Zürich gekommen, sie studiert Mathematik. Vorher hat sie in Bern gewohnt, aber jetzt leben wir zusammen. Für zwei Leute ist die Wohnung etwas klein, aber es geht. Wir sind sehr aktiv und haben schon viele Leute kennengelernt, das ist toll. Und ich habe jetzt ein neues Hobby: Ich spiele Tennis. Ich habe an einem Kurs teilgenommen und es macht wirklich Spaß. Vielleicht melde ich mich bald in einem Verein an.",
+        segments: [
+          { text: "Leben und studieren in Zürich.", start: 0.92, end: 4.60, audioFile: "assets/audio/a2/e1/l2/generated/jonas-male/Jonas-L2-male-s01.wav", status: "approved", method: "forced_alignment" },
+          { text: "Ich bin letztes Jahr umgezogen, wohne jetzt in Zürich und studiere Biologie.", start: 5.31, end: 11.88, audioFile: "assets/audio/a2/e1/l2/generated/jonas-male/Jonas-L2-male-s02.wav", status: "approved", method: "forced_alignment" },
+          { text: "Im Herbst habe ich mein Studium angefangen.", start: 12.16, end: 15.55, audioFile: "assets/audio/a2/e1/l2/generated/jonas-male/Jonas-L2-male-s03.wav", status: "approved", method: "forced_alignment" },
+          { text: "Zuerst habe ich keine Wohnung gefunden, aber ich habe immer weitergesucht und jetzt habe ich ein Apartment im Zentrum.", start: 16.01, end: 24.42, audioFile: "assets/audio/a2/e1/l2/generated/jonas-male/Jonas-L2-male-s04.wav", status: "approved", method: "forced_alignment" },
+          { text: "Das hat mir gleich gefallen.", start: 24.72, end: 27.46, audioFile: "assets/audio/a2/e1/l2/generated/jonas-male/Jonas-L2-male-s05.wav", status: "approved", method: "forced_alignment" },
+          { text: "Meine Freundin ist dann auch nach Zürich gekommen, sie studiert Mathematik.", start: 27.73, end: 34.32, audioFile: "assets/audio/a2/e1/l2/generated/jonas-male/Jonas-L2-male-s06.wav", status: "approved", method: "forced_alignment" },
+          { text: "Vorher hat sie in Bern gewohnt, aber jetzt leben wir zusammen.", start: 34.39, end: 39.88, audioFile: "assets/audio/a2/e1/l2/generated/jonas-male/Jonas-L2-male-s07.wav", status: "approved", method: "forced_alignment" },
+          { text: "Für zwei Leute ist die Wohnung etwas klein, aber es geht.", start: 40.47, end: 45.60, audioFile: "assets/audio/a2/e1/l2/generated/jonas-male/Jonas-L2-male-s08.wav", status: "approved", method: "forced_alignment" },
+          { text: "Wir sind sehr aktiv und haben schon viele Leute kennengelernt, das ist toll.", start: 45.86, end: 51.84, audioFile: "assets/audio/a2/e1/l2/generated/jonas-male/Jonas-L2-male-s09.wav", status: "approved", method: "forced_alignment" },
+          { text: "Und ich habe jetzt ein neues Hobby: Ich spiele Tennis.", start: 51.91, end: 56.75, audioFile: "assets/audio/a2/e1/l2/generated/jonas-male/Jonas-L2-male-s10.wav", status: "approved", method: "forced_alignment" },
+          { text: "Ich habe an einem Kurs teilgenommen und es macht wirklich Spaß.", start: 57.24, end: 63.12, audioFile: "assets/audio/a2/e1/l2/generated/jonas-male/Jonas-L2-male-s11.wav", status: "approved", method: "forced_alignment" },
+          { text: "Vielleicht melde ich mich bald in einem Verein an.", start: 63.39, end: 66.84, audioFile: "assets/audio/a2/e1/l2/generated/jonas-male/Jonas-L2-male-s12.wav", status: "approved", method: "forced_alignment" }
+        ]
+      },
+      {
+        id: "julia-l2",
+        name: "Julia",
+        image: `${ASSET_IMAGE}julia.webp`,
+        audio: `${ASSET_AUDIO}Julia-L2.m4a`,
+        text: "Prüfung, Urlaub und ein Fest. Das letzte Jahr war echt spannend. Es ist viel passiert. Ich habe meine Ausbildung zur Augenoptikerin beendet. Im Juni habe ich meine Prüfungen geschrieben. Ich habe sehr viel gelernt. Das war natürlich stressig. Zum Glück habe ich gute Noten bekommen. Dann bin ich mit einer Freundin nach Spanien geflogen. Lilly hat früher dort gelebt und spricht perfekt Spanisch. Wir haben ein Auto gemietet und sind drei Wochen lang durch das Land gefahren. Wir haben auch Lillys Freunde in Madrid besucht. Im August hat meine Schwester geheiratet und ich habe mit ihr zusammen das Fest organisiert. Das war viel Arbeit, aber die Hochzeit war wirklich romantisch. Viele Freunde und Verwandte sind gekommen und wir haben zusammen gefeiert.",
+        segments: [
+          { text: "Prüfung, Urlaub und ein Fest.", start: 0.05, end: 4.82, audioFile: "assets/audio/a2/e1/l2/generated/julia-auto/Julia-L2-s01.wav", status: "approved", method: "forced_alignment" },
+          { text: "Das letzte Jahr war echt spannend.", start: 5.56, end: 8.06, audioFile: "assets/audio/a2/e1/l2/generated/julia-auto/Julia-L2-s02.wav", status: "approved", method: "forced_alignment" },
+          { text: "Es ist viel passiert.", start: 9.11, end: 10.52, audioFile: "assets/audio/a2/e1/l2/generated/julia-auto/Julia-L2-s03.wav", status: "approved", method: "forced_alignment" },
+          { text: "Ich habe meine Ausbildung zur Augenoptikerin beendet.", start: 10.83, end: 16.11, audioFile: "assets/audio/a2/e1/l2/generated/julia-auto/Julia-L2-s04.wav", status: "approved", method: "forced_alignment" },
+          { text: "Im Juni habe ich meine Prüfungen geschrieben.", start: 16.54, end: 20.60, audioFile: "assets/audio/a2/e1/l2/generated/julia-auto/Julia-L2-s05.wav", status: "approved", method: "forced_alignment" },
+          { text: "Ich habe sehr viel gelernt.", start: 20.67, end: 23.06, audioFile: "assets/audio/a2/e1/l2/generated/julia-auto/Julia-L2-s06.wav", status: "approved", method: "forced_alignment" },
+          { text: "Das war natürlich stressig.", start: 23.55, end: 26.23, audioFile: "assets/audio/a2/e1/l2/generated/julia-auto/Julia-L2-s07.wav", status: "approved", method: "forced_alignment" },
+          { text: "Zum Glück habe ich gute Noten bekommen.", start: 26.58, end: 30.19, audioFile: "assets/audio/a2/e1/l2/generated/julia-auto/Julia-L2-s08.wav", status: "approved", method: "forced_alignment" },
+          { text: "Dann bin ich mit einer Freundin nach Spanien geflogen.", start: 30.57, end: 34.93, audioFile: "assets/audio/a2/e1/l2/generated/julia-auto/Julia-L2-s09.wav", status: "approved", method: "forced_alignment" },
+          { text: "Lilly hat früher dort gelebt und spricht perfekt Spanisch.", start: 35.49, end: 40.87, audioFile: "assets/audio/a2/e1/l2/generated/julia-auto/Julia-L2-s10.wav", status: "approved", method: "forced_alignment" },
+          { text: "Wir haben ein Auto gemietet und sind drei Wochen lang durch das Land gefahren.", start: 41.28, end: 47.52, audioFile: "assets/audio/a2/e1/l2/generated/julia-auto/Julia-L2-s11.wav", status: "approved", method: "forced_alignment" },
+          { text: "Wir haben auch Lillys Freunde in Madrid besucht.", start: 47.97, end: 52.06, audioFile: "assets/audio/a2/e1/l2/generated/julia-auto/Julia-L2-s12.wav", status: "approved", method: "forced_alignment" },
+          { text: "Im August hat meine Schwester geheiratet und ich habe mit ihr zusammen das Fest organisiert.", start: 52.47, end: 60.26, audioFile: "assets/audio/a2/e1/l2/generated/julia-auto/Julia-L2-s13.wav", status: "approved", method: "forced_alignment" },
+          { text: "Das war viel Arbeit, aber die Hochzeit war wirklich romantisch.", start: 60.57, end: 66.22, audioFile: "assets/audio/a2/e1/l2/generated/julia-auto/Julia-L2-s14.wav", status: "approved", method: "forced_alignment" },
+          { text: "Viele Freunde und Verwandte sind gekommen und wir haben zusammen gefeiert.", start: 66.65, end: 72.37, audioFile: "assets/audio/a2/e1/l2/generated/julia-auto/Julia-L2-s15.wav", status: "approved", method: "forced_alignment" }
+        ]
+      }
+    ];
+
+    const readingTasks = window.DEUTSCHSTADT_A2E1U3_READING_TASKS || legacyReadingTasks;
+
+    const wordCardData = {
+      eltern: { meaning: "父母", meta: "Nomen · Plural", example: "Meine Eltern sind schon Rentner." },
+      rentner: { meaning: "退休人员", meta: "Nomen", example: "Meine Eltern sind schon Rentner." },
+      land: { meaning: "乡下；农村", meta: "Nomen · das Land", example: "Meine Eltern leben auf dem Land." },
+      bruder: { meaning: "兄弟；哥哥；弟弟", meta: "Nomen · der Bruder", example: "Ich habe einen Bruder." },
+      schwester: { meaning: "姐妹；姐姐；妹妹", meta: "Nomen · die Schwester", example: "Ich habe eine Schwester." },
+      geschieden: { meaning: "离婚的", meta: "Adjektiv", example: "Mein Bruder ist geschieden." },
+      tochter: { meaning: "女儿", meta: "Nomen · die Tochter", example: "Er hat eine Tochter." },
+      süß: { meaning: "可爱的；甜的", meta: "Adjektiv", example: "Sie ist total süß." },
+      ausbildung: { meaning: "职业培训；职业教育", meta: "Nomen · die Ausbildung", example: "Nach der Schule habe ich eine Ausbildung gemacht." },
+      bankkauffrau: { meaning: "银行女职员；银行业务员", meta: "Nomen · die Bankkauffrau", example: "Ich arbeite als Bankkauffrau." },
+      kollegen: { meaning: "同事", meta: "Nomen · Plural", example: "Ich habe nette Kollegen." },
+      muttersprachen: { meaning: "母语", meta: "Nomen · Plural", example: "Ich habe zwei Muttersprachen." },
+      italienisch: { meaning: "意大利语；意大利的", meta: "Sprache / Adjektiv", example: "Ich spreche Italienisch und Deutsch." },
+      deutsch: { meaning: "德语；德国的", meta: "Sprache / Adjektiv", example: "Ich spreche Italienisch und Deutsch." },
+      fließend: { meaning: "流利地", meta: "Adverb / Adjektiv", example: "Ich spreche Deutsch fließend." },
+      englisch: { meaning: "英语；英语的", meta: "Sprache / Adjektiv", example: "Ich habe auch Englisch gelernt." },
+      französisch: { meaning: "法语；法语的", meta: "Sprache / Adjektiv", example: "Französisch spreche ich nur ein bisschen." },
+      basel: { meaning: "巴塞尔", meta: "Stadtname", example: "Ich komme aus Basel." },
+      zürich: { meaning: "苏黎世", meta: "Stadtname", example: "Ich lebe jetzt in Zürich." },
+      apartment: { meaning: "公寓", meta: "Nomen · das Apartment", example: "Wir haben ein Apartment im Stadtzentrum." },
+      stadtzentrum: { meaning: "市中心", meta: "Nomen · das Stadtzentrum", example: "Wir haben ein Apartment im Stadtzentrum." },
+      renoviert: { meaning: "翻修了；装修了", meta: "Verb · renovieren", example: "Wir haben es zusammen renoviert." },
+      stressig: { meaning: "有压力的；令人紧张的", meta: "Adjektiv", example: "Manchmal ist es ein bisschen stressig." },
+      freundinnen: { meaning: "女性朋友", meta: "Nomen · Plural", example: "Ich treffe gern meine Freundinnen und Freunde." },
+      sport: { meaning: "运动", meta: "Nomen · der Sport", example: "Ich mache auch gern Sport." },
+      basketball: { meaning: "篮球", meta: "Nomen · der Basketball", example: "Ich spiele Basketball." },
+      reite: { meaning: "骑马", meta: "Verb · reiten", example: "Ich reite." },
+      pferd: { meaning: "马", meta: "Nomen · das Pferd", example: "Meine Eltern haben ein Pferd." },
+      sofa: { meaning: "沙发", meta: "Nomen · das Sofa", example: "Am Wochenende liege ich auf dem Sofa." }
+    };
+
+    const state = {
+      index: 0,
+      completed: new Set(),
+      hasPlayedCurrent: false
+    };
+
+    const els = {
+      app: document.getElementById("app"),
+      name: document.getElementById("personName"),
+      counter: document.getElementById("counter"),
+      dots: document.getElementById("personDots"),
+      image: document.getElementById("personImage"),
+      text: document.getElementById("readingText"),
+      done: document.getElementById("doneBtn"),
+      restart: document.getElementById("restartBtn"),
+      pause: document.getElementById("pauseBtn"),
+      restartAudio: document.getElementById("restartAudioBtn"),
+      progress: document.getElementById("audioProgress"),
+      time: document.getElementById("audioTime"),
+      reading: document.getElementById("readingText"),
+      wordModal: document.getElementById("wordModal"),
+      wordTitle: document.getElementById("wordCardTitle"),
+      wordMeta: document.getElementById("wordCardMeta"),
+      wordMeaning: document.getElementById("wordCardMeaning"),
+      wordExample: document.getElementById("wordCardExample"),
+      wordImage: document.getElementById("wordCardImage"),
+      wordPlay: document.getElementById("wordPlayBtn"),
+      wordClose: document.getElementById("wordCloseBtn"),
+      back: document.getElementById("backBtn")
+    };
+
+    const audio = new Audio();
+    let selectedWord = "";
+
+    els.back.addEventListener("click", () => {
+      stopAudio();
+      window.location.href = "index.html";
+    });
+
+    function splitSentences(text) {
+      const protectedText = text.replace(/\bam\s+(\d{1,2})\.(?=\s|,)/gi, "am $1<ORDINAL_DOT>");
+      return protectedText.match(/[^.!?]+[.!?]+|[^.!?]+$/g)
+        ?.map((sentence) => sentence.replaceAll("<ORDINAL_DOT>", ".").trim())
+        .filter(Boolean) || [text];
+    }
+
+    function wordKey(word) {
+      return word.toLocaleLowerCase("de-DE").replace(/[.,!?;:„“"()]/g, "");
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function renderReadingText(text) {
+      const sentences = splitSentences(text);
+      els.reading.innerHTML = sentences.map((sentence, sentenceIndex) => {
+        const pieces = sentence.split(/([A-Za-zÄÖÜäöüß]+(?:[-'][A-Za-zÄÖÜäöüß]+)*)/g);
+        const html = pieces.map((piece) => {
+          if (!/^[A-Za-zÄÖÜäöüß]/.test(piece)) return escapeHtml(piece);
+          return `<button class="word-token" data-word="${escapeHtml(wordKey(piece))}" type="button">${escapeHtml(piece)}</button>`;
+        }).join("");
+        return `<span class="sentence" data-sentence-index="${sentenceIndex}" role="button" tabindex="0">${html} </span>`;
+      }).join("");
+    }
+
+    function render() {
+      const task = readingTasks[state.index];
+      const taskAudioUrl = new URL(task.audio, document.baseURI).href;
+      if (audio.src !== taskAudioUrl) {
+        stopAudio();
+        audio.src = task.audio;
+        audio.preload = "metadata";
+        audio.load();
+      }
+      els.app.classList.remove("finished");
+      els.name.textContent = task.name;
+      els.counter.textContent = `${state.index + 1} / ${readingTasks.length}`;
+      els.image.closest(".visual").classList.toggle("empty", !task.image);
+      els.image.src = task.image || "";
+      els.image.alt = task.image ? task.name : "";
+      [state.index + 1, state.index - 1].forEach((neighborIndex) => {
+        preloadTaskImage(readingTasks[neighborIndex]?.image);
+      });
+      renderReadingText(task.text);
+      updateAudioControls();
+      els.dots.innerHTML = readingTasks.map((item, index) => {
+        const classes = [
+          "dot",
+          index === state.index ? "active" : "",
+          state.completed.has(item.id) ? "done" : ""
+        ].filter(Boolean).join(" ");
+        const check = state.completed.has(item.id) ? " ✓" : "";
+        return `<button class="${classes}" data-person-index="${index}" type="button">${item.name}${check}</button>`;
+      }).join("");
+      els.dots.querySelectorAll("[data-person-index]").forEach((button) => {
+        button.addEventListener("click", () => goToPerson(Number(button.dataset.personIndex)));
+      });
+    }
+
+    function stopAudio() {
+      audio.pause();
+      audio.currentTime = 0;
+      updateAudioControls();
+    }
+
+    function goToPerson(index) {
+      if (index < 0 || index >= readingTasks.length) return;
+      stopAudio();
+      state.index = index;
+      state.hasPlayedCurrent = false;
+      render();
+    }
+
+    function playCurrent() {
+      const task = readingTasks[state.index];
+      stopAudio();
+      audio.src = task.audio;
+      audio.play().then(() => {
+        state.hasPlayedCurrent = true;
+        render();
+      }).catch(() => {
+        state.hasPlayedCurrent = true;
+        render();
+      });
+    }
+
+    function pauseCurrent() {
+      if (!audio.src) return;
+      if (audio.paused) {
+        audio.play().catch(() => {});
+      } else {
+        audio.pause();
+      }
+      updateAudioControls();
+    }
+
+    function restartCurrentAudio() {
+      if (!audio.src) return playCurrent();
+      audio.currentTime = 0;
+      audio.play().catch(() => {});
+      updateAudioControls();
+    }
+
+    function formatTime(seconds) {
+      if (!Number.isFinite(seconds)) return "0:00";
+      const minutes = Math.floor(seconds / 60);
+      const remainder = Math.floor(seconds % 60).toString().padStart(2, "0");
+      return `${minutes}:${remainder}`;
+    }
+
+    function updateAudioControls() {
+      const duration = Number.isFinite(audio.duration) ? audio.duration : 0;
+      const current = Number.isFinite(audio.currentTime) ? audio.currentTime : 0;
+      els.progress.value = duration ? String((current / duration) * 100) : "0";
+      els.time.textContent = `${formatTime(current)} / ${formatTime(duration)}`;
+      els.pause.disabled = !audio.src;
+      els.restartAudio.disabled = !audio.src;
+      els.pause.textContent = audio.paused
+        ? (audio.currentTime > 0 ? "▶ Weiter" : "▶ Start")
+        : "Ⅱ Pause";
+    }
+
+    function getSentenceStart(task, sentenceIndex, sentenceText) {
+      if (!Array.isArray(task.segments)) return null;
+      const normalizedText = String(sentenceText || "").replace(/\s+/g, " ").trim();
+      const matchingSegment = task.segments.find((segment) => {
+        if (segment.status !== "approved") return false;
+        const segmentText = String(segment.text || "").replace(/\s+/g, " ").trim();
+        return segmentText && segmentText === normalizedText;
+      });
+      if (matchingSegment) return Number(matchingSegment.start);
+      if (task.segments[sentenceIndex]?.status === "approved") {
+        return Number(task.segments[sentenceIndex].start);
+      }
+      return null;
+    }
+
+    function seekToSentence(sentenceIndex) {
+      const task = readingTasks[state.index];
+      const sentences = splitSentences(readingTasks[state.index].text);
+      const exactStart = getSentenceStart(task, sentenceIndex, sentences[sentenceIndex]);
+      const totalWords = sentences.reduce((sum, sentence) => sum + (sentence.match(/[A-Za-zÄÖÜäöüß]+/g) || []).length, 0);
+      const beforeWords = sentences.slice(0, sentenceIndex).reduce((sum, sentence) => sum + (sentence.match(/[A-Za-zÄÖÜäöüß]+/g) || []).length, 0);
+      if (!Number.isFinite(audio.duration)) return;
+      const estimatedStart = totalWords ? audio.duration * (beforeWords / totalWords) : 0;
+      audio.currentTime = Number.isFinite(exactStart) ? Math.min(exactStart, audio.duration) : estimatedStart;
+      audio.play().catch(() => {});
+      els.reading.querySelectorAll(".sentence").forEach((sentence) => sentence.classList.toggle("active", Number(sentence.dataset.sentenceIndex) === sentenceIndex));
+      updateAudioControls();
+    }
+
+    function openWordCard(word, sentence) {
+      selectedWord = word;
+      const courseCards = (window.DEUTSCHSTADT_PREVIEW_LESSONS || [])
+        .flatMap((lesson) => lesson.cards || []);
+      const courseCard = courseCards.find((card) => {
+        const cardText = String(card.front || "").toLocaleLowerCase("de-DE");
+        return cardText.split(/[^a-zäöüß]+/i).filter(Boolean).includes(word);
+      });
+      if (window.parent !== window && typeof window.parent.DEUTSCHSTADT_OPEN_CARD_BY_WORD === "function") {
+        if (window.parent.DEUTSCHSTADT_OPEN_CARD_BY_WORD(word)) return;
+      }
+      const contextSentence = String(sentence || "").replace(/\s+/g, " ").trim();
+      const fallbackData = wordCardData[word] || { meaning: "请结合本课语境理解这个词", meta: "Wort aus dem Lesetext", example: contextSentence };
+      const data = courseCard
+        ? {
+          meaning: courseCard.zh,
+          meta: contextSentence ? `${courseCard.group || "Wortschatz"} · 课文原句` : `${courseCard.group || "Wortschatz"} · Kurskarte`,
+          example: contextSentence || courseCard.example,
+          image: courseCard.image
+        }
+        : { ...fallbackData, example: contextSentence || fallbackData.example };
+      els.wordTitle.textContent = word;
+      els.wordMeta.textContent = data.meta;
+      els.wordMeaning.textContent = data.meaning;
+      els.wordExample.textContent = `例句：${data.example}`;
+      els.wordImage.src = data.image || "";
+      els.wordImage.alt = data.image ? `${word} 卡牌插图` : "";
+      els.wordImage.classList.toggle("visible", Boolean(data.image));
+      els.wordModal.classList.add("open");
+      els.wordModal.setAttribute("aria-hidden", "false");
+    }
+
+    function closeWordCard() {
+      els.wordModal.classList.remove("open");
+      els.wordModal.setAttribute("aria-hidden", "true");
+      selectedWord = "";
+    }
+
+    function speakGerman(text) {
+      if (!("speechSynthesis" in window)) return;
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = "de-DE";
+      utterance.rate = .86;
+      window.speechSynthesis.speak(utterance);
+    }
+
+    function finishCurrent() {
+      const task = readingTasks[state.index];
+      state.completed.add(task.id);
+      stopAudio();
+      if (state.index < readingTasks.length - 1) {
+        state.index += 1;
+        state.hasPlayedCurrent = false;
+        render();
+        return;
+      }
+      els.app.classList.add("finished");
+    }
+
+    function restart() {
+      stopAudio();
+      state.index = 0;
+      state.completed.clear();
+      state.hasPlayedCurrent = false;
+      render();
+    }
+
+    audio.addEventListener("ended", () => {
+      state.hasPlayedCurrent = true;
+      render();
+    });
+
+    audio.addEventListener("timeupdate", updateAudioControls);
+    audio.addEventListener("loadedmetadata", updateAudioControls);
+
+    els.pause.addEventListener("click", pauseCurrent);
+    els.restartAudio.addEventListener("click", restartCurrentAudio);
+    els.progress.addEventListener("input", () => {
+      if (!Number.isFinite(audio.duration)) return;
+      audio.currentTime = audio.duration * (Number(els.progress.value) / 100);
+      updateAudioControls();
+    });
+    els.done.addEventListener("click", finishCurrent);
+    els.restart.addEventListener("click", restart);
+
+    els.reading.addEventListener("click", (event) => {
+      const wordButton = event.target.closest("[data-word]");
+      if (wordButton) {
+        const sentence = wordButton.closest("[data-sentence-index]");
+        event.stopPropagation();
+        if (sentence) seekToSentence(Number(sentence.dataset.sentenceIndex));
+        return;
+      }
+      const sentence = event.target.closest("[data-sentence-index]");
+      if (sentence) seekToSentence(Number(sentence.dataset.sentenceIndex));
+    });
+    els.reading.addEventListener("dblclick", (event) => {
+      const wordButton = event.target.closest("[data-word]");
+      if (!wordButton) return;
+      const sentence = wordButton.closest("[data-sentence-index]");
+      openWordCard(wordButton.dataset.word, sentence?.textContent?.trim() || "");
+    });
+    els.reading.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      const sentence = event.target.closest("[data-sentence-index]");
+      if (sentence) {
+        event.preventDefault();
+        seekToSentence(Number(sentence.dataset.sentenceIndex));
+      }
+    });
+    els.wordClose.addEventListener("click", closeWordCard);
+    els.wordModal.addEventListener("click", (event) => {
+      if (event.target === els.wordModal) closeWordCard();
+    });
+    els.wordPlay.addEventListener("click", () => {
+      if (selectedWord) speakGerman(selectedWord);
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeWordCard();
+    });
+
+    render();
+  </script>
+</body>
+</html>

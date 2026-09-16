@@ -50,6 +50,48 @@
         required: false,
         text: "不需要提交答案，课堂上会继续讨论。"
       }
+    },
+    "a2e1-u3-video-p3": {
+      videoId: "a2e1-u3-video-p3",
+      title: "Treffen & Essen｜Netzwerk neu A2 E1 · P3",
+      source: {
+        bilibiliUrl: "https://www.bilibili.com/video/BV1nt52zDEDk/?spm_id_from=333.788.videopod.sections&vd_source=bcda2368aec6f899470324d9fd390c48&p=3"
+      },
+      watchMode: "full",
+      startTime: null,
+      endTime: null,
+      watchLabel: "推荐观看：完整观看 P3",
+      promptDe: "Wer kommt zu Besuch? Was passiert beim Treffen?",
+      promptZh: ["谁来做客？", "见面时发生了什么？", "不需要听懂每一句。"],
+      submission: { required: false, text: "不用提前写答案。带着你看到、听到的信息来上课就可以。" }
+    },
+    "a2e1-u3-video-p4": {
+      videoId: "a2e1-u3-video-p4",
+      title: "Treffen & Essen｜Netzwerk neu A2 E1 · P4",
+      source: {
+        bilibiliUrl: "https://www.bilibili.com/video/BV1nt52zDEDk/?spm_id_from=333.788.videopod.sections&vd_source=bcda2368aec6f899470324d9fd390c48&p=4"
+      },
+      watchMode: "full",
+      startTime: null,
+      endTime: null,
+      watchLabel: "推荐观看：完整观看 P4",
+      promptDe: "Was sagen die Personen über das Essen?",
+      promptZh: ["他们对食物说了什么？", "Isst du gern mit Freunden zusammen?", "Bring deine Idee mit in den Unterricht."],
+      submission: { required: false, text: "不用提前写答案。带着你看到、听到的信息来上课就可以。" }
+    },
+    "a2e1-u3-review-ueber-mich": {
+      videoId: "a2e1-u3-review-ueber-mich",
+      title: "Noch einmal: Über mich",
+      source: { bilibiliUrl: "https://www.bilibili.com/video/BV1nt52zDEDk/?spm_id_from=333.788.videopod.sections&vd_source=bcda2368aec6f899470324d9fd390c48" },
+      watchMode: "full",
+      startTime: null,
+      endTime: null,
+      watchLabel: "推荐观看：完整观看",
+      promptDe: "Welche Informationen über die Personen verstehst du?",
+      promptZh: ["Person", "Herkunft / Wohnen", "Studium / Beruf", "Sprachen", "Freizeit", "Kannst du dich jetzt ähnlich vorstellen?"],
+      reserved: true,
+      replacementInput: null,
+      ownVersion: null
     }
   };
 })();
