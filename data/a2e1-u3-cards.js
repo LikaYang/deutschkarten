@@ -99,6 +99,25 @@
     card.exampleSource = "course_text";
   });
 
+  const approvedCardImages = {
+    "a2e1-speisekarte": "assets/art/a2e1-u3-review/card-speisekarte-v0.1.png",
+    "a2e1-rezeption": "assets/art/a2e1-u3-review/card-rezeption-v0.1.png",
+    "a2e1-auswaehlen": "assets/art/a2e1-u3-review/card-auswaehlen-v0.1.png",
+    "a2e1-bitter": "assets/art/a2e1-u3-review/card-bitter-v0.1.png",
+    "a2e1-salzig": "assets/art/a2e1-u3-review/card-salzig-v0.1.png",
+    "a2e1-bezahlen": "assets/art/a2e1-u3-review/card-bezahlen-v0.1.png",
+    "a2e1-sauer": "assets/art/a2e1-u3-review/card-sauer-v0.1.png",
+    "a2e1-scharf": "assets/art/a2e1-u3-review/card-scharf-v0.1.png",
+    "a2e1-lichtlos": "assets/art/a2e1-u3-review/card-lichtlos-v0.1.png",
+    "a2e1-hingehen": "assets/art/a2e1-l1-preparation/card-ins-Restaurant-gehen.png",
+    "a2e1-an-der-hand-nehmen": "assets/art/a2e1-u3-review/card-an-der-hand-nehmen-v0.1.png",
+    "a2e1-zum-tisch-bringen": "assets/art/a2e1-u3-review/card-zum-tisch-bringen-v0.1.png",
+    "a2e1-nachricht": "assets/art/a2e1-u3-review/card-nachricht-v0.1.png"
+  };
+  reviewCards.forEach((card) => {
+    card.image = approvedCardImages[card.id] || card.image;
+  });
+
   const preparationIds = new Set([
     "a2e1-zum-essen-einladen",
     "a2e1-termin-vereinbaren",
