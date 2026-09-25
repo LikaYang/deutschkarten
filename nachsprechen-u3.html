@@ -928,12 +928,24 @@
       const exactStart = getSentenceStart(task, sentenceIndex, sentences[sentenceIndex]);
       const totalWords = sentences.reduce((sum, sentence) => sum + (sentence.match(/[A-Za-zÄÖÜäöüß]+/g) || []).length, 0);
       const beforeWords = sentences.slice(0, sentenceIndex).reduce((sum, sentence) => sum + (sentence.match(/[A-Za-zÄÖÜäöüß]+/g) || []).length, 0);
-      if (!Number.isFinite(audio.duration)) return;
-      const estimatedStart = totalWords ? audio.duration * (beforeWords / totalWords) : 0;
-      audio.currentTime = Number.isFinite(exactStart) ? Math.min(exactStart, audio.duration) : estimatedStart;
-      audio.play().catch(() => {});
       els.reading.querySelectorAll(".sentence").forEach((sentence) => sentence.classList.toggle("active", Number(sentence.dataset.sentenceIndex) === sentenceIndex));
-      updateAudioControls();
+
+      const seekAndPlay = () => {
+        if (!Number.isFinite(audio.duration)) return;
+        const estimatedStart = totalWords ? audio.duration * (beforeWords / totalWords) : 0;
+        const targetTime = Number.isFinite(exactStart) ? Math.min(exactStart, audio.duration) : estimatedStart;
+        audio.pause();
+        audio.currentTime = targetTime;
+        const resume = () => {
+          audio.play().catch(() => {});
+          updateAudioControls();
+        };
+        if (Math.abs(audio.currentTime - targetTime) < 0.05) resume();
+        else audio.addEventListener("seeked", resume, { once: true });
+      };
+
+      if (audio.readyState >= 1) seekAndPlay();
+      else audio.addEventListener("loadedmetadata", seekAndPlay, { once: true });
     }
 
     function openWordCard(word, sentence) {

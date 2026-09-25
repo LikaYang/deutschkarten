@@ -195,6 +195,33 @@
     card.exampleSource = "course_text";
   });
 
+  const approvedCardImages = {
+    "l2-review-spannend": "assets/art/a2e1-l2-review/card-spannend-v0.1.png",
+    "l2-review-augenoptikerin": "assets/art/a2e1-l2-review/card-augenoptikerin-v0.1.png",
+    "l2-review-pruefung": "assets/art/a2e1-l2-review/card-pruefung-v0.1.png",
+    "l2-review-zum-glueck": "assets/art/a2e1-l2-review/card-zum-glueck-noten-v0.1.png",
+    "l2-review-noten-bekommen": "assets/art/a2e1-l2-review/card-zum-glueck-noten-v0.1.png",
+    "l2-review-mieten": "assets/art/a2e1-l2-review/card-mieten-v0.1.png",
+    "l2-review-durch-das-land-fahren": "assets/art/a2e1-l2-review/card-durch-das-land-fahren-v0.2.png",
+    "l2-review-heiraten": "assets/art/a2e1-l2-review/card-heiraten-hochzeit-romantisch-v0.1.png",
+    "l2-review-organisieren": "assets/art/a2e1-l2-review/card-organisieren-v0.1.png",
+    "l2-review-hochzeit": "assets/art/a2e1-l2-review/card-heiraten-hochzeit-romantisch-v0.1.png",
+    "l2-review-romantisch": "assets/art/a2e1-l2-review/card-heiraten-hochzeit-romantisch-v0.1.png",
+    "l2-review-verwandte": "assets/art/a2e1-l2-review/card-verwandte-feiern-v0.1.png",
+    "l2-review-feiern": "assets/art/a2e1-l2-review/card-verwandte-feiern-v0.1.png",
+    "l2-review-umziehen": "assets/art/a2e1-l2-review/card-umziehen-v0.1.png",
+    "l2-review-weitersuchen": "assets/art/a2e1-l2-review/card-weitersuchen-v0.1.png",
+    "l2-review-apartment": "assets/art/a2e1-l2-review/card-apartment-v0.3.png",
+    "l2-review-aktiv": "assets/art/a2e1-l2-review/card-aktiv-v0.1.png",
+    "l2-review-kennenlernen": "assets/art/a2e1-l2-review/card-kennenlernen-v0.1.png",
+    "l2-review-teilnehmen": "assets/art/a2e1-l2-review/card-teilnehmen-v0.1.png",
+    "l2-review-verein": "assets/art/a2e1-l2-review/card-verein-v0.1.png",
+    "l2-review-sich-anmelden": "assets/art/a2e1-l2-review/card-sich-anmelden-v0.1.png"
+  };
+  cards.forEach((card) => {
+    card.image = approvedCardImages[card.id] || "";
+  });
+
   const lessons = window.DEUTSCHSTADT_PREVIEW_LESSONS || [];
   const existingLesson = lessons.find((lesson) => lesson.id === "A2E1L2-review");
   const lesson = {

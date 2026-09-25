@@ -3,9 +3,37 @@
 
   window.DEUTSCHSTADT_A2E1U3_READING_TASKS = [
     {
+      id: "l3-greta-letztes-jahr",
+      name: "L3 · Greta: letztes Jahr",
+      image: "assets/art/a2e1-u3-review/tasks/a2e1-u3-greta-letztes-jahr-task-v0.1.png",
+      audio: "assets/audio/a2/e1/u3/processed/A2E1-Greta-letztes-Jahr-web.mp3",
+      text: "Ach ja, es ist viel passiert. Letztes Jahr habe ich zum Beispiel meinen Freund kennengelernt. Eine Freundin von mir hatte Geburtstag und hat eine Party gefeiert. Da habe ich Jan zum ersten Mal getroffen. Wir haben den ganzen Abend geredet und getanzt. Na ja, und dann haben wir uns gleich am nächsten Tag wiedergesehen. Und seitdem treffen wir uns fast jeden Tag. Im Sommer sind wir zusammen für eine Woche in die Berge gefahren. Dort sind wir jeden Tag gewandert, das hat mir gut gefallen. Mein Job ist oft stressig und im Urlaub habe ich mich richtig ausgeruht. Hm, was noch …? Ach ja, ich mache ja viel Sport. Ich gehe ins Fitness-Studio und jogge viel. Und letztes Jahr bin ich zum ersten Mal einen Marathon gelaufen. Ich hab‘ natürlich nicht gewonnen, aber das Mitmachen war toll. Und ich war letztes Jahr zum ersten Mal in Berlin! Ich bin mit einer Freundin gefahren und wir haben viele Sehenswürdigkeiten besichtigt. Geschlafen haben wir in einer Jugendherberge, so war es nicht so teuer. Mal sehen, welche Reisen ich dieses Jahr mache.",
+      segments: [
+        segment("Ach ja, es ist viel passiert.", 0.568, 2.33),
+        segment("Letztes Jahr habe ich zum Beispiel meinen Freund kennengelernt.", 3.137, 6.263),
+        segment("Eine Freundin von mir hatte Geburtstag und hat eine Party gefeiert.", 7.138, 10.624),
+        segment("Da habe ich Jan zum ersten Mal getroffen.", 11.362, 13.437),
+        segment("Wir haben den ganzen Abend geredet und getanzt.", 14.313, 17.085),
+        segment("Na ja, und dann haben wir uns gleich am nächsten Tag wiedergesehen.", 17.639, 21.054),
+        segment("Und seitdem treffen wir uns fast jeden Tag.", 22.179, 24.57),
+        segment("Im Sommer sind wir zusammen für eine Woche in die Berge gefahren.", 25.46, 28.747),
+        segment("Dort sind wir jeden Tag gewandert, das hat mir gut gefallen.", 29.108, 32.457),
+        segment("Mein Job ist oft stressig und im Urlaub habe ich mich richtig ausgeruht.", 33.621, 38.172),
+        segment("Hm, was noch …?", 39.263, 40.896),
+        segment("Ach ja, ich mache ja viel Sport.", 41.251, 43.096),
+        segment("Ich gehe ins Fitness-Studio und jogge viel.", 43.79, 46.053),
+        segment("Und letztes Jahr bin ich zum ersten Mal einen Marathon gelaufen.", 47.095, 50.56),
+        segment("Ich hab‘ natürlich nicht gewonnen, aber das Mitmachen war toll.", 51.27, 54.576),
+        segment("Und ich war letztes Jahr zum ersten Mal in Berlin!", 55.878, 58.127),
+        segment("Ich bin mit einer Freundin gefahren und wir haben viele Sehenswürdigkeiten besichtigt.", 58.695, 62.926),
+        segment("Geschlafen haben wir in einer Jugendherberge, so war es nicht so teuer.", 63.915, 67.685),
+        segment("Mal sehen, welche Reisen ich dieses Jahr mache.", 68.556, 70.585)
+      ]
+    },
+    {
       id: "l3-termin",
       name: "L3 · Lea & Ben",
-      image: "",
+      image: "assets/art/a2e1-u3-review/tasks/a2e1-u3-lea-ben-termin-vereinbaren-task-v0.1.png",
       audio: "assets/audio/a2/e1/u3/source/A2E1-L3-Termin.mp3",
       text: "Hallo Lea! Hi Ben. Wie war dein Urlaub? Schön, aber viel zu kurz, leider. Und wie geht's deinem Vater? Er war richtig krank. Aber jetzt geht es ihm wieder ein bisschen besser. Das ist gut. Und wie geht's dir? Alles okay. Du, ich möchte dich mal wieder sehen. Dann musst du mir von deinem Urlaub erzählen. Gehen wir zusammen essen? Vielleicht am Wochenende? Oh ja, gern. Hast du am Samstagabend Zeit? Schade, da geht es leider nicht, weil ich zu einem Konzert gehe. Ich habe Tickets für Felix Jaehn in der Tonhalle. Cool! Und am Sonntag? Geht es da? Wir können zum Brunch gehen, ins „Central“ am Karlsplatz. Hast du Lust? Das ist eine gute Idee. Wann möchtest du dort sein? So um elf, geht das? Geht es auch ein bisschen später? Dann kann ich am Vormittag noch schwimmen. Ist zwölf Uhr gut? Ja, das passt. Dann sehen wir uns am Sonntag im „Central“. Ja, genau, am Sonntag um 12. Das ist doch super. Ich freue mich. Ciao, Lea. Ciao.",
       segments: [
@@ -29,7 +57,7 @@
     {
       id: "l4-essen-ohne-licht",
       name: "L4 · Gloria & Nele",
-      image: "",
+      image: "assets/art/a2e1-u3-review/tasks/a2e1-u3-gloria-nele-essen-ohne-licht-task-v0.1.png",
       audio: "assets/audio/a2/e1/u3/source/A2E1-L4-Essen-ohne-Licht.mp3",
       text: "Hast du es auch schon gehört, Gloria? In der Vorstadt gibt es ein neues Lokal, das „lichtlos“. Man kann dort Kaffee trinken und auch essen, aber es ist total dunkel, ohne Licht, eben lichtlos. Warst du schon dort, Nele? Nein, aber ein paar Freunde von mir. Es hat ihnen super gefallen. Man isst und trinkt, aber man sieht nichts dabei, gar nichts. Ich möchte da auch gern mal hingehen. Kommst du mit? Ich weiß nicht, ich finde das ziemlich komisch: Plötzlich ist das Licht aus. Nein, nein, da ist es immer dunkel. Komm, das wird spannend! Und wie findet man seinen Platz? Die Kellnerinnen und Kellner nehmen dich an der Hand und bringen dich zum Tisch. Und wie bestellt man? Man kann ja keine Speisekarte lesen. Das macht man beim Eingang, an der Rezeption. Dort bezahlt man auch nach dem Essen. Aber Essen ohne Licht, das ist schon komisch. Da kann man das Essen auf dem Teller gar nicht finden. Das sieht bestimmt dumm aus. Das macht doch nichts, du siehst nichts, aber alle anderen sehen auch nichts. Ich finde das interessant. Man muss da ganz anders aufpassen. Das möchte ich erleben. Wann willst du denn da hin? Vielleicht am Freitag in zwei Wochen. Hast du am 22. Zeit? Moment, am Freitag, am 22., ja, das geht. Wir können auch Ole und Simon fragen. Vielleicht kommen sie auch mit. Das ist eine gute Idee. Ich reserviere uns gleich mal einen Tisch.",
       segments: [
