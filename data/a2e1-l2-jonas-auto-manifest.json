@@ -1,0 +1,969 @@
+{
+  "version": "0.2",
+  "course_id": "",
+  "lesson_id": "",
+  "source_files": [
+    {
+      "file": "Jonas-L2.m4a",
+      "ownership": "teacher_recorded_original"
+    }
+  ],
+  "duration_seconds": 67.64,
+  "detected_speech_regions": 21,
+  "automatic": true,
+  "alignment_method": "forced_alignment",
+  "whisper_available": true,
+  "dry_run": false,
+  "segments": [
+    {
+      "segment_id": "lesson-s01",
+      "text": "Leben und studieren in Zürich.",
+      "source_audio": "Jonas-L2.m4a",
+      "start": 0.92,
+      "end": 4.59,
+      "audio_file": "Jonas-L2-s01.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Leben und Studieren in Zürich",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Leben",
+          "normalized": "leben",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "studieren",
+          "normalized": "studieren",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "in",
+          "normalized": "in",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Zürich.",
+          "normalized": "zürich",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "lesson-s02",
+      "text": "Ich bin letztes Jahr umgezogen, wohne jetzt in Zürich und studiere Biologie.",
+      "source_audio": "Jonas-L2.m4a",
+      "start": 5.31,
+      "end": 11.92,
+      "audio_file": "Jonas-L2-s02.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 0.955,
+      "method": "forced_alignment",
+      "recognized_text": "Ich bin letztes Jahr umgezogen wohnt jetzt in Zürich und studiere Biologie",
+      "match_score": 0.955,
+      "tokens": [
+        {
+          "token": "Ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "bin",
+          "normalized": "bin",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "letztes",
+          "normalized": "letztes",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Jahr",
+          "normalized": "jahr",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "umgezogen,",
+          "normalized": "umgezogen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "wohne",
+          "normalized": "wohne",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "jetzt",
+          "normalized": "jetzt",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "in",
+          "normalized": "in",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Zürich",
+          "normalized": "zürich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "studiere",
+          "normalized": "studiere",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Biologie.",
+          "normalized": "biologie",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "lesson-s03",
+      "text": "Im Herbst habe ich mein Studium angefangen.",
+      "source_audio": "Jonas-L2.m4a",
+      "start": 12.26,
+      "end": 15.71,
+      "audio_file": "Jonas-L2-s03.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Im Herbst habe ich mein Studium angefangen",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Im",
+          "normalized": "im",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Herbst",
+          "normalized": "herbst",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "habe",
+          "normalized": "habe",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "mein",
+          "normalized": "mein",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Studium",
+          "normalized": "studium",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "angefangen.",
+          "normalized": "angefangen",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "lesson-s04",
+      "text": "Zuerst habe ich keine Wohnung gefunden, aber ich habe immer weitergesucht und jetzt habe ich ein Apartment im Zentrum.",
+      "source_audio": "Jonas-L2.m4a",
+      "start": 16.1,
+      "end": 24.38,
+      "audio_file": "Jonas-L2-s04.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 0.903,
+      "method": "forced_alignment",
+      "recognized_text": "Zuerst habe ich keine Wohnung gefunden aber ich habe immer weiter gesucht und jetzt habe ich ein Empathment im Zentrum",
+      "match_score": 0.903,
+      "tokens": [
+        {
+          "token": "Zuerst",
+          "normalized": "zuerst",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "habe",
+          "normalized": "habe",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "keine",
+          "normalized": "keine",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Wohnung",
+          "normalized": "wohnung",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gefunden,",
+          "normalized": "gefunden",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "aber",
+          "normalized": "aber",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "habe",
+          "normalized": "habe",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "immer",
+          "normalized": "immer",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "weitergesucht",
+          "normalized": "weitergesucht",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "jetzt",
+          "normalized": "jetzt",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "habe",
+          "normalized": "habe",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ein",
+          "normalized": "ein",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Apartment",
+          "normalized": "apartment",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "im",
+          "normalized": "im",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Zentrum.",
+          "normalized": "zentrum",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "lesson-s05",
+      "text": "Das hat mir gleich gefallen.",
+      "source_audio": "Jonas-L2.m4a",
+      "start": 24.72,
+      "end": 27.44,
+      "audio_file": "Jonas-L2-s05.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 0.869,
+      "method": "forced_alignment",
+      "recognized_text": "Das hat mir gleich gefahren",
+      "match_score": 0.869,
+      "tokens": [
+        {
+          "token": "Das",
+          "normalized": "das",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "hat",
+          "normalized": "hat",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "mir",
+          "normalized": "mir",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gleich",
+          "normalized": "gleich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gefallen.",
+          "normalized": "gefallen",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "lesson-s06",
+      "text": "Meine Freundin ist dann auch nach Zürich gekommen, sie studiert Mathematik.",
+      "source_audio": "Jonas-L2.m4a",
+      "start": 27.71,
+      "end": 34.32,
+      "audio_file": "Jonas-L2-s06.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Meine Freundin ist dann auch nach Zürich gekommen Sie studiert Mathematik",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Meine",
+          "normalized": "meine",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Freundin",
+          "normalized": "freundin",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ist",
+          "normalized": "ist",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "dann",
+          "normalized": "dann",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "auch",
+          "normalized": "auch",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "nach",
+          "normalized": "nach",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Zürich",
+          "normalized": "zürich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gekommen,",
+          "normalized": "gekommen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "sie",
+          "normalized": "sie",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "studiert",
+          "normalized": "studiert",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Mathematik.",
+          "normalized": "mathematik",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "lesson-s07",
+      "text": "Vorher hat sie in Bern gewohnt, aber jetzt leben wir zusammen.",
+      "source_audio": "Jonas-L2.m4a",
+      "start": 34.39,
+      "end": 40.21,
+      "audio_file": "Jonas-L2-s07.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 0.945,
+      "method": "forced_alignment",
+      "recognized_text": "Vorher hat sie ihm Bern gewohnt aber jetzt leben wir zusammen",
+      "match_score": 0.945,
+      "tokens": [
+        {
+          "token": "Vorher",
+          "normalized": "vorher",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "hat",
+          "normalized": "hat",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "sie",
+          "normalized": "sie",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "in",
+          "normalized": "in",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Bern",
+          "normalized": "bern",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gewohnt,",
+          "normalized": "gewohnt",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "aber",
+          "normalized": "aber",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "jetzt",
+          "normalized": "jetzt",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "leben",
+          "normalized": "leben",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "wir",
+          "normalized": "wir",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "zusammen.",
+          "normalized": "zusammen",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "lesson-s08",
+      "text": "Für zwei Leute ist die Wohnung etwas klein, aber es geht.",
+      "source_audio": "Jonas-L2.m4a",
+      "start": 40.7,
+      "end": 45.6,
+      "audio_file": "Jonas-L2-s08.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Für zwei Leute ist die Wohnung etwas klein aber es geht",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Für",
+          "normalized": "für",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "zwei",
+          "normalized": "zwei",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Leute",
+          "normalized": "leute",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ist",
+          "normalized": "ist",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "die",
+          "normalized": "die",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Wohnung",
+          "normalized": "wohnung",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "etwas",
+          "normalized": "etwas",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "klein,",
+          "normalized": "klein",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "aber",
+          "normalized": "aber",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "es",
+          "normalized": "es",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "geht.",
+          "normalized": "geht",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "lesson-s09",
+      "text": "Wir sind sehr aktiv und haben schon viele Leute kennengelernt, das ist toll.",
+      "source_audio": "Jonas-L2.m4a",
+      "start": 45.86,
+      "end": 51.71,
+      "audio_file": "Jonas-L2-s09.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Wir sind sehr aktiv und haben schon viele Leute kennengelernt Das ist toll",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Wir",
+          "normalized": "wir",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "sind",
+          "normalized": "sind",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "sehr",
+          "normalized": "sehr",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "aktiv",
+          "normalized": "aktiv",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "haben",
+          "normalized": "haben",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "schon",
+          "normalized": "schon",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "viele",
+          "normalized": "viele",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Leute",
+          "normalized": "leute",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "kennengelernt,",
+          "normalized": "kennengelernt",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "das",
+          "normalized": "das",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ist",
+          "normalized": "ist",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "toll.",
+          "normalized": "toll",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "lesson-s10",
+      "text": "Und ich habe jetzt ein neues Hobby: Ich spiele Tennis.",
+      "source_audio": "Jonas-L2.m4a",
+      "start": 51.91,
+      "end": 56.73,
+      "audio_file": "Jonas-L2-s10.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Und ich habe jetzt ein neues Hobby Ich spiele Tennis",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "habe",
+          "normalized": "habe",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "jetzt",
+          "normalized": "jetzt",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ein",
+          "normalized": "ein",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "neues",
+          "normalized": "neues",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Hobby:",
+          "normalized": "hobby",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "spiele",
+          "normalized": "spiele",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Tennis.",
+          "normalized": "tennis",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "lesson-s11",
+      "text": "Ich habe an einem Kurs teilgenommen und es macht wirklich Spaß.",
+      "source_audio": "Jonas-L2.m4a",
+      "start": 57.22,
+      "end": 63.06,
+      "audio_file": "Jonas-L2-s11.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Ich habe an einem Kurs teilgenommen und es macht wirklich Spaß",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "habe",
+          "normalized": "habe",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "an",
+          "normalized": "an",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "einem",
+          "normalized": "einem",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Kurs",
+          "normalized": "kurs",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "teilgenommen",
+          "normalized": "teilgenommen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "es",
+          "normalized": "es",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "macht",
+          "normalized": "macht",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "wirklich",
+          "normalized": "wirklich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Spaß.",
+          "normalized": "spaß",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "lesson-s12",
+      "text": "Vielleicht melde ich mich bald in einem Verein an.",
+      "source_audio": "Jonas-L2.m4a",
+      "start": 63.32,
+      "end": 66.84,
+      "audio_file": "Jonas-L2-s12.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Vielleicht melde ich mich bald in einem Verein an",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Vielleicht",
+          "normalized": "vielleicht",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "melde",
+          "normalized": "melde",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "mich",
+          "normalized": "mich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "bald",
+          "normalized": "bald",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "in",
+          "normalized": "in",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "einem",
+          "normalized": "einem",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Verein",
+          "normalized": "verein",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "an.",
+          "normalized": "an",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    }
+  ],
+  "review_required": true,
+  "generated_by": "deutschstadt-audio-prep"
+}

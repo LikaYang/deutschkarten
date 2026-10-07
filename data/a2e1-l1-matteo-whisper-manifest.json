@@ -1,0 +1,329 @@
+{
+  "version": "0.2",
+  "course_id": "A2E1",
+  "lesson_id": "A2E1L1",
+  "source_files": [
+    {
+      "file": "Matteo.m4a",
+      "ownership": "teacher_recorded_original"
+    }
+  ],
+  "duration_seconds": 23.755,
+  "detected_speech_regions": 8,
+  "automatic": true,
+  "alignment_method": "forced_alignment",
+  "whisper_available": true,
+  "dry_run": false,
+  "segments": [
+    {
+      "segment_id": "A2E1L1-s01",
+      "text": "Ich heiße Matteo.",
+      "source_audio": "Matteo.m4a",
+      "start": 0.15,
+      "end": 3.7,
+      "audio_file": "Matteo-s01.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 0.833,
+      "method": "forced_alignment",
+      "recognized_text": "Ich heiße Mateo",
+      "match_score": 0.833,
+      "tokens": [
+        {
+          "token": "Ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "heiße",
+          "normalized": "heiße",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Matteo.",
+          "normalized": "matteo",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "A2E1L1-s02",
+      "text": "Meine Mutter kommt aus Österreich und mein Vater ist in Italien geboren.",
+      "source_audio": "Matteo.m4a",
+      "start": 3.92,
+      "end": 9.67,
+      "audio_file": "Matteo-s02.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Meine Mutter kommt aus Österreich und mein Vater ist in Italien geboren",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Meine",
+          "normalized": "meine",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Mutter",
+          "normalized": "mutter",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "kommt",
+          "normalized": "kommt",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "aus",
+          "normalized": "aus",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Österreich",
+          "normalized": "österreich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "mein",
+          "normalized": "mein",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Vater",
+          "normalized": "vater",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ist",
+          "normalized": "ist",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "in",
+          "normalized": "in",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Italien",
+          "normalized": "italien",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "geboren.",
+          "normalized": "geboren",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "A2E1L1-s03",
+      "text": "Ich habe also zwei Muttersprachen und spreche Italienisch und Deutsch fließend.",
+      "source_audio": "Matteo.m4a",
+      "start": 10.08,
+      "end": 16.51,
+      "audio_file": "Matteo-s03.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Ich habe also zwei Muttersprachen und spreche italienisch und Deutsch fließend",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "habe",
+          "normalized": "habe",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "also",
+          "normalized": "also",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "zwei",
+          "normalized": "zwei",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Muttersprachen",
+          "normalized": "muttersprachen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "spreche",
+          "normalized": "spreche",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Italienisch",
+          "normalized": "italienisch",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Deutsch",
+          "normalized": "deutsch",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "fließend.",
+          "normalized": "fließend",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "A2E1L1-s04",
+      "text": "Ich habe auch Englisch und Französisch gelernt, aber Französisch spreche ich nur ein bisschen.",
+      "source_audio": "Matteo.m4a",
+      "start": 17.08,
+      "end": 23.51,
+      "audio_file": "Matteo-s04.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 0.953,
+      "method": "forced_alignment",
+      "recognized_text": "Ich habe auch ähnlich und französisch gelernt aber französisch spreche ich nur ein bisschen",
+      "match_score": 0.953,
+      "tokens": [
+        {
+          "token": "Ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "habe",
+          "normalized": "habe",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "auch",
+          "normalized": "auch",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Englisch",
+          "normalized": "englisch",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Französisch",
+          "normalized": "französisch",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gelernt,",
+          "normalized": "gelernt",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "aber",
+          "normalized": "aber",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Französisch",
+          "normalized": "französisch",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "spreche",
+          "normalized": "spreche",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "nur",
+          "normalized": "nur",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ein",
+          "normalized": "ein",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "bisschen.",
+          "normalized": "bisschen",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    }
+  ],
+  "review_required": true,
+  "generated_by": "deutschstadt-audio-prep"
+}

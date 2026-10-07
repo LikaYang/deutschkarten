@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Memory · Deutschcards</title>
+<style>
+*{box-sizing:border-box}body{margin:0;color:#2d211b;background:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif}main{max-width:760px;margin:auto;padding:18px 16px 32px}header{display:flex;align-items:center;justify-content:space-between;gap:12px}a{color:#c75f13;text-decoration:none}h1{font-size:28px;margin:24px 0 8px}.stats{color:#75685f;font-size:14px}.board{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:22px 0}.tile{aspect-ratio:1;min-width:0;padding:6px;border:1px solid #f0c89d;border-radius:8px;background:#fff4e7;color:#c75f13;font:inherit;cursor:pointer;display:grid;place-items:center;transition:background .15s,transform .15s}.tile:hover{transform:translateY(-2px)}.tile:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid #f5821f;outline-offset:3px}.tile.open{background:#fff;color:#2d211b}.tile.matched{background:#edf7f0;border-color:#4f9f6f;color:#235a37}.cover{font-size:28px;font-weight:700}.symbol{font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;font-size:48px;line-height:1}.word{font-size:16px;font-weight:650;text-align:center;overflow-wrap:anywhere;line-height:1.35}.status{min-height:48px;line-height:1.5;margin:10px 0}.finish{text-align:center;padding:12px 0}.restart{min-height:48px;width:100%;padding:12px;border:0;border-radius:8px;background:#f5821f;color:white;font:inherit;font-weight:700;cursor:pointer}[hidden]{display:none!important}@media(min-width:640px){.board{grid-template-columns:repeat(4,minmax(0,1fr))}.symbol{font-size:64px}.word{font-size:20px}}@media(max-width:350px){main{padding:14px 10px}.board{gap:6px}.word{font-size:14px}.symbol{font-size:40px}}
+</style>
+</head>
+<body>
+<main>
+<header><a href="index.html">← Zurück</a><span class="stats" id="stats"></span></header>
+<h1>Memory</h1>
+<p>Bild & Wort</p>
+<div class="board" id="board" aria-label="Memory"></div>
+<p class="status" id="status" aria-live="polite" role="status"></p>
+<button id="replay" type="button" aria-label="Wort noch einmal anhören" title="Noch einmal anhören" hidden style="min-height:44px;min-width:44px;border:1px solid #f0c89d;border-radius:8px;background:white;color:#c75f13;cursor:pointer">♫</button>
+<div class="finish" id="finish" hidden><h2>Alle Paare gefunden!</h2></div>
+<button class="restart" id="restart">Neu mischen ↻</button>
+</main>
+<script src="data/ja-oder-nein-decks.js"></script>
+<script src="data/game-center-bridge.js"></script>
+<script>
+const byId=id=>document.getElementById(id);
+const shuffle=items=>{const a=[...items];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+let tiles=[],opened=[],matched=new Set(),moves=0,locked=false,resetTimer;
+let lastMatchedWord='';
+function speakGerman(text){
+  if(window.DEUTSCHSTADT_GAME_SPEAK){window.DEUTSCHSTADT_GAME_SPEAK(text);return}
+  if(!('speechSynthesis' in window))return;
+  window.speechSynthesis.cancel();
+  const utterance=new SpeechSynthesisUtterance(text);
+  utterance.lang='de-DE';utterance.rate=.86;
+  const voices=window.speechSynthesis.getVoices();
+  const voice=voices.find(v=>v.lang==='de-DE')||voices.find(v=>/^de[-_]/i.test(v.lang));
+  if(voice)utterance.voice=voice;
+  window.speechSynthesis.speak(utterance);
+}
+function start(){
+  clearTimeout(resetTimer);
+  if('speechSynthesis' in window)window.speechSynthesis.cancel();
+  lastMatchedWord='';byId('replay').hidden=true;
+  const deck=(window.DEUTSCHSTADT_JA_NEIN_DECKS||[]).find(d=>d.id==='everyday-objects-basic');
+  const pool=deck?.cards.filter(c=>c.symbol||c.image)||[];
+  const cards=window.DEUTSCHSTADT_GAME_DRAW?window.DEUTSCHSTADT_GAME_DRAW(pool,8):shuffle(pool).slice(0,8);
+  tiles=shuffle(cards.flatMap(card=>[{card,type:'image'},{card,type:'word'}]));
+  opened=[];matched=new Set();moves=0;locked=false;byId('status').textContent='';byId('finish').hidden=true;
+  byId('board').replaceChildren();
+  tiles.forEach((tile,index)=>{const b=document.createElement('button');b.type='button';b.className='tile';b.onclick=()=>flip(index);byId('board').append(b)});
+  render();
+}
+function render(){
+  byId('stats').textContent=`${matched.size} / ${tiles.length/2} Paare · ${moves} Züge`;
+  [...byId('board').children].forEach((b,i)=>{
+    const tile=tiles[i],found=matched.has(tile.card.id),visible=found||opened.includes(i);
+    b.className='tile'+(visible?' open':'')+(found?' matched':'');b.disabled=found;
+    const span=document.createElement('span');span.className=visible?(tile.type==='image'?'symbol':'word'):'cover';span.textContent=visible?(tile.type==='image'?tile.card.symbol:tile.card.front):'?';
+    b.replaceChildren(span);b.setAttribute('aria-label',visible?(tile.type==='image'?'Bild':tile.card.front):`Karte ${i+1}`);b.setAttribute('aria-pressed',String(visible));
+    if(visible&&tile.type==='image'&&tile.card.image){const img=new Image();img.src=tile.card.image;img.alt='';img.decoding='async';img.style.cssText='width:100%;height:100%;max-height:110px;object-fit:contain';b.replaceChildren(img)}
+  });
+}
+function flip(index){
+  if(locked||matched.has(tiles[index].card.id))return;
+  if(opened.includes(index)){if(tiles[index].type==='word')speakGerman(tiles[index].card.front);return}
+  if(tiles[index].type==='word')speakGerman(tiles[index].card.front);
+  opened.push(index);render();if(opened.length<2)return;
+  moves++;const [a,b]=opened.map(i=>tiles[i]);
+  window.DEUTSCHSTADT_GAME_ANSWER?.({cardId:a.card.id,value:b.card.id,answer:a.card.id,correct:a.card.id===b.card.id,prompt:a.type+': '+a.card.front,selectedCardIds:[a.card.id,b.card.id]});
+  if(a.card.id===b.card.id){matched.add(a.card.id);opened=[];lastMatchedWord=a.card.front;byId('replay').hidden=!('speechSynthesis' in window);byId('status').textContent=`✓ ${a.card.front} — ${a.card.zh}`;speakGerman(a.card.front);render();if(matched.size===tiles.length/2){byId('finish').hidden=false;byId('restart').textContent='Noch einmal ↻'}}
+  else{locked=true;byId('status').textContent='';render();resetTimer=setTimeout(()=>{opened=[];locked=false;render()},1100)}
+}
+byId('restart').onclick=()=>{byId('restart').textContent='Neu mischen ↻';start()};start();
+byId('replay').onclick=()=>speakGerman(lastMatchedWord);
+new MutationObserver(()=>{if(!byId('finish').hidden)window.DEUTSCHSTADT_GAME_DONE?.({pairs:matched.size,moves,cardIds:[...matched]})}).observe(byId('finish'),{attributes:true,attributeFilter:['hidden']});
+window.addEventListener('pagehide',()=>{if('speechSynthesis' in window)window.speechSynthesis.cancel()});
+</script>
+</body>
+</html>

@@ -1,0 +1,1002 @@
+{
+  "version": "0.2",
+  "course_id": "",
+  "lesson_id": "",
+  "source_files": [
+    {
+      "file": "Julia-L2.m4a",
+      "ownership": "teacher_recorded_original"
+    }
+  ],
+  "duration_seconds": 73.236,
+  "detected_speech_regions": 24,
+  "automatic": true,
+  "alignment_method": "forced_alignment",
+  "whisper_available": true,
+  "dry_run": false,
+  "segments": [
+    {
+      "segment_id": "lesson-s01",
+      "text": "Prüfung, Urlaub und ein Fest.",
+      "source_audio": "Julia-L2.m4a",
+      "start": 0.05,
+      "end": 4.82,
+      "audio_file": "Julia-L2-s01.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Prüfung Urlaub und ein Fest",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Prüfung,",
+          "normalized": "prüfung",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Urlaub",
+          "normalized": "urlaub",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ein",
+          "normalized": "ein",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Fest.",
+          "normalized": "fest",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "lesson-s02",
+      "text": "Das letzte Jahr war echt spannend.",
+      "source_audio": "Julia-L2.m4a",
+      "start": 5.56,
+      "end": 8.06,
+      "audio_file": "Julia-L2-s02.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Das letzte Jahr war echt spannend",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Das",
+          "normalized": "das",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "letzte",
+          "normalized": "letzte",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Jahr",
+          "normalized": "jahr",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "war",
+          "normalized": "war",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "echt",
+          "normalized": "echt",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "spannend.",
+          "normalized": "spannend",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "lesson-s03",
+      "text": "Es ist viel passiert.",
+      "source_audio": "Julia-L2.m4a",
+      "start": 9.11,
+      "end": 10.52,
+      "audio_file": "Julia-L2-s03.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Es ist viel passiert",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Es",
+          "normalized": "es",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ist",
+          "normalized": "ist",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "viel",
+          "normalized": "viel",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "passiert.",
+          "normalized": "passiert",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "lesson-s04",
+      "text": "Ich habe meine Ausbildung zur Augenoptikerin beendet.",
+      "source_audio": "Julia-L2.m4a",
+      "start": 10.83,
+      "end": 16.11,
+      "audio_file": "Julia-L2-s04.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Ich habe meine Ausbildung zur Augenoptikerin beendet",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "habe",
+          "normalized": "habe",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "meine",
+          "normalized": "meine",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Ausbildung",
+          "normalized": "ausbildung",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "zur",
+          "normalized": "zur",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Augenoptikerin",
+          "normalized": "augenoptikerin",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "beendet.",
+          "normalized": "beendet",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "lesson-s05",
+      "text": "Im Juni habe ich meine Prüfungen geschrieben.",
+      "source_audio": "Julia-L2.m4a",
+      "start": 16.54,
+      "end": 20.6,
+      "audio_file": "Julia-L2-s05.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 0.929,
+      "method": "forced_alignment",
+      "recognized_text": "Im Uni habe ich meine Prüfungen geschrieben",
+      "match_score": 0.929,
+      "tokens": [
+        {
+          "token": "Im",
+          "normalized": "im",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Juni",
+          "normalized": "juni",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "habe",
+          "normalized": "habe",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "meine",
+          "normalized": "meine",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Prüfungen",
+          "normalized": "prüfungen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "geschrieben.",
+          "normalized": "geschrieben",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "lesson-s06",
+      "text": "Ich habe sehr viel gelernt.",
+      "source_audio": "Julia-L2.m4a",
+      "start": 20.67,
+      "end": 23.06,
+      "audio_file": "Julia-L2-s06.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Ich habe sehr viel gelernt",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "habe",
+          "normalized": "habe",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "sehr",
+          "normalized": "sehr",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "viel",
+          "normalized": "viel",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gelernt.",
+          "normalized": "gelernt",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "lesson-s07",
+      "text": "Das war natürlich stressig.",
+      "source_audio": "Julia-L2.m4a",
+      "start": 23.55,
+      "end": 26.23,
+      "audio_file": "Julia-L2-s07.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Das war natürlich stressig",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Das",
+          "normalized": "das",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "war",
+          "normalized": "war",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "natürlich",
+          "normalized": "natürlich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "stressig.",
+          "normalized": "stressig",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "lesson-s08",
+      "text": "Zum Glück habe ich gute Noten bekommen.",
+      "source_audio": "Julia-L2.m4a",
+      "start": 26.58,
+      "end": 30.19,
+      "audio_file": "Julia-L2-s08.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Zum Glück habe ich gute Noten bekommen",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Zum",
+          "normalized": "zum",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Glück",
+          "normalized": "glück",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "habe",
+          "normalized": "habe",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gute",
+          "normalized": "gute",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Noten",
+          "normalized": "noten",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "bekommen.",
+          "normalized": "bekommen",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "lesson-s09",
+      "text": "Dann bin ich mit einer Freundin nach Spanien geflogen.",
+      "source_audio": "Julia-L2.m4a",
+      "start": 30.57,
+      "end": 34.93,
+      "audio_file": "Julia-L2-s09.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Dann bin ich mit einer Freundin nach Spanien geflogen",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Dann",
+          "normalized": "dann",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "bin",
+          "normalized": "bin",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "mit",
+          "normalized": "mit",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "einer",
+          "normalized": "einer",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Freundin",
+          "normalized": "freundin",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "nach",
+          "normalized": "nach",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Spanien",
+          "normalized": "spanien",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "geflogen.",
+          "normalized": "geflogen",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "lesson-s10",
+      "text": "Lilly hat früher dort gelebt und spricht perfekt Spanisch.",
+      "source_audio": "Julia-L2.m4a",
+      "start": 35.49,
+      "end": 40.87,
+      "audio_file": "Julia-L2-s10.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Lilly hat früher dort gelebt und spricht perfekt spanisch",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Lilly",
+          "normalized": "lilly",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "hat",
+          "normalized": "hat",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "früher",
+          "normalized": "früher",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "dort",
+          "normalized": "dort",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gelebt",
+          "normalized": "gelebt",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "spricht",
+          "normalized": "spricht",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "perfekt",
+          "normalized": "perfekt",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Spanisch.",
+          "normalized": "spanisch",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "lesson-s11",
+      "text": "Wir haben ein Auto gemietet und sind drei Wochen lang durch das Land gefahren.",
+      "source_audio": "Julia-L2.m4a",
+      "start": 41.28,
+      "end": 47.52,
+      "audio_file": "Julia-L2-s11.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Wir haben ein Auto gemietet und sind drei Wochen lang durch das Land gefahren",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Wir",
+          "normalized": "wir",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "haben",
+          "normalized": "haben",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ein",
+          "normalized": "ein",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Auto",
+          "normalized": "auto",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gemietet",
+          "normalized": "gemietet",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "sind",
+          "normalized": "sind",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "drei",
+          "normalized": "drei",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Wochen",
+          "normalized": "wochen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "lang",
+          "normalized": "lang",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "durch",
+          "normalized": "durch",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "das",
+          "normalized": "das",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Land",
+          "normalized": "land",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gefahren.",
+          "normalized": "gefahren",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "lesson-s12",
+      "text": "Wir haben auch Lillys Freunde in Madrid besucht.",
+      "source_audio": "Julia-L2.m4a",
+      "start": 47.97,
+      "end": 52.06,
+      "audio_file": "Julia-L2-s12.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 0.774,
+      "method": "forced_alignment",
+      "recognized_text": "Wir haben auch Lilly's Freunde im Maatret besucht",
+      "match_score": 0.774,
+      "tokens": [
+        {
+          "token": "Wir",
+          "normalized": "wir",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "haben",
+          "normalized": "haben",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "auch",
+          "normalized": "auch",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Lillys",
+          "normalized": "lillys",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Freunde",
+          "normalized": "freunde",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "in",
+          "normalized": "in",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Madrid",
+          "normalized": "madrid",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "besucht.",
+          "normalized": "besucht",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "lesson-s13",
+      "text": "Im August hat meine Schwester geheiratet und ich habe mit ihr zusammen das Fest organisiert.",
+      "source_audio": "Julia-L2.m4a",
+      "start": 52.47,
+      "end": 60.26,
+      "audio_file": "Julia-L2-s13.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 0.952,
+      "method": "forced_alignment",
+      "recognized_text": "Im August hat meine Schwester geheichert und ich habe mit ihr zusammen das Fest organisiert",
+      "match_score": 0.952,
+      "tokens": [
+        {
+          "token": "Im",
+          "normalized": "im",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "August",
+          "normalized": "august",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "hat",
+          "normalized": "hat",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "meine",
+          "normalized": "meine",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Schwester",
+          "normalized": "schwester",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "geheiratet",
+          "normalized": "geheiratet",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "habe",
+          "normalized": "habe",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "mit",
+          "normalized": "mit",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ihr",
+          "normalized": "ihr",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "zusammen",
+          "normalized": "zusammen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "das",
+          "normalized": "das",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Fest",
+          "normalized": "fest",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "organisiert.",
+          "normalized": "organisiert",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "lesson-s14",
+      "text": "Das war viel Arbeit, aber die Hochzeit war wirklich romantisch.",
+      "source_audio": "Julia-L2.m4a",
+      "start": 60.57,
+      "end": 66.22,
+      "audio_file": "Julia-L2-s14.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Das war viel Arbeit aber die Hochzeit war wirklich romantisch",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Das",
+          "normalized": "das",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "war",
+          "normalized": "war",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "viel",
+          "normalized": "viel",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Arbeit,",
+          "normalized": "arbeit",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "aber",
+          "normalized": "aber",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "die",
+          "normalized": "die",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Hochzeit",
+          "normalized": "hochzeit",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "war",
+          "normalized": "war",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "wirklich",
+          "normalized": "wirklich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "romantisch.",
+          "normalized": "romantisch",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "lesson-s15",
+      "text": "Viele Freunde und Verwandte sind gekommen und wir haben zusammen gefeiert.",
+      "source_audio": "Julia-L2.m4a",
+      "start": 66.65,
+      "end": 72.37,
+      "audio_file": "Julia-L2-s15.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Viele Freunde und Verwandte sind gekommen und wir haben zusammen gefeiert",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Viele",
+          "normalized": "viele",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Freunde",
+          "normalized": "freunde",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Verwandte",
+          "normalized": "verwandte",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "sind",
+          "normalized": "sind",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gekommen",
+          "normalized": "gekommen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "wir",
+          "normalized": "wir",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "haben",
+          "normalized": "haben",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "zusammen",
+          "normalized": "zusammen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gefeiert.",
+          "normalized": "gefeiert",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    }
+  ],
+  "review_required": true,
+  "generated_by": "deutschstadt-audio-prep"
+}

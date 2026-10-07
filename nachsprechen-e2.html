@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="de">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>A2E2 Nachsprechen</title></head>
+<body>
+<a href="nachsprechen.html?course=a2e2&amp;lesson=L1">A2E2 Nachsprechen</a>
+<script>
+  // Use the existing reader, rather than a second copy of its engine.
+  const params = new URLSearchParams(location.search);
+  params.set("course", "a2e2");
+  location.replace(`nachsprechen.html?${params}`);
+</script>
+</body></html>

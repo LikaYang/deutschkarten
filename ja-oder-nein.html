@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Ja oder Nein · Deutschcards</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;background:#fff;color:#2d211b;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif}main{max-width:620px;margin:auto;padding:18px 16px 28px}header{display:flex;justify-content:space-between;align-items:center;gap:12px}a{color:#c75f13;text-decoration:none}h1{font-size:28px;margin:24px 0 8px}p{line-height:1.5}button{font:inherit;cursor:pointer;min-height:52px;border:1px solid #f0c89d;border-radius:8px;background:white;color:#2d211b;padding:12px 18px;font-weight:700}button:disabled{cursor:default;opacity:.65}button:focus-visible,a:focus-visible{outline:3px solid #f5821f;outline-offset:3px}.scene{aspect-ratio:4/3;background:#f7f7f7;border-radius:8px;overflow:hidden;margin:18px 0;display:grid;place-items:center}.scene img{width:100%;height:100%;object-fit:contain}.word{text-align:center;font-size:24px;min-height:60px;overflow-wrap:anywhere}.actions{display:grid;grid-template-columns:1fr 1fr;gap:12px}.yes{background:#edf7f0;border-color:#4f9f6f}.no{background:#fff0ec;border-color:#c65a4a}.feedback{text-align:center;min-height:70px;margin:16px 0}.next{width:100%;background:#f5821f;color:white}.progress{height:5px;background:#eee;margin:16px 0}.progress span{display:block;height:100%;background:#f5821f;transition:width .2s}select{max-width:100%;font:inherit;padding:10px;border:1px solid #f0c89d;border-radius:8px;background:white}.done{text-align:center;padding:48px 0}.done h2{font-size:28px}small{color:#75685f}[hidden]{display:none!important}@media(max-width:360px){h1{font-size:24px}.word{font-size:21px}main{padding:14px 12px}}
+  </style>
+</head>
+<body>
+<main>
+  <header><a href="index.html">← Zurück</a><small id="counter"></small></header>
+  <h1>Ja oder Nein?</h1>
+  <select id="deck" aria-label="Kartenpaket"></select>
+  <div class="progress"><span id="bar"></span></div>
+  <section id="game">
+    <div class="scene" id="scene"></div>
+    <h2 class="word" id="word"></h2>
+    <div class="actions"><button class="yes" id="yes">✓ Ja</button><button class="no" id="no">✕ Nein</button></div>
+    <p class="feedback" id="feedback" role="status" aria-live="polite"></p>
+    <button class="next" id="next" hidden>Weiter →</button>
+  </section>
+  <section class="done" id="done" hidden><h2>Runde geschafft!</h2><p id="result"></p><button class="next" id="again">Noch einmal</button></section>
+</main>
+<script src="data/ja-oder-nein-decks.js"></script>
+<script src="data/game-center-bridge.js"></script>
+<script>
+  function flagImage(flag){
+    const width=flag.cross?200:300;
+    const shapes=flag.cross?'<rect width="200" height="200" fill="#da291c"/><path d="M80 40h40v40h40v40h-40v40H80v-40H40V80h40z" fill="#fff"/>':flag.stripes.map((color,i)=>`<rect x="${flag.vertical?i*300/flag.stripes.length:0}" y="${flag.vertical?0:i*200/flag.stripes.length}" width="${flag.vertical?300/flag.stripes.length:300}" height="${flag.vertical?200:200/flag.stripes.length}" fill="${color}"/>`).join('');
+    return 'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} 200">${shapes}</svg>`);
+  }
+  const decks=(window.DEUTSCHSTADT_JA_NEIN_DECKS||[]).map(deck=>({...deck,cards:deck.cards.map(card=>({...card,image:card.flag?flagImage(card.flag):card.image}))}));
+  const el=id=>document.getElementById(id);
+  const symbolStyle=document.createElement('style');
+  symbolStyle.textContent='.scene .object-symbol{font-size:112px;line-height:1;font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif}';
+  document.head.append(symbolStyle);
+  const shuffle=items=>{const a=[...items];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+  let questions=[],position=0,score=0,answered=false;
+  for(const [i,d] of decks.entries()){const o=document.createElement('option');o.value=i;o.textContent=d.label;el('deck').append(o)}
+  function start(){
+    const cards=decks[Number(el('deck').value)]?.cards.filter(c=>c.image||c.symbol)||[];
+    if(cards.length<2){el('feedback').textContent='Keine Bildkarten verfügbar.';el('yes').disabled=el('no').disabled=true;return}
+    const truths=shuffle(Array.from({length:Math.min(10,cards.length)},(_,i)=>i%2===0));
+    const drawn=window.DEUTSCHSTADT_GAME_DRAW?window.DEUTSCHSTADT_GAME_DRAW(cards,10):shuffle(cards).slice(0,10);
+    questions=drawn.map((card,i)=>{const match=truths[i];const alternatives=cards.filter(c=>c.id!==card.id&&c.front!==card.front);return {card,match:match||!alternatives.length,label:match||!alternatives.length?card.front:alternatives[Math.floor(Math.random()*alternatives.length)].front}});
+    position=score=0;el('game').hidden=false;el('done').hidden=true;render();
+  }
+  function render(){
+    answered=false;const q=questions[position];el('counter').textContent=`${position+1} / ${questions.length}`;el('bar').style.width=`${position/questions.length*100}%`;
+    if(q.card.symbol){const symbol=document.createElement('span');symbol.className='object-symbol';symbol.textContent=q.card.symbol;symbol.setAttribute('aria-hidden','true');el('scene').replaceChildren(symbol)}else{
+      const img=new Image();img.alt='';img.decoding='async';img.src=q.card.image;img.onerror=()=>{el('scene').textContent='Bild nicht verfügbar';el('yes').disabled=el('no').disabled=true;el('next').hidden=false};el('scene').replaceChildren(img);
+    }
+    el('word').textContent=q.label+'?';el('feedback').textContent='';el('yes').disabled=el('no').disabled=false;el('next').hidden=true;
+    const next=questions[position+1];if(next?.card.image){const preload=new Image();preload.src=next.card.image}
+  }
+  function answer(value){if(answered)return;answered=true;const q=questions[position],correct=value===q.match;window.DEUTSCHSTADT_GAME_ANSWER?.({cardId:q.card.id,value,answer:q.match,correct,prompt:q.card.front});if(correct)score++;el('yes').disabled=el('no').disabled=true;el('feedback').textContent=`${correct?'✓ Richtig!':'Noch einmal merken:'} ${q.card.front} — ${q.card.zh||''}`;el('next').hidden=false;el('next').textContent=position===questions.length-1?'Ergebnis →':'Weiter →'}
+  el('yes').onclick=()=>answer(true);el('no').onclick=()=>answer(false);
+  el('word').onclick=()=>window.DEUTSCHSTADT_GAME_SPEAK?.(questions[position]?.label);
+  const completionObserver=new MutationObserver(()=>{if(!el('done').hidden)window.DEUTSCHSTADT_GAME_DONE?.({score,total:questions.length,cardIds:questions.map(q=>q.card.id)})});completionObserver.observe(el('done'),{attributes:true,attributeFilter:['hidden']});
+  el('next').onclick=()=>{if(++position<questions.length){render();return}el('game').hidden=true;el('done').hidden=false;el('counter').textContent=`${questions.length} / ${questions.length}`;el('bar').style.width='100%';el('result').textContent=`${score} / ${questions.length} richtig`;};
+  el('again').onclick=start;el('deck').onchange=start;start();
+</script>
+</body>
+</html>

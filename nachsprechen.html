@@ -50,6 +50,8 @@
       margin: 0 auto;
     }
 
+    .app[hidden], .visual[hidden] { display: none; }
+
     .topbar {
       display: grid;
       gap: 10px;
@@ -222,6 +224,7 @@
       text-underline-offset: 4px;
       cursor: pointer;
     }
+    .word-token.speaking { color: #8b3d00; background: #ffe0ae; outline: 2px solid #ed9b43; border-radius: 3px; }
 
     .audio-controls {
       display: grid;
@@ -574,16 +577,42 @@
         grid-template-columns: 1fr;
       }
     }
+    /* Shared compact reading surface for standalone and embedded lessons. */
+    body { padding: 8px; }
+    .app { width: min(100%, 1040px); height: calc(100dvh - 16px); min-height: 0; grid-template-rows: auto minmax(0, 1fr); gap: 8px; }
+    .topbar { grid-template-columns: 44px minmax(0, 1fr); align-items: center; gap: 8px; padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; }
+    .topbar .eyebrow, .topbar .counter, .topbar .dots, .instruction { display: none; }
+    .back-button { width: 44px; height: 44px; min-height: 44px; padding: 0; border-radius: 8px; font-size: 22px; }
+    .title-row { min-width: 0; align-items: center; gap: 8px; }
+    .topbar h1 { min-width: 0; font-size: 20px; line-height: 1.25; overflow-wrap: anywhere; }
+    .person-select { max-width: 140px; min-width: 0; min-height: 40px; margin-left: auto; border: 1px solid var(--line); border-radius: 6px; background: #fff; font: inherit; font-size: 14px; }
+    .person-select[hidden] { display: none; }
+    .embedded-reading .topbar { padding-right: 52px; }
+    .task-card { grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) auto auto; gap: 8px; padding: 0; border: 0; border-radius: 0; box-shadow: none; background: transparent; overflow: hidden; }
+    .text-panel { grid-column: 1; min-height: 0; overflow: hidden; grid-template-rows: minmax(0, 1fr) auto; gap: 6px; padding: 0; }
+    .reading-text { min-height: 0; overflow: auto; padding: 12px; font-size: 18px; line-height: 1.6; border-radius: 8px; }
+    .note { display: none; margin: 0; }
+    .note[data-status-visible] { display: block; font-size: 13px; }
+    .audio-controls, .actions { grid-column: 1; min-width: 0; }
+    .task-card.has-visual { grid-template-rows: auto minmax(0, 1fr) auto auto; }
+    .task-card.has-visual .visual { grid-row: auto; width: 96px; height: 96px; margin: 0 auto; }
+    .task-card.has-visual .visual img { height: 100%; aspect-ratio: 1; object-position: 50% 18%; }
+    @media (min-width: 760px) {
+      .task-card.has-visual { grid-template-columns: minmax(120px, 22%) minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) auto auto; }
+      .task-card.has-visual .visual { grid-row: 1 / -1; width: 100%; height: auto; max-height: 260px; }
+      .task-card.has-visual .text-panel, .task-card.has-visual .audio-controls, .task-card.has-visual .actions { grid-column: 2; }
+    }
   </style>
 </head>
 <body>
   <main class="app" id="app">
     <section class="topbar" aria-label="Fortschritt">
-      <button class="back-button" id="backBtn" type="button">← 返回复习</button>
+      <button class="back-button" id="backBtn" type="button" aria-label="返回复习" title="返回复习">←</button>
       <p class="eyebrow">Nachsprechen · A2E1 L1</p>
       <div class="title-row">
         <h1 id="personName">Ben</h1>
         <span class="counter" id="counter">1 / 5</span>
+        <select class="person-select" id="personSelect" aria-label="选择跟读课文" hidden></select>
       </div>
       <div class="dots" id="personDots" aria-label="Personen"></div>
     </section>
@@ -638,7 +667,21 @@
   </div>
 
   <script src="data/a2e1-l1-cards.js"></script>
+  <script src="data/a2e2-nachsprechen.js"></script>
   <script>
+    const embedParams = new URLSearchParams(window.location.search);
+    const e2Mode = embedParams.get("course") === "a2e2";
+    const phonetikEmbedded = embedParams.get("embedded") === "phonetik" && window.parent !== window;
+    const embedToken = embedParams.get("token");
+    let embeddedConfigured = false;
+    let embeddedResumeTime = 0;
+    let lastEmbeddedProgressSecond = -1;
+    let sentencePlaybackEnd = null;
+    let pendingSentenceIndex = null;
+    function notifyParent(type) {
+      if (!phonetikEmbedded || !embeddedConfigured) return;
+      window.parent.postMessage({ type, token: embedToken, listened: state.hasPlayedCurrent, currentTime: audio.currentTime }, "*");
+    }
     const ASSET_AUDIO = "assets/audio/a2/e1/l1/";
     const ASSET_IMAGE = "assets/images/a2/e1/l1/webp/";
     const preloadedTaskImages = new Set();
@@ -652,7 +695,7 @@
       if (image.decode) image.decode().catch(() => {});
     }
 
-    const readingTasks = [
+    let readingTasks = [
       {
         id: "ben",
         name: "Ben",
@@ -726,6 +769,17 @@
       }
     ];
 
+    if (e2Mode) {
+      const lesson = ["L1", "L2", "L3"].includes(embedParams.get("lesson")) ? embedParams.get("lesson") : "L1";
+      readingTasks = (window.DEUTSCHSTADT_A2E2_READING_TASKS || []).filter(task => task.lessonId === `A2E2${lesson}`);
+      if (embedParams.get("review") === "1" && window.DEUTSCHSTADT_A2E2_ALIGNMENT_REVIEW?.length) {
+        readingTasks = window.DEUTSCHSTADT_A2E2_ALIGNMENT_REVIEW.filter(task => task.lessonId === `A2E2${lesson}`);
+      }
+      document.title = `Nachsprechen | A2E2 ${lesson}`;
+      document.querySelector(".topbar .eyebrow").textContent = `Nachsprechen · A2E2 ${lesson}`;
+      document.querySelector(".complete h2 + p").textContent = "Sie haben die Texte dieser Lektion geübt.";
+    }
+
     const wordCardData = {
       eltern: { meaning: "父母", meta: "Nomen · Plural", example: "Meine Eltern sind schon Rentner." },
       rentner: { meaning: "退休人员", meta: "Nomen", example: "Meine Eltern sind schon Rentner." },
@@ -791,8 +845,36 @@
 
     const audio = new Audio();
     let selectedWord = "";
+    if (phonetikEmbedded) { els.app.hidden = true; document.body.classList.add("embedded-reading"); }
+    window.addEventListener("message", (event) => {
+      if (phonetikEmbedded && embeddedConfigured && readingTasks[state.index]?.reviewOnly && event.source === window.parent && event.data?.token === embedToken && event.data?.type === "nachsprechen-review-pause") { audio.pause(); return; }
+      if (!phonetikEmbedded || event.source !== window.parent || event.data?.token !== embedToken || event.data?.type !== "nachsprechen-init" || embeddedConfigured) return;
+      const task = event.data.task;
+      if (!task || !Array.isArray(task.lines) || !task.lines.length || typeof task.audio !== "string") return;
+      embeddedConfigured = true;
+      readingTasks = [task];
+      state.index = 0;
+      state.hasPlayedCurrent = task.listened === true;
+      if (task.completed) state.completed.add(task.id);
+      embeddedResumeTime = Number.isFinite(task.currentTime) ? task.currentTime : 0;
+      els.app.hidden = false;
+      document.title = `${task.name} | Nachsprechen`;
+      document.querySelector(".topbar .eyebrow").textContent = `Nachsprechen · ${task.lessonLabel || "Phonetik L1"}`;
+      document.querySelector(".instruction").textContent = "先听录音，再逐句跟读。";
+      document.querySelector(".note").textContent = task.reviewOnly ? "老师试听草稿：点击句子播放切分片段，单词高亮也是待核对的本地识别结果。尚未接入学生任务。" : task.segments?.some((segment) => segment.status === "approved") ? "点击句子播放这一句。录音作业仍需另行提交。" : "逐句音频正在校对；目前可以播放、暂停和重听完整对话。录音作业仍需另行提交。";
+      els.back.title = task.returnLabel || "返回本课练习";
+      els.back.setAttribute("aria-label", els.back.title);
+      els.done.textContent = "完成本组跟读";
+      render();
+    });
 
     els.back.addEventListener("click", () => {
+      if (phonetikEmbedded) {
+        audio.pause();
+        notifyParent("nachsprechen-progress");
+        notifyParent("nachsprechen-return");
+        return;
+      }
       stopAudio();
       window.location.href = "index.html";
     });
@@ -815,36 +897,74 @@
     }
 
     function renderReadingText(text) {
-      const sentences = splitSentences(text);
+      const lines = readingTasks[state.index].lines;
+      const sentences = lines ? lines.map((line) => line.de) : splitSentences(text);
       els.reading.innerHTML = sentences.map((sentence, sentenceIndex) => {
-        const pieces = sentence.split(/([A-Za-zÄÖÜäöüß]+(?:[-'][A-Za-zÄÖÜäöüß]+)*)/g);
+        let wordIndex = 0;
+        const pieces = sentence.split(/([A-Za-zÄÖÜäöüß]+(?:[-'’][A-Za-zÄÖÜäöüß]+)*)/g);
         const html = pieces.map((piece) => {
           if (!/^[A-Za-zÄÖÜäöüß]/.test(piece)) return escapeHtml(piece);
-          return `<button class="word-token" data-word="${escapeHtml(wordKey(piece))}" type="button">${escapeHtml(piece)}</button>`;
+          return `<button class="word-token" data-word="${escapeHtml(wordKey(piece))}" data-word-index="${wordIndex++}" type="button">${escapeHtml(piece)}</button>`;
         }).join("");
-        return `<span class="sentence" data-sentence-index="${sentenceIndex}" role="button" tabindex="0">${html} </span>`;
+        const speaker = e2Mode && lines?.[sentenceIndex].speaker ? `<small style="display:block;font-size:14px;font-weight:600">${escapeHtml(lines[sentenceIndex].speaker)}</small>` : "";
+        return `${speaker}<span class="sentence" data-sentence-index="${sentenceIndex}" role="button" tabindex="0">${html} </span>${lines?.[sentenceIndex].zh ? `<small style="display:block;font-size:14px;font-weight:400">${escapeHtml(lines[sentenceIndex].zh)}</small>` : ""}`;
       }).join("");
+    }
+
+    function showReadingStatus(message) {
+      const note = document.querySelector(".note");
+      note.textContent = message;
+      note.setAttribute("data-status-visible", "");
     }
 
     function render() {
       const task = readingTasks[state.index];
-      const taskAudioUrl = new URL(task.audio, document.baseURI).href;
+      const fullSourceAvailable = e2Mode && task.sourceAudioStatus === "available";
+      const audioAvailable = !e2Mode || fullSourceAvailable || task.audioStatus === "approved" || (embedParams.get("review") === "1" && task.audioStatus === "auto_review");
+      const playbackPath = fullSourceAvailable && task.audioStatus !== "approved" ? task.sourceAudio : task.audio;
+      const taskAudioUrl = audioAvailable ? new URL(playbackPath, document.baseURI).href : "";
       if (audio.src !== taskAudioUrl) {
         stopAudio();
-        audio.src = task.audio;
+        if (audioAvailable) audio.src = playbackPath;
+        else audio.removeAttribute("src");
         audio.preload = "metadata";
         audio.load();
       }
       els.app.classList.remove("finished");
       els.name.textContent = task.name;
+      const selector = document.getElementById("personSelect");
+      selector.hidden = readingTasks.length < 2;
+      selector.innerHTML = readingTasks.map((item, index) => `<option value="${index}">${escapeHtml(item.name)}${state.completed.has(item.id) ? " ✓" : ""}</option>`).join("");
+      selector.value = String(state.index);
+      selector.onchange = () => goToPerson(Number(selector.value));
+      document.querySelector(".task-card").classList.toggle("has-visual", Boolean(task.image));
       els.counter.textContent = `${state.index + 1} / ${readingTasks.length}`;
-      els.image.src = task.image;
+      els.image.closest("figure").hidden = !task.image;
+      if (task.image) els.image.src = task.image;
       els.image.alt = task.name;
       [state.index + 1, state.index - 1].forEach((neighborIndex) => {
         preloadTaskImage(readingTasks[neighborIndex]?.image);
       });
       renderReadingText(task.text);
       updateAudioControls();
+      if (e2Mode) {
+        showReadingStatus(fullSourceAvailable && task.audioStatus !== "approved" ? "可播放本组完整录音；人物定位和逐句跳转待审核。" : audioAvailable ? "Hören Sie zuerst zu. Lesen Sie dann laut mit." : "音频待补充。原文已完整保留，可先朗读。" );
+        els.pause.disabled = els.restartAudio.disabled = els.progress.disabled = !audioAvailable;
+        if (!document.getElementById("sentencePrevious")) {
+          const controls = document.createElement("div");
+          controls.className = "audio-controls";
+          controls.innerHTML = '<button class="audio-small" id="sentencePrevious" type="button" aria-label="Vorheriger Satz">← Satz</button><button class="audio-small" id="sentenceRepeat" type="button" aria-label="Satz wiederholen">↺ Satz</button><button class="audio-small" id="sentenceNext" type="button" aria-label="Nächster Satz">Satz →</button>';
+          document.querySelector(".audio-controls").before(controls);
+          const jump = (delta) => {
+            const active = els.reading.querySelector(".sentence.active");
+            const current = active ? Number(active.dataset.sentenceIndex) : 0;
+            seekToSentence(Math.max(0, Math.min(taskSentenceCount() - 1, current + delta)));
+          };
+          document.getElementById("sentencePrevious").onclick = () => jump(-1);
+          document.getElementById("sentenceRepeat").onclick = () => jump(0);
+          document.getElementById("sentenceNext").onclick = () => jump(1);
+        }
+      }
       els.dots.innerHTML = readingTasks.map((item, index) => {
         const classes = [
           "dot",
@@ -860,6 +980,8 @@
     }
 
     function stopAudio() {
+      sentencePlaybackEnd = null;
+      pendingSentenceIndex = null;
       audio.pause();
       audio.currentTime = 0;
       updateAudioControls();
@@ -875,8 +997,9 @@
 
     function playCurrent() {
       const task = readingTasks[state.index];
+      if (e2Mode && task.sourceAudioStatus !== "available" && task.audioStatus !== "approved" && !(embedParams.get("review") === "1" && task.audioStatus === "auto_review")) return;
       stopAudio();
-      audio.src = task.audio;
+      audio.src = e2Mode && task.sourceAudioStatus === "available" && task.audioStatus !== "approved" ? task.sourceAudio : task.audio;
       audio.play().then(() => {
         state.hasPlayedCurrent = true;
         render();
@@ -897,6 +1020,7 @@
     }
 
     function restartCurrentAudio() {
+      sentencePlaybackEnd = null;
       if (!audio.src) return playCurrent();
       audio.currentTime = 0;
       audio.play().catch(() => {});
@@ -922,33 +1046,70 @@
         : "Ⅱ Pause";
     }
 
-    function getSentenceStart(task, sentenceIndex, sentenceText) {
+    function getSentenceSegment(task, sentenceIndex, sentenceText) {
       if (!Array.isArray(task.segments)) return null;
       const normalizedText = String(sentenceText || "").replace(/\s+/g, " ").trim();
-      const matchingSegment = task.segments.find((segment) => {
-        if (segment.status !== "approved") return false;
+      const matches = task.segments.filter((segment) => {
+        if (segment.status !== "approved" && !(task.reviewOnly && embedParams.get("review") === "1" && segment.status === "auto_review")) return false;
         const segmentText = String(segment.text || "").replace(/\s+/g, " ").trim();
         return segmentText && segmentText === normalizedText;
       });
-      if (matchingSegment) return Number(matchingSegment.start);
-      if (task.segments[sentenceIndex]?.status === "approved") {
-        return Number(task.segments[sentenceIndex].start);
-      }
+      const segmentId = task.lines?.[sentenceIndex]?.segmentId;
+      if (segmentId) return matches.find((segment) => segment.id === segmentId) || null;
+      const occurrence = task.lines ? task.lines.slice(0, sentenceIndex).filter((line) => line.de.replace(/\s+/g, " ").trim() === normalizedText).length : 0;
+      if (matches[occurrence]) return matches[occurrence];
+      if (task.lines) return null;
+      if (task.segments[sentenceIndex]?.status === "approved") return task.segments[sentenceIndex];
       return null;
+    }
+
+    function getSentenceStart(task, sentenceIndex, sentenceText) {
+      const segment = getSentenceSegment(task, sentenceIndex, sentenceText);
+      return segment ? Number(segment.start) : null;
+    }
+
+    function syncReadingHighlight() {
+      const task = readingTasks[state.index];
+      if (!task.lines) return;
+      const now = audio.currentTime;
+      els.reading.querySelectorAll(".sentence").forEach((node, index) => {
+        const segment = getSentenceSegment(task, index, task.lines[index].de);
+        const active = segment && now >= segment.start && now < segment.end;
+        node.classList.toggle("active", Boolean(active));
+        node.querySelectorAll("[data-word-index]").forEach((button) => {
+          const word = segment?.words?.[Number(button.dataset.wordIndex)];
+          const reviewed = word?.status === "approved" || (task.reviewOnly && embedParams.get("review") === "1" && word?.status === "auto_review");
+          const normalize = (text) => wordKey(text).replace(/['’]/g, "");
+          const valid = reviewed && Number.isFinite(word.start) && Number.isFinite(word.end) && word.start < word.end && word.start >= segment.start && word.end <= segment.end && normalize(word.text) === normalize(button.textContent);
+          button.classList.toggle("speaking", Boolean(active && valid && !audio.paused && now >= word.start && now < word.end));
+        });
+      });
     }
 
     function seekToSentence(sentenceIndex) {
       const task = readingTasks[state.index];
-      const sentences = splitSentences(readingTasks[state.index].text);
+      const sentences = task.lines ? task.lines.map((line) => line.de) : splitSentences(task.text);
       const exactStart = getSentenceStart(task, sentenceIndex, sentences[sentenceIndex]);
+      const segment = getSentenceSegment(task, sentenceIndex, sentences[sentenceIndex]);
+      if ((phonetikEmbedded || e2Mode) && exactStart === null) {
+        showReadingStatus("这句的录音时间点尚在校对，请先用下方播放键听完整对话。");
+        els.reading.querySelectorAll(".sentence").forEach((sentence) => sentence.classList.toggle("active", Number(sentence.dataset.sentenceIndex) === sentenceIndex));
+        return;
+      }
       const totalWords = sentences.reduce((sum, sentence) => sum + (sentence.match(/[A-Za-zÄÖÜäöüß]+/g) || []).length, 0);
       const beforeWords = sentences.slice(0, sentenceIndex).reduce((sum, sentence) => sum + (sentence.match(/[A-Za-zÄÖÜäöüß]+/g) || []).length, 0);
-      if (!Number.isFinite(audio.duration)) return;
+      if (!Number.isFinite(audio.duration)) { pendingSentenceIndex = sentenceIndex; return; }
       const estimatedStart = totalWords ? audio.duration * (beforeWords / totalWords) : 0;
       audio.currentTime = Number.isFinite(exactStart) ? Math.min(exactStart, audio.duration) : estimatedStart;
+      sentencePlaybackEnd = (phonetikEmbedded || e2Mode) && Number.isFinite(segment?.end) && segment.end > exactStart ? Math.min(segment.end, audio.duration) : null;
       audio.play().catch(() => {});
       els.reading.querySelectorAll(".sentence").forEach((sentence) => sentence.classList.toggle("active", Number(sentence.dataset.sentenceIndex) === sentenceIndex));
       updateAudioControls();
+    }
+
+    function taskSentenceCount() {
+      const task = readingTasks[state.index];
+      return task.lines?.length || splitSentences(task.text).length;
     }
 
     function openWordCard(word, sentence) {
@@ -963,7 +1124,7 @@
         if (window.parent.DEUTSCHSTADT_OPEN_CARD_BY_WORD(word)) return;
       }
       const contextSentence = String(sentence || "").replace(/\s+/g, " ").trim();
-      const fallbackData = wordCardData[word] || { meaning: "请结合本课语境理解这个词", meta: "Wort aus dem Lesetext", example: contextSentence };
+      const fallbackData = (!e2Mode && wordCardData[word]) || { meaning: "请结合本课语境理解这个词", meta: "Wort aus dem Lesetext", example: contextSentence };
       const data = courseCard
         ? {
           meaning: courseCard.zh,
@@ -999,6 +1160,13 @@
     }
 
     function finishCurrent() {
+      if (phonetikEmbedded) {
+        if (!state.hasPlayedCurrent) { showReadingStatus("请先播放录音，再完成本组跟读。"); return; }
+        audio.pause();
+        notifyParent("nachsprechen-progress");
+        notifyParent("nachsprechen-complete");
+        return;
+      }
       const task = readingTasks[state.index];
       state.completed.add(task.id);
       stopAudio();
@@ -1025,11 +1193,42 @@
     });
 
     audio.addEventListener("timeupdate", updateAudioControls);
+    audio.addEventListener("timeupdate", () => {
+      if (sentencePlaybackEnd !== null && audio.currentTime >= sentencePlaybackEnd) {
+        audio.pause();
+        audio.currentTime = sentencePlaybackEnd;
+        sentencePlaybackEnd = null;
+      }
+      syncReadingHighlight();
+    });
+    audio.addEventListener("pause", syncReadingHighlight);
+    audio.addEventListener("play", () => { state.hasPlayedCurrent = true; notifyParent("nachsprechen-progress"); });
+    audio.addEventListener("pause", () => notifyParent("nachsprechen-progress"));
+    audio.addEventListener("timeupdate", () => {
+      if (Math.floor(audio.currentTime) === lastEmbeddedProgressSecond) return;
+      lastEmbeddedProgressSecond = Math.floor(audio.currentTime);
+      notifyParent("nachsprechen-progress");
+    });
+    audio.addEventListener("loadedmetadata", () => {
+      if (phonetikEmbedded && embeddedResumeTime > 0) {
+        audio.currentTime = Math.min(embeddedResumeTime, audio.duration);
+        embeddedResumeTime = 0;
+      }
+      if (pendingSentenceIndex !== null) {
+        const index = pendingSentenceIndex;
+        pendingSentenceIndex = null;
+        seekToSentence(index);
+      }
+    });
+    audio.addEventListener("error", () => {
+      if (phonetikEmbedded) showReadingStatus("录音未能加载，请返回本课练习后重试。");
+    });
     audio.addEventListener("loadedmetadata", updateAudioControls);
 
     els.pause.addEventListener("click", pauseCurrent);
     els.restartAudio.addEventListener("click", restartCurrentAudio);
     els.progress.addEventListener("input", () => {
+      sentencePlaybackEnd = null;
       if (!Number.isFinite(audio.duration)) return;
       audio.currentTime = audio.duration * (Number(els.progress.value) / 100);
       updateAudioControls();
@@ -1073,7 +1272,7 @@
       if (event.key === "Escape") closeWordCard();
     });
 
-    render();
+    if (!phonetikEmbedded) render();
   </script>
 </body>
 </html>

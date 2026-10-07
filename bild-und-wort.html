@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bild & Wort</title>
+<style>*{box-sizing:border-box}body{margin:0;background:white;color:#2d211b;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}main{max-width:700px;margin:auto;padding:18px 14px}header{display:flex;justify-content:space-between}a{color:#c75f13}h1{font-size:28px}.board{display:grid;grid-template-columns:1fr 1fr;gap:18px}.column{display:grid;gap:10px}button{font:inherit;cursor:pointer;border:1px solid #f0c89d;border-radius:8px;background:#fff7ea;min-height:76px;padding:8px;color:#2d211b;overflow-wrap:anywhere}.picture{font-size:40px}.selected{outline:3px solid #f5821f;background:#fff0d9}.matched{visibility:hidden;pointer-events:none}button:focus-visible,a:focus-visible{outline:3px solid #4f9f6f;outline-offset:3px}#status{min-height:48px;line-height:1.5}#restart{width:100%;background:#f5821f;color:white;min-height:48px;margin-top:12px}.wrong{outline:3px solid #c65a4a}@media(max-width:350px){.board{gap:10px}button{font-size:15px}.picture{font-size:36px}}</style></head>
+<body><main><header><a href="games.html">← Spiele</a><span id="progress"></span></header><h1>Bild & Wort</h1><div class="board"><div class="column" id="pictures"></div><div class="column" id="words"></div></div><p id="status" role="status" aria-live="polite"></p><button id="restart">Neu mischen ↻</button></main>
+<script src="data/ja-oder-nein-decks.js"></script><script src="data/game-center-bridge.js"></script><script>
+const el=id=>document.getElementById(id);
+const shuffle=items=>{const a=[...items];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+let selected={},found=new Set(),cards=[],timer,locked=false;
+let currentUtterance=null,lastWord='',germanVoice=null;
+const wordAudio=new Audio();wordAudio.preload='auto';
+const audioCards=window.DEUTSCHSTADT_JA_NEIN_DECKS.find(d=>d.id==='everyday-objects-basic').cards;
+const replay=document.createElement('button');replay.type='button';replay.textContent='🔊';replay.title='Noch einmal anhören';replay.setAttribute('aria-label','Noch einmal anhören');replay.hidden=true;replay.style.minHeight='44px';el('status').after(replay);
+function loadVoices(){if(!('speechSynthesis'in window))return;const voices=window.speechSynthesis.getVoices();germanVoice=voices.find(v=>v.lang==='de-DE')||voices.find(v=>/^de[-_]/i.test(v.lang))||null}
+if('speechSynthesis'in window){loadVoices();window.speechSynthesis.addEventListener('voiceschanged',loadVoices)}
+function speak(text){
+  if(window.DEUTSCHSTADT_GAME_SPEAK){lastWord=text;replay.hidden=false;window.DEUTSCHSTADT_GAME_SPEAK(text);return}
+  const card=audioCards.find(c=>c.front===text);
+  if(card){
+    lastWord=text;replay.hidden=false;
+    if('speechSynthesis'in window)window.speechSynthesis.cancel();
+    wordAudio.pause();wordAudio.src=`assets/audio/games/basic-objects/${card.id}.wav?v=2`;wordAudio.currentTime=0;
+    wordAudio.play().catch(()=>{el('status').textContent='音频未能播放，请点喇叭重试。'});
+    return;
+  }
+  if(!('speechSynthesis'in window)){el('status').textContent='此浏览器暂不支持朗读。';return}
+  lastWord=text;replay.hidden=false;loadVoices();
+  const synth=window.speechSynthesis;
+  if(synth.speaking||synth.pending)synth.cancel();
+  synth.resume();
+  currentUtterance=new SpeechSynthesisUtterance(text);currentUtterance.lang='de-DE';currentUtterance.rate=.86;
+  if(germanVoice)currentUtterance.voice=germanVoice;
+  currentUtterance.onerror=event=>{if(!['canceled','interrupted'].includes(event.error))el('status').textContent='朗读未能播放，请点喇叭重试。'};
+  synth.speak(currentUtterance);
+}
+replay.onclick=()=>{if(lastWord)speak(lastWord)};
+new MutationObserver(()=>{if(found.size===cards.length&&cards.length)window.DEUTSCHSTADT_GAME_DONE?.({pairs:found.size,cardIds:[...found]})}).observe(el('status'),{childList:true});
+function update(){el('progress').textContent=`${found.size} / ${cards.length}`;document.querySelectorAll('[data-card]').forEach(b=>{b.classList.toggle('matched',found.has(b.dataset.card));b.disabled=found.has(b.dataset.card);b.classList.toggle('selected',selected[b.dataset.side]===b.dataset.card);if(b.dataset.side==='pictures'){const card=cards.find(c=>c.id===b.dataset.card);if(card?.image&&!b.querySelector('img')){const img=new Image();img.src=card.image;img.alt='';img.decoding='async';img.style.cssText='width:100%;height:70px;object-fit:contain;display:block';b.replaceChildren(img)}}})}
+function choose(side,card){if(locked||found.has(card.id))return;selected[side]=selected[side]===card.id?null:card.id;update();const isMatch=selected.words&&selected.words===selected.pictures;if(side==='words'||isMatch)speak(card.front);if(!selected.words||!selected.pictures)return;window.DEUTSCHSTADT_GAME_ANSWER?.({cardId:selected.pictures,value:selected.words,answer:selected.pictures,correct:Boolean(isMatch),selectedCardIds:[selected.pictures,selected.words]});if(isMatch){found.add(card.id);selected={};el('status').textContent=`✓ ${card.front} — ${card.zh}`;update();if(found.size===cards.length)el('status').textContent=`Alle Paare gefunden! ${card.front} — ${card.zh}`;return}locked=true;document.querySelectorAll('.selected').forEach(b=>b.classList.add('wrong'));el('status').textContent='Noch einmal!';timer=setTimeout(()=>{selected={};locked=false;document.querySelectorAll('.wrong').forEach(b=>b.classList.remove('wrong'));update()},650)}
+function start(){clearTimeout(timer);if('speechSynthesis'in window)speechSynthesis.cancel();selected={};found=new Set();locked=false;const pool=window.DEUTSCHSTADT_JA_NEIN_DECKS.find(d=>d.id==='everyday-objects-basic').cards;cards=window.DEUTSCHSTADT_GAME_DRAW?window.DEUTSCHSTADT_GAME_DRAW(pool,6):shuffle(pool).slice(0,6);el('status').textContent='';for(const side of ['pictures','words']){el(side).replaceChildren();for(const card of shuffle(cards)){const b=document.createElement('button');b.type='button';b.dataset.card=card.id;b.dataset.side=side;b.textContent=side==='pictures'?card.symbol:card.front;if(side==='pictures')b.className='picture';b.onclick=()=>choose(side,card);el(side).append(b)}}update()}
+el('restart').onclick=()=>{wordAudio.pause();replay.hidden=true;lastWord='';start()};window.addEventListener('pagehide',()=>{wordAudio.pause();if('speechSynthesis'in window)speechSynthesis.cancel()});start();
+</script></body></html>

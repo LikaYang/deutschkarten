@@ -1,0 +1,22 @@
+{
+  "version": "0.1",
+  "course_id": "netzwerk-neu-a2-live",
+  "unit_id": "A2NN-E1",
+  "lesson_id": "A2NN-E1L1",
+  "source_files": [
+    {
+      "id": "ben-reading",
+      "path": "assets/audio/a2/e1/l1/Ben.m4a",
+      "owner": "teacher-recorded",
+      "status": "source"
+    }
+  ],
+  "segments": [
+    { "segment_id": "a2e1l1-ben-s01", "text": "Meine Eltern sind schon Rentner und leben auf dem Land.", "source_audio": "Ben.m4a", "audio_role": "example_audio", "status": "missing_timestamp" },
+    { "segment_id": "a2e1l1-ben-s02", "text": "Ich habe einen Bruder und eine Schwester.", "source_audio": "Ben.m4a", "audio_role": "example_audio", "status": "missing_timestamp" },
+    { "segment_id": "a2e1l1-ben-s03", "text": "Mein Bruder ist geschieden und hat eine Tochter.", "source_audio": "Ben.m4a", "audio_role": "example_audio", "status": "missing_timestamp" },
+    { "segment_id": "a2e1l1-ben-s04", "text": "Sie ist total süß.", "source_audio": "Ben.m4a", "audio_role": "example_audio", "status": "missing_timestamp" },
+    { "segment_id": "a2e1l1-ben-s05", "text": "Meine Schwester hat noch keine Kinder.", "source_audio": "Ben.m4a", "audio_role": "example_audio", "status": "missing_timestamp" },
+    { "segment_id": "a2e1l1-ben-s06", "text": "Ich auch nicht, aber in ein paar Jahren möchte ich gern Kinder haben.", "source_audio": "Ben.m4a", "audio_role": "example_audio", "status": "missing_timestamp" }
+  ]
+}

@@ -1,0 +1,1973 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Deutsch Mahjong: Satzkarten V0.2</title>
+  <style>
+    :root {
+      --bg: #faf6ef;
+      --panel: #fffaf2;
+      --ink: #2b2118;
+      --muted: #806f5e;
+      --line: #ecd7bf;
+      --orange: #f28c28;
+      --orange-dark: #c96b13;
+      --green: #2f9d64;
+      --blue: #3478bd;
+      --purple: #8754b9;
+      --red: #c84c3a;
+      --wood: #8c552d;
+      --shadow: 0 14px 34px rgba(116, 78, 42, .14);
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background:
+        linear-gradient(135deg, rgba(242, 140, 40, .12), rgba(255, 255, 255, 0) 34%),
+        var(--bg);
+    }
+
+    button { font: inherit; }
+
+    .app {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+
+    .topbar {
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 22px;
+      background: rgba(255, 250, 242, .96);
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 8px 26px rgba(116, 78, 42, .08);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .logo {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius);
+      display: grid;
+      place-items: center;
+      background: var(--orange);
+      color: white;
+      font-weight: 950;
+      box-shadow: inset 0 -3px 0 rgba(0, 0, 0, .12);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 24px;
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .btn {
+      border: 0;
+      border-radius: var(--radius);
+      padding: 10px 13px;
+      background: #f0ddc7;
+      color: #5f422c;
+      font-weight: 850;
+      cursor: pointer;
+      transition: transform .12s ease, filter .12s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); filter: brightness(1.02); }
+    .btn.primary { background: var(--orange); color: white; }
+    .btn.ghost { background: white; border: 1px solid var(--line); }
+    .btn:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+
+    .lang-toggle {
+      display: inline-grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 3px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: white;
+      gap: 3px;
+    }
+
+    .lang-toggle button {
+      border: 0;
+      border-radius: 6px;
+      background: transparent;
+      color: var(--muted);
+      padding: 7px 10px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .lang-toggle button.active {
+      background: var(--orange);
+      color: white;
+    }
+
+    .layout {
+      padding: 14px;
+      display: grid;
+      grid-template-columns: minmax(680px, 1fr);
+      min-height: 0;
+    }
+
+    .layout > .side-panel { display: none; }
+
+    .table-shell {
+      position: relative;
+      min-height: calc(100vh - 98px);
+      border-radius: 20px;
+      padding: 18px;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, .18), rgba(0, 0, 0, .06)),
+        var(--wood);
+      box-shadow: inset 0 0 0 6px rgba(255, 177, 88, .42), 0 18px 38px rgba(90, 53, 24, .2);
+    }
+
+    .table {
+      position: relative;
+      height: 100%;
+      min-height: calc(100vh - 134px);
+      border-radius: 16px;
+      background:
+        radial-gradient(circle at center, rgba(255, 255, 255, .98), rgba(255, 247, 234, .96) 56%, rgba(239, 214, 184, .96));
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: 132px minmax(230px, 1fr) 300px;
+      grid-template-columns: 160px 1fr 160px;
+      grid-template-areas:
+        ". top ."
+        "left center right"
+        "you you you";
+      gap: 10px;
+      padding: 18px;
+    }
+
+    .player-seat {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 0;
+    }
+
+    .seat-top { grid-area: top; align-items: flex-start; }
+    .seat-left { grid-area: left; }
+    .seat-right { grid-area: right; }
+    .seat-you { grid-area: you; align-items: flex-end; }
+
+    .seat-you.your-turn {
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(255, 246, 232, .9), rgba(255, 224, 176, .7));
+      box-shadow: inset 0 0 0 2px rgba(242, 140, 40, .34);
+      padding: 8px;
+    }
+
+    .player-box {
+      width: 100%;
+      display: grid;
+      justify-items: center;
+      gap: 8px;
+    }
+
+    .turn-banner {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: var(--radius);
+      padding: 10px 12px;
+      background: #fff1db;
+      border: 1px solid rgba(242, 140, 40, .42);
+      color: var(--orange-dark);
+      font-weight: 950;
+      text-align: center;
+      box-shadow: 0 8px 18px rgba(109, 69, 31, .12);
+    }
+
+    .turn-banner.show { display: flex; }
+
+    .turn-banner strong {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--orange);
+      color: white;
+      font-size: 20px;
+    }
+
+    .you-info-compact {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      color: var(--orange-dark);
+      font-weight: 950;
+      min-height: 28px;
+    }
+
+    .avatar {
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: white;
+      border: 3px solid #edcda9;
+      color: var(--orange-dark);
+      font-weight: 950;
+      font-size: 22px;
+      box-shadow: 0 7px 16px rgba(80, 50, 24, .14);
+    }
+
+    .player-name {
+      font-weight: 950;
+      line-height: 1.1;
+      text-align: center;
+    }
+
+    .player-name.active { color: var(--orange-dark); }
+
+    .count-badge {
+      min-width: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 4px 8px;
+      background: #30261e;
+      color: white;
+      font-weight: 900;
+      font-size: 13px;
+    }
+
+    .opponent-cards {
+      display: flex;
+      justify-content: center;
+      gap: -2px;
+      max-width: 260px;
+    }
+
+    .opponent-card {
+      width: 28px;
+      height: 42px;
+      margin-left: -5px;
+      border-radius: 5px;
+      border: 1px solid #dc9c56;
+      background: linear-gradient(180deg, #ffb15a, #ec7c17);
+      box-shadow: 0 3px 8px rgba(102, 58, 20, .16);
+    }
+
+    .speech {
+      min-height: 36px;
+      max-width: 220px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, .9);
+      border-radius: var(--radius);
+      padding: 8px 10px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.25;
+      text-align: center;
+    }
+
+    .center {
+      grid-area: center;
+      display: grid;
+      grid-template-columns: minmax(260px, 430px);
+      justify-content: center;
+      align-content: start;
+      align-items: stretch;
+      min-width: 0;
+      padding-top: 20px;
+    }
+
+    .play-area, .activity {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .82);
+      padding: 9px;
+      box-shadow: 0 10px 22px rgba(103, 64, 28, .09);
+      min-width: 0;
+    }
+
+    .activity { display: none; }
+
+    .table-stats {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      flex-wrap: wrap;
+      margin-bottom: 5px;
+    }
+
+    .table-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      border: 1px solid var(--line);
+      background: #fffaf2;
+      border-radius: 999px;
+      padding: 4px 7px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 850;
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      color: #684a32;
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+
+    .played-sentence {
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 8px;
+      border-radius: var(--radius);
+      background: #fff8ed;
+      border: 1px solid #f0d5b4;
+      text-align: center;
+      font-size: clamp(20px, 2.3vw, 28px);
+      font-weight: 950;
+    }
+
+    .selected-row {
+      min-height: 38px;
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      gap: 6px;
+    }
+
+    .hint {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .message {
+      margin-top: 6px;
+      border-radius: var(--radius);
+      padding: 7px 9px;
+      min-height: 32px;
+      background: white;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.3;
+    }
+
+    .message.ok { color: var(--green); background: #f3fbf6; border-color: rgba(47, 157, 100, .28); }
+    .message.warn { color: #9f5c19; background: #fff6e8; border-color: rgba(242, 140, 40, .32); }
+    .message.bad { color: var(--red); background: #fff3f1; border-color: rgba(200, 76, 58, .3); }
+
+    .log-list {
+      display: grid;
+      gap: 8px;
+      overflow: auto;
+      max-height: 82px;
+    }
+
+    .log-entry {
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      gap: 8px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #f2e4d4;
+      font-size: 13px;
+      line-height: 1.32;
+    }
+
+    .log-entry strong { color: var(--orange-dark); }
+    .time { color: var(--muted); font-size: 12px; }
+
+    .hand-panel {
+      width: 100%;
+      display: grid;
+      gap: 8px;
+    }
+
+    .your-actions {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .hand {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 3px 4px 8px;
+    }
+
+    .card {
+      position: relative;
+      flex: 0 0 118px;
+      min-height: 154px;
+      border: 1px solid #d6b996;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, #fffdf7, #fff1db);
+      color: var(--ink);
+      box-shadow: 0 7px 0 #d4a36c, 0 12px 22px rgba(109, 69, 31, .12);
+      cursor: pointer;
+      padding: 9px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      text-align: left;
+      transition: transform .12s ease, border-color .12s ease, box-shadow .12s ease;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(242, 140, 40, .7);
+    }
+
+    .card.selected {
+      transform: translateY(-8px);
+      border-color: var(--orange);
+      background: linear-gradient(180deg, #fff8e9, #ffe1aa);
+    }
+
+    .card.subject { --type: var(--orange); }
+    .card.verb { --type: var(--green); }
+    .card.object { --type: var(--blue); }
+    .card.place { --type: var(--purple); }
+    .card.time { --type: #8f6b3c; }
+    .card.task { --type: var(--red); }
+    .card.action { --type: #5f7d9b; }
+
+    .type-strip {
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 6px;
+      background: var(--type);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6px;
+      padding-left: 4px;
+    }
+
+    .card-type {
+      color: var(--type);
+      font-size: 11px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .level {
+      color: #906035;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .art {
+      height: 54px;
+      border: 1px solid #efcfaa;
+      border-radius: var(--radius);
+      background-color: #fff8ed;
+      background-image: url("satzkarten-card-art.png");
+      background-size: 500% 100%;
+      background-repeat: no-repeat;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .7);
+    }
+
+    .art.brot { background-position: 25% 0; }
+    .art.bus { background-position: 50% 0; }
+    .art.schule { background-position: 75% 0; }
+    .art.apfel { background-position: 100% 0; }
+
+    .fallback-art {
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #efcfaa;
+      border-radius: var(--radius);
+      background: #fff8ed;
+      color: var(--type);
+      font-size: 25px;
+      font-weight: 950;
+    }
+
+    .word {
+      padding-left: 4px;
+      font-size: 19px;
+      line-height: 1.12;
+      font-weight: 950;
+      overflow-wrap: anywhere;
+    }
+
+    .card-note {
+      padding-left: 4px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.25;
+      min-height: 30px;
+    }
+
+    .mini-card {
+      flex: 0 0 auto;
+      min-height: auto;
+      width: auto;
+      max-width: 170px;
+      padding: 6px 8px 6px 12px;
+      box-shadow: 0 4px 0 #d4a36c, 0 8px 15px rgba(109, 69, 31, .1);
+    }
+
+    .mini-card .art, .mini-card .fallback-art, .mini-card .card-note { display: none; }
+    .mini-card .word { font-size: 14px; }
+
+    .side-panel {
+      min-height: calc(100vh - 98px);
+      padding: 14px;
+      background: rgba(255, 250, 242, .94);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .action-bubble {
+      position: absolute;
+      left: 50%;
+      top: 45%;
+      z-index: 5;
+      transform: translate(-50%, -50%) scale(.96);
+      max-width: min(460px, 78%);
+      border-radius: 18px;
+      padding: 13px 16px;
+      background: rgba(255, 255, 255, .96);
+      border: 1px solid rgba(242, 140, 40, .42);
+      box-shadow: 0 16px 32px rgba(94, 55, 22, .18);
+      color: var(--ink);
+      font-size: 18px;
+      font-weight: 900;
+      text-align: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s ease, transform .3s ease;
+    }
+
+    .action-bubble.show {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .floating-collection {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 15;
+      border-radius: 999px;
+      box-shadow: 0 12px 28px rgba(109, 69, 31, .18);
+    }
+
+    .drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      display: none;
+      justify-content: flex-end;
+      background: rgba(43, 33, 24, .18);
+      z-index: 16;
+    }
+
+    .drawer-backdrop.open { display: flex; }
+
+    .collection-drawer {
+      width: min(360px, 92vw);
+      height: 100%;
+      padding: 18px;
+      background: var(--panel);
+      border-left: 1px solid var(--line);
+      box-shadow: -18px 0 36px rgba(81, 52, 25, .18);
+      overflow: auto;
+    }
+
+    .drawer-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .stat {
+      padding: 10px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: white;
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .stat-value {
+      margin-top: 3px;
+      font-size: 24px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .collection-card {
+      border: 1px solid var(--line);
+      background: white;
+      border-radius: var(--radius);
+      padding: 12px;
+      display: grid;
+      gap: 9px;
+    }
+
+    .collection-card .art { height: 125px; background-size: 500% 100%; }
+
+    .collection-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      font-weight: 950;
+      font-size: 20px;
+      line-height: 1.15;
+    }
+
+    .small-muted {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .xp-line {
+      height: 8px;
+      border-radius: 999px;
+      background: #ead9c6;
+      overflow: hidden;
+    }
+
+    .xp-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--orange);
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      display: none;
+      place-items: center;
+      background: rgba(43, 33, 24, .22);
+      z-index: 20;
+      padding: 20px;
+    }
+
+    .modal-backdrop.open { display: grid; }
+
+    .result-backdrop {
+      position: fixed;
+      inset: 0;
+      display: none;
+      place-items: center;
+      background: rgba(43, 33, 24, .26);
+      z-index: 22;
+      padding: 20px;
+    }
+
+    .result-backdrop.open { display: grid; }
+
+    .result-card {
+      width: min(620px, 100%);
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: #fffaf2;
+      box-shadow: 0 24px 50px rgba(67, 42, 19, .24);
+      padding: 18px;
+    }
+
+    .result-title {
+      font-size: 26px;
+      font-weight: 950;
+      margin-bottom: 12px;
+    }
+
+    .result-list {
+      display: grid;
+      gap: 8px;
+      margin: 12px 0;
+    }
+
+    .result-row {
+      display: grid;
+      grid-template-columns: 34px 1fr auto;
+      gap: 10px;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 9px 10px;
+      background: white;
+    }
+
+    .result-row strong { font-size: 18px; }
+
+    .modal {
+      width: min(420px, 100%);
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: #fffaf2;
+      box-shadow: 0 24px 50px rgba(67, 42, 19, .24);
+      padding: 18px;
+    }
+
+    .modal-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .modal-title {
+      font-size: 20px;
+      font-weight: 950;
+      line-height: 1.2;
+    }
+
+    .form-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .form-option {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: white;
+      padding: 10px 12px;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .form-option:hover { border-color: rgba(242, 140, 40, .65); background: #fff6e8; }
+    .form-option strong { color: var(--green); font-size: 18px; }
+    .form-option span { color: var(--muted); font-size: 13px; }
+
+    @media (max-width: 1180px) {
+      .layout { grid-template-columns: 1fr; }
+      .side-panel { min-height: auto; }
+      .table-shell { min-height: 780px; }
+      .table { min-height: 740px; }
+    }
+
+    @media (max-width: 760px) {
+      .topbar { height: auto; align-items: flex-start; flex-direction: column; }
+      .layout { padding: 8px; }
+      .table-shell { padding: 8px; min-height: 920px; }
+      .table {
+        min-height: 900px;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto auto;
+        grid-template-areas: "top" "left" "right" "center" "you";
+      }
+      .center { grid-template-columns: 1fr; }
+      .hand { justify-content: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">DM</div>
+        <div>
+          <h1>Deutsch Mahjong · Satzkarten</h1>
+          <div class="subtitle" id="subtitle">德语文字麻将 V0.2 · 默认中文界面</div>
+        </div>
+      </div>
+      <div class="toolbar">
+        <div class="lang-toggle" aria-label="UI language">
+          <button id="langZh" class="active" type="button">中文</button>
+          <button id="langDe" type="button">DE</button>
+        </div>
+        <button class="btn ghost" id="rulesBtn" type="button">规则</button>
+        <button class="btn" id="restartBtn" type="button">重新开始</button>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="side-panel">
+        <div class="section-title"><span id="statsTitle">本局状态</span></div>
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-label" id="roundLabel">回合</div>
+            <div class="stat-value" id="roundValue">1</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label" id="deckLabel">牌堆</div>
+            <div class="stat-value" id="deckValue">0</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label" id="xpLabel">卡牌XP</div>
+            <div class="stat-value" id="xpValue">0</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label" id="turnLabel">当前</div>
+            <div class="stat-value" id="turnValue">你</div>
+          </div>
+        </div>
+        <div class="section-title"><span id="helpTitle">试玩规则</span></div>
+        <div class="small-muted" id="helpText"></div>
+      </aside>
+
+      <main class="table-shell">
+        <section class="table">
+          <div class="player-seat seat-top" id="seatTop"></div>
+          <div class="player-seat seat-left" id="seatLeft"></div>
+          <div class="player-seat seat-right" id="seatRight"></div>
+
+          <div class="center">
+            <div class="play-area">
+              <div class="table-stats">
+                <span class="table-pill"><span id="roundLabelCenter">回合</span> <strong id="roundCenter">1</strong></span>
+                <span class="table-pill"><span id="deckLabelCenter">牌堆</span> <strong id="deckCenter">0</strong></span>
+                <span class="table-pill"><span id="turnLabelCenter">当前</span> <strong id="turnCenter">你</strong></span>
+                <span class="table-pill"><span id="scoreLabelCenter">积分</span> <strong id="scoreCenter">0</strong></span>
+                <span class="table-pill"><span id="gameTimeLabelCenter">本局</span> <strong id="gameTimeCenter">03:00</strong></span>
+                <span class="table-pill"><span id="turnTimeLabelCenter">本回合</span> <strong id="turnTimeCenter">30</strong></span>
+              </div>
+              <div class="section-title">
+                <span id="playAreaTitle">出牌区</span>
+                <span id="selectedCount">0</span>
+              </div>
+              <div class="played-sentence" id="playedSentence">-</div>
+              <div class="selected-row" id="selectedRow"></div>
+              <div class="hint" id="sentenceHint"></div>
+              <div class="message" id="message"></div>
+            </div>
+            <div class="activity">
+              <div class="section-title"><span id="activityTitle">活动记录</span></div>
+              <div class="log-list" id="logList"></div>
+            </div>
+          </div>
+          <div class="action-bubble" id="actionBubble"></div>
+
+          <div class="player-seat seat-you" id="seatYou">
+            <div class="hand-panel">
+              <div class="turn-banner" id="turnBanner"><span id="turnBannerText">轮到你了</span><strong id="turnBannerTime">30</strong></div>
+              <div id="youInfo"></div>
+              <div class="hand" id="hand"></div>
+              <div class="your-actions">
+                <button class="btn primary" id="playBtn" type="button">出牌</button>
+                <button class="btn" id="cannotBtn" type="button">无法造句</button>
+                <button class="btn ghost" id="clearBtn" type="button">取消选择</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <aside class="side-panel"></aside>
+    </div>
+  </div>
+
+  <button class="btn primary floating-collection" id="collectionFab" type="button">卡牌收藏</button>
+
+  <div class="drawer-backdrop" id="collectionDrawer">
+    <aside class="collection-drawer">
+      <div class="drawer-head">
+        <div class="section-title" style="margin:0"><span id="collectionTitle">卡牌收藏</span><span id="collectionMeta">Lv</span></div>
+        <button class="btn ghost" id="collectionClose" type="button">×</button>
+      </div>
+      <div class="collection-card">
+        <div class="art kaffee"></div>
+        <div class="collection-title">
+          <span>der Kaffee</span>
+          <span id="coffeeLevel">Lv1</span>
+        </div>
+        <div class="small-muted" id="coffeeInfo"></div>
+        <div class="xp-line"><div class="xp-fill" id="coffeeXp"></div></div>
+        <div class="small-muted" id="coffeeXpText">0/50 XP</div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="modal-backdrop" id="verbModal">
+    <div class="modal">
+      <div class="modal-head">
+        <div>
+          <div class="modal-title" id="modalTitle">选择动词形式</div>
+          <div class="small-muted" id="modalSub">nehmen</div>
+        </div>
+        <button class="btn ghost" id="modalClose" type="button">×</button>
+      </div>
+      <div class="form-list" id="formList"></div>
+    </div>
+  </div>
+
+  <div class="result-backdrop" id="resultModal">
+    <div class="result-card">
+      <div class="result-title" id="resultTitle">本局结算</div>
+      <div class="small-muted" id="resultSummary"></div>
+      <div class="result-list" id="resultList"></div>
+      <button class="btn primary" id="resultRestart" type="button">再来一局</button>
+    </div>
+  </div>
+
+  <script>
+    const i18n = {
+      zh: {
+        subtitle: "德语文字麻将 V0.2 · 默认中文界面",
+        rules: "规则",
+        restart: "重新开始",
+        stats: "本局状态",
+        round: "回合",
+        deck: "牌堆",
+        xp: "卡牌XP",
+        turn: "当前",
+        helpTitle: "试玩规则",
+        help: "每回合先摸一张，并在30秒内尝试造句。本局3分钟倒计时结束后按积分结算：成功造句、使用词牌加分，剩余手牌扣分。",
+        playArea: "出牌区",
+        activity: "活动记录",
+        collection: "卡牌收藏",
+        draw: "摸一张",
+        play: "出牌",
+        cannot: "无法造句",
+        next: "下一位",
+        clear: "取消选择",
+        yourCards: "你的手牌",
+        currentTurn: "轮到你：先摸一张，再选择词牌。",
+        drew: "已摸一张。现在可以出牌、使用功能牌，或点“无法造句”。",
+        needDraw: "本回合需要先摸一张。",
+        needCards: "至少选择 2 张词牌。",
+        chooseVerb: "选择动词形式",
+        noVerb: "句子需要一张动词牌。",
+        noComplement: "句子需要宾语或地点。",
+        badCollocation: "这个句子不太自然。请换一种表达，或换几张牌试试。",
+        badDeclarative: "陈述句需要主语，并且动词要放在第二位附近。",
+        badForm: "这个动词形式和句型不匹配。",
+        okSentence: "句子成立。",
+        cannotAction: "你选择无法造句，摸 1 张作为惩罚，然后进入下一位。",
+        nextAction: "你跳过了本回合。",
+        gameOver: "本局结束",
+        resultTitle: "本局结算",
+        playAgain: "再来一局",
+        yourTurnNow: "轮到你了，系统已摸 1 张",
+        gameTime: "本局",
+        turnTime: "本回合",
+        score: "积分",
+        timeout: "时间到，自动多摸 1 张，然后进入下一位。",
+        finalResult: "结算：{winner} 获胜。{summary}",
+        scoreLog: "获得 {points} 分",
+        modalHint: "卡牌保持原形，出句子时再选择真实句子里的形式。",
+        selected: "已选",
+        lastPlayed: "最近出牌",
+        passed: "跳过了",
+        drewCards: "摸了 {n} 张牌",
+        played: "打出",
+        yourName: "你",
+        computer: "电脑",
+        coffeeInfo: "Lv2 后解锁复数和搭配；Lv3 解锁例句；Lv4 解锁场景表达。",
+        playedSentenceLog: "打出 {sentence}",
+        currentTurnLog: "轮到你了",
+        specialLog: "使用 {card}",
+        challengeLog: "开启挑战：{card}",
+        challengeTimeFail: "挑战要求本句必须使用时间词。",
+        challengePlaceFail: "挑战要求本句必须使用地点词。",
+        challengeImperativeFail: "挑战要求本句必须使用命令式。",
+        challengeBonus: "挑战成功，额外 +{points} 分",
+        taskNoun: "挑战：必须用命令式",
+        taskPlace: "挑战：必须有地点",
+        taskTime: "挑战：必须有时间",
+        draw2: "+2 Karte",
+        draw1: "+1 Karte",
+        swap1: "Tauschen 1"
+      },
+      de: {
+        subtitle: "Deutsch Mahjong V0.2 · UI auf Deutsch",
+        rules: "Regeln",
+        restart: "Neu starten",
+        stats: "Status",
+        round: "Runde",
+        deck: "Deck",
+        xp: "Karten-XP",
+        turn: "Am Zug",
+        helpTitle: "Demo-Regeln",
+        help: "Ziehe zuerst eine Karte und bilde innerhalb von 30 Sekunden einen Satz. Nach 3 Minuten zählt die Punktwertung: Sätze und genutzte Karten geben Punkte, Restkarten kosten Punkte.",
+        playArea: "Tischmitte",
+        activity: "Aktivitätsprotokoll",
+        collection: "Kartensammlung",
+        draw: "Ziehen",
+        play: "Ausspielen",
+        cannot: "Kann nicht",
+        next: "Weiter",
+        clear: "Auswahl löschen",
+        yourCards: "Deine Karten",
+        currentTurn: "Du bist am Zug: Ziehe zuerst eine Karte.",
+        drew: "Du hast eine Karte gezogen. Jetzt kannst du ausspielen oder passen.",
+        needDraw: "Du musst in dieser Runde zuerst ziehen.",
+        needCards: "Wähle mindestens 2 Wortkarten.",
+        chooseVerb: "Verb konjugieren",
+        noVerb: "Der Satz braucht eine Verbkarte.",
+        noComplement: "Der Satz braucht ein Objekt oder einen Ort.",
+        badCollocation: "Dieser Satz klingt nicht natürlich. Versuche eine andere Formulierung oder andere Karten.",
+        badDeclarative: "Ein Aussagesatz braucht ein Subjekt und die passende Verbposition.",
+        badForm: "Diese Verbform passt nicht zum Satztyp.",
+        okSentence: "Der Satz ist gültig.",
+        cannotAction: "Du kannst keinen Satz bilden, ziehst 1 Strafkarte und gibst weiter.",
+        nextAction: "Du hast gepasst.",
+        gameOver: "Spiel beendet",
+        resultTitle: "Endwertung",
+        playAgain: "Noch eine Runde",
+        yourTurnNow: "Du bist am Zug, 1 Karte wurde gezogen",
+        gameTime: "Spiel",
+        turnTime: "Zug",
+        score: "Punkte",
+        timeout: "Zeit abgelaufen: Du ziehst 1 Strafkarte und gibst weiter.",
+        finalResult: "Endwertung: {winner} gewinnt. {summary}",
+        scoreLog: "erhält {points} Punkte",
+        modalHint: "Die Karte bleibt im Infinitiv; beim Ausspielen wählst du die Form im Satz.",
+        selected: "Gewählt",
+        lastPlayed: "Zuletzt gespielt",
+        passed: "hat gepasst",
+        drewCards: "hat {n} Karten gezogen",
+        played: "spielt",
+        yourName: "Du",
+        computer: "KI",
+        coffeeInfo: "Lv2 schaltet Plural/Kollokation frei; Lv3 Beispielsatz; Lv4 Szenenausdruck.",
+        playedSentenceLog: "spielt {sentence}",
+        currentTurnLog: "ist am Zug",
+        specialLog: "nutzt {card}",
+        challengeLog: "Challenge aktiv: {card}",
+        challengeTimeFail: "Die Challenge verlangt ein Zeitwort.",
+        challengePlaceFail: "Die Challenge verlangt einen Ort.",
+        challengeImperativeFail: "Die Challenge verlangt einen Imperativ.",
+        challengeBonus: "Challenge geschafft, extra +{points} Punkte",
+        taskNoun: "Challenge: Imperativ",
+        taskPlace: "Challenge: Ort",
+        taskTime: "Challenge: Zeit",
+        draw2: "+2 Karten",
+        draw1: "+1 Karte",
+        swap1: "Tauschen 1"
+      }
+    };
+
+    const typeLabels = {
+      subject: "Subjekt",
+      verb: "Verb",
+      object: "Objekt",
+      place: "Ort",
+      time: "Zeit",
+      task: "Aufgabe",
+      action: "Aktion"
+    };
+
+    const verbForms = {
+      essen: [
+        { form: "esse", tag: "ich" },
+        { form: "isst", tag: "du / er / sie" },
+        { form: "esst", tag: "ihr / Imperativ Plural" },
+        { form: "essen", tag: "wir / sie / Sie" }
+      ],
+      nehmen: [
+        { form: "nehme", tag: "ich" },
+        { form: "nimmst", tag: "du" },
+        { form: "nimmt", tag: "er / sie" },
+        { form: "nehmt", tag: "ihr / Imperativ Plural" },
+        { form: "nehmen", tag: "wir / sie / Sie" }
+      ],
+      gehen: [
+        { form: "gehe", tag: "ich" },
+        { form: "gehst", tag: "du" },
+        { form: "geht", tag: "er / sie / ihr / Imperativ Plural" },
+        { form: "gehen", tag: "wir / sie / Sie" }
+      ],
+      moechten: [
+        { form: "möchte", tag: "ich / er / sie" },
+        { form: "möchtest", tag: "du" },
+        { form: "möchtet", tag: "ihr" },
+        { form: "möchten", tag: "wir / sie / Sie" }
+      ],
+      trinken: [
+        { form: "trinke", tag: "ich / Imperativ du" },
+        { form: "trinkst", tag: "du" },
+        { form: "trinkt", tag: "er / sie / ihr / Imperativ Plural" },
+        { form: "trinken", tag: "wir / sie / Sie" }
+      ]
+    };
+
+    const validCollocations = {
+      essen: ["brot", "apfel"],
+      trinken: ["kaffee"],
+      nehmen: ["bus", "kaffee"],
+      gehen: ["schule"],
+      moechten: ["kaffee", "brot", "apfel"]
+    };
+
+    const baseCards = [
+      { id: "ich", type: "subject", text: "Ich", person: "ich", mark: "I" },
+      { id: "du", type: "subject", text: "Du", person: "du", mark: "D" },
+      { id: "wir", type: "subject", text: "Wir", person: "wir", mark: "W" },
+      { id: "ihr", type: "subject", text: "Ihr", person: "ihr", mark: "IHR" },
+      { id: "nehmen", type: "verb", text: "nehmen", lemma: "nehmen", mark: "∞" },
+      { id: "essen", type: "verb", text: "essen", lemma: "essen", mark: "∞" },
+      { id: "gehen", type: "verb", text: "gehen", lemma: "gehen", mark: "∞" },
+      { id: "moechten", type: "verb", text: "möchten", lemma: "moechten", mark: "∞" },
+      { id: "trinken", type: "verb", text: "trinken", lemma: "trinken", mark: "∞" },
+      { id: "bus", type: "object", text: "den Bus", lemma: "Bus", art: "bus", article: "der", zh: "公交车" },
+      { id: "kaffee", type: "object", text: "einen Kaffee", lemma: "Kaffee", art: "kaffee", article: "der", zh: "一杯咖啡" },
+      { id: "brot", type: "object", text: "ein Brot", lemma: "Brot", art: "brot", article: "das", zh: "面包" },
+      { id: "apfel", type: "object", text: "einen Apfel", lemma: "Apfel", art: "apfel", article: "der", zh: "苹果" },
+      { id: "schule", type: "place", text: "in die Schule", lemma: "Schule", art: "schule", article: "die", zh: "学校" },
+      { id: "heute", type: "time", text: "heute", mark: "T" },
+      { id: "morgen", type: "time", text: "morgen", mark: "T" }
+    ];
+
+    const specialCards = [
+      { id: "challenge_imperative", type: "task", textKey: "taskNoun", challenge: "imperative", mark: "!" },
+      { id: "challenge_place", type: "task", textKey: "taskPlace", challenge: "place", mark: "?" },
+      { id: "challenge_time", type: "task", textKey: "taskTime", challenge: "time", mark: "?" },
+      { id: "self_draw2", type: "action", textKey: "draw2", effect: "draw2", mark: "+2" },
+      { id: "self_draw1", type: "action", textKey: "draw1", effect: "draw1", mark: "+1" },
+      { id: "self_swap1", type: "action", textKey: "swap1", effect: "swap1", mark: "⇄" }
+    ];
+
+    const players = [
+      { id: "you", name: { zh: "你", de: "Du" }, seat: "you", hand: [], isHuman: true, last: "", score: 0, sentences: 0, cardsUsed: 0, gameXp: 0 },
+      { id: "sophie", name: { zh: "Sophie", de: "Sophie" }, seat: "left", hand: [], isHuman: false, last: "", score: 0, sentences: 0, cardsUsed: 0, gameXp: 0 },
+      { id: "thomas", name: { zh: "Thomas", de: "Thomas" }, seat: "top", hand: [], isHuman: false, last: "", score: 0, sentences: 0, cardsUsed: 0, gameXp: 0 },
+      { id: "leon", name: { zh: "Leon", de: "Leon" }, seat: "right", hand: [], isHuman: false, last: "", score: 0, sentences: 0, cardsUsed: 0, gameXp: 0 }
+    ];
+
+    const collectionIds = ["kaffee", "brot", "bus", "schule", "apfel"];
+    let lang = "zh";
+    let deck = [];
+    let discard = [];
+    let selected = [];
+    let activePlayer = 0;
+    let hasDrawn = false;
+    let round = 1;
+    let gameOver = false;
+    let message = "";
+    let messageType = "";
+    let logItems = [];
+    let lastPlayed = "";
+    let pendingCards = null;
+    let collection = {};
+    let bubbleTimer = null;
+    let bubble = "";
+    let gameSeconds = 180;
+    let turnSeconds = 30;
+    let timerId = null;
+    let activeChallenge = null;
+
+    const el = {
+      subtitle: document.getElementById("subtitle"),
+      rulesBtn: document.getElementById("rulesBtn"),
+      restartBtn: document.getElementById("restartBtn"),
+      collectionFab: document.getElementById("collectionFab"),
+      collectionDrawer: document.getElementById("collectionDrawer"),
+      collectionClose: document.getElementById("collectionClose"),
+      langZh: document.getElementById("langZh"),
+      langDe: document.getElementById("langDe"),
+      statsTitle: document.getElementById("statsTitle"),
+      roundLabel: document.getElementById("roundLabel"),
+      deckLabel: document.getElementById("deckLabel"),
+      xpLabel: document.getElementById("xpLabel"),
+      turnLabel: document.getElementById("turnLabel"),
+      helpTitle: document.getElementById("helpTitle"),
+      helpText: document.getElementById("helpText"),
+      playAreaTitle: document.getElementById("playAreaTitle"),
+      activityTitle: document.getElementById("activityTitle"),
+      collectionTitle: document.getElementById("collectionTitle"),
+      playBtn: document.getElementById("playBtn"),
+      cannotBtn: document.getElementById("cannotBtn"),
+      clearBtn: document.getElementById("clearBtn"),
+      roundValue: document.getElementById("roundValue"),
+      deckValue: document.getElementById("deckValue"),
+      xpValue: document.getElementById("xpValue"),
+      turnValue: document.getElementById("turnValue"),
+      roundLabelCenter: document.getElementById("roundLabelCenter"),
+      deckLabelCenter: document.getElementById("deckLabelCenter"),
+      turnLabelCenter: document.getElementById("turnLabelCenter"),
+      scoreLabelCenter: document.getElementById("scoreLabelCenter"),
+      gameTimeLabelCenter: document.getElementById("gameTimeLabelCenter"),
+      turnTimeLabelCenter: document.getElementById("turnTimeLabelCenter"),
+      roundCenter: document.getElementById("roundCenter"),
+      deckCenter: document.getElementById("deckCenter"),
+      turnCenter: document.getElementById("turnCenter"),
+      scoreCenter: document.getElementById("scoreCenter"),
+      gameTimeCenter: document.getElementById("gameTimeCenter"),
+      turnTimeCenter: document.getElementById("turnTimeCenter"),
+      seatTop: document.getElementById("seatTop"),
+      seatLeft: document.getElementById("seatLeft"),
+      seatRight: document.getElementById("seatRight"),
+      seatYou: document.getElementById("seatYou"),
+      turnBanner: document.getElementById("turnBanner"),
+      turnBannerText: document.getElementById("turnBannerText"),
+      turnBannerTime: document.getElementById("turnBannerTime"),
+      youInfo: document.getElementById("youInfo"),
+      hand: document.getElementById("hand"),
+      playedSentence: document.getElementById("playedSentence"),
+      selectedRow: document.getElementById("selectedRow"),
+      selectedCount: document.getElementById("selectedCount"),
+      sentenceHint: document.getElementById("sentenceHint"),
+      message: document.getElementById("message"),
+      actionBubble: document.getElementById("actionBubble"),
+      logList: document.getElementById("logList"),
+      coffeeLevel: document.getElementById("coffeeLevel"),
+      coffeeInfo: document.getElementById("coffeeInfo"),
+      coffeeXp: document.getElementById("coffeeXp"),
+      coffeeXpText: document.getElementById("coffeeXpText"),
+      modal: document.getElementById("verbModal"),
+      modalTitle: document.getElementById("modalTitle"),
+      modalSub: document.getElementById("modalSub"),
+      modalClose: document.getElementById("modalClose"),
+      formList: document.getElementById("formList"),
+      resultModal: document.getElementById("resultModal"),
+      resultTitle: document.getElementById("resultTitle"),
+      resultSummary: document.getElementById("resultSummary"),
+      resultList: document.getElementById("resultList"),
+      resultRestart: document.getElementById("resultRestart")
+    };
+
+    function t(key, vars = {}) {
+      let value = i18n[lang][key] || key;
+      Object.entries(vars).forEach(([k, v]) => { value = value.replace(`{${k}}`, v); });
+      return value;
+    }
+
+    function cardText(card) {
+      return card.textKey ? t(card.textKey) : card.text;
+    }
+
+    function clone(card) {
+      return { ...card, uid: `${card.id}-${Math.random().toString(36).slice(2)}` };
+    }
+
+    function shuffle(items) {
+      const arr = items.slice();
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    function makeDeck() {
+      const cards = [];
+      for (let i = 0; i < 4; i++) baseCards.forEach(card => cards.push(clone(card)));
+      for (let i = 0; i < 2; i++) specialCards.forEach(card => cards.push(clone(card)));
+      return shuffle(cards);
+    }
+
+    function drawCards(player, count) {
+      for (let i = 0; i < count; i++) {
+        if (!deck.length && discard.length) {
+          deck = shuffle(discard);
+          discard = [];
+        }
+        if (deck.length) player.hand.push(deck.pop());
+      }
+    }
+
+    function selectedCards() {
+      return selected.map(uid => players[0].hand.find(card => card.uid === uid)).filter(Boolean);
+    }
+
+    function finiteVerb(cards) {
+      return cards.find(card => card.type === "verb");
+    }
+
+    function sentenceText(cards, form = null) {
+      const finite = finiteVerb(cards);
+      return cards.map(card => card.type === "verb" && form && card.uid === finite.uid ? form : cardText(card)).join(" ");
+    }
+
+    function addLog(player, text, key = null, vars = {}) {
+      logItems.unshift({ player, text, key, vars, time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) });
+      logItems = logItems.slice(0, 12);
+      showBubble(`${player.name[lang]} · ${key ? t(key, vars) : text}`);
+    }
+
+    function showBubble(text) {
+      bubble = text;
+      clearTimeout(bubbleTimer);
+      renderBubble();
+      bubbleTimer = setTimeout(() => {
+        bubble = "";
+        renderBubble();
+      }, 2600);
+    }
+
+    function renderBubble() {
+      if (!el.actionBubble) return;
+      el.actionBubble.textContent = bubble;
+      el.actionBubble.classList.toggle("show", Boolean(bubble));
+    }
+
+    function setMessage(text, type = "") {
+      message = text;
+      messageType = type;
+    }
+
+    function formatTime(seconds) {
+      const mm = String(Math.floor(seconds / 60)).padStart(2, "0");
+      const ss = String(seconds % 60).padStart(2, "0");
+      return `${mm}:${ss}`;
+    }
+
+    function scoreSentence(player, cards) {
+      const points = 35 + cards.length * 10 + (subject(cards) ? 0 : 12);
+      player.score += points;
+      player.sentences += 1;
+      player.cardsUsed += cards.length;
+      player.gameXp += Math.max(12, Math.round(points * 0.45));
+      addLog(player, t("scoreLog", { points }), "scoreLog", { points });
+      return points;
+    }
+
+    function finalScore(player) {
+      return Math.max(0, player.score - player.hand.length * 8);
+    }
+
+    function startTimers() {
+      clearInterval(timerId);
+      timerId = setInterval(() => {
+        if (gameOver) return;
+        gameSeconds = Math.max(0, gameSeconds - 1);
+        if (activePlayer === 0) {
+          turnSeconds = Math.max(0, turnSeconds - 1);
+          if (turnSeconds === 0) {
+            setMessage(t("timeout"), "warn");
+            penalizeAndEndHumanTurn("timeout");
+          }
+        }
+        if (gameSeconds === 0) endGame("time");
+        render();
+      }, 1000);
+    }
+
+    function resetTurnTimer() {
+      turnSeconds = 30;
+    }
+
+    function penalizeAndEndHumanTurn(logKey) {
+      if (gameOver || activePlayer !== 0) return;
+      turnSeconds = 30;
+      drawCards(players[0], 1);
+      selected = [];
+      activeChallenge = null;
+      players[0].gameXp += 3;
+      addLog(players[0], t(logKey), logKey);
+      endTurn();
+    }
+
+    function beginHumanTurn() {
+      activePlayer = 0;
+      hasDrawn = true;
+      resetTurnTimer();
+      drawCards(players[0], 1);
+      players[0].last = t("drewCards", { n: 1 });
+      setMessage(t("drew"), "ok");
+      addLog(players[0], t("drewCards", { n: 1 }), "drewCards", { n: 1 });
+      showBubble(t("yourTurnNow"));
+    }
+
+    function findVerb(cards) {
+      return cards.find(card => card.type === "verb");
+    }
+
+    function subject(cards) {
+      return cards.find(card => card.type === "subject");
+    }
+
+    function hasComplement(cards) {
+      return cards.some(card => ["object", "place"].includes(card.type));
+    }
+
+    function complement(cards) {
+      return cards.find(card => ["object", "place"].includes(card.type));
+    }
+
+    function hasValidCollocation(cards) {
+      const verb = findVerb(cards);
+      const comp = complement(cards);
+      if (!verb || !comp) return false;
+      return (validCollocations[verb.lemma] || []).includes(comp.id);
+    }
+
+    function lexicalVerbForCollocation(cards) {
+      const verbs = cards.filter(card => card.type === "verb");
+      if (verbs[0] && verbs[0].lemma === "moechten" && verbs.length > 1) return verbs[verbs.length - 1];
+      return verbs[0];
+    }
+
+    function hasValidLessonPhrase(cards) {
+      const verb = lexicalVerbForCollocation(cards);
+      const comp = complement(cards);
+      if (!verb || !comp) return false;
+      return (validCollocations[verb.lemma] || []).includes(comp.id);
+    }
+
+    function checkChallenge(cards, isImperative) {
+      if (activeChallenge === "time" && !cards.some(card => card.type === "time")) return { ok: false, reason: t("challengeTimeFail") };
+      if (activeChallenge === "place" && !cards.some(card => card.type === "place")) return { ok: false, reason: t("challengePlaceFail") };
+      if (activeChallenge === "imperative" && !isImperative) return { ok: false, reason: t("challengeImperativeFail") };
+      return { ok: true, reason: t("okSentence") };
+    }
+
+    function validate(cards, form) {
+      const verb = findVerb(cards);
+      if (!verb) return { ok: false, reason: t("noVerb") };
+      if (!hasComplement(cards)) return { ok: false, reason: t("noComplement") };
+      if (!hasValidLessonPhrase(cards)) return { ok: false, reason: t("badCollocation") };
+
+      const subj = subject(cards);
+      const verbIndex = cards.findIndex(card => card.type === "verb");
+      const subjIndex = cards.findIndex(card => card.type === "subject");
+      const verbs = cards.filter(card => card.type === "verb");
+      const finite = verbs[0];
+      const lastVerb = verbs[verbs.length - 1];
+
+      if (subj && finite && finite.lemma === "moechten" && verbs.length > 1) {
+        const allowedModal = {
+          ich: "möchte",
+          du: "möchtest",
+          wir: "möchten",
+          ihr: "möchtet"
+        };
+        const modalIndex = cards.findIndex(card => card.uid === finite.uid);
+        const lastVerbIndex = cards.findIndex(card => card.uid === lastVerb.uid);
+        const orderOk = subjIndex === 0 && modalIndex === 1 && lastVerbIndex === cards.length - 1;
+        if (!orderOk) return { ok: false, reason: t("badDeclarative") };
+        if (allowedModal[subj.person] !== form) return { ok: false, reason: t("badForm") };
+        return checkChallenge(cards, false);
+      }
+
+      if (!subj) {
+        const imperativeForms = {
+          nehmen: ["nimm", "nehmt", "nehmen"],
+          essen: ["iss", "esst", "essen"],
+          gehen: ["geh", "geht", "gehen"],
+          trinken: ["trink", "trinke", "trinkt", "trinken"],
+          moechten: []
+        };
+        const ok = verbIndex === 0 && (imperativeForms[verb.lemma] || []).includes(form);
+        return ok ? checkChallenge(cards, true) : { ok: false, reason: t("badForm") };
+      }
+
+      const allowed = {
+        ich: { nehmen: "nehme", essen: "esse", gehen: "gehe", moechten: "möchte" },
+        du: { nehmen: "nimmst", essen: "isst", gehen: "gehst", moechten: "möchtest", trinken: "trinkst" },
+        wir: { nehmen: "nehmen", essen: "essen", gehen: "gehen", moechten: "möchten", trinken: "trinken" },
+        ihr: { nehmen: "nehmt", essen: "esst", gehen: "geht", moechten: "möchtet", trinken: "trinkt" }
+      };
+      allowed.ich.trinken = "trinke";
+      if (!(subjIndex === 0 && verbIndex === 1)) return { ok: false, reason: t("badDeclarative") };
+      if (allowed[subj.person][verb.lemma] !== form) return { ok: false, reason: t("badForm") };
+      return checkChallenge(cards, false);
+    }
+
+    function openVerbModal(cards) {
+      const verb = findVerb(cards);
+      if (!verb) {
+        setMessage(t("noVerb"), "bad");
+        render();
+        return;
+      }
+      pendingCards = cards;
+      el.modalTitle.textContent = t("chooseVerb");
+      el.modalSub.textContent = `${verb.text} · ${t("modalHint")}`;
+      el.formList.innerHTML = "";
+      verbForms[verb.lemma].forEach(option => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "form-option";
+        button.innerHTML = `<strong>${option.form}</strong><span>${option.tag}</span>`;
+        button.addEventListener("click", () => submitSentence(option.form));
+        el.formList.appendChild(button);
+      });
+      el.modal.classList.add("open");
+    }
+
+    function closeVerbModal() {
+      pendingCards = null;
+      el.modal.classList.remove("open");
+    }
+
+    function submitSentence(form) {
+      const cards = pendingCards || selectedCards();
+      const result = validate(cards, form);
+      if (!result.ok) {
+        closeVerbModal();
+        setMessage(result.reason, "bad");
+        render();
+        return;
+      }
+      const sentence = sentenceText(cards, form) + (subject(cards) ? "." : "!");
+      const ids = new Set(cards.map(card => card.uid));
+      players[0].hand = players[0].hand.filter(card => !ids.has(card.uid));
+      discard.push(...cards);
+      awardXp(cards, subject(cards) ? 20 : 26);
+      scoreSentence(players[0], cards);
+      if (activeChallenge) {
+        const bonus = 30;
+        players[0].score += bonus;
+        players[0].gameXp += 12;
+        addLog(players[0], t("challengeBonus", { points: bonus }), "challengeBonus", { points: bonus });
+        activeChallenge = null;
+      }
+      selected = [];
+      lastPlayed = sentence;
+      addLog(players[0], `${t("played")} ${sentence}`, "playedSentenceLog", { sentence });
+      closeVerbModal();
+      if (checkWin(players[0])) return;
+      endTurn();
+    }
+
+    function awardXp(cards, amount) {
+      cards.forEach(card => {
+        if (!collection[card.id]) return;
+        const item = collection[card.id];
+        item.xp += amount;
+        while (item.xp >= item.need && item.level < 4) {
+          item.xp -= item.need;
+          item.level += 1;
+          item.need += 25;
+        }
+      });
+    }
+
+    function playHuman() {
+      if (gameOver || activePlayer !== 0) return;
+      if (!hasDrawn) {
+        setMessage(t("needDraw"), "warn");
+        render();
+        return;
+      }
+      const cards = selectedCards();
+      if (cards.length < 2) {
+        setMessage(t("needCards"), "warn");
+        render();
+        return;
+      }
+      openVerbModal(cards);
+    }
+
+    function cannotHuman() {
+      if (gameOver || activePlayer !== 0) return;
+      if (!hasDrawn) {
+        setMessage(t("needDraw"), "warn");
+        render();
+        return;
+      }
+      penalizeAndEndHumanTurn("cannotAction");
+    }
+
+    function toggleCard(card) {
+      if (gameOver || activePlayer !== 0) return;
+      if (card.type === "action" || card.type === "task") {
+        if (!hasDrawn) {
+          setMessage(t("needDraw"), "warn");
+          render();
+          return;
+        }
+        useSpecial(card);
+        return;
+      }
+      selected = selected.includes(card.uid)
+        ? selected.filter(uid => uid !== card.uid)
+        : [...selected, card.uid];
+      render();
+    }
+
+    function useSpecial(card) {
+      players[0].hand = players[0].hand.filter(item => item.uid !== card.uid);
+      discard.push(card);
+      if (card.type === "task") {
+        activeChallenge = card.challenge;
+        players[0].score += 2;
+        addLog(players[0], t("challengeLog", { card: cardText(card) }), "challengeLog", { card: cardText(card) });
+        render();
+        return;
+      }
+      if (card.effect === "draw2") drawCards(players[0], 2);
+      if (card.effect === "draw1") drawCards(players[0], 1);
+      if (card.effect === "swap1") {
+        const swappable = players[0].hand.find(item => item.type !== "action" && item.type !== "task") || players[0].hand[0];
+        if (swappable) {
+          players[0].hand = players[0].hand.filter(item => item.uid !== swappable.uid);
+          discard.push(swappable);
+          drawCards(players[0], 1);
+        }
+      }
+      players[0].score += 2;
+      players[0].gameXp += 2;
+      addLog(players[0], t("specialLog", { card: cardText(card) }), "specialLog", { card: cardText(card) });
+      render();
+    }
+
+    function findAiSentence(player) {
+      const subjects = player.hand.filter(card => card.type === "subject");
+      const verbs = player.hand.filter(card => card.type === "verb");
+      const complements = player.hand.filter(card => ["object", "place"].includes(card.type));
+      for (const subj of subjects) {
+        for (const verb of verbs) {
+          for (const comp of complements) {
+            if (!(validCollocations[verb.lemma] || []).includes(comp.id)) continue;
+            const form = {
+              ich: { nehmen: "nehme", essen: "esse", gehen: "gehe", moechten: "möchte", trinken: "trinke" },
+              du: { nehmen: "nimmst", essen: "isst", gehen: "gehst", moechten: "möchtest", trinken: "trinkst" },
+              wir: { nehmen: "nehmen", essen: "essen", gehen: "gehen", moechten: "möchten", trinken: "trinken" },
+              ihr: { nehmen: "nehmt", essen: "esst", gehen: "geht", moechten: "möchtet", trinken: "trinkt" }
+            }[subj.person][verb.lemma];
+            return { cards: [subj, verb, comp], form };
+          }
+        }
+      }
+      for (const verb of verbs) {
+        for (const comp of complements) {
+          if (!(validCollocations[verb.lemma] || []).includes(comp.id)) continue;
+          const form = { nehmen: "nehmt", essen: "esst", gehen: "geht", trinken: "trinkt", moechten: "" }[verb.lemma];
+          if (form) return { cards: [verb, comp], form };
+        }
+      }
+      return null;
+    }
+
+    function runAi() {
+      if (gameOver) return;
+      const player = players[activePlayer];
+      drawCards(player, 1);
+      player.last = t("drewCards", { n: 1 });
+      const move = findAiSentence(player);
+      if (move) {
+        const ids = new Set(move.cards.map(card => card.uid));
+        player.hand = player.hand.filter(card => !ids.has(card.uid));
+        discard.push(...move.cards);
+        scoreSentence(player, move.cards);
+        const sentence = sentenceText(move.cards, move.form) + (subject(move.cards) ? "." : "!");
+        lastPlayed = sentence;
+        player.last = sentence;
+        addLog(player, `${t("played")} ${sentence}`, "playedSentenceLog", { sentence });
+        if (checkWin(player)) return;
+      } else {
+        player.last = t("passed");
+        addLog(player, t("passed"), "passed");
+      }
+      render();
+      setTimeout(() => {
+        activePlayer = (activePlayer + 1) % players.length;
+        if (activePlayer === 0) {
+          round += 1;
+          beginHumanTurn();
+          render();
+        } else {
+          render();
+          setTimeout(runAi, 1100);
+        }
+      }, 1400);
+    }
+
+    function endTurn() {
+      hasDrawn = false;
+      activeChallenge = null;
+      activePlayer = (activePlayer + 1) % players.length;
+      if (activePlayer === 0) {
+        round += 1;
+        beginHumanTurn();
+        render();
+      } else {
+        render();
+        setTimeout(runAi, 1300);
+      }
+    }
+
+    function checkWin(player) {
+      if (player.hand.length > 0) return false;
+      endGame("emptyHand");
+      return true;
+    }
+
+    function endGame(reason) {
+      if (gameOver) return;
+      gameOver = true;
+      clearInterval(timerId);
+      players.forEach(player => {
+        player.final = finalScore(player);
+        player.gameXp += Math.max(8, Math.round(player.final * 0.35));
+      });
+      const ranking = players.slice().sort((a, b) => b.final - a.final);
+      const winner = ranking[0];
+      const summary = ranking
+        .map(player => `${player.name[lang]} ${player.final} (${player.sentences}/${player.cardsUsed}/${player.hand.length})`)
+        .join(" · ");
+      setMessage("", "");
+      showResult(ranking, winner, summary);
+      render();
+    }
+
+    function showResult(ranking, winner, summary) {
+      el.resultTitle.textContent = t("resultTitle");
+      el.resultSummary.textContent = t("finalResult", { winner: winner.name[lang], summary });
+      el.resultRestart.textContent = t("playAgain");
+      el.resultList.innerHTML = ranking.map((player, index) => `
+        <div class="result-row">
+          <span class="count-badge">${index + 1}</span>
+          <div>
+            <strong>${player.name[lang]}</strong>
+            <div class="small-muted">${player.sentences} 句 · ${player.cardsUsed} 张词牌 · 剩 ${player.hand.length} 张 · XP +${player.gameXp}</div>
+          </div>
+          <strong>${player.final}</strong>
+        </div>
+      `).join("");
+      el.resultModal.classList.add("open");
+    }
+
+    function renderSeat(player) {
+      const cards = Array.from({ length: Math.min(player.hand.length, 12) }, () => `<span class="opponent-card"></span>`).join("");
+      return `
+        <div class="player-box">
+          <div class="avatar">${player.name[lang][0]}</div>
+          <div class="player-name ${players[activePlayer].id === player.id ? "active" : ""}">${player.name[lang]} <span class="count-badge">${player.hand.length}</span> <span class="count-badge">${player.score}</span></div>
+          <div class="opponent-cards">${cards}</div>
+          <div class="speech">${player.last || (player.isHuman ? t("yourCards") : t("computer"))}</div>
+        </div>
+      `;
+    }
+
+    function renderCard(card, mini = false) {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = `card ${card.type} ${selected.includes(card.uid) ? "selected" : ""} ${mini ? "mini-card" : ""}`;
+      const item = collection[card.id];
+      const level = item ? item.level : 1;
+      const art = card.art
+        ? `<div class="art ${card.art}"></div>`
+        : `<div class="fallback-art">${card.mark || typeLabels[card.type][0]}</div>`;
+      button.innerHTML = `
+        <span class="type-strip"></span>
+        <div class="card-top"><span class="card-type">${typeLabels[card.type]}</span><span class="level">Lv${level}</span></div>
+        ${art}
+        <div class="word">${cardText(card)}</div>
+        <div class="card-note">${card.type === "verb" ? "Infinitiv" : card.article || card.mark || ""}</div>
+      `;
+      if (!mini) button.addEventListener("click", () => toggleCard(card));
+      return button;
+    }
+
+    function renderSelected() {
+      const cards = selectedCards();
+      el.selectedRow.innerHTML = "";
+      cards.forEach(card => el.selectedRow.appendChild(renderCard(card, true)));
+      el.selectedCount.textContent = `${t("selected")} ${cards.length}`;
+      const challengeText = activeChallenge
+        ? ` · ${lang === "zh" ? "当前挑战" : "Challenge"}: ${activeChallenge}`
+        : "";
+      el.sentenceHint.textContent = (cards.length ? sentenceText(cards) : t("help")) + challengeText;
+    }
+
+    function renderHand() {
+      el.hand.innerHTML = "";
+      players[0].hand.forEach(card => el.hand.appendChild(renderCard(card)));
+      el.youInfo.innerHTML = `<div class="you-info-compact">${players[0].name[lang]} <span class="count-badge">${players[0].hand.length}</span> <span class="count-badge">${players[0].score}</span></div>`;
+    }
+
+    function renderLogs() {
+      el.logList.innerHTML = logItems.slice(0, 4).map(item => `
+        <div class="log-entry">
+          <span class="time">${item.time}</span>
+          <span><strong>${item.player.name[lang]}</strong> ${item.key ? t(item.key, item.vars) : item.text}</span>
+        </div>
+      `).join("");
+    }
+
+    function renderCollection() {
+      const item = collection.kaffee;
+      const pct = Math.min(100, Math.round(item.xp / item.need * 100));
+      el.coffeeLevel.textContent = `Lv${item.level}`;
+      el.coffeeInfo.textContent = lang === "zh"
+        ? `咖啡 · ${t("coffeeInfo")}`
+        : `Kaffee · ${t("coffeeInfo")}`;
+      el.coffeeXp.style.width = `${pct}%`;
+      el.coffeeXpText.textContent = `${item.xp}/${item.need} XP`;
+    }
+
+    function renderTexts() {
+      el.subtitle.textContent = t("subtitle");
+      el.rulesBtn.textContent = t("rules");
+      el.restartBtn.textContent = t("restart");
+      el.collectionFab.textContent = t("collection");
+      el.statsTitle.textContent = t("stats");
+      el.roundLabel.textContent = t("round");
+      el.deckLabel.textContent = t("deck");
+      el.xpLabel.textContent = t("xp");
+      el.turnLabel.textContent = t("turn");
+      el.roundLabelCenter.textContent = t("round");
+      el.deckLabelCenter.textContent = t("deck");
+      el.turnLabelCenter.textContent = t("turn");
+      el.scoreLabelCenter.textContent = t("score");
+      el.gameTimeLabelCenter.textContent = t("gameTime");
+      el.turnTimeLabelCenter.textContent = t("turnTime");
+      el.helpTitle.textContent = t("helpTitle");
+      el.helpText.textContent = t("help");
+      el.playAreaTitle.textContent = t("playArea");
+      el.activityTitle.textContent = t("activity");
+      el.collectionTitle.textContent = t("collection");
+      el.playBtn.textContent = t("play");
+      el.cannotBtn.textContent = t("cannot");
+      el.clearBtn.textContent = t("clear");
+      el.langZh.classList.toggle("active", lang === "zh");
+      el.langDe.classList.toggle("active", lang === "de");
+    }
+
+    function renderStats() {
+      const xp = Object.values(collection).reduce((sum, item) => sum + item.xp + (item.level - 1) * 50, 0);
+      el.roundValue.textContent = round;
+      el.deckValue.textContent = deck.length;
+      el.xpValue.textContent = xp;
+      el.turnValue.textContent = players[activePlayer].name[lang];
+      el.roundCenter.textContent = round;
+      el.deckCenter.textContent = deck.length;
+      el.scoreCenter.textContent = players[0].score;
+      el.gameTimeCenter.textContent = formatTime(gameSeconds);
+      el.turnTimeCenter.textContent = activePlayer === 0 && !gameOver ? turnSeconds : "-";
+      el.turnCenter.textContent = players[activePlayer].name[lang];
+      el.seatYou.classList.toggle("your-turn", activePlayer === 0 && !gameOver);
+      el.turnBanner.classList.toggle("show", activePlayer === 0 && !gameOver);
+      el.turnBannerText.textContent = t("yourTurnNow");
+      el.turnBannerTime.textContent = turnSeconds;
+      el.playBtn.disabled = gameOver || activePlayer !== 0;
+      el.cannotBtn.disabled = gameOver || activePlayer !== 0;
+      el.message.textContent = message;
+      el.message.className = `message ${messageType}`.trim();
+    }
+
+    function render() {
+      renderTexts();
+      renderStats();
+      el.seatLeft.innerHTML = renderSeat(players[1]);
+      el.seatTop.innerHTML = renderSeat(players[2]);
+      el.seatRight.innerHTML = renderSeat(players[3]);
+      el.playedSentence.textContent = lastPlayed || "-";
+      renderHand();
+      renderSelected();
+      renderLogs();
+      renderCollection();
+      renderBubble();
+    }
+
+    function restart() {
+      el.resultModal.classList.remove("open");
+      deck = makeDeck();
+      discard = [];
+      selected = [];
+      activePlayer = 0;
+      hasDrawn = false;
+      round = 1;
+      gameOver = false;
+      gameSeconds = 180;
+      turnSeconds = 30;
+      logItems = [];
+      lastPlayed = "";
+      collection = Object.fromEntries(collectionIds.map(id => [id, { level: 1, xp: 0, need: 50 }]));
+      players.forEach(player => {
+        player.hand = [];
+        player.last = "";
+        player.score = 0;
+        player.sentences = 0;
+        player.cardsUsed = 0;
+        player.gameXp = 0;
+        player.final = 0;
+      });
+      activeChallenge = null;
+      players.forEach(player => drawCards(player, 6));
+      beginHumanTurn();
+      render();
+      startTimers();
+    }
+
+    el.langZh.addEventListener("click", () => { lang = "zh"; setMessage(t("currentTurn"), ""); render(); });
+    el.langDe.addEventListener("click", () => { lang = "de"; setMessage(t("currentTurn"), ""); render(); });
+    el.restartBtn.addEventListener("click", restart);
+    el.resultRestart.addEventListener("click", restart);
+    el.collectionFab.addEventListener("click", () => { el.collectionDrawer.classList.add("open"); });
+    el.collectionClose.addEventListener("click", () => { el.collectionDrawer.classList.remove("open"); });
+    el.collectionDrawer.addEventListener("click", event => { if (event.target === el.collectionDrawer) el.collectionDrawer.classList.remove("open"); });
+    el.rulesBtn.addEventListener("click", () => { setMessage(t("help"), "warn"); render(); });
+    el.playBtn.addEventListener("click", playHuman);
+    el.cannotBtn.addEventListener("click", cannotHuman);
+    el.clearBtn.addEventListener("click", () => { selected = []; render(); });
+    el.modalClose.addEventListener("click", closeVerbModal);
+    el.modal.addEventListener("click", event => { if (event.target === el.modal) closeVerbModal(); });
+
+    restart();
+  </script>
+</body>
+</html>

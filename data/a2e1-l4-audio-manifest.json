@@ -1,0 +1,2050 @@
+{
+  "version": "0.2",
+  "course_id": "A2E1",
+  "lesson_id": "L4",
+  "source_files": [
+    {
+      "file": "A2E1-L4-Essen-ohne-Licht.mp3",
+      "ownership": "teacher_recorded_original"
+    }
+  ],
+  "duration_seconds": 108.487,
+  "detected_speech_regions": 46,
+  "automatic": true,
+  "alignment_method": "forced_alignment",
+  "whisper_available": true,
+  "dry_run": false,
+  "segments": [
+    {
+      "segment_id": "L4-s01",
+      "text": "Hast du es auch schon gehört, Gloria?",
+      "source_audio": "A2E1-L4-Essen-ohne-Licht.mp3",
+      "start": 0.16,
+      "end": 2.49,
+      "audio_file": "A2E1-L4-Essen-ohne-Licht-s01.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Hast du es auch schon gehört Gloria",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Hast",
+          "normalized": "hast",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "du",
+          "normalized": "du",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "es",
+          "normalized": "es",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "auch",
+          "normalized": "auch",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "schon",
+          "normalized": "schon",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gehört,",
+          "normalized": "gehört",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Gloria?",
+          "normalized": "gloria",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L4-s02",
+      "text": "In der Vorstadt gibt es ein neues Lokal, das \"lichtlos\".",
+      "source_audio": "A2E1-L4-Essen-ohne-Licht.mp3",
+      "start": 3.1,
+      "end": 6.44,
+      "audio_file": "A2E1-L4-Essen-ohne-Licht-s02.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 0.883,
+      "method": "forced_alignment",
+      "recognized_text": "In der Vorstatt gibt es ein neues Lokal das Licht",
+      "match_score": 0.883,
+      "tokens": [
+        {
+          "token": "In",
+          "normalized": "in",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "der",
+          "normalized": "der",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Vorstadt",
+          "normalized": "vorstadt",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gibt",
+          "normalized": "gibt",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "es",
+          "normalized": "es",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ein",
+          "normalized": "ein",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "neues",
+          "normalized": "neues",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Lokal,",
+          "normalized": "lokal",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "das",
+          "normalized": "das",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "\"lichtlos\".",
+          "normalized": "lichtlos",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L4-s03",
+      "text": "Man kann dort Kaffee trinken und auch essen, aber es ist total dunkel, ohne Licht, eben lichtlos.",
+      "source_audio": "A2E1-L4-Essen-ohne-Licht.mp3",
+      "start": 7.16,
+      "end": 15.18,
+      "audio_file": "A2E1-L4-Essen-ohne-Licht-s03.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 0.965,
+      "method": "forced_alignment",
+      "recognized_text": "Man kann dort Kaffee trinken und auch essen Aber es ist total dunkel ohne Licht Eben Licht",
+      "match_score": 0.965,
+      "tokens": [
+        {
+          "token": "Man",
+          "normalized": "man",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "kann",
+          "normalized": "kann",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "dort",
+          "normalized": "dort",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Kaffee",
+          "normalized": "kaffee",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "trinken",
+          "normalized": "trinken",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "auch",
+          "normalized": "auch",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "essen,",
+          "normalized": "essen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "aber",
+          "normalized": "aber",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "es",
+          "normalized": "es",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ist",
+          "normalized": "ist",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "total",
+          "normalized": "total",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "dunkel,",
+          "normalized": "dunkel",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ohne",
+          "normalized": "ohne",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Licht,",
+          "normalized": "licht",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "eben",
+          "normalized": "eben",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "lichtlos.",
+          "normalized": "lichtlos",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L4-s04",
+      "text": "Warst du schon dort, Nele?",
+      "source_audio": "A2E1-L4-Essen-ohne-Licht.mp3",
+      "start": 16.0,
+      "end": 17.69,
+      "audio_file": "A2E1-L4-Essen-ohne-Licht-s04.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 0.772,
+      "method": "forced_alignment",
+      "recognized_text": "Was du schon dort näle",
+      "match_score": 0.772,
+      "tokens": [
+        {
+          "token": "Warst",
+          "normalized": "warst",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "du",
+          "normalized": "du",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "schon",
+          "normalized": "schon",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "dort,",
+          "normalized": "dort",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Nele?",
+          "normalized": "nele",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L4-s05",
+      "text": "Nein, aber ein paar Freunde von mir.",
+      "source_audio": "A2E1-L4-Essen-ohne-Licht.mp3",
+      "start": 18.16,
+      "end": 20.5,
+      "audio_file": "A2E1-L4-Essen-ohne-Licht-s05.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Nein aber ein paar Freunde von mir",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Nein,",
+          "normalized": "nein",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "aber",
+          "normalized": "aber",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ein",
+          "normalized": "ein",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "paar",
+          "normalized": "paar",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Freunde",
+          "normalized": "freunde",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "von",
+          "normalized": "von",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "mir.",
+          "normalized": "mir",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L4-s06",
+      "text": "Es hat ihnen super gefallen.",
+      "source_audio": "A2E1-L4-Essen-ohne-Licht.mp3",
+      "start": 21.1,
+      "end": 22.75,
+      "audio_file": "A2E1-L4-Essen-ohne-Licht-s06.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Es hat ihnen super gefallen",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Es",
+          "normalized": "es",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "hat",
+          "normalized": "hat",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ihnen",
+          "normalized": "ihnen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "super",
+          "normalized": "super",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gefallen.",
+          "normalized": "gefallen",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L4-s07",
+      "text": "Man isst und trinkt, aber man sieht nichts dabei, gar nichts.",
+      "source_audio": "A2E1-L4-Essen-ohne-Licht.mp3",
+      "start": 23.16,
+      "end": 27.73,
+      "audio_file": "A2E1-L4-Essen-ohne-Licht-s07.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 0.954,
+      "method": "forced_alignment",
+      "recognized_text": "Man ist und trinkt aber man sieht nichts dabei gar nichts",
+      "match_score": 0.954,
+      "tokens": [
+        {
+          "token": "Man",
+          "normalized": "man",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "isst",
+          "normalized": "isst",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "trinkt,",
+          "normalized": "trinkt",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "aber",
+          "normalized": "aber",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "man",
+          "normalized": "man",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "sieht",
+          "normalized": "sieht",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "nichts",
+          "normalized": "nichts",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "dabei,",
+          "normalized": "dabei",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gar",
+          "normalized": "gar",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "nichts.",
+          "normalized": "nichts",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L4-s08",
+      "text": "Ich möchte da auch gern mal hingehen.",
+      "source_audio": "A2E1-L4-Essen-ohne-Licht.mp3",
+      "start": 28.11,
+      "end": 30.5,
+      "audio_file": "A2E1-L4-Essen-ohne-Licht-s08.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Ich möchte da auch gern mal hingehen",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "möchte",
+          "normalized": "möchte",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "da",
+          "normalized": "da",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "auch",
+          "normalized": "auch",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gern",
+          "normalized": "gern",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "mal",
+          "normalized": "mal",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "hingehen.",
+          "normalized": "hingehen",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L4-s09",
+      "text": "Kommst du mit?",
+      "source_audio": "A2E1-L4-Essen-ohne-Licht.mp3",
+      "start": 31.11,
+      "end": 31.77,
+      "audio_file": "A2E1-L4-Essen-ohne-Licht-s09.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Kommst du mit",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Kommst",
+          "normalized": "kommst",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "du",
+          "normalized": "du",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "mit?",
+          "normalized": "mit",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L4-s10",
+      "text": "Ich weiß nicht, ich finde das ziemlich komisch: Plötzlich ist das Licht aus.",
+      "source_audio": "A2E1-L4-Essen-ohne-Licht.mp3",
+      "start": 32.21,
+      "end": 37.75,
+      "audio_file": "A2E1-L4-Essen-ohne-Licht-s10.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Ich weiß nicht Ich finde das ziemlich komisch Plötzlich ist das Licht aus",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "weiß",
+          "normalized": "weiß",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "nicht,",
+          "normalized": "nicht",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "finde",
+          "normalized": "finde",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "das",
+          "normalized": "das",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ziemlich",
+          "normalized": "ziemlich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "komisch:",
+          "normalized": "komisch",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Plötzlich",
+          "normalized": "plötzlich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ist",
+          "normalized": "ist",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "das",
+          "normalized": "das",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Licht",
+          "normalized": "licht",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "aus.",
+          "normalized": "aus",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L4-s11",
+      "text": "Nein, nein, da ist es immer dunkel.",
+      "source_audio": "A2E1-L4-Essen-ohne-Licht.mp3",
+      "start": 38.16,
+      "end": 40.5,
+      "audio_file": "A2E1-L4-Essen-ohne-Licht-s11.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Nein nein da ist es immer dunkel",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Nein,",
+          "normalized": "nein",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "nein,",
+          "normalized": "nein",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "da",
+          "normalized": "da",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ist",
+          "normalized": "ist",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "es",
+          "normalized": "es",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "immer",
+          "normalized": "immer",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "dunkel.",
+          "normalized": "dunkel",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L4-s12",
+      "text": "Komm, das wird spannend!",
+      "source_audio": "A2E1-L4-Essen-ohne-Licht.mp3",
+      "start": 41.35,
+      "end": 43.49,
+      "audio_file": "A2E1-L4-Essen-ohne-Licht-s12.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Komm das wird spannend",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Komm,",
+          "normalized": "komm",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "das",
+          "normalized": "das",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "wird",
+          "normalized": "wird",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "spannend!",
+          "normalized": "spannend",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L4-s13",
+      "text": "Und wie findet man seinen Platz?",
+      "source_audio": "A2E1-L4-Essen-ohne-Licht.mp3",
+      "start": 44.1,
+      "end": 45.76,
+      "audio_file": "A2E1-L4-Essen-ohne-Licht-s13.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Und wie findet man seinen Platz",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "wie",
+          "normalized": "wie",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "findet",
+          "normalized": "findet",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "man",
+          "normalized": "man",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "seinen",
+          "normalized": "seinen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Platz?",
+          "normalized": "platz",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L4-s14",
+      "text": "Die Kellnerinnen und Kellner nehmen dich an der Hand und bringen dich zum Tisch.",
+      "source_audio": "A2E1-L4-Essen-ohne-Licht.mp3",
+      "start": 46.1,
+      "end": 50.75,
+      "audio_file": "A2E1-L4-Essen-ohne-Licht-s14.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Die Kellnerinnen und Kellner nehmen dich an der Hand und bringen dich zum Tisch",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Die",
+          "normalized": "die",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Kellnerinnen",
+          "normalized": "kellnerinnen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Kellner",
+          "normalized": "kellner",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "nehmen",
+          "normalized": "nehmen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "dich",
+          "normalized": "dich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "an",
+          "normalized": "an",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "der",
+          "normalized": "der",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Hand",
+          "normalized": "hand",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "bringen",
+          "normalized": "bringen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "dich",
+          "normalized": "dich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "zum",
+          "normalized": "zum",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Tisch.",
+          "normalized": "tisch",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L4-s15",
+      "text": "Und wie bestellt man?",
+      "source_audio": "A2E1-L4-Essen-ohne-Licht.mp3",
+      "start": 51.13,
+      "end": 52.69,
+      "audio_file": "A2E1-L4-Essen-ohne-Licht-s15.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Und wie bestellt man",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "wie",
+          "normalized": "wie",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "bestellt",
+          "normalized": "bestellt",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "man?",
+          "normalized": "man",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L4-s16",
+      "text": "Man kann ja keine Speisekarte lesen.",
+      "source_audio": "A2E1-L4-Essen-ohne-Licht.mp3",
+      "start": 53.1,
+      "end": 54.8,
+      "audio_file": "A2E1-L4-Essen-ohne-Licht-s16.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Man kann ja keine Speisekarte lesen",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Man",
+          "normalized": "man",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "kann",
+          "normalized": "kann",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ja",
+          "normalized": "ja",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "keine",
+          "normalized": "keine",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Speisekarte",
+          "normalized": "speisekarte",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "lesen.",
+          "normalized": "lesen",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L4-s17",
+      "text": "Das macht man beim Eingang, an der Rezeption.",
+      "source_audio": "A2E1-L4-Essen-ohne-Licht.mp3",
+      "start": 55.11,
+      "end": 57.5,
+      "audio_file": "A2E1-L4-Essen-ohne-Licht-s17.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Das macht man beim Eingang an der Rezeption",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Das",
+          "normalized": "das",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "macht",
+          "normalized": "macht",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "man",
+          "normalized": "man",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "beim",
+          "normalized": "beim",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Eingang,",
+          "normalized": "eingang",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "an",
+          "normalized": "an",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "der",
+          "normalized": "der",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Rezeption.",
+          "normalized": "rezeption",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L4-s18",
+      "text": "Dort bezahlt man auch nach dem Essen.",
+      "source_audio": "A2E1-L4-Essen-ohne-Licht.mp3",
+      "start": 58.11,
+      "end": 59.8,
+      "audio_file": "A2E1-L4-Essen-ohne-Licht-s18.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Dort bezahlt man auch nach dem Essen",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Dort",
+          "normalized": "dort",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "bezahlt",
+          "normalized": "bezahlt",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "man",
+          "normalized": "man",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "auch",
+          "normalized": "auch",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "nach",
+          "normalized": "nach",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "dem",
+          "normalized": "dem",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Essen.",
+          "normalized": "essen",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L4-s19",
+      "text": "Aber Essen ohne Licht, das ist schon komisch.",
+      "source_audio": "A2E1-L4-Essen-ohne-Licht.mp3",
+      "start": 60.16,
+      "end": 63.69,
+      "audio_file": "A2E1-L4-Essen-ohne-Licht-s19.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Aber Essen ohne Licht Das ist schon komisch",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Aber",
+          "normalized": "aber",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Essen",
+          "normalized": "essen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ohne",
+          "normalized": "ohne",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Licht,",
+          "normalized": "licht",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "das",
+          "normalized": "das",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ist",
+          "normalized": "ist",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "schon",
+          "normalized": "schon",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "komisch.",
+          "normalized": "komisch",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L4-s20",
+      "text": "Da kann man das Essen auf dem Teller gar nicht finden.",
+      "source_audio": "A2E1-L4-Essen-ohne-Licht.mp3",
+      "start": 64.1,
+      "end": 66.5,
+      "audio_file": "A2E1-L4-Essen-ohne-Licht-s20.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Da kann man das Essen auf dem Teller gar nicht finden",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Da",
+          "normalized": "da",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "kann",
+          "normalized": "kann",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "man",
+          "normalized": "man",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "das",
+          "normalized": "das",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Essen",
+          "normalized": "essen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "auf",
+          "normalized": "auf",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "dem",
+          "normalized": "dem",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Teller",
+          "normalized": "teller",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gar",
+          "normalized": "gar",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "nicht",
+          "normalized": "nicht",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "finden.",
+          "normalized": "finden",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L4-s21",
+      "text": "Das sieht bestimmt dumm aus.",
+      "source_audio": "A2E1-L4-Essen-ohne-Licht.mp3",
+      "start": 67.16,
+      "end": 69.49,
+      "audio_file": "A2E1-L4-Essen-ohne-Licht-s21.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Das sieht bestimmt dumm aus",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Das",
+          "normalized": "das",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "sieht",
+          "normalized": "sieht",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "bestimmt",
+          "normalized": "bestimmt",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "dumm",
+          "normalized": "dumm",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "aus.",
+          "normalized": "aus",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L4-s22",
+      "text": "Das macht doch nichts, du siehst nichts, aber alle anderen sehen auch nichts.",
+      "source_audio": "A2E1-L4-Essen-ohne-Licht.mp3",
+      "start": 70.11,
+      "end": 74.5,
+      "audio_file": "A2E1-L4-Essen-ohne-Licht-s22.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Das macht doch nichts Du siehst nichts aber alle anderen sehen auch nichts",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Das",
+          "normalized": "das",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "macht",
+          "normalized": "macht",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "doch",
+          "normalized": "doch",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "nichts,",
+          "normalized": "nichts",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "du",
+          "normalized": "du",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "siehst",
+          "normalized": "siehst",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "nichts,",
+          "normalized": "nichts",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "aber",
+          "normalized": "aber",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "alle",
+          "normalized": "alle",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "anderen",
+          "normalized": "anderen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "sehen",
+          "normalized": "sehen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "auch",
+          "normalized": "auch",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "nichts.",
+          "normalized": "nichts",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L4-s23",
+      "text": "Ich finde das interessant.",
+      "source_audio": "A2E1-L4-Essen-ohne-Licht.mp3",
+      "start": 75.11,
+      "end": 76.75,
+      "audio_file": "A2E1-L4-Essen-ohne-Licht-s23.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Ich finde das interessant",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "finde",
+          "normalized": "finde",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "das",
+          "normalized": "das",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "interessant.",
+          "normalized": "interessant",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L4-s24",
+      "text": "Man muss da ganz anders aufpassen.",
+      "source_audio": "A2E1-L4-Essen-ohne-Licht.mp3",
+      "start": 77.11,
+      "end": 79.49,
+      "audio_file": "A2E1-L4-Essen-ohne-Licht-s24.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Man muss da ganz anders aufpassen",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Man",
+          "normalized": "man",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "muss",
+          "normalized": "muss",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "da",
+          "normalized": "da",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ganz",
+          "normalized": "ganz",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "anders",
+          "normalized": "anders",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "aufpassen.",
+          "normalized": "aufpassen",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L4-s25",
+      "text": "Das möchte ich erleben.",
+      "source_audio": "A2E1-L4-Essen-ohne-Licht.mp3",
+      "start": 80.11,
+      "end": 81.71,
+      "audio_file": "A2E1-L4-Essen-ohne-Licht-s25.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Das möchte ich erleben",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Das",
+          "normalized": "das",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "möchte",
+          "normalized": "möchte",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "erleben.",
+          "normalized": "erleben",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L4-s26",
+      "text": "Wann willst du denn da hin?",
+      "source_audio": "A2E1-L4-Essen-ohne-Licht.mp3",
+      "start": 82.1,
+      "end": 84.49,
+      "audio_file": "A2E1-L4-Essen-ohne-Licht-s26.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 0.841,
+      "method": "forced_alignment",
+      "recognized_text": "Wann willst du denn dahin",
+      "match_score": 0.841,
+      "tokens": [
+        {
+          "token": "Wann",
+          "normalized": "wann",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "willst",
+          "normalized": "willst",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "du",
+          "normalized": "du",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "denn",
+          "normalized": "denn",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "da",
+          "normalized": "da",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "hin?",
+          "normalized": "hin",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L4-s27",
+      "text": "Vielleicht am Freitag in zwei Wochen.",
+      "source_audio": "A2E1-L4-Essen-ohne-Licht.mp3",
+      "start": 85.57,
+      "end": 86.77,
+      "audio_file": "A2E1-L4-Essen-ohne-Licht-s27.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Vielleicht am Freitag in zwei Wochen",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Vielleicht",
+          "normalized": "vielleicht",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "am",
+          "normalized": "am",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Freitag",
+          "normalized": "freitag",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "in",
+          "normalized": "in",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "zwei",
+          "normalized": "zwei",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Wochen.",
+          "normalized": "wochen",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L4-s28",
+      "text": "Hast du am 22.",
+      "source_audio": "A2E1-L4-Essen-ohne-Licht.mp3",
+      "start": 87.11,
+      "end": 87.45,
+      "audio_file": "A2E1-L4-Essen-ohne-Licht-s28.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Hast du am",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Hast",
+          "normalized": "hast",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "du",
+          "normalized": "du",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "am",
+          "normalized": "am",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L4-s29",
+      "text": "Zeit?",
+      "source_audio": "A2E1-L4-Essen-ohne-Licht.mp3",
+      "start": 88.12,
+      "end": 88.57,
+      "audio_file": "A2E1-L4-Essen-ohne-Licht-s29.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Zeit",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Zeit?",
+          "normalized": "zeit",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L4-s30",
+      "text": "Moment, am Freitag, am 22.",
+      "source_audio": "A2E1-L4-Essen-ohne-Licht.mp3",
+      "start": 89.58,
+      "end": 94.36,
+      "audio_file": "A2E1-L4-Essen-ohne-Licht-s30.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Moment Am Freitag Am",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Moment,",
+          "normalized": "moment",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "am",
+          "normalized": "am",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Freitag,",
+          "normalized": "freitag",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "am",
+          "normalized": "am",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L4-s31",
+      "text": ", ja, das geht.",
+      "source_audio": "A2E1-L4-Essen-ohne-Licht.mp3",
+      "start": 96.11,
+      "end": 97.55,
+      "audio_file": "A2E1-L4-Essen-ohne-Licht-s31.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Ja das geht",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "ja,",
+          "normalized": "ja",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "das",
+          "normalized": "das",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "geht.",
+          "normalized": "geht",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L4-s32",
+      "text": "Wir können auch Ole und Simon fragen.",
+      "source_audio": "A2E1-L4-Essen-ohne-Licht.mp3",
+      "start": 98.1,
+      "end": 99.8,
+      "audio_file": "A2E1-L4-Essen-ohne-Licht-s32.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Wir können auch Ole und Simon fragen",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Wir",
+          "normalized": "wir",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "können",
+          "normalized": "können",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "auch",
+          "normalized": "auch",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Ole",
+          "normalized": "ole",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Simon",
+          "normalized": "simon",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "fragen.",
+          "normalized": "fragen",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L4-s33",
+      "text": "Vielleicht kommen sie auch mit.",
+      "source_audio": "A2E1-L4-Essen-ohne-Licht.mp3",
+      "start": 100.57,
+      "end": 101.76,
+      "audio_file": "A2E1-L4-Essen-ohne-Licht-s33.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Vielleicht kommen sie auch mit",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Vielleicht",
+          "normalized": "vielleicht",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "kommen",
+          "normalized": "kommen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "sie",
+          "normalized": "sie",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "auch",
+          "normalized": "auch",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "mit.",
+          "normalized": "mit",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L4-s34",
+      "text": "Das ist eine gute Idee.",
+      "source_audio": "A2E1-L4-Essen-ohne-Licht.mp3",
+      "start": 102.11,
+      "end": 103.7,
+      "audio_file": "A2E1-L4-Essen-ohne-Licht-s34.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Das ist eine gute Idee",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Das",
+          "normalized": "das",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ist",
+          "normalized": "ist",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "eine",
+          "normalized": "eine",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gute",
+          "normalized": "gute",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Idee.",
+          "normalized": "idee",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L4-s35",
+      "text": "Ich reserviere uns gleich mal einen Tisch.",
+      "source_audio": "A2E1-L4-Essen-ohne-Licht.mp3",
+      "start": 104.1,
+      "end": 105.8,
+      "audio_file": "A2E1-L4-Essen-ohne-Licht-s35.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Ich reserviere uns gleich mal einen Tisch",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "reserviere",
+          "normalized": "reserviere",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "uns",
+          "normalized": "uns",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gleich",
+          "normalized": "gleich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "mal",
+          "normalized": "mal",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "einen",
+          "normalized": "einen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Tisch.",
+          "normalized": "tisch",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    }
+  ],
+  "review_required": true,
+  "generated_by": "deutschstadt-audio-prep"
+}

@@ -1,0 +1,446 @@
+{
+  "version": "0.2",
+  "course_id": "A2E1",
+  "lesson_id": "A2E1L1",
+  "source_files": [
+    {
+      "file": "Ben.m4a",
+      "ownership": "teacher_recorded_original"
+    }
+  ],
+  "duration_seconds": 32.779,
+  "detected_speech_regions": 11,
+  "automatic": true,
+  "alignment_method": "forced_alignment",
+  "whisper_available": true,
+  "dry_run": false,
+  "segments": [
+    {
+      "segment_id": "A2E1L1-s01",
+      "text": "Ich heiße Ben.",
+      "source_audio": "Ben.m4a",
+      "start": 4.5,
+      "end": 5.7,
+      "audio_file": "Ben-s01.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Ich heiße Ben",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "heiße",
+          "normalized": "heiße",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Ben.",
+          "normalized": "ben",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "A2E1L1-s02",
+      "text": "Meine Eltern sind schon Rentner und leben auf dem Land.",
+      "source_audio": "Ben.m4a",
+      "start": 6.54,
+      "end": 11.17,
+      "audio_file": "Ben-s02.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "meine Eltern sind schon Rentner und Leben auf dem Land",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Meine",
+          "normalized": "meine",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Eltern",
+          "normalized": "eltern",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "sind",
+          "normalized": "sind",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "schon",
+          "normalized": "schon",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Rentner",
+          "normalized": "rentner",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "leben",
+          "normalized": "leben",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "auf",
+          "normalized": "auf",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "dem",
+          "normalized": "dem",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Land.",
+          "normalized": "land",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "A2E1L1-s03",
+      "text": "Ich habe einen Bruder und eine Schwester.",
+      "source_audio": "Ben.m4a",
+      "start": 11.64,
+      "end": 14.32,
+      "audio_file": "Ben-s03.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Ich habe einen Bruder und eine Schwester",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "habe",
+          "normalized": "habe",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "einen",
+          "normalized": "einen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Bruder",
+          "normalized": "bruder",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "eine",
+          "normalized": "eine",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Schwester.",
+          "normalized": "schwester",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "A2E1L1-s04",
+      "text": "Mein Bruder ist geschieden und hat eine Tochter.",
+      "source_audio": "Ben.m4a",
+      "start": 14.64,
+      "end": 18.08,
+      "audio_file": "Ben-s04.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Mein Bruder ist geschieden und hat eine Tochter",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Mein",
+          "normalized": "mein",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Bruder",
+          "normalized": "bruder",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ist",
+          "normalized": "ist",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "geschieden",
+          "normalized": "geschieden",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "hat",
+          "normalized": "hat",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "eine",
+          "normalized": "eine",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Tochter.",
+          "normalized": "tochter",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "A2E1L1-s05",
+      "text": "Sie ist total süß.",
+      "source_audio": "Ben.m4a",
+      "start": 18.44,
+      "end": 20.17,
+      "audio_file": "Ben-s05.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Sie ist total süß",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Sie",
+          "normalized": "sie",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ist",
+          "normalized": "ist",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "total",
+          "normalized": "total",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "süß.",
+          "normalized": "süß",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "A2E1L1-s06",
+      "text": "Meine Schwester hat noch keine Kinder.",
+      "source_audio": "Ben.m4a",
+      "start": 20.64,
+      "end": 23.77,
+      "audio_file": "Ben-s06.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Meine Schwester hat noch keine Kinder",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Meine",
+          "normalized": "meine",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Schwester",
+          "normalized": "schwester",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "hat",
+          "normalized": "hat",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "noch",
+          "normalized": "noch",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "keine",
+          "normalized": "keine",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Kinder.",
+          "normalized": "kinder",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "A2E1L1-s07",
+      "text": "Ich auch nicht, aber in ein paar Jahren möchte ich gern Kinder haben.",
+      "source_audio": "Ben.m4a",
+      "start": 24.14,
+      "end": 29.26,
+      "audio_file": "Ben-s07.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Ich auch nicht aber in ein paar Jahren möchte ich gern Kinder haben",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "auch",
+          "normalized": "auch",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "nicht,",
+          "normalized": "nicht",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "aber",
+          "normalized": "aber",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "in",
+          "normalized": "in",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ein",
+          "normalized": "ein",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "paar",
+          "normalized": "paar",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Jahren",
+          "normalized": "jahren",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "möchte",
+          "normalized": "möchte",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gern",
+          "normalized": "gern",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Kinder",
+          "normalized": "kinder",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "haben.",
+          "normalized": "haben",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    }
+  ],
+  "review_required": true,
+  "generated_by": "deutschstadt-audio-prep"
+}

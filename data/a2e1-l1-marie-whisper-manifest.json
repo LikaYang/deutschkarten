@@ -1,0 +1,282 @@
+{
+  "version": "0.2",
+  "course_id": "A2E1",
+  "lesson_id": "A2E1L1",
+  "source_files": [
+    {
+      "file": "Marie.m4a",
+      "ownership": "teacher_recorded_original"
+    }
+  ],
+  "duration_seconds": 20.8,
+  "detected_speech_regions": 9,
+  "automatic": true,
+  "alignment_method": "forced_alignment",
+  "whisper_available": true,
+  "dry_run": false,
+  "segments": [
+    {
+      "segment_id": "A2E1L1-s01",
+      "text": "Nach der Schule habe ich eine Ausbildung gemacht und jetzt arbeite ich als Bankkauffrau.",
+      "source_audio": "Marie.m4a",
+      "start": 2.21,
+      "end": 9.72,
+      "audio_file": "Marie-s01.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 0.949,
+      "method": "forced_alignment",
+      "recognized_text": "nach der Schule habe ich eine Ausbildung gemacht und jetzt arbeite ich als Bankerfrau",
+      "match_score": 0.949,
+      "tokens": [
+        {
+          "token": "Nach",
+          "normalized": "nach",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "der",
+          "normalized": "der",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Schule",
+          "normalized": "schule",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "habe",
+          "normalized": "habe",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "eine",
+          "normalized": "eine",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Ausbildung",
+          "normalized": "ausbildung",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gemacht",
+          "normalized": "gemacht",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "jetzt",
+          "normalized": "jetzt",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "arbeite",
+          "normalized": "arbeite",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "als",
+          "normalized": "als",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Bankkauffrau.",
+          "normalized": "bankkauffrau",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "A2E1L1-s02",
+      "text": "Ich habe nette Kollegen und meine Arbeit macht mir Spaß.",
+      "source_audio": "Marie.m4a",
+      "start": 10.33,
+      "end": 14.72,
+      "audio_file": "Marie-s02.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 0.95,
+      "method": "forced_alignment",
+      "recognized_text": "Ich habe netter Kollegen und meine Arbeit macht mir Spaß",
+      "match_score": 0.95,
+      "tokens": [
+        {
+          "token": "Ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "habe",
+          "normalized": "habe",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "nette",
+          "normalized": "nette",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Kollegen",
+          "normalized": "kollegen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "meine",
+          "normalized": "meine",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Arbeit",
+          "normalized": "arbeit",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "macht",
+          "normalized": "macht",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "mir",
+          "normalized": "mir",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Spaß.",
+          "normalized": "spaß",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "A2E1L1-s03",
+      "text": "Aber vielleicht studiere ich auch noch an der Uni, mal sehen.",
+      "source_audio": "Marie.m4a",
+      "start": 15.16,
+      "end": 19.38,
+      "audio_file": "Marie-s03.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Aber vielleicht studiere ich auch noch an der Uni Mal sehen",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Aber",
+          "normalized": "aber",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "vielleicht",
+          "normalized": "vielleicht",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "studiere",
+          "normalized": "studiere",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "auch",
+          "normalized": "auch",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "noch",
+          "normalized": "noch",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "an",
+          "normalized": "an",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "der",
+          "normalized": "der",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Uni,",
+          "normalized": "uni",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "mal",
+          "normalized": "mal",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "sehen.",
+          "normalized": "sehen",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    }
+  ],
+  "review_required": true,
+  "generated_by": "deutschstadt-audio-prep"
+}

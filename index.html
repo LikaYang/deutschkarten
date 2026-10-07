@@ -875,6 +875,8 @@
   <script src="data/a2e1-l2-review-cards.js"></script>
   <script src="data/a2e1-u3-cards.js"></script>
   <script src="data/a2e1-video-tasks.js"></script>
+  <script src="data/a2e2-nachsprechen.js"></script>
+  <script src="data/a2e2-course.js"></script>
   <script>
     const STORE_KEY = "deutschstadt.preview.a2e1l1.v01";
     const PROGRESS_STORE_KEY = "deutschstadt.preview.lessons.v01";
@@ -1031,6 +1033,15 @@
         }
       ]
     };
+
+    courseRoute.units.forEach(unit => { unit.einheitId = "E1"; });
+    courseRoute.title = "Netzwerk neu A2｜E1 · E2";
+    courseRoute.units.push(...window.A2E2_ROUTE_UNITS.map(unit => ({ ...unit, einheitId: "E2" })));
+    const courseEinheiten = {
+      E1: { title: "A2E1｜Und was machst du?", thema: courseRoute.thema },
+      E2: { title: "A2E2｜Nach der Schulzeit", thema: "Schulzeit · Bildungsweg · Schule in Deutschland" }
+    };
+    let selectedEinheit = "E1";
 
     let progressStore = loadProgressStore();
     let currentLessonId = progressStore.currentLessonId || localStorage.getItem(CURRENT_LESSON_KEY) || lessons[0].id;
@@ -1222,8 +1233,8 @@
                 ${renderXp(card)}
               </div>
               <div class="card-actions">
-                <button class="review" data-mark="review" type="button">还要复习</button>
-                <button class="known" data-mark="known" type="button">认识</button>
+                <button class="review" data-mark="review" type="button">${currentLesson.id.startsWith('A2E2') ? 'Noch unsicher' : '还要复习'}</button>
+                <button class="known" data-mark="known" type="button">${currentLesson.id.startsWith('A2E2') ? currentLesson.id.endsWith('-preparation') ? 'Gesehen' : 'Kann ich verwenden' : '认识'}</button>
               </div>
             </section>
           </div>
@@ -1252,23 +1263,28 @@
     }
 
     function renderCourseRoute() {
+      const einheit = courseEinheiten[selectedEinheit];
       els.app.classList.add("is-route");
       els.cardNav.classList.add("hidden");
       els.routeBtn.classList.add("active");
       els.gridBtn.classList.remove("active");
-      els.lessonTitle.textContent = courseRoute.title;
-      document.title = "Deutschcards · A2E1";
+      els.lessonTitle.textContent = einheit.title;
+      document.title = `Deutschcards · A2${selectedEinheit}`;
       renderStats();
       renderLessonStrip();
       els.progressText.textContent = "";
       els.stage.innerHTML = `
-        <section class="route-view" aria-label="A2E1 学习路线">
+        <section class="route-view" aria-label="课程学习路线">
           <div class="course-hero">
             <p class="eyebrow">Deutschcards · Kursweg</p>
-            <h2>${courseRoute.title}</h2>
-            <p>Thema：${courseRoute.thema}</p>
+            <label for="einheitSelect">单元 / Einheit</label>
+            <select id="einheitSelect" style="display:block;width:100%;max-width:100%;min-height:46px;margin:10px 0;padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--paper);color:var(--ink);font:inherit">
+              ${Object.entries(courseEinheiten).map(([id, item]) => `<option value="${id}" ${id === selectedEinheit ? "selected" : ""}>${escapeHtml(item.title)}</option>`).join("")}
+            </select>
+            <h2>${escapeHtml(einheit.title)}</h2>
+            <p>Thema：${escapeHtml(einheit.thema)}</p>
           </div>
-          ${courseRoute.units.map((unit) => `
+          ${courseRoute.units.filter(unit => unit.einheitId === selectedEinheit).map((unit) => `
             <article class="route-card">
               <h3>${unit.title} · ${unit.status}</h3>
               <div class="step-list">
@@ -1289,6 +1305,10 @@
           <p class="route-note">ClassIn 主要负责直播课、提交、录屏和老师反馈；这里负责预习、词卡、视频输入和复习路线。</p>
         </section>
       `;
+      document.getElementById("einheitSelect").addEventListener("change", event => {
+        selectedEinheit = event.target.value;
+        renderCourseRoute();
+      });
       els.stage.querySelectorAll("[data-open-cards]").forEach((button) => {
         button.addEventListener("click", () => openCards(button.dataset.openCards));
       });
@@ -1324,7 +1344,7 @@
       els.app.classList.add("is-route");
       els.cardNav.classList.add("hidden");
       els.routeBtn.classList.add("active");
-      els.lessonTitle.textContent = "A2E1 视频预习";
+      els.lessonTitle.textContent = "视频学习任务";
       document.title = `Deutschcards · ${task.videoId}`;
       const promptZhHtml = Array.isArray(task.promptZh)
         ? task.promptZh.map((item) => `<div class="video-task-hint">${escapeHtml(item)}</div>`).join("")
@@ -1348,6 +1368,7 @@
       const youtubeLink = task.source?.youtubeUrl
         ? `<a class="video-task-link" href="${escapeHtml(task.source.youtubeUrl)}" target="_blank" rel="noopener noreferrer">YouTube 原始来源</a>`
         : "";
+      const originalLink = task.source?.originalUrl ? `<a class="video-task-link" href="${escapeHtml(task.source.originalUrl)}" target="_blank" rel="noopener noreferrer">官方视频入口</a>` : "";
       els.stage.innerHTML = `
         <section class="video-task-page" aria-label="视频预习任务">
           <p class="eyebrow">Themen-Input</p>
@@ -1357,6 +1378,7 @@
           <div class="video-task-links">
             ${bilibiliLink}
             ${youtubeLink}
+            ${originalLink}
           </div>
           <p class="video-task-soft-note">看视频的时候，不需要听懂每一句。先抓主题、人物和你听出来的关键词。</p>
           <div class="video-task-question">
@@ -1364,6 +1386,8 @@
             <div class="video-task-hints">${promptZhHtml}</div>
           </div>
           <p class="video-task-submission">${escapeHtml(task.submission?.text || "不需要提交答案，课堂上会继续讨论。")}</p>
+          ${task.choices ? `<div>${task.choices.map(choice => `<label style="display:block;padding:10px"><input type="checkbox" name="input-choice" value="${escapeHtml(choice)}"> ${escapeHtml(choice)}</label>`).join("")}</div>` : ""}
+          ${videoId.startsWith("a2e2-") ? `<button class="video-task-back" id="inputComplete" type="button">Gesehen · 完成观看任务</button><p id="inputStatus" aria-live="polite"></p>` : ""}
           <button class="video-task-back" id="videoBackBtn" type="button">返回课程路线</button>
         </section>
       `;
@@ -1371,6 +1395,18 @@
         viewMode = "route";
         renderCourseRoute();
       });
+      if (videoId.startsWith("a2e2-")) {
+        const saved = progressStore.inputs?.[videoId];
+        els.stage.querySelectorAll('[name="input-choice"]').forEach(input => { input.checked = saved?.choices?.includes(input.value) || false; });
+        const status = document.getElementById("inputStatus");
+        if (saved) status.textContent = "已记录 · Bring deine Idee mit in den Unterricht.";
+        document.getElementById("inputComplete").onclick = () => {
+          progressStore.inputs ||= {};
+          progressStore.inputs[videoId] = { completed: true, choices: Array.from(els.stage.querySelectorAll('[name="input-choice"]:checked'), input => input.value), updatedAt: new Date().toISOString() };
+          saveState();
+          status.textContent = "已记录 · Bring deine Idee mit in den Unterricht.";
+        };
+      }
     }
 
     function escapeHtml(value) {
@@ -1457,10 +1493,11 @@
     }
 
     function mark(id, type) {
+      const alreadyMarked = Boolean(state[type][id]);
       delete state.known[id];
       delete state.review[id];
       state[type][id] = Date.now();
-      const gain = type === "known" ? 20 : 8;
+      const gain = currentLesson.id.startsWith('A2E2') && alreadyMarked ? 0 : type === "known" ? 20 : 8;
       state.xp[id] = Math.min(100, (state.xp[id] || 0) + gain);
       saveState();
     }

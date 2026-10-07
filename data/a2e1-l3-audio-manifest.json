@@ -1,0 +1,1647 @@
+{
+  "version": "0.2",
+  "course_id": "A2E1",
+  "lesson_id": "L3",
+  "source_files": [
+    {
+      "file": "A2E1-L3-Termin.mp3",
+      "ownership": "teacher_recorded_original"
+    }
+  ],
+  "duration_seconds": 80.98,
+  "detected_speech_regions": 47,
+  "automatic": true,
+  "alignment_method": "forced_alignment",
+  "whisper_available": true,
+  "dry_run": false,
+  "segments": [
+    {
+      "segment_id": "L3-s01",
+      "text": "Hallo Lea!",
+      "source_audio": "A2E1-L3-Termin.mp3",
+      "start": 0.16,
+      "end": 1.51,
+      "audio_file": "A2E1-L3-Termin-s01.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Hallo Lea",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Hallo",
+          "normalized": "hallo",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Lea!",
+          "normalized": "lea",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L3-s02",
+      "text": "Hi Ben.",
+      "source_audio": "A2E1-L3-Termin.mp3",
+      "start": 2.16,
+      "end": 3.39,
+      "audio_file": "A2E1-L3-Termin-s02.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Hi Ben",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Hi",
+          "normalized": "hi",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Ben.",
+          "normalized": "ben",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L3-s03",
+      "text": "Wie war dein Urlaub?",
+      "source_audio": "A2E1-L3-Termin.mp3",
+      "start": 4.16,
+      "end": 5.67,
+      "audio_file": "A2E1-L3-Termin-s03.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Wie war dein Urlaub",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Wie",
+          "normalized": "wie",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "war",
+          "normalized": "war",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "dein",
+          "normalized": "dein",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Urlaub?",
+          "normalized": "urlaub",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L3-s04",
+      "text": "Schön, aber viel zu kurz, leider.",
+      "source_audio": "A2E1-L3-Termin.mp3",
+      "start": 6.16,
+      "end": 9.0,
+      "audio_file": "A2E1-L3-Termin-s04.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Schön aber viel zu kurz leider",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Schön,",
+          "normalized": "schön",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "aber",
+          "normalized": "aber",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "viel",
+          "normalized": "viel",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "zu",
+          "normalized": "zu",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "kurz,",
+          "normalized": "kurz",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "leider.",
+          "normalized": "leider",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L3-s05",
+      "text": "Und wie geht's deinem Vater?",
+      "source_audio": "A2E1-L3-Termin.mp3",
+      "start": 9.16,
+      "end": 10.74,
+      "audio_file": "A2E1-L3-Termin-s05.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Und wie geht's deinem Vater",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "wie",
+          "normalized": "wie",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "geht's",
+          "normalized": "gehts",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "deinem",
+          "normalized": "deinem",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Vater?",
+          "normalized": "vater",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L3-s06",
+      "text": "Er war richtig krank.",
+      "source_audio": "A2E1-L3-Termin.mp3",
+      "start": 11.16,
+      "end": 12.68,
+      "audio_file": "A2E1-L3-Termin-s06.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Er war richtig krank",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Er",
+          "normalized": "er",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "war",
+          "normalized": "war",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "richtig",
+          "normalized": "richtig",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "krank.",
+          "normalized": "krank",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L3-s07",
+      "text": "Aber jetzt geht es ihm wieder ein bisschen besser.",
+      "source_audio": "A2E1-L3-Termin.mp3",
+      "start": 13.16,
+      "end": 15.71,
+      "audio_file": "A2E1-L3-Termin-s07.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Aber jetzt geht es ihm wieder ein bisschen besser",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Aber",
+          "normalized": "aber",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "jetzt",
+          "normalized": "jetzt",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "geht",
+          "normalized": "geht",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "es",
+          "normalized": "es",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ihm",
+          "normalized": "ihm",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "wieder",
+          "normalized": "wieder",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ein",
+          "normalized": "ein",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "bisschen",
+          "normalized": "bisschen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "besser.",
+          "normalized": "besser",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L3-s08",
+      "text": "Das ist gut.",
+      "source_audio": "A2E1-L3-Termin.mp3",
+      "start": 16.16,
+      "end": 17.5,
+      "audio_file": "A2E1-L3-Termin-s08.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Das ist gut",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Das",
+          "normalized": "das",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ist",
+          "normalized": "ist",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gut.",
+          "normalized": "gut",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L3-s09",
+      "text": "Und wie geht's dir?",
+      "source_audio": "A2E1-L3-Termin.mp3",
+      "start": 18.16,
+      "end": 18.81,
+      "audio_file": "A2E1-L3-Termin-s09.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Und wie geht's dir",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "wie",
+          "normalized": "wie",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "geht's",
+          "normalized": "gehts",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "dir?",
+          "normalized": "dir",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L3-s10",
+      "text": "Alles okay.",
+      "source_audio": "A2E1-L3-Termin.mp3",
+      "start": 19.16,
+      "end": 20.49,
+      "audio_file": "A2E1-L3-Termin-s10.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Alles okay",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Alles",
+          "normalized": "alles",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "okay.",
+          "normalized": "okay",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L3-s11",
+      "text": "Du, ich möchte dich mal wieder sehen.",
+      "source_audio": "A2E1-L3-Termin.mp3",
+      "start": 21.16,
+      "end": 22.77,
+      "audio_file": "A2E1-L3-Termin-s11.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 0.916,
+      "method": "forced_alignment",
+      "recognized_text": "Ich möchte dich mal wieder sehen",
+      "match_score": 0.916,
+      "tokens": [
+        {
+          "token": "Du,",
+          "normalized": "du",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "möchte",
+          "normalized": "möchte",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "dich",
+          "normalized": "dich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "mal",
+          "normalized": "mal",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "wieder",
+          "normalized": "wieder",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "sehen.",
+          "normalized": "sehen",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L3-s12",
+      "text": "Dann musst du mir von deinem Urlaub erzählen.",
+      "source_audio": "A2E1-L3-Termin.mp3",
+      "start": 23.16,
+      "end": 25.71,
+      "audio_file": "A2E1-L3-Termin-s12.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Dann musst du mir von deinem Urlaub erzählen",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Dann",
+          "normalized": "dann",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "musst",
+          "normalized": "musst",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "du",
+          "normalized": "du",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "mir",
+          "normalized": "mir",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "von",
+          "normalized": "von",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "deinem",
+          "normalized": "deinem",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Urlaub",
+          "normalized": "urlaub",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "erzählen.",
+          "normalized": "erzählen",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L3-s13",
+      "text": "Gehen wir zusammen essen?",
+      "source_audio": "A2E1-L3-Termin.mp3",
+      "start": 26.16,
+      "end": 27.72,
+      "audio_file": "A2E1-L3-Termin-s13.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Gehen wir zusammen essen",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Gehen",
+          "normalized": "gehen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "wir",
+          "normalized": "wir",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "zusammen",
+          "normalized": "zusammen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "essen?",
+          "normalized": "essen",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L3-s14",
+      "text": "Vielleicht am Wochenende?",
+      "source_audio": "A2E1-L3-Termin.mp3",
+      "start": 28.16,
+      "end": 30.62,
+      "audio_file": "A2E1-L3-Termin-s14.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Vielleicht am Wochenende",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Vielleicht",
+          "normalized": "vielleicht",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "am",
+          "normalized": "am",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Wochenende?",
+          "normalized": "wochenende",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L3-s15",
+      "text": "Oh ja, gern.",
+      "source_audio": "A2E1-L3-Termin.mp3",
+      "start": 31.16,
+      "end": 32.51,
+      "audio_file": "A2E1-L3-Termin-s15.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Oh ja gern",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Oh",
+          "normalized": "oh",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ja,",
+          "normalized": "ja",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gern.",
+          "normalized": "gern",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L3-s16",
+      "text": "Hast du am Samstagabend Zeit?",
+      "source_audio": "A2E1-L3-Termin.mp3",
+      "start": 33.16,
+      "end": 34.73,
+      "audio_file": "A2E1-L3-Termin-s16.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 0.815,
+      "method": "forced_alignment",
+      "recognized_text": "Hast du am Samstagabendzeit",
+      "match_score": 0.815,
+      "tokens": [
+        {
+          "token": "Hast",
+          "normalized": "hast",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "du",
+          "normalized": "du",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "am",
+          "normalized": "am",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Samstagabend",
+          "normalized": "samstagabend",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Zeit?",
+          "normalized": "zeit",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L3-s17",
+      "text": "Schade, da geht es leider nicht, weil ich zu einem Konzert gehe.",
+      "source_audio": "A2E1-L3-Termin.mp3",
+      "start": 35.16,
+      "end": 38.75,
+      "audio_file": "A2E1-L3-Termin-s17.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Schade da geht es leider nicht weil ich zu einem Konzert gehe",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Schade,",
+          "normalized": "schade",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "da",
+          "normalized": "da",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "geht",
+          "normalized": "geht",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "es",
+          "normalized": "es",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "leider",
+          "normalized": "leider",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "nicht,",
+          "normalized": "nicht",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "weil",
+          "normalized": "weil",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "zu",
+          "normalized": "zu",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "einem",
+          "normalized": "einem",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Konzert",
+          "normalized": "konzert",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gehe.",
+          "normalized": "gehe",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L3-s18",
+      "text": "Ich habe Tickets für Felix Jaehn in der Tonhalle.",
+      "source_audio": "A2E1-L3-Termin.mp3",
+      "start": 39.16,
+      "end": 41.71,
+      "audio_file": "A2E1-L3-Termin-s18.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 0.933,
+      "method": "forced_alignment",
+      "recognized_text": "Ich habe Tickets für Felix Jene in der Tonhalle",
+      "match_score": 0.933,
+      "tokens": [
+        {
+          "token": "Ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "habe",
+          "normalized": "habe",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Tickets",
+          "normalized": "tickets",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "für",
+          "normalized": "für",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Felix",
+          "normalized": "felix",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Jaehn",
+          "normalized": "jaehn",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "in",
+          "normalized": "in",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "der",
+          "normalized": "der",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Tonhalle.",
+          "normalized": "tonhalle",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L3-s19",
+      "text": "Cool!",
+      "source_audio": "A2E1-L3-Termin.mp3",
+      "start": 42.16,
+      "end": 43.96,
+      "audio_file": "A2E1-L3-Termin-s19.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Cool",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Cool!",
+          "normalized": "cool",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L3-s20",
+      "text": "Und am Sonntag?",
+      "source_audio": "A2E1-L3-Termin.mp3",
+      "start": 44.16,
+      "end": 45.4,
+      "audio_file": "A2E1-L3-Termin-s20.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 0.819,
+      "method": "forced_alignment",
+      "recognized_text": "Und Sonntag",
+      "match_score": 0.819,
+      "tokens": [
+        {
+          "token": "Und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "am",
+          "normalized": "am",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Sonntag?",
+          "normalized": "sonntag",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L3-s21",
+      "text": "Geht es da?",
+      "source_audio": "A2E1-L3-Termin.mp3",
+      "start": 45.4,
+      "end": 46.43,
+      "audio_file": "A2E1-L3-Termin-s21.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "geht es da",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Geht",
+          "normalized": "geht",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "es",
+          "normalized": "es",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "da?",
+          "normalized": "da",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L3-s22",
+      "text": "Wir können zum Brunch gehen, ins \"Central\" am Karlsplatz.",
+      "source_audio": "A2E1-L3-Termin.mp3",
+      "start": 47.16,
+      "end": 50.71,
+      "audio_file": "A2E1-L3-Termin-s22.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 0.874,
+      "method": "forced_alignment",
+      "recognized_text": "Wir können zum Brunch gehen Im Zentral am Karlsplatz",
+      "match_score": 0.874,
+      "tokens": [
+        {
+          "token": "Wir",
+          "normalized": "wir",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "können",
+          "normalized": "können",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "zum",
+          "normalized": "zum",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Brunch",
+          "normalized": "brunch",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gehen,",
+          "normalized": "gehen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ins",
+          "normalized": "ins",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "\"Central\"",
+          "normalized": "central",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "am",
+          "normalized": "am",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Karlsplatz.",
+          "normalized": "karlsplatz",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L3-s23",
+      "text": "Hast du Lust?",
+      "source_audio": "A2E1-L3-Termin.mp3",
+      "start": 51.16,
+      "end": 52.52,
+      "audio_file": "A2E1-L3-Termin-s23.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Hast du Lust",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Hast",
+          "normalized": "hast",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "du",
+          "normalized": "du",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Lust?",
+          "normalized": "lust",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L3-s24",
+      "text": "Das ist eine gute Idee.",
+      "source_audio": "A2E1-L3-Termin.mp3",
+      "start": 53.14,
+      "end": 53.85,
+      "audio_file": "A2E1-L3-Termin-s24.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Das ist eine gute Idee",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Das",
+          "normalized": "das",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ist",
+          "normalized": "ist",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "eine",
+          "normalized": "eine",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gute",
+          "normalized": "gute",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Idee.",
+          "normalized": "idee",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L3-s25",
+      "text": "Wann möchtest du dort sein?",
+      "source_audio": "A2E1-L3-Termin.mp3",
+      "start": 54.08,
+      "end": 55.73,
+      "audio_file": "A2E1-L3-Termin-s25.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Wann möchtest du dort sein",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Wann",
+          "normalized": "wann",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "möchtest",
+          "normalized": "möchtest",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "du",
+          "normalized": "du",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "dort",
+          "normalized": "dort",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "sein?",
+          "normalized": "sein",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L3-s26",
+      "text": "So um elf, geht das?",
+      "source_audio": "A2E1-L3-Termin.mp3",
+      "start": 56.16,
+      "end": 58.43,
+      "audio_file": "A2E1-L3-Termin-s26.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "So um elf geht das",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "So",
+          "normalized": "so",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "um",
+          "normalized": "um",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "elf,",
+          "normalized": "elf",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "geht",
+          "normalized": "geht",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "das?",
+          "normalized": "das",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L3-s27",
+      "text": "Geht es auch ein bisschen später?",
+      "source_audio": "A2E1-L3-Termin.mp3",
+      "start": 59.13,
+      "end": 60.77,
+      "audio_file": "A2E1-L3-Termin-s27.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Geht es auch ein bisschen später",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Geht",
+          "normalized": "geht",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "es",
+          "normalized": "es",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "auch",
+          "normalized": "auch",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ein",
+          "normalized": "ein",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "bisschen",
+          "normalized": "bisschen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "später?",
+          "normalized": "später",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L3-s28",
+      "text": "Dann kann ich am Vormittag noch schwimmen.",
+      "source_audio": "A2E1-L3-Termin.mp3",
+      "start": 61.16,
+      "end": 63.62,
+      "audio_file": "A2E1-L3-Termin-s28.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Dann kann ich am Vormittag noch schwimmen",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Dann",
+          "normalized": "dann",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "kann",
+          "normalized": "kann",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "am",
+          "normalized": "am",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Vormittag",
+          "normalized": "vormittag",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "noch",
+          "normalized": "noch",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "schwimmen.",
+          "normalized": "schwimmen",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L3-s29",
+      "text": "Ist zwölf Uhr gut?",
+      "source_audio": "A2E1-L3-Termin.mp3",
+      "start": 64.16,
+      "end": 65.62,
+      "audio_file": "A2E1-L3-Termin-s29.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Ist zwölf Uhr gut",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Ist",
+          "normalized": "ist",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "zwölf",
+          "normalized": "zwölf",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Uhr",
+          "normalized": "uhr",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gut?",
+          "normalized": "gut",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L3-s30",
+      "text": "Ja, das passt.",
+      "source_audio": "A2E1-L3-Termin.mp3",
+      "start": 66.13,
+      "end": 66.79,
+      "audio_file": "A2E1-L3-Termin-s30.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Ja das passt",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Ja,",
+          "normalized": "ja",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "das",
+          "normalized": "das",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "passt.",
+          "normalized": "passt",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L3-s31",
+      "text": "Dann sehen wir uns am Sonntag im \"Central\".",
+      "source_audio": "A2E1-L3-Termin.mp3",
+      "start": 67.16,
+      "end": 68.79,
+      "audio_file": "A2E1-L3-Termin-s31.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 0.93,
+      "method": "forced_alignment",
+      "recognized_text": "Dann sehen wir uns am Sonntag im Zentral",
+      "match_score": 0.93,
+      "tokens": [
+        {
+          "token": "Dann",
+          "normalized": "dann",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "sehen",
+          "normalized": "sehen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "wir",
+          "normalized": "wir",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "uns",
+          "normalized": "uns",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "am",
+          "normalized": "am",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Sonntag",
+          "normalized": "sonntag",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "im",
+          "normalized": "im",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "\"Central\".",
+          "normalized": "central",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L3-s32",
+      "text": "Ja, genau, am Sonntag um 12.",
+      "source_audio": "A2E1-L3-Termin.mp3",
+      "start": 69.16,
+      "end": 71.55,
+      "audio_file": "A2E1-L3-Termin-s32.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Ja genau Am Sonntag um",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Ja,",
+          "normalized": "ja",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "genau,",
+          "normalized": "genau",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "am",
+          "normalized": "am",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Sonntag",
+          "normalized": "sonntag",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "um",
+          "normalized": "um",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L3-s33",
+      "text": "Das ist doch super.",
+      "source_audio": "A2E1-L3-Termin.mp3",
+      "start": 72.16,
+      "end": 73.65,
+      "audio_file": "A2E1-L3-Termin-s33.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Das ist doch super",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Das",
+          "normalized": "das",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ist",
+          "normalized": "ist",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "doch",
+          "normalized": "doch",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "super.",
+          "normalized": "super",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L3-s34",
+      "text": "Ich freue mich.",
+      "source_audio": "A2E1-L3-Termin.mp3",
+      "start": 74.16,
+      "end": 74.79,
+      "audio_file": "A2E1-L3-Termin-s34.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Ich freue mich",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "freue",
+          "normalized": "freue",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "mich.",
+          "normalized": "mich",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L3-s35",
+      "text": "Ciao, Lea.",
+      "source_audio": "A2E1-L3-Termin.mp3",
+      "start": 75.16,
+      "end": 75.65,
+      "audio_file": "A2E1-L3-Termin-s35.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Ciao Lea",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Ciao,",
+          "normalized": "ciao",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Lea.",
+          "normalized": "lea",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "L3-s36",
+      "text": "Ciao.",
+      "source_audio": "A2E1-L3-Termin.mp3",
+      "start": 76.16,
+      "end": 76.57,
+      "audio_file": "A2E1-L3-Termin-s36.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Ciao",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Ciao.",
+          "normalized": "ciao",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    }
+  ],
+  "review_required": true,
+  "generated_by": "deutschstadt-audio-prep"
+}

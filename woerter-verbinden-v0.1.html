@@ -1,0 +1,1604 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wörter verbinden V0.1</title>
+  <style>
+    :root {
+      --bg: #faf6ef;
+      --panel: #fffaf2;
+      --tile: #f3dfc7;
+      --tile-text: #5f442e;
+      --tile-empty: #e7d5c1;
+      --orange: #f28c28;
+      --orange-dark: #cf6e14;
+      --green: #2f9d64;
+      --ink: #2b2118;
+      --muted: #887765;
+      --line: #ead6bf;
+      --shadow: 0 14px 35px rgba(122, 82, 42, .14);
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--ink);
+      background:
+        linear-gradient(135deg, rgba(242, 140, 40, .11), rgba(255, 255, 255, 0) 34%),
+        var(--bg);
+    }
+
+    button, input { font: inherit; }
+
+    .app {
+      min-height: 100vh;
+      padding: 22px;
+      display: grid;
+      grid-template-columns: minmax(230px, 280px) minmax(420px, 1fr) minmax(260px, 340px);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .panel {
+      background: rgba(255, 250, 242, .92);
+      border: 1px solid rgba(234, 214, 191, .9);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .left, .right {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      min-height: calc(100vh - 44px);
+    }
+
+    .brand {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 24px;
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .phase-badge {
+      flex: 0 0 auto;
+      background: var(--orange);
+      color: white;
+      border-radius: var(--radius);
+      padding: 7px 10px;
+      font-weight: 800;
+      font-size: 13px;
+      box-shadow: inset 0 -2px 0 rgba(0, 0, 0, .08);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .stat {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 11px;
+    }
+
+    .stat .label {
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .stat .value {
+      margin-top: 4px;
+      font-size: 23px;
+      line-height: 1;
+      font-weight: 850;
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 16px 0 9px;
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #684a32;
+    }
+
+    .found-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      overflow: auto;
+      padding-right: 2px;
+    }
+
+    .found-item {
+      width: 100%;
+      text-align: left;
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 10px 11px;
+      color: var(--ink);
+      cursor: pointer;
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+    }
+
+    .found-item:hover,
+    .found-item.active {
+      transform: translateY(-1px);
+      border-color: rgba(242, 140, 40, .55);
+      background: #fff6e8;
+    }
+
+    .found-head {
+      display: flex;
+      gap: 8px;
+      justify-content: space-between;
+      align-items: baseline;
+      font-weight: 850;
+      font-size: 14px;
+    }
+
+    .found-zh {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap;
+      border-radius: 999px;
+      background: #ffebcc;
+      color: #ab5d11;
+      font-size: 11px;
+      font-weight: 850;
+      padding: 3px 7px;
+    }
+
+    .tag.extra { background: #e8f5ee; color: #277a4d; }
+
+    .empty-state {
+      border: 1px dashed #d8b997;
+      color: var(--muted);
+      border-radius: var(--radius);
+      padding: 18px;
+      font-size: 14px;
+      line-height: 1.45;
+      background: rgba(255, 255, 255, .55);
+    }
+
+    .main {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      min-height: calc(100vh - 44px);
+    }
+
+    .topbar {
+      padding: 14px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .current-word {
+      min-height: 52px;
+      border-radius: var(--radius);
+      background: white;
+      border: 1px solid var(--line);
+      padding: 8px 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .current-word .label {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .current-word .value {
+      margin-top: 2px;
+      min-height: 25px;
+      font-size: 23px;
+      font-weight: 900;
+      color: var(--orange-dark);
+      overflow-wrap: anywhere;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+
+    .btn {
+      border: 0;
+      border-radius: var(--radius);
+      padding: 11px 13px;
+      background: #f0ddc7;
+      color: #5e422d;
+      font-weight: 850;
+      cursor: pointer;
+      transition: transform .12s ease, filter .12s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); filter: brightness(1.02); }
+    .btn.primary { background: var(--orange); color: white; }
+    .btn.ghost { background: white; border: 1px solid var(--line); }
+
+    .message {
+      min-height: 38px;
+      border-radius: var(--radius);
+      padding: 10px 13px;
+      background: #fff;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.25;
+    }
+
+    .message.ok { color: var(--green); border-color: rgba(47, 157, 100, .28); background: #f3fbf6; }
+    .message.warn { color: #ac641d; border-color: rgba(242, 140, 40, .32); background: #fff6e8; }
+    .message.bad { color: #a33c2d; border-color: rgba(163, 60, 45, .25); background: #fff4f2; }
+
+    .board-wrap {
+      flex: 1;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      user-select: none;
+      touch-action: none;
+    }
+
+    .board {
+      width: min(100%, 78vh);
+      max-width: 720px;
+      aspect-ratio: 1;
+      display: grid;
+      grid-template-columns: repeat(9, 1fr);
+      gap: clamp(5px, .8vw, 9px);
+      padding: clamp(8px, 1.2vw, 13px);
+      border-radius: var(--radius);
+      background: #cfae8c;
+      box-shadow: inset 0 3px 0 rgba(255, 255, 255, .18);
+    }
+
+    .cell {
+      position: relative;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: var(--radius);
+      background: var(--tile);
+      color: var(--tile-text);
+      font-weight: 900;
+      font-size: clamp(20px, 4.2vw, 42px);
+      line-height: 1;
+      box-shadow: inset 0 -3px 0 rgba(95, 68, 46, .08);
+      cursor: pointer;
+      transition: transform .1s ease, background .1s ease, color .1s ease, opacity .18s ease;
+      min-width: 0;
+    }
+
+    .cell:hover { transform: translateY(-1px); }
+    .cell.selected { background: var(--orange); color: white; transform: translateY(-2px); }
+    .cell.empty {
+      background: var(--tile-empty);
+      color: transparent;
+      box-shadow: inset 0 2px 7px rgba(85, 60, 38, .08);
+      cursor: default;
+      opacity: .48;
+    }
+    .cell.empty:hover { transform: none; }
+
+    .help {
+      padding: 0 16px 16px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .detail-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px;
+      margin-bottom: 14px;
+    }
+
+    .detail-title {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 22px;
+      line-height: 1.15;
+      font-weight: 900;
+      margin-bottom: 7px;
+    }
+
+    .detail-meta {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 750;
+      margin-bottom: 12px;
+    }
+
+    .zh-big {
+      font-size: 18px;
+      font-weight: 850;
+      margin-bottom: 14px;
+    }
+
+    .example {
+      border-top: 1px solid var(--line);
+      padding-top: 12px;
+      color: #493527;
+      line-height: 1.48;
+      font-size: 14px;
+    }
+
+    .example .cn {
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .dictionary {
+      margin-top: auto;
+      border-top: 1px solid var(--line);
+      padding-top: 14px;
+    }
+
+    .dict-row {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 8px;
+      align-items: start;
+      padding: 8px 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .dict-row input { accent-color: var(--orange); margin-top: 2px; }
+
+    .import-box {
+      margin-top: 10px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .file-label {
+      display: block;
+      border: 1px dashed #d5b28f;
+      border-radius: var(--radius);
+      padding: 12px;
+      background: #fff6e8;
+      color: #8f561c;
+      font-size: 13px;
+      font-weight: 800;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .file-label input { display: none; }
+    .import-status { min-height: 18px; color: var(--muted); font-size: 12px; line-height: 1.35; }
+
+    @media (max-width: 1080px) {
+      .app {
+        grid-template-columns: 1fr;
+      }
+      .left, .right, .main { min-height: auto; }
+      .left { order: 2; }
+      .main { order: 1; }
+      .right { order: 3; }
+      .board { width: min(100%, 92vw); }
+    }
+
+    @media (max-width: 620px) {
+      .app { padding: 10px; gap: 10px; }
+      .topbar { grid-template-columns: 1fr; }
+      .actions { justify-content: stretch; }
+      .btn { flex: 1 1 auto; padding: 10px; }
+      .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .board-wrap { padding: 9px; }
+      .left, .right { padding: 14px; }
+      h1 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="panel left">
+      <div class="brand">
+        <div>
+          <h1>Wörter verbinden</h1>
+          <div class="subtitle">德语连词消除 · V0.1</div>
+        </div>
+        <div class="phase-badge" id="phaseBadge">Phase 1</div>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="label">Punkte</div>
+          <div class="value" id="score">0</div>
+        </div>
+        <div class="stat">
+          <div class="label">Buchstaben</div>
+          <div class="value" id="remaining">0</div>
+        </div>
+        <div class="stat">
+          <div class="label">Gefunden</div>
+          <div class="value" id="foundCount">0</div>
+        </div>
+        <div class="stat">
+          <div class="label">Kurs</div>
+          <div class="value" id="courseProgress">0/0</div>
+        </div>
+      </div>
+
+      <div class="section-title">
+        <span>Gefunden</span>
+        <span id="foundSmall">0 Wörter</span>
+      </div>
+      <div class="found-list" id="foundList">
+        <div class="empty-state">找到单词后，这里才会显示单词和中文释义。课程词不会提前泄露。</div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <section class="panel topbar">
+        <div class="current-word">
+          <div class="label">Aktuelles Wort</div>
+          <div class="value" id="currentWord">请选择字母</div>
+        </div>
+        <div class="actions">
+          <button class="btn primary" id="submitBtn">Prüfen</button>
+          <button class="btn ghost" id="clearBtn">Löschen</button>
+          <button class="btn" id="phaseBtn">Phase 2</button>
+          <button class="btn" id="restartBtn">Neu starten</button>
+        </div>
+      </section>
+
+      <div class="message" id="message">Phase 1：只能横向或纵向连续连接相邻字母。可以拖拽，也可以逐个点击后按 Prüfen。</div>
+
+      <section class="panel board-wrap">
+        <div class="board" id="board" aria-label="Wörter verbinden Spielfeld"></div>
+      </section>
+
+      <div class="help">
+        Phase 1 找到固定字母里的词后，字母原地消失，不下落。Phase 2 使用剩余字母，位置限制解除，可以任意顺序连接剩余字母组成合法德语词。
+      </div>
+    </main>
+
+    <aside class="panel right">
+      <div class="section-title">Wörterbuchkarte</div>
+      <div id="detail">
+        <div class="empty-state">点击左侧已找到的单词，可以查看详细释义、词性、名词性/复数和例句。</div>
+      </div>
+
+      <div class="dictionary">
+        <div class="section-title">Wörterbücher</div>
+        <label class="dict-row">
+          <input type="checkbox" checked disabled />
+          <span><strong>Kurswörterbuch</strong><br />本关课程词优先，找到后才显示 Kurs-Wort。</span>
+        </label>
+        <label class="dict-row">
+          <input type="checkbox" checked />
+          <span><strong>Deutsch–Chinesisch</strong><br />扩展德中释义词典。</span>
+        </label>
+        <label class="dict-row">
+          <input type="checkbox" checked />
+          <span><strong>German Wordlist</strong><br />合法德语词库兜底验证。</span>
+        </label>
+        <div class="import-box">
+          <label class="file-label">
+            ＋ Wörterbuch importieren
+            <input id="importInput" type="file" accept=".csv,.tsv,.json,application/json,text/csv,text/tab-separated-values" />
+          </label>
+          <div class="import-status" id="importStatus">支持 CSV / TSV / JSON：word, display, pos, gender, plural, zh, example, example_zh</div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <script>
+    /*
+     * Open-source component included directly:
+     * Wordfind.js 0.0.1
+     * Source: https://github.com/bunkat/wordfind
+     * Copyright (c) 2011 BunKat LLC <bill@bunkat.com>
+     *
+     * MIT License
+     *
+     * Permission is hereby granted, free of charge, to any person obtaining a copy
+     * of this software and associated documentation files (the "Software"), to deal
+     * in the Software without restriction, including without limitation the rights
+     * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+     * copies of the Software, and to permit persons to whom the Software is
+     * furnished to do so, subject to the following conditions:
+     *
+     * The above copyright notice and this permission notice shall be included in all
+     * copies or substantial portions of the Software.
+     *
+     * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+     * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+     * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+     * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+     * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+     * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+     * SOFTWARE.
+     */
+/**
+* Wordfind.js 0.0.1
+* (c) 2012 Bill, BunKat LLC.
+* Wordfind is freely distributable under the MIT license.
+* For all details and documentation:
+*     http://github.com/bunkat/wordfind
+*/
+
+(function () {
+
+  'use strict';
+
+  /**
+  * Generates a new word find (word search) puzzle provided a set of words.
+  * Can automatically determine the smallest puzzle size in which all words
+  * fit, or the puzzle size can be manually configured.  Will automatically
+  * increase puzzle size until a valid puzzle is found.
+  *
+  * WordFind has no dependencies.
+  */
+
+  /**
+  * Initializes the WordFind object.
+  *
+  * @api private
+  */
+  var WordFind = function () {
+
+    // Letters used to fill blank spots in the puzzle
+    const LETTERS = 'abcdefghijklmnoprstuvwy';
+
+    /**
+    * Definitions for all the different orientations in which words can be
+    * placed within a puzzle. New orientation definitions can be added and they
+    * will be automatically available.
+    */
+
+    // The list of all the possible orientations
+    var allOrientations = ['horizontal','horizontalBack','vertical','verticalUp',
+                           'diagonal','diagonalUp','diagonalBack','diagonalUpBack'];
+
+    // The definition of the orientation, calculates the next square given a
+    // starting square (x,y) and distance (i) from that square.
+    var orientations = {
+      horizontal:     function(x,y,i) { return {x: x+i, y: y  }; },
+      horizontalBack: function(x,y,i) { return {x: x-i, y: y  }; },
+      vertical:       function(x,y,i) { return {x: x,   y: y+i}; },
+      verticalUp:     function(x,y,i) { return {x: x,   y: y-i}; },
+      diagonal:       function(x,y,i) { return {x: x+i, y: y+i}; },
+      diagonalBack:   function(x,y,i) { return {x: x-i, y: y+i}; },
+      diagonalUp:     function(x,y,i) { return {x: x+i, y: y-i}; },
+      diagonalUpBack: function(x,y,i) { return {x: x-i, y: y-i}; }
+    };
+
+    // Determines if an orientation is possible given the starting square (x,y),
+    // the height (h) and width (w) of the puzzle, and the length of the word (l).
+    // Returns true if the word will fit starting at the square provided using
+    // the specified orientation.
+    var checkOrientations = {
+      horizontal:     function(x,y,h,w,l) { return w >= x + l; },
+      horizontalBack: function(x,y,h,w,l) { return x + 1 >= l; },
+      vertical:       function(x,y,h,w,l) { return h >= y + l; },
+      verticalUp:     function(x,y,h,w,l) { return y + 1 >= l; },
+      diagonal:       function(x,y,h,w,l) { return (w >= x + l) && (h >= y + l); },
+      diagonalBack:   function(x,y,h,w,l) { return (x + 1 >= l) && (h >= y + l); },
+      diagonalUp:     function(x,y,h,w,l) { return (w >= x + l) && (y + 1 >= l); },
+      diagonalUpBack: function(x,y,h,w,l) { return (x + 1 >= l) && (y + 1 >= l); }
+    };
+
+    // Determines the next possible valid square given the square (x,y) was ]
+    // invalid and a word lenght of (l).  This greatly reduces the number of
+    // squares that must be checked. Returning {x: x+1, y: y} will always work
+    // but will not be optimal.
+    var skipOrientations = {
+      horizontal:     function(x,y,l) { return {x: 0,   y: y+1  }; },
+      horizontalBack: function(x,y,l) { return {x: l-1, y: y    }; },
+      vertical:       function(x,y,l) { return {x: 0,   y: y+100}; },
+      verticalUp:     function(x,y,l) { return {x: 0,   y: l-1  }; },
+      diagonal:       function(x,y,l) { return {x: 0,   y: y+1  }; },
+      diagonalBack:   function(x,y,l) { return {x: l-1, y: x>=l-1?y+1:y    }; },
+      diagonalUp:     function(x,y,l) { return {x: 0,   y: y<l-1?l-1:y+1  }; },
+      diagonalUpBack: function(x,y,l) { return {x: l-1, y: x>=l-1?y+1:y  }; }
+    };
+
+    /**
+    * Initializes the puzzle and places words in the puzzle one at a time.
+    *
+    * Returns either a valid puzzle with all of the words or null if a valid
+    * puzzle was not found.
+    *
+    * @param {[String]} words: The list of words to fit into the puzzle
+    * @param {[Options]} options: The options to use when filling the puzzle
+    */
+    var fillPuzzle = function (words, options) {
+
+      var puzzle = [], i, j, len;
+
+      // initialize the puzzle with blanks
+      for (i = 0; i < options.height; i++) {
+        puzzle.push([]);
+        for (j = 0; j < options.width; j++) {
+          puzzle[i].push('');
+        }
+      }
+
+      // add each word into the puzzle one at a time
+      for (i = 0, len = words.length; i < len; i++) {
+        if (!placeWordInPuzzle(puzzle, options, words[i])) {
+          // if a word didn't fit in the puzzle, give up
+          return null;
+        }
+      }
+
+      // return the puzzle
+      return puzzle;
+    };
+
+    /**
+    * Adds the specified word to the puzzle by finding all of the possible
+    * locations where the word will fit and then randomly selecting one. Options
+    * controls whether or not word overlap should be maximized.
+    *
+    * Returns true if the word was successfully placed, false otherwise.
+    *
+    * @param {[[String]]} puzzle: The current state of the puzzle
+    * @param {[Options]} options: The options to use when filling the puzzle
+    * @param {String} word: The word to fit into the puzzle.
+    */
+    var placeWordInPuzzle = function (puzzle, options, word) {
+
+      // find all of the best locations where this word would fit
+      var locations = findBestLocations(puzzle, options, word);
+
+      if (locations.length === 0) {
+        return false;
+      }
+
+      // select a location at random and place the word there
+      var sel = locations[Math.floor(Math.random() * locations.length)];
+      placeWord(puzzle, word, sel.x, sel.y, orientations[sel.orientation]);
+
+      return true;
+    };
+
+    /**
+    * Iterates through the puzzle and determines all of the locations where
+    * the word will fit. Options determines if overlap should be maximized or
+    * not.
+    *
+    * Returns a list of location objects which contain an x,y cooridinate
+    * indicating the start of the word, the orientation of the word, and the
+    * number of letters that overlapped with existing letter.
+    *
+    * @param {[[String]]} puzzle: The current state of the puzzle
+    * @param {[Options]} options: The options to use when filling the puzzle
+    * @param {String} word: The word to fit into the puzzle.
+    */
+    var findBestLocations = function (puzzle, options, word) {
+
+      var locations = [],
+          height = options.height,
+          width = options.width,
+          wordLength = word.length,
+          maxOverlap = 0; // we'll start looking at overlap = 0
+
+      // loop through all of the possible orientations at this position
+      for (var k = 0, len = options.orientations.length; k < len; k++) {
+
+        var orientation = options.orientations[k],
+            check = checkOrientations[orientation],
+            next = orientations[orientation],
+            skipTo = skipOrientations[orientation],
+            x = 0, y = 0;
+
+        // loop through every position on the board
+        while( y < height ) {
+
+          // see if this orientation is even possible at this location
+          if (check(x, y, height, width, wordLength)) {
+
+            // determine if the word fits at the current position
+            var overlap = calcOverlap(word, puzzle, x, y, next);
+
+            // if the overlap was bigger than previous overlaps that we've seen
+            if (overlap >= maxOverlap || (!options.preferOverlap && overlap > -1)) {
+              maxOverlap = overlap;
+              locations.push({x: x, y: y, orientation: orientation, overlap: overlap});
+            }
+
+            x++;
+            if (x >= width) {
+              x = 0;
+              y++;
+            }
+          } else {
+            // if current cell is invalid, then skip to the next cell where
+            // this orientation is possible. this greatly reduces the number
+            // of checks that we have to do overall
+            var nextPossible = skipTo(x,y,wordLength);
+            x = nextPossible.x;
+            y = nextPossible.y;
+          }
+
+        }
+      }
+
+      // finally prune down all of the possible locations we found by
+      // only using the ones with the maximum overlap that we calculated
+      return options.preferOverlap ?
+             pruneLocations(locations, maxOverlap) :
+             locations;
+    };
+
+    /**
+    * Determines whether or not a particular word fits in a particular
+    * orientation within the puzzle.
+    *
+    * Returns the number of letters overlapped with existing words if the word
+    * fits in the specified position, -1 if the word does not fit.
+    *
+    * @param {String} word: The word to fit into the puzzle.
+    * @param {[[String]]} puzzle: The current state of the puzzle
+    * @param {int} x: The x position to check
+    * @param {int} y: The y position to check
+    * @param {function} fnGetSquare: Function that returns the next square
+    */
+    var calcOverlap = function (word, puzzle, x, y, fnGetSquare) {
+      var overlap = 0;
+
+      // traverse the squares to determine if the word fits
+      for (var i = 0, len = word.length; i < len; i++) {
+
+        var next = fnGetSquare(x, y, i),
+            square = puzzle[next.y][next.x];
+
+        // if the puzzle square already contains the letter we
+        // are looking for, then count it as an overlap square
+        if (square === word[i]) {
+          overlap++;
+        }
+        // if it contains a different letter, than our word doesn't fit
+        // here, return -1
+        else if (square !== '' ) {
+          return -1;
+        }
+      }
+
+      // if the entire word is overlapping, skip it to ensure words aren't
+      // hidden in other words
+      return overlap;
+    };
+
+    /**
+    * If overlap maximization was indicated, this function is used to prune the
+    * list of valid locations down to the ones that contain the maximum overlap
+    * that was previously calculated.
+    *
+    * Returns the pruned set of locations.
+    *
+    * @param {[Location]} locations: The set of locations to prune
+    * @param {int} overlap: The required level of overlap
+    */
+    var pruneLocations = function (locations, overlap) {
+      var pruned = [];
+      for(var i = 0, len = locations.length; i < len; i++) {
+        if (locations[i].overlap >= overlap) {
+          pruned.push(locations[i]);
+        }
+      }
+      return pruned;
+    };
+
+    /**
+    * Places a word in the puzzle given a starting position and orientation.
+    *
+    * @param {[[String]]} puzzle: The current state of the puzzle
+    * @param {String} word: The word to fit into the puzzle.
+    * @param {int} x: The x position to check
+    * @param {int} y: The y position to check
+    * @param {function} fnGetSquare: Function that returns the next square
+    */
+    var placeWord = function (puzzle, word, x, y, fnGetSquare) {
+      for (var i = 0, len = word.length; i < len; i++) {
+        var next = fnGetSquare(x, y, i);
+        puzzle[next.y][next.x] = word[i];
+      }
+    };
+
+    return {
+
+      /**
+      * Returns the list of all of the possible orientations.
+      * @api public
+      */
+      validOrientations: allOrientations,
+
+      /**
+      * Returns the orientation functions for traversing words.
+      * @api public
+      */
+      orientations: orientations,
+
+      /**
+      * Generates a new word find (word search) puzzle.
+      *
+      * Settings:
+      *
+      * height: desired height of the puzzle, default: smallest possible
+      * width:  desired width of the puzzle, default: smallest possible
+      * orientations: list of orientations to use, default: all orientations
+      * fillBlanks: true to fill in the blanks, default: true
+      * maxAttempts: number of tries before increasing puzzle size, default:3
+      * maxGridGrowth: number of puzzle grid increases, default:10
+      * preferOverlap: maximize word overlap or not, default: true
+      *
+      * Returns the puzzle that was created.
+      *
+      * @param {[String]} words: List of words to include in the puzzle
+      * @param {options} settings: The options to use for this puzzle
+      * @api public
+      */
+      newPuzzle: function(words, settings) {
+        if (!words.length) {
+          throw new Error('Zero words provided');
+        }
+        var wordList, puzzle, attempts = 0, gridGrowths = 0, opts = settings || {};
+
+        // copy and sort the words by length, inserting words into the puzzle
+        // from longest to shortest works out the best
+        wordList = words.slice(0).sort();
+
+        // initialize the options
+        var maxWordLength = wordList[0].length;
+        var options = {
+          height:           opts.height || maxWordLength,
+          width:            opts.width || maxWordLength,
+          orientations:     opts.orientations || allOrientations,
+          fillBlanks:       opts.fillBlanks !== undefined ? opts.fillBlanks : true,
+          allowExtraBlanks: opts.allowExtraBlanks !== undefined ? opts.allowExtraBlanks : true,
+          maxAttempts:      opts.maxAttempts || 3,
+          maxGridGrowth:    opts.maxGridGrowth !== undefined ? opts.maxGridGrowth : 10,
+          preferOverlap:    opts.preferOverlap !== undefined ? opts.preferOverlap : true
+        };
+
+        // add the words to the puzzle
+        // since puzzles are random, attempt to create a valid one up to
+        // maxAttempts and then increase the puzzle size and try again
+        while (!puzzle) {
+          while (!puzzle && attempts++ < options.maxAttempts) {
+            puzzle = fillPuzzle(wordList, options);
+          }
+
+          if (!puzzle) {
+            gridGrowths++;
+            if (gridGrowths > options.maxGridGrowth) {
+              throw new Error(`No valid ${options.width}x${options.height} grid found and not allowed to grow more`);
+            }
+            console.log(`No valid ${options.width}x${options.height} grid found after ${attempts - 1} attempts, trying with bigger grid`);
+            options.height++;
+            options.width++;
+            attempts = 0;
+          }
+        }
+
+        // fill in empty spaces with random letters
+        if (options.fillBlanks) {
+            var lettersToAdd, fillingBlanksCount = 0, extraLetterGenerator;
+            if (typeof options.fillBlanks === 'function') {
+                extraLetterGenerator = options.fillBlanks;
+            } else if (typeof options.fillBlanks === 'string') {
+                lettersToAdd = options.fillBlanks.toLowerCase().split('');
+                extraLetterGenerator = () => lettersToAdd.pop() || (fillingBlanksCount++ && '');
+            } else {
+                extraLetterGenerator = () => LETTERS[Math.floor(Math.random() * LETTERS.length)];
+            }
+            var extraLettersCount = this.fillBlanks({puzzle, extraLetterGenerator: extraLetterGenerator});
+            if (lettersToAdd && lettersToAdd.length) {
+                throw new Error(`Some extra letters provided were not used: ${lettersToAdd}`);
+            }
+            if (lettersToAdd && fillingBlanksCount && !options.allowExtraBlanks) {
+                throw new Error(`${fillingBlanksCount} extra letters were missing to fill the grid`);
+            }
+            var gridFillPercent = 100 * (1 - extraLettersCount / (options.width * options.height));
+            console.log(`Blanks filled with ${extraLettersCount} random letters - Final grid is filled at ${gridFillPercent.toFixed(0)}%`);
+        }
+
+        return puzzle;
+      },
+
+      /**
+      * Wrapper around `newPuzzle` allowing to find a solution without some words.
+      *
+      * @param {options} settings: The options to use for this puzzle.
+      * Same as `newPuzzle` + allowedMissingWords
+      */
+      newPuzzleLax: function(words, opts) {
+        try {
+            return this.newPuzzle(words, opts);
+        } catch (e) {
+            if (!opts.allowedMissingWords) {
+                throw e;
+            }
+            var opts = Object.assign({}, opts); // shallow copy
+            opts.allowedMissingWords--;
+            for (var i = 0; i < words.length; i++) {
+                var wordList = words.slice(0);
+                wordList.splice(i, 1);
+                try {
+                    var puzzle = this.newPuzzleLax(wordList, opts);
+                    console.log(`Solution found without word "${words[i]}"`);
+                    return puzzle;
+                } catch (e) {} // continue if error
+            }
+            throw e;
+        }
+      },
+
+      /**
+      * Fills in any empty spaces in the puzzle with random letters.
+      *
+      * @param {[[String]]} puzzle: The current state of the puzzle
+      * @api public
+      */
+      fillBlanks: function ({puzzle, extraLetterGenerator}) {
+        var extraLettersCount = 0;
+        for (var i = 0, height = puzzle.length; i < height; i++) {
+          var row = puzzle[i];
+          for (var j = 0, width = row.length; j < width; j++) {
+            if (!puzzle[i][j]) {
+              puzzle[i][j] = extraLetterGenerator();
+              extraLettersCount++;
+            }
+          }
+        }
+        return extraLettersCount;
+      },
+
+      /**
+      * Returns the starting location and orientation of the specified words
+      * within the puzzle. Any words that are not found are returned in the
+      * notFound array.
+      *
+      * Returns
+      *   x position of start of word
+      *   y position of start of word
+      *   orientation of word
+      *   word
+      *   overlap (always equal to word.length)
+      *
+      * @param {[[String]]} puzzle: The current state of the puzzle
+      * @param {[String]} words: The list of words to find
+      * @api public
+      */
+      solve: function (puzzle, words) {
+        var options = {
+              height:       puzzle.length,
+              width:        puzzle[0].length,
+              orientations: allOrientations,
+              preferOverlap: true
+            },
+            found = [],
+            notFound = [];
+
+        for(var i = 0, len = words.length; i < len; i++) {
+          var word = words[i],
+              locations = findBestLocations(puzzle, options, word);
+
+          if (locations.length > 0 && locations[0].overlap === word.length) {
+            locations[0].word = word;
+            found.push(locations[0]);
+          } else {
+            notFound.push(word);
+          }
+        }
+
+        return { found: found, notFound: notFound };
+      },
+
+      /**
+      * Outputs a puzzle to the console, useful for debugging.
+      * Returns a formatted string representing the puzzle.
+      *
+      * @param {[[String]]} puzzle: The current state of the puzzle
+      * @api public
+      */
+      print: function (puzzle) {
+        var puzzleString = '';
+        for (var i = 0, height = puzzle.length; i < height; i++) {
+          var row = puzzle[i];
+          for (var j = 0, width = row.length; j < width; j++) {
+            puzzleString += (row[j] === '' ? ' ' : row[j]) + ' ';
+          }
+          puzzleString += '\n';
+        }
+
+        console.log(puzzleString);
+        return puzzleString;
+      }
+    };
+  };
+
+  /**
+  * Allow library to be used within both the browser and node.js
+  */
+  var root = typeof exports !== "undefined" && exports !== null ? exports : window;
+  root.wordfind = WordFind();
+
+}).call(this);
+
+
+    const COURSE_WORDS = ["ENTWICKLUNG", "FORTSCHRITT", "TECHNOLOGIE", "ZUKUNFT"];
+    const GERMAN_FILL_LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜ";
+
+    const courseDictionary = {
+      "entwicklung": {
+        word: "ENTWICKLUNG",
+        display: "die Entwicklung, -en",
+        zh: "发展；演变；开发",
+        pos: "Nomen",
+        gender: "feminin",
+        plural: "Entwicklungen",
+        example: "Die Entwicklung der Technologie verändert unseren Alltag.",
+        example_zh: "科技的发展正在改变我们的日常生活。",
+        course: true
+      },
+      "fortschritt": {
+        word: "FORTSCHRITT",
+        display: "der Fortschritt, -e",
+        zh: "进步；进展",
+        pos: "Nomen",
+        gender: "maskulin",
+        plural: "Fortschritte",
+        example: "Der Fortschritt ist in vielen Bereichen sichtbar.",
+        example_zh: "进步在许多领域都可以看到。",
+        course: true
+      },
+      "technologie": {
+        word: "TECHNOLOGIE",
+        display: "die Technologie, -n",
+        zh: "科技；技术",
+        pos: "Nomen",
+        gender: "feminin",
+        plural: "Technologien",
+        example: "Neue Technologien helfen beim Lernen.",
+        example_zh: "新技术有助于学习。",
+        course: true
+      },
+      "zukunft": {
+        word: "ZUKUNFT",
+        display: "die Zukunft",
+        zh: "未来；将来",
+        pos: "Nomen",
+        gender: "feminin",
+        plural: "-",
+        example: "In der Zukunft lernen wir immer digitaler.",
+        example_zh: "未来我们会越来越数字化地学习。",
+        course: true
+      }
+    };
+
+    const extendedDictionary = {
+      "haus": ["das Haus, Häuser", "房子；住宅", "Nomen", "neutral", "Häuser", "Das Haus ist alt.", "这栋房子很旧。"],
+      "häuser": ["die Häuser", "房子；住宅（复数）", "Nomen", "Plural", "Häuser", "Viele Häuser stehen am Fluss.", "许多房子位于河边。"],
+      "baum": ["der Baum, Bäume", "树", "Nomen", "maskulin", "Bäume", "Der Baum ist sehr hoch.", "这棵树很高。"],
+      "bäume": ["die Bäume", "树（复数）", "Nomen", "Plural", "Bäume", "Die Bäume sind grün.", "树是绿色的。"],
+      "arbeit": ["die Arbeit, -en", "工作；劳动", "Nomen", "feminin", "Arbeiten", "Die Arbeit beginnt um neun Uhr.", "工作九点开始。"],
+      "arbeiten": ["arbeiten", "工作；劳动", "Verb", "", "", "Wir arbeiten heute zusammen.", "我们今天一起工作。"],
+      "buch": ["das Buch, Bücher", "书", "Nomen", "neutral", "Bücher", "Ich lese ein deutsches Buch.", "我读一本德语书。"],
+      "buchen": ["buchen", "预订", "Verb", "", "", "Wir buchen die Reise online.", "我们在线预订旅行。"],
+      "kurs": ["der Kurs, -e", "课程；路线；汇率", "Nomen", "maskulin", "Kurse", "Der Kurs beginnt am Montag.", "课程周一开始。"],
+      "macht": ["die Macht, Mächte", "力量；权力", "Nomen", "feminin", "Mächte", "Wissen ist Macht.", "知识就是力量。"],
+      "schule": ["die Schule, -n", "学校", "Nomen", "feminin", "Schulen", "Die Schule beginnt im September.", "学校九月开学。"],
+      "gehen": ["gehen", "走；去", "Verb", "", "", "Ich gehe nach Hause.", "我回家。"],
+      "geht": ["geht", "去；走（变位形式）", "Verb", "", "", "Er geht zur Schule.", "他去学校。"],
+      "tür": ["die Tür, -en", "门", "Nomen", "feminin", "Türen", "Die Tür ist offen.", "门开着。"],
+      "türen": ["die Türen", "门（复数）", "Nomen", "Plural", "Türen", "Die Türen sind geschlossen.", "门都关着。"],
+      "lernen": ["lernen", "学习", "Verb", "", "", "Wir lernen jeden Tag Deutsch.", "我们每天学习德语。"],
+      "er": ["er", "他", "Pronomen", "", "", "Er lernt Deutsch.", "他学习德语。"],
+      "in": ["in", "在；到……里面", "Präposition", "", "", "Ich bin in Berlin.", "我在柏林。"],
+      "an": ["an", "在……旁；于", "Präposition", "", "", "Das Bild hängt an der Wand.", "画挂在墙上。"],
+      "zu": ["zu", "到；太", "Präposition/Adverb", "", "", "Ich gehe zu Lisa.", "我去莉萨那里。"],
+      "um": ["um", "在……点；围绕", "Präposition", "", "", "Der Kurs beginnt um acht Uhr.", "课程八点开始。"],
+      "ai": ["AI", "人工智能（测试专有名词）", "Eigenname", "", "", "AI hilft beim Lernen.", "人工智能帮助学习。"]
+    };
+
+    const fallbackWords = new Set([
+      "haus", "häuser", "baum", "bäume", "arbeit", "arbeiten", "buch", "buchen", "schule",
+      "kurs", "kurse", "macht", "machen", "mache", "machst", "gehen", "geht", "tür", "türen", "lernen", "er", "in", "an", "zu", "um", "ai",
+      "entwicklung", "fortschritt", "technologie", "zukunft", "lernt", "lerne", "ging",
+      "gegangen", "sprachlernstrategie", "chancengleichheit", "wissenschaft", "internet"
+    ]);
+
+    let localDictionary = {};
+    let board = [];
+    let selected = [];
+    let found = [];
+    let score = 0;
+    let phase = 1;
+    let isPointerDown = false;
+    let activeDetailKey = null;
+    let coursePlacements = {};
+
+    const el = {
+      board: document.getElementById("board"),
+      currentWord: document.getElementById("currentWord"),
+      message: document.getElementById("message"),
+      score: document.getElementById("score"),
+      remaining: document.getElementById("remaining"),
+      foundCount: document.getElementById("foundCount"),
+      foundSmall: document.getElementById("foundSmall"),
+      foundList: document.getElementById("foundList"),
+      phaseBadge: document.getElementById("phaseBadge"),
+      phaseBtn: document.getElementById("phaseBtn"),
+      courseProgress: document.getElementById("courseProgress"),
+      detail: document.getElementById("detail"),
+      importInput: document.getElementById("importInput"),
+      importStatus: document.getElementById("importStatus")
+    };
+
+    function positionsForPlacement(placement) {
+      const next = wordfind.orientations[placement.orientation];
+      return placement.word.split("").map((_, i) => {
+        const pos = next(placement.x, placement.y, i);
+        return { r: pos.y, c: pos.x };
+      });
+    }
+
+    function analyzePuzzle(puzzle) {
+      const solution = wordfind.solve(puzzle, COURSE_WORDS).found;
+      const placements = {};
+      solution.forEach(item => {
+        placements[normalize(item.word)] = {
+          word: item.word,
+          orientation: item.orientation,
+          positions: positionsForPlacement(item)
+        };
+      });
+      const orientations = new Set(solution.map(item => item.orientation));
+      const hasHorizontal = orientations.has("horizontal") || orientations.has("horizontalBack");
+      const hasVertical = orientations.has("vertical") || orientations.has("verticalUp");
+      return {
+        placements,
+        hasAllWords: solution.length === COURSE_WORDS.length,
+        hasMixedDirections: hasHorizontal && hasVertical
+      };
+    }
+
+    function createPuzzleLetters() {
+      const sortedWords = COURSE_WORDS.slice().sort((a, b) => b.length - a.length);
+      let fallback = null;
+      let fallbackAnalysis = null;
+      for (let attempt = 0; attempt < 80; attempt++) {
+        const puzzle = wordfind.newPuzzle(sortedWords, {
+          height: 12,
+          width: 12,
+          orientations: ["horizontal", "vertical"],
+          fillBlanks: () => GERMAN_FILL_LETTERS[Math.floor(Math.random() * GERMAN_FILL_LETTERS.length)],
+          preferOverlap: true,
+          maxAttempts: 200,
+          maxGridGrowth: 0
+        });
+        const normalizedPuzzle = puzzle.map(row => row.map(letter => String(letter).toLocaleUpperCase("de-DE")));
+        const analysis = analyzePuzzle(normalizedPuzzle);
+        if (!fallback && analysis.hasAllWords) {
+          fallback = normalizedPuzzle;
+          fallbackAnalysis = analysis;
+        }
+        if (analysis.hasAllWords && analysis.hasMixedDirections) {
+          coursePlacements = analysis.placements;
+          return normalizedPuzzle;
+        }
+      }
+      coursePlacements = fallbackAnalysis ? fallbackAnalysis.placements : {};
+      return fallback;
+    }
+
+    function cloneBoard() {
+      return createPuzzleLetters().map(row => row.map(letter => ({ letter, empty: false })));
+    }
+
+    function normalize(word) {
+      return word.toLocaleLowerCase("de-DE").trim();
+    }
+
+    function toEntryFromArray(key, value) {
+      return {
+        word: key.toLocaleUpperCase("de-DE"),
+        display: value[0],
+        zh: value[1],
+        pos: value[2],
+        gender: value[3],
+        plural: value[4],
+        example: value[5],
+        example_zh: value[6],
+        course: false
+      };
+    }
+
+    function lookup(word) {
+      const key = normalize(word);
+      if (courseDictionary[key]) return { ...courseDictionary[key], source: "course", key };
+      if (localDictionary[key]) return { ...localDictionary[key], source: "local", key };
+      if (extendedDictionary[key]) return { ...toEntryFromArray(key, extendedDictionary[key]), source: "extended", key };
+      if (fallbackWords.has(key)) {
+        return {
+          key,
+          word: word.toLocaleUpperCase("de-DE"),
+          display: word,
+          zh: "合法德语词形，中文释义暂未收录",
+          pos: "Wortform",
+          gender: "",
+          plural: "",
+          example: "Dieses Wort ist in der deutschen Wortliste gültig.",
+          example_zh: "这个词在德语合法词库中可通过验证。",
+          course: false,
+          source: "fallback"
+        };
+      }
+      return null;
+    }
+
+    function currentWord() {
+      return selected.map(pos => board[pos.r][pos.c].letter).join("");
+    }
+
+    function setMessage(text, type = "") {
+      el.message.textContent = text;
+      el.message.className = `message ${type}`.trim();
+    }
+
+    function selectedHas(r, c) {
+      return selected.some(pos => pos.r === r && pos.c === c);
+    }
+
+    function selectedIndex(r, c) {
+      return selected.findIndex(pos => pos.r === r && pos.c === c);
+    }
+
+    function canAdd(r, c) {
+      if (board[r][c].empty || selectedHas(r, c)) return false;
+      if (selected.length === 0) return true;
+      if (phase === 2) return true;
+      const first = selected[0];
+      const last = selected[selected.length - 1];
+      const sameRow = r === first.r && r === last.r && Math.abs(c - last.c) === 1;
+      const sameCol = c === first.c && c === last.c && Math.abs(r - last.r) === 1;
+      return sameRow || sameCol;
+    }
+
+    function addSelection(r, c) {
+      const existingIndex = selectedIndex(r, c);
+      if (existingIndex > -1) {
+        selected.splice(existingIndex);
+        updateSelectionView();
+        setMessage("已从这个字母开始取消后面的选择。");
+        return;
+      }
+      if (!canAdd(r, c)) {
+        if (phase === 1) setMessage("Phase 1 只能在同一行或同一列连续连接相邻字母。", "warn");
+        return;
+      }
+      selected.push({ r, c });
+      updateSelectionView();
+    }
+
+    function updateSelectionView() {
+      document.querySelectorAll(".cell").forEach(cell => {
+        const r = Number(cell.dataset.r);
+        const c = Number(cell.dataset.c);
+        cell.classList.toggle("selected", selectedHas(r, c));
+      });
+      const word = currentWord();
+      el.currentWord.textContent = word || "请选择字母";
+    }
+
+    function clearSelection() {
+      selected = [];
+      updateSelectionView();
+    }
+
+    function remainingCount() {
+      return board.flat().filter(cell => !cell.empty).length;
+    }
+
+    function foundCourseCount() {
+      return found.filter(item => item.entry.course).length;
+    }
+
+    function calcScore(entry, length) {
+      let points = length * 4;
+      if (entry.course) points *= 2;
+      if (length >= 8) points += 12;
+      if (length >= 12) points += 10;
+      if (entry.display && /[A-ZÄÖÜ][a-zäöüß]+[A-ZÄÖÜ]/.test(entry.display.replace(/\s/g, ""))) points += 8;
+      if (phase === 2) points += 4;
+      return points;
+    }
+
+    function isProtectedOverlap(pos, currentKey) {
+      return Object.entries(coursePlacements).some(([key, placement]) => {
+        if (key === currentKey || found.some(item => item.key === key)) return false;
+        return placement.positions.some(item => item.r === pos.r && item.c === pos.c);
+      });
+    }
+
+    function submitWord() {
+      const word = currentWord();
+      if (word.length < 2) {
+        setMessage("至少连接 2 个字母。", "warn");
+        return;
+      }
+      const key = normalize(word);
+      if (found.some(item => item.key === key)) {
+        setMessage("Schon gefunden! 这个词已经找到过，不重复计分。", "warn");
+        clearSelection();
+        return;
+      }
+      const entry = lookup(word);
+      if (!entry) {
+        setMessage(`${word} 还没有通过当前词典验证。`, "bad");
+        return;
+      }
+
+      const points = calcScore(entry, word.length);
+      let protectedCount = 0;
+      selected.forEach(pos => {
+        if (isProtectedOverlap(pos, key)) {
+          protectedCount += 1;
+          return;
+        }
+        board[pos.r][pos.c].empty = true;
+      });
+      score += points;
+      found.unshift({
+        key,
+        word: word.toLocaleUpperCase("de-DE"),
+        entry,
+        points,
+        phase,
+        at: new Date().toISOString()
+      });
+      activeDetailKey = key;
+      selected = [];
+      render();
+      renderDetail(found[0]);
+      setMessage(`${entry.course ? "Kurs-Wort" : "Gültiges Wort"} gefunden: ${word} · +${points} Punkte${protectedCount ? ` · ${protectedCount} 个重叠字母保留` : ""}`, "ok");
+    }
+
+    function renderBoard() {
+      el.board.innerHTML = "";
+      el.board.style.gridTemplateColumns = `repeat(${board[0].length}, 1fr)`;
+      board.forEach((row, r) => {
+        row.forEach((cell, c) => {
+          const btn = document.createElement("button");
+          btn.className = `cell${cell.empty ? " empty" : ""}`;
+          btn.type = "button";
+          btn.dataset.r = r;
+          btn.dataset.c = c;
+          btn.textContent = cell.empty ? "" : cell.letter;
+          btn.setAttribute("aria-label", cell.empty ? "Leeres Feld" : cell.letter);
+          btn.addEventListener("pointerdown", event => {
+            event.preventDefault();
+            isPointerDown = true;
+            addSelection(r, c);
+          });
+          btn.addEventListener("pointerenter", () => {
+            if (isPointerDown) addSelection(r, c);
+          });
+          el.board.appendChild(btn);
+        });
+      });
+      updateSelectionView();
+    }
+
+    function renderStats() {
+      const courseTotal = Object.keys(courseDictionary).length;
+      el.score.textContent = score;
+      el.remaining.textContent = remainingCount();
+      el.foundCount.textContent = found.length;
+      el.foundSmall.textContent = `${found.length} Wörter`;
+      el.courseProgress.textContent = `${foundCourseCount()}/${courseTotal}`;
+      el.phaseBadge.textContent = `Phase ${phase}`;
+      el.phaseBtn.textContent = phase === 1 ? "Phase 2" : "Phase 1";
+    }
+
+    function renderFoundList() {
+      if (found.length === 0) {
+        el.foundList.innerHTML = `<div class="empty-state">找到单词后，这里才会显示单词和中文释义。课程词不会提前泄露。</div>`;
+        return;
+      }
+      el.foundList.innerHTML = "";
+      found.forEach((item, index) => {
+        const button = document.createElement("button");
+        button.className = `found-item${item.key === activeDetailKey ? " active" : ""}`;
+        button.type = "button";
+        button.innerHTML = `
+          <div class="found-head">
+            <span>${found.length - index}. ${item.entry.display || item.word}</span>
+            <span class="tag ${item.entry.course ? "" : "extra"}">${item.entry.course ? "Kurs-Wort" : "Extra"}</span>
+          </div>
+          <div class="found-zh">${item.entry.zh || "中文释义暂未收录"} · +${item.points}</div>
+        `;
+        button.addEventListener("click", () => {
+          activeDetailKey = item.key;
+          renderFoundList();
+          renderDetail(item);
+        });
+        el.foundList.appendChild(button);
+      });
+    }
+
+    function renderDetail(item) {
+      if (!item) {
+        el.detail.innerHTML = `<div class="empty-state">点击左侧已找到的单词，可以查看详细释义、词性、名词性/复数和例句。</div>`;
+        return;
+      }
+      const e = item.entry;
+      const meta = [e.pos, e.gender, e.plural ? `Plural: ${e.plural}` : ""].filter(Boolean).join(" · ");
+      el.detail.innerHTML = `
+        <div class="detail-card">
+          <div class="detail-title">
+            <span>${e.display || item.word}</span>
+            <span class="tag ${e.course ? "" : "extra"}">${e.course ? "Kurs-Wort" : "Extra-Wort"}</span>
+          </div>
+          <div class="detail-meta">${meta || "Wortform"} · Gefunden in Phase ${item.phase} · +${item.points} Punkte</div>
+          <div class="zh-big">${e.zh || "中文释义暂未收录"}</div>
+          <div class="example">
+            <strong>Beispiel</strong><br />
+            ${e.example || "Kein Beispielsatz vorhanden."}
+            <div class="cn">${e.example_zh || ""}</div>
+          </div>
+        </div>
+      `;
+    }
+
+    function render() {
+      renderBoard();
+      renderStats();
+      renderFoundList();
+    }
+
+    function switchPhase() {
+      phase = phase === 1 ? 2 : 1;
+      clearSelection();
+      setMessage(
+        phase === 1
+          ? "Phase 1：只能横向或纵向连续连接相邻字母。"
+          : "Phase 2：位置限制已解除，可以任意顺序连接剩余字母。",
+        phase === 1 ? "" : "warn"
+      );
+      renderStats();
+    }
+
+    function restart() {
+      board = cloneBoard();
+      selected = [];
+      found = [];
+      score = 0;
+      phase = 1;
+      activeDetailKey = null;
+      setMessage("Phase 1：只能横向或纵向连续连接相邻字母。可以拖拽，也可以逐个点击后按 Prüfen。");
+      render();
+      renderDetail(null);
+    }
+
+    function parseDelimited(text, delimiter) {
+      const lines = text.split(/\r?\n/).map(line => line.trim()).filter(Boolean);
+      if (lines.length < 2) return [];
+      const headers = lines[0].split(delimiter).map(h => h.trim().toLowerCase());
+      return lines.slice(1).map(line => {
+        const cols = line.split(delimiter).map(col => col.trim().replace(/^"|"$/g, ""));
+        const row = {};
+        headers.forEach((header, i) => { row[header] = cols[i] || ""; });
+        return row;
+      });
+    }
+
+    function installRows(rows) {
+      let imported = 0;
+      rows.forEach(row => {
+        const raw = row.word || row.lemma || row.display;
+        if (!raw) return;
+        const key = normalize(raw);
+        localDictionary[key] = {
+          key,
+          word: raw.toLocaleUpperCase("de-DE"),
+          display: row.display || raw,
+          zh: row.zh || row.chinese || row.meaning || "中文释义暂未收录",
+          pos: row.pos || "",
+          gender: row.gender || "",
+          plural: row.plural || "",
+          example: row.example || "",
+          example_zh: row.example_zh || row.examplezh || "",
+          course: String(row.course || row.isCourseWord || "").toLowerCase() === "true"
+        };
+        fallbackWords.add(key);
+        imported += 1;
+      });
+      return imported;
+    }
+
+    async function importDictionary(file) {
+      const text = await file.text();
+      let rows = [];
+      if (file.name.toLowerCase().endsWith(".json")) {
+        const data = JSON.parse(text);
+        rows = Array.isArray(data)
+          ? data
+          : Object.entries(data).map(([word, value]) => ({ word, ...(typeof value === "object" ? value : { zh: String(value) }) }));
+      } else {
+        rows = parseDelimited(text, file.name.toLowerCase().endsWith(".tsv") ? "\t" : ",");
+      }
+      const count = installRows(rows);
+      el.importStatus.textContent = count
+        ? `✓ ${count} Wörter importiert：已加入本地词典，优先级在课程词典之后。`
+        : "没有识别到可导入词条。";
+    }
+
+    document.addEventListener("pointerup", () => { isPointerDown = false; });
+    document.getElementById("submitBtn").addEventListener("click", submitWord);
+    document.getElementById("clearBtn").addEventListener("click", () => {
+      clearSelection();
+      setMessage("已清空当前选择。");
+    });
+    document.getElementById("phaseBtn").addEventListener("click", switchPhase);
+    document.getElementById("restartBtn").addEventListener("click", restart);
+    el.importInput.addEventListener("change", event => {
+      const file = event.target.files && event.target.files[0];
+      if (!file) return;
+      importDictionary(file).catch(error => {
+        el.importStatus.textContent = `导入失败：${error.message}`;
+      });
+    });
+
+    restart();
+  </script>
+</body>
+</html>

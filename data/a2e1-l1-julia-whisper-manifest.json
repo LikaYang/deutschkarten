@@ -1,0 +1,453 @@
+{
+  "version": "0.2",
+  "course_id": "A2E1",
+  "lesson_id": "A2E1L1",
+  "source_files": [
+    {
+      "file": "Julia.m4a",
+      "ownership": "teacher_recorded_original"
+    }
+  ],
+  "duration_seconds": 29.12,
+  "detected_speech_regions": 10,
+  "automatic": true,
+  "alignment_method": "forced_alignment",
+  "whisper_available": true,
+  "dry_run": false,
+  "segments": [
+    {
+      "segment_id": "A2E1L1-s01",
+      "text": "Guten Tag, ich bin Julia.",
+      "source_audio": "Julia.m4a",
+      "start": 0.1,
+      "end": 3.31,
+      "audio_file": "Julia-s01.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Guten Tag ich bin Julia",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Guten",
+          "normalized": "guten",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Tag,",
+          "normalized": "tag",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "bin",
+          "normalized": "bin",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Julia.",
+          "normalized": "julia",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "A2E1L1-s02",
+      "text": "Ich treffe gern meine Freundinnen und Freunde.",
+      "source_audio": "Julia.m4a",
+      "start": 4.0,
+      "end": 7.63,
+      "audio_file": "Julia-s02.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Ich treffe gern meine Freundinnen und Freunde",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "treffe",
+          "normalized": "treffe",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gern",
+          "normalized": "gern",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "meine",
+          "normalized": "meine",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Freundinnen",
+          "normalized": "freundinnen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Freunde.",
+          "normalized": "freunde",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "A2E1L1-s03",
+      "text": "Dann kochen wir zusammen oder gehen ins Restaurant.",
+      "source_audio": "Julia.m4a",
+      "start": 8.61,
+      "end": 11.73,
+      "audio_file": "Julia-s03.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Dann kochen wir zusammen oder gehen ins Restaurant",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Dann",
+          "normalized": "dann",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "kochen",
+          "normalized": "kochen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "wir",
+          "normalized": "wir",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "zusammen",
+          "normalized": "zusammen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "oder",
+          "normalized": "oder",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gehen",
+          "normalized": "gehen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ins",
+          "normalized": "ins",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Restaurant.",
+          "normalized": "restaurant",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "A2E1L1-s04",
+      "text": "Ich mache auch gern Sport.",
+      "source_audio": "Julia.m4a",
+      "start": 12.2,
+      "end": 14.91,
+      "audio_file": "Julia-s04.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Ich mache auch gern Sport",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "mache",
+          "normalized": "mache",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "auch",
+          "normalized": "auch",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gern",
+          "normalized": "gern",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Sport.",
+          "normalized": "sport",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "A2E1L1-s05",
+      "text": "Ich spiele Basketball und ich reite.",
+      "source_audio": "Julia.m4a",
+      "start": 15.32,
+      "end": 18.11,
+      "audio_file": "Julia-s05.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Ich spiele Basketball und ich reite",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "spiele",
+          "normalized": "spiele",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Basketball",
+          "normalized": "basketball",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "reite.",
+          "normalized": "reite",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "A2E1L1-s06",
+      "text": "Meine Eltern haben ein Pferd.",
+      "source_audio": "Julia.m4a",
+      "start": 18.63,
+      "end": 22.13,
+      "audio_file": "Julia-s06.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 0.93,
+      "method": "forced_alignment",
+      "recognized_text": "Meine Eltern haben ein Pferd",
+      "match_score": 0.859,
+      "tokens": [
+        {
+          "token": "Meine",
+          "normalized": "meine",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Eltern",
+          "normalized": "eltern",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "haben",
+          "normalized": "haben",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ein",
+          "normalized": "ein",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Pferd.",
+          "normalized": "pferd",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "A2E1L1-s07",
+      "text": "Am Wochenende auf dem Sofa liegen und ein gutes Buch lesen – das finde ich auch toll.",
+      "source_audio": "Julia.m4a",
+      "start": 21.44,
+      "start": 22.3,
+      "end": 30.12,
+      "audio_file": "Julia-s07.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 0.838,
+      "method": "forced_alignment",
+      "recognized_text": "Am Wurgenden auf dem Zuverliegen und ein gutes Buch lesen Das finde ich auch toll",
+      "match_score": 0.838,
+      "tokens": [
+        {
+          "token": "Am",
+          "normalized": "am",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Wochenende",
+          "normalized": "wochenende",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "auf",
+          "normalized": "auf",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "dem",
+          "normalized": "dem",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Sofa",
+          "normalized": "sofa",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "liegen",
+          "normalized": "liegen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ein",
+          "normalized": "ein",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gutes",
+          "normalized": "gutes",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Buch",
+          "normalized": "buch",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "lesen",
+          "normalized": "lesen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "das",
+          "normalized": "das",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "finde",
+          "normalized": "finde",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "auch",
+          "normalized": "auch",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "toll.",
+          "normalized": "toll",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    }
+  ],
+  "review_required": true,
+  "generated_by": "deutschstadt-audio-prep"
+}

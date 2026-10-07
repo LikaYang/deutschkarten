@@ -1,0 +1,1414 @@
+{
+  "version": "0.2",
+  "course_id": "netzwerk-neu-a2",
+  "lesson_id": "a2e1-u3-greta",
+  "source_files": [
+    {
+      "file": "A2E1-Greta-letztes-Jahr.mp3",
+      "ownership": "third_party_course_material",
+      "publisher": "Ernst Klett Sprachen GmbH",
+      "source_track": "NWn_A2_KB_Audio_1-002"
+    }
+  ],
+  "duration_seconds": 73.822,
+  "detected_speech_regions": 23,
+  "automatic": true,
+  "alignment_method": "forced_alignment_reviewed_with_silence_boundaries",
+  "whisper_available": true,
+  "dry_run": true,
+  "segments": [
+    {
+      "segment_id": "a2e1-u3-greta-s01",
+      "text": "Ach ja, es ist viel passiert.",
+      "source_audio": "A2E1-Greta-letztes-Jahr.mp3",
+      "start": 0.568,
+      "end": 2.33,
+      "audio_file": "A2E1-Greta-letztes-Jahr-s01.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 0.842,
+      "method": "forced_alignment_reviewed",
+      "recognized_text": "Achja es ist viel passiert",
+      "match_score": 0.842,
+      "tokens": [
+        {
+          "token": "Ach",
+          "normalized": "ach",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ja,",
+          "normalized": "ja",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "es",
+          "normalized": "es",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ist",
+          "normalized": "ist",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "viel",
+          "normalized": "viel",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "passiert.",
+          "normalized": "passiert",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "approved",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "a2e1-u3-greta-s02",
+      "text": "Letztes Jahr habe ich zum Beispiel meinen Freund kennengelernt.",
+      "source_audio": "A2E1-Greta-letztes-Jahr.mp3",
+      "start": 3.137,
+      "end": 6.263,
+      "audio_file": "A2E1-Greta-letztes-Jahr-s02.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment_reviewed",
+      "recognized_text": "Letztes Jahr habe ich zum Beispiel meinen Freund kennengelernt",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Letztes",
+          "normalized": "letztes",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Jahr",
+          "normalized": "jahr",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "habe",
+          "normalized": "habe",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "zum",
+          "normalized": "zum",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Beispiel",
+          "normalized": "beispiel",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "meinen",
+          "normalized": "meinen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Freund",
+          "normalized": "freund",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "kennengelernt.",
+          "normalized": "kennengelernt",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "approved",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "a2e1-u3-greta-s03",
+      "text": "Eine Freundin von mir hatte Geburtstag und hat eine Party gefeiert.",
+      "source_audio": "A2E1-Greta-letztes-Jahr.mp3",
+      "start": 7.138,
+      "end": 10.624,
+      "audio_file": "A2E1-Greta-letztes-Jahr-s03.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 0.9,
+      "method": "forced_alignment_reviewed",
+      "recognized_text": "Eine Freundin von mir hat sie Geburtstag und hat eine Party gefeiert",
+      "match_score": 0.9,
+      "tokens": [
+        {
+          "token": "Eine",
+          "normalized": "eine",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Freundin",
+          "normalized": "freundin",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "von",
+          "normalized": "von",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "mir",
+          "normalized": "mir",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "hatte",
+          "normalized": "hatte",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Geburtstag",
+          "normalized": "geburtstag",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "hat",
+          "normalized": "hat",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "eine",
+          "normalized": "eine",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Party",
+          "normalized": "party",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gefeiert.",
+          "normalized": "gefeiert",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "approved",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "a2e1-u3-greta-s04",
+      "text": "Da habe ich Jan zum ersten Mal getroffen.",
+      "source_audio": "A2E1-Greta-letztes-Jahr.mp3",
+      "start": 11.362,
+      "end": 13.437,
+      "audio_file": "A2E1-Greta-letztes-Jahr-s04.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment_reviewed",
+      "recognized_text": "Da habe ich Jan zum ersten Mal getroffen",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Da",
+          "normalized": "da",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "habe",
+          "normalized": "habe",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Jan",
+          "normalized": "jan",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "zum",
+          "normalized": "zum",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ersten",
+          "normalized": "ersten",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Mal",
+          "normalized": "mal",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "getroffen.",
+          "normalized": "getroffen",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "approved",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "a2e1-u3-greta-s05",
+      "text": "Wir haben den ganzen Abend geredet und getanzt.",
+      "source_audio": "A2E1-Greta-letztes-Jahr.mp3",
+      "start": 14.313,
+      "end": 17.085,
+      "audio_file": "A2E1-Greta-letztes-Jahr-s05.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment_reviewed",
+      "recognized_text": "Wir haben den ganzen Abend geredet und getanzt",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Wir",
+          "normalized": "wir",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "haben",
+          "normalized": "haben",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "den",
+          "normalized": "den",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ganzen",
+          "normalized": "ganzen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Abend",
+          "normalized": "abend",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "geredet",
+          "normalized": "geredet",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "getanzt.",
+          "normalized": "getanzt",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "approved",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "a2e1-u3-greta-s06",
+      "text": "Na ja, und dann haben wir uns gleich am nächsten Tag wiedergesehen.",
+      "source_audio": "A2E1-Greta-letztes-Jahr.mp3",
+      "start": 17.639,
+      "end": 21.054,
+      "audio_file": "A2E1-Greta-letztes-Jahr-s06.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 0.931,
+      "method": "forced_alignment_reviewed",
+      "recognized_text": "Na ja und dann haben wir uns gleich am nächsten Tag wieder",
+      "match_score": 0.931,
+      "tokens": [
+        {
+          "token": "Na",
+          "normalized": "na",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ja,",
+          "normalized": "ja",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "dann",
+          "normalized": "dann",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "haben",
+          "normalized": "haben",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "wir",
+          "normalized": "wir",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "uns",
+          "normalized": "uns",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gleich",
+          "normalized": "gleich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "am",
+          "normalized": "am",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "nächsten",
+          "normalized": "nächsten",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Tag",
+          "normalized": "tag",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "wiedergesehen.",
+          "normalized": "wiedergesehen",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "approved",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "a2e1-u3-greta-s07",
+      "text": "Und seitdem treffen wir uns fast jeden Tag.",
+      "source_audio": "A2E1-Greta-letztes-Jahr.mp3",
+      "start": 22.179,
+      "end": 24.57,
+      "audio_file": "A2E1-Greta-letztes-Jahr-s07.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment_reviewed",
+      "recognized_text": "Und seitdem treffen wir uns fast jeden Tag",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "seitdem",
+          "normalized": "seitdem",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "treffen",
+          "normalized": "treffen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "wir",
+          "normalized": "wir",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "uns",
+          "normalized": "uns",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "fast",
+          "normalized": "fast",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "jeden",
+          "normalized": "jeden",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Tag.",
+          "normalized": "tag",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "approved",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "a2e1-u3-greta-s08",
+      "text": "Im Sommer sind wir zusammen für eine Woche in die Berge gefahren.",
+      "source_audio": "A2E1-Greta-letztes-Jahr.mp3",
+      "start": 25.46,
+      "end": 28.747,
+      "audio_file": "A2E1-Greta-letztes-Jahr-s08.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment_reviewed",
+      "recognized_text": "Im Sommer sind wir zusammen für eine Woche in die Berge gefahren",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Im",
+          "normalized": "im",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Sommer",
+          "normalized": "sommer",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "sind",
+          "normalized": "sind",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "wir",
+          "normalized": "wir",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "zusammen",
+          "normalized": "zusammen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "für",
+          "normalized": "für",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "eine",
+          "normalized": "eine",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Woche",
+          "normalized": "woche",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "in",
+          "normalized": "in",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "die",
+          "normalized": "die",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Berge",
+          "normalized": "berge",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gefahren.",
+          "normalized": "gefahren",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "approved",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "a2e1-u3-greta-s09",
+      "text": "Dort sind wir jeden Tag gewandert, das hat mir gut gefallen.",
+      "source_audio": "A2E1-Greta-letztes-Jahr.mp3",
+      "start": 29.108,
+      "end": 32.457,
+      "audio_file": "A2E1-Greta-letztes-Jahr-s09.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment_reviewed",
+      "recognized_text": "Dort sind wir jeden Tag gewandert das hat mir gut gefallen",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Dort",
+          "normalized": "dort",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "sind",
+          "normalized": "sind",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "wir",
+          "normalized": "wir",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "jeden",
+          "normalized": "jeden",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Tag",
+          "normalized": "tag",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gewandert,",
+          "normalized": "gewandert",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "das",
+          "normalized": "das",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "hat",
+          "normalized": "hat",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "mir",
+          "normalized": "mir",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gut",
+          "normalized": "gut",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gefallen.",
+          "normalized": "gefallen",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "approved",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "a2e1-u3-greta-s10",
+      "text": "Mein Job ist oft stressig und im Urlaub habe ich mich richtig ausgeruht.",
+      "source_audio": "A2E1-Greta-letztes-Jahr.mp3",
+      "start": 33.621,
+      "end": 38.172,
+      "audio_file": "A2E1-Greta-letztes-Jahr-s10.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 0.954,
+      "method": "forced_alignment_reviewed",
+      "recognized_text": "Mein Job ist oft stressig und im Urlaub habe ich mich richtig ausgerot",
+      "match_score": 0.954,
+      "tokens": [
+        {
+          "token": "Mein",
+          "normalized": "mein",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Job",
+          "normalized": "job",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ist",
+          "normalized": "ist",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "oft",
+          "normalized": "oft",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "stressig",
+          "normalized": "stressig",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "im",
+          "normalized": "im",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Urlaub",
+          "normalized": "urlaub",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "habe",
+          "normalized": "habe",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "mich",
+          "normalized": "mich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "richtig",
+          "normalized": "richtig",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ausgeruht.",
+          "normalized": "ausgeruht",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "approved",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "a2e1-u3-greta-s11",
+      "text": "Hm, was noch …?",
+      "source_audio": "A2E1-Greta-letztes-Jahr.mp3",
+      "start": 39.263,
+      "end": 40.896,
+      "audio_file": "A2E1-Greta-letztes-Jahr-s11.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment_reviewed",
+      "recognized_text": "Hm was noch",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Hm,",
+          "normalized": "hm",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "was",
+          "normalized": "was",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "noch",
+          "normalized": "noch",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "approved",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "a2e1-u3-greta-s12",
+      "text": "Ach ja, ich mache ja viel Sport.",
+      "source_audio": "A2E1-Greta-letztes-Jahr.mp3",
+      "start": 41.251,
+      "end": 43.096,
+      "audio_file": "A2E1-Greta-letztes-Jahr-s12.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment_reviewed",
+      "recognized_text": "Ach ja ich mache ja viel Sport",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Ach",
+          "normalized": "ach",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ja,",
+          "normalized": "ja",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "mache",
+          "normalized": "mache",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ja",
+          "normalized": "ja",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "viel",
+          "normalized": "viel",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Sport.",
+          "normalized": "sport",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "approved",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "a2e1-u3-greta-s13",
+      "text": "Ich gehe ins Fitness-Studio und jogge viel.",
+      "source_audio": "A2E1-Greta-letztes-Jahr.mp3",
+      "start": 43.79,
+      "end": 46.053,
+      "audio_file": "A2E1-Greta-letztes-Jahr-s13.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 0.762,
+      "method": "forced_alignment_reviewed",
+      "recognized_text": "Ich gehe ins Fitnessstudio und joggefehl",
+      "match_score": 0.762,
+      "tokens": [
+        {
+          "token": "Ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gehe",
+          "normalized": "gehe",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ins",
+          "normalized": "ins",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Fitness-Studio",
+          "normalized": "fitnessstudio",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "jogge",
+          "normalized": "jogge",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "viel.",
+          "normalized": "viel",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "approved",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "a2e1-u3-greta-s14",
+      "text": "Und letztes Jahr bin ich zum ersten Mal einen Marathon gelaufen.",
+      "source_audio": "A2E1-Greta-letztes-Jahr.mp3",
+      "start": 47.095,
+      "end": 50.56,
+      "audio_file": "A2E1-Greta-letztes-Jahr-s14.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment_reviewed",
+      "recognized_text": "Und letztes Jahr bin ich zum ersten Mal einen Marathon gelaufen",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "letztes",
+          "normalized": "letztes",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Jahr",
+          "normalized": "jahr",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "bin",
+          "normalized": "bin",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "zum",
+          "normalized": "zum",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ersten",
+          "normalized": "ersten",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Mal",
+          "normalized": "mal",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "einen",
+          "normalized": "einen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Marathon",
+          "normalized": "marathon",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gelaufen.",
+          "normalized": "gelaufen",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "approved",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "a2e1-u3-greta-s15",
+      "text": "Ich hab‘ natürlich nicht gewonnen, aber das Mitmachen war toll.",
+      "source_audio": "A2E1-Greta-letztes-Jahr.mp3",
+      "start": 51.27,
+      "end": 54.576,
+      "audio_file": "A2E1-Greta-letztes-Jahr-s15.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 0.95,
+      "method": "forced_alignment_reviewed",
+      "recognized_text": "Ich habe natürlich nicht gewonnen aber das mitmachen war toll",
+      "match_score": 0.95,
+      "tokens": [
+        {
+          "token": "Ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "hab‘",
+          "normalized": "hab",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "natürlich",
+          "normalized": "natürlich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "nicht",
+          "normalized": "nicht",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gewonnen,",
+          "normalized": "gewonnen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "aber",
+          "normalized": "aber",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "das",
+          "normalized": "das",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Mitmachen",
+          "normalized": "mitmachen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "war",
+          "normalized": "war",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "toll.",
+          "normalized": "toll",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "approved",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "a2e1-u3-greta-s16",
+      "text": "Und ich war letztes Jahr zum ersten Mal in Berlin!",
+      "source_audio": "A2E1-Greta-letztes-Jahr.mp3",
+      "start": 55.878,
+      "end": 58.127,
+      "audio_file": "A2E1-Greta-letztes-Jahr-s16.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 0.876,
+      "method": "forced_alignment_reviewed",
+      "recognized_text": "Und ich verletztes Jahr zum ersten Mal in Berlin",
+      "match_score": 0.876,
+      "tokens": [
+        {
+          "token": "Und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "war",
+          "normalized": "war",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "letztes",
+          "normalized": "letztes",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Jahr",
+          "normalized": "jahr",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "zum",
+          "normalized": "zum",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ersten",
+          "normalized": "ersten",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Mal",
+          "normalized": "mal",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "in",
+          "normalized": "in",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Berlin!",
+          "normalized": "berlin",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "approved",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "a2e1-u3-greta-s17",
+      "text": "Ich bin mit einer Freundin gefahren und wir haben viele Sehenswürdigkeiten besichtigt.",
+      "source_audio": "A2E1-Greta-letztes-Jahr.mp3",
+      "start": 58.695,
+      "end": 62.926,
+      "audio_file": "A2E1-Greta-letztes-Jahr-s17.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 0.959,
+      "method": "forced_alignment_reviewed",
+      "recognized_text": "Ich bin mit einer Freundin gefahren und wir haben viele Sehnswürdigkeiten besichtigt",
+      "match_score": 0.959,
+      "tokens": [
+        {
+          "token": "Ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "bin",
+          "normalized": "bin",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "mit",
+          "normalized": "mit",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "einer",
+          "normalized": "einer",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Freundin",
+          "normalized": "freundin",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gefahren",
+          "normalized": "gefahren",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "wir",
+          "normalized": "wir",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "haben",
+          "normalized": "haben",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "viele",
+          "normalized": "viele",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Sehenswürdigkeiten",
+          "normalized": "sehenswürdigkeiten",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "besichtigt.",
+          "normalized": "besichtigt",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "approved",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "a2e1-u3-greta-s18",
+      "text": "Geschlafen haben wir in einer Jugendherberge, so war es nicht so teuer.",
+      "source_audio": "A2E1-Greta-letztes-Jahr.mp3",
+      "start": 63.915,
+      "end": 67.685,
+      "audio_file": "A2E1-Greta-letztes-Jahr-s18.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment_reviewed",
+      "recognized_text": "Geschlafen haben wir in einer Jugendherberge so war es nicht so teuer",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Geschlafen",
+          "normalized": "geschlafen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "haben",
+          "normalized": "haben",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "wir",
+          "normalized": "wir",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "in",
+          "normalized": "in",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "einer",
+          "normalized": "einer",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Jugendherberge,",
+          "normalized": "jugendherberge",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "so",
+          "normalized": "so",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "war",
+          "normalized": "war",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "es",
+          "normalized": "es",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "nicht",
+          "normalized": "nicht",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "so",
+          "normalized": "so",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "teuer.",
+          "normalized": "teuer",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "approved",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "a2e1-u3-greta-s19",
+      "text": "Mal sehen, welche Reisen ich dieses Jahr mache.",
+      "source_audio": "A2E1-Greta-letztes-Jahr.mp3",
+      "start": 68.556,
+      "end": 70.585,
+      "audio_file": "A2E1-Greta-letztes-Jahr-s19.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment_reviewed",
+      "recognized_text": "Mal sehen welche Reisen ich dieses Jahr mache",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Mal",
+          "normalized": "mal",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "sehen,",
+          "normalized": "sehen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "welche",
+          "normalized": "welche",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Reisen",
+          "normalized": "reisen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "dieses",
+          "normalized": "dieses",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Jahr",
+          "normalized": "jahr",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "mache.",
+          "normalized": "mache",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "approved",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    }
+  ],
+  "review_required": false,
+  "generated_by": "deutschstadt-audio-prep"
+}

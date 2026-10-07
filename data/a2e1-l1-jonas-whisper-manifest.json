@@ -1,0 +1,376 @@
+{
+  "version": "0.2",
+  "course_id": "A2E1",
+  "lesson_id": "A2E1L1",
+  "source_files": [
+    {
+      "file": "Jonas.m4a",
+      "ownership": "teacher_recorded_original"
+    }
+  ],
+  "duration_seconds": 27.904,
+  "detected_speech_regions": 11,
+  "automatic": true,
+  "alignment_method": "forced_alignment",
+  "whisper_available": true,
+  "dry_run": false,
+  "segments": [
+    {
+      "segment_id": "A2E1L1-s01",
+      "text": "Ich komme aus Basel und lebe jetzt in Zürich.",
+      "source_audio": "Jonas.m4a",
+      "start": 2.01,
+      "end": 6.73,
+      "audio_file": "Jonas-s01.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Ich komme aus Basel und lebe jetzt in Zürich",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "komme",
+          "normalized": "komme",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "aus",
+          "normalized": "aus",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Basel",
+          "normalized": "basel",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "lebe",
+          "normalized": "lebe",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "jetzt",
+          "normalized": "jetzt",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "in",
+          "normalized": "in",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Zürich.",
+          "normalized": "zürich",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "A2E1L1-s02",
+      "text": "Meine Freundin und ich haben ein Apartment im Stadtzentrum.",
+      "source_audio": "Jonas.m4a",
+      "start": 7.47,
+      "end": 12.5,
+      "audio_file": "Jonas-s02.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 0.926,
+      "method": "forced_alignment",
+      "recognized_text": "Meine Freundin und ich haben ein Empatement im Stadtzentrum",
+      "match_score": 0.926,
+      "tokens": [
+        {
+          "token": "Meine",
+          "normalized": "meine",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Freundin",
+          "normalized": "freundin",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ich",
+          "normalized": "ich",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "haben",
+          "normalized": "haben",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ein",
+          "normalized": "ein",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Apartment",
+          "normalized": "apartment",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "im",
+          "normalized": "im",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Stadtzentrum.",
+          "normalized": "stadtzentrum",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "A2E1L1-s03",
+      "text": "Wir haben es zusammen renoviert.",
+      "source_audio": "Jonas.m4a",
+      "start": 12.8,
+      "end": 15.53,
+      "audio_file": "Jonas-s03.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Wir haben es zusammen renoviert",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Wir",
+          "normalized": "wir",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "haben",
+          "normalized": "haben",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "es",
+          "normalized": "es",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "zusammen",
+          "normalized": "zusammen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "renoviert.",
+          "normalized": "renoviert",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "A2E1L1-s04",
+      "text": "Es ist klein, aber schön.",
+      "source_audio": "Jonas.m4a",
+      "start": 15.92,
+      "end": 18.92,
+      "audio_file": "Jonas-s04.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 1.0,
+      "method": "forced_alignment",
+      "recognized_text": "Es ist klein aber schön",
+      "match_score": 1.0,
+      "tokens": [
+        {
+          "token": "Es",
+          "normalized": "es",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ist",
+          "normalized": "ist",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "klein,",
+          "normalized": "klein",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "aber",
+          "normalized": "aber",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "schön.",
+          "normalized": "schön",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    },
+    {
+      "segment_id": "A2E1L1-s05",
+      "text": "Uns gefällt das Leben in der Stadt, aber manchmal ist es auch ein bisschen laut und stressig.",
+      "source_audio": "Jonas.m4a",
+      "start": 19.61,
+      "end": 27.0,
+      "audio_file": "Jonas-s05.wav",
+      "audio_role": "sentence_audio",
+      "confidence": 0.825,
+      "method": "forced_alignment",
+      "recognized_text": "ums gewähltes Leben der Stadt Aber manchmal ist es auch ein bisschen laut und stressig",
+      "match_score": 0.825,
+      "tokens": [
+        {
+          "token": "Uns",
+          "normalized": "uns",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "gefällt",
+          "normalized": "gefällt",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "das",
+          "normalized": "das",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Leben",
+          "normalized": "leben",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "in",
+          "normalized": "in",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "der",
+          "normalized": "der",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "Stadt,",
+          "normalized": "stadt",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "aber",
+          "normalized": "aber",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "manchmal",
+          "normalized": "manchmal",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ist",
+          "normalized": "ist",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "es",
+          "normalized": "es",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "auch",
+          "normalized": "auch",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "ein",
+          "normalized": "ein",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "bisschen",
+          "normalized": "bisschen",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "laut",
+          "normalized": "laut",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "und",
+          "normalized": "und",
+          "card_id": null,
+          "status": "unmatched"
+        },
+        {
+          "token": "stressig.",
+          "normalized": "stressig",
+          "card_id": null,
+          "status": "unmatched"
+        }
+      ],
+      "status": "auto_review",
+      "notes": "Local Whisper timestamp match; listen once before approval."
+    }
+  ],
+  "review_required": true,
+  "generated_by": "deutschstadt-audio-prep"
+}

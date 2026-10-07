@@ -1,0 +1,1919 @@
+[
+  {
+    "id": "a2e2-l1-ole",
+    "name": "Ole Jansen",
+    "lessonId": "A2E2L1",
+    "group": "schulzeit",
+    "image": "",
+    "audio": "assets/audio/a2/e2/l1/processed/a2e2-l1-ole.mp3",
+    "audioStatus": "missing",
+    "sourceAudio": "assets/audio/a2/e2/l1/source/a2e2-l1-schulzeit.m4a",
+    "text": "Ich wollte immer erwachsen sein. Das verstehe ich jetzt gar nicht mehr. In der Schule hatte ich so viel Freizeit. Und sechs Wochen Sommerferien! Da musste man nichts machen und konnte immer ins Schwimmbad fahren.",
+    "turns": [
+      {
+        "speaker": "Ole Jansen",
+        "text": "Ich wollte immer erwachsen sein. Das verstehe ich jetzt gar nicht mehr. In der Schule hatte ich so viel Freizeit. Und sechs Wochen Sommerferien! Da musste man nichts machen und konnte immer ins Schwimmbad fahren."
+      }
+    ],
+    "lines": [
+      {
+        "de": "Ich wollte immer erwachsen sein.",
+        "speaker": "Ole Jansen",
+        "segmentId": "a2e2-l1-ole-s01"
+      },
+      {
+        "de": "Das verstehe ich jetzt gar nicht mehr.",
+        "speaker": "Ole Jansen",
+        "segmentId": "a2e2-l1-ole-s02"
+      },
+      {
+        "de": "In der Schule hatte ich so viel Freizeit.",
+        "speaker": "Ole Jansen",
+        "segmentId": "a2e2-l1-ole-s03"
+      },
+      {
+        "de": "Und sechs Wochen Sommerferien!",
+        "speaker": "Ole Jansen",
+        "segmentId": "a2e2-l1-ole-s04"
+      },
+      {
+        "de": "Da musste man nichts machen und konnte immer ins Schwimmbad fahren.",
+        "speaker": "Ole Jansen",
+        "segmentId": "a2e2-l1-ole-s05"
+      }
+    ],
+    "segments": [],
+    "source": {
+      "document": "NWn_A2E2_讲义.pdf",
+      "pdfPages": [
+        3
+      ],
+      "sourceType": "third-party-course-material",
+      "rightsStatus": "review_required"
+    },
+    "sourceAudioStatus": "available"
+  },
+  {
+    "id": "a2e2-l1-sorin",
+    "name": "Sorin Popa",
+    "lessonId": "A2E2L1",
+    "group": "schulzeit",
+    "image": "",
+    "audio": "assets/audio/a2/e2/l1/processed/a2e2-l1-sorin.mp3",
+    "audioStatus": "missing",
+    "sourceAudio": "assets/audio/a2/e2/l1/source/a2e2-l1-schulzeit.m4a",
+    "text": "Ich bin erst mit 14 Jahren nach Deutschland gekommen. Am Anfang war es schwer, ich konnte ja die Sprache nicht richtig sprechen. Aber nach ein paar Monaten hatte ich viele Freunde und dann war alles gut. Ich hatte mit ihnen immer einen Riesenspaß! Hauptsache, wir konnten uns jeden Tag sehen.",
+    "turns": [
+      {
+        "speaker": "Sorin Popa",
+        "text": "Ich bin erst mit 14 Jahren nach Deutschland gekommen. Am Anfang war es schwer, ich konnte ja die Sprache nicht richtig sprechen. Aber nach ein paar Monaten hatte ich viele Freunde und dann war alles gut. Ich hatte mit ihnen immer einen Riesenspaß! Hauptsache, wir konnten uns jeden Tag sehen."
+      }
+    ],
+    "lines": [
+      {
+        "de": "Ich bin erst mit 14 Jahren nach Deutschland gekommen.",
+        "speaker": "Sorin Popa",
+        "segmentId": "a2e2-l1-sorin-s01"
+      },
+      {
+        "de": "Am Anfang war es schwer, ich konnte ja die Sprache nicht richtig sprechen.",
+        "speaker": "Sorin Popa",
+        "segmentId": "a2e2-l1-sorin-s02"
+      },
+      {
+        "de": "Aber nach ein paar Monaten hatte ich viele Freunde und dann war alles gut.",
+        "speaker": "Sorin Popa",
+        "segmentId": "a2e2-l1-sorin-s03"
+      },
+      {
+        "de": "Ich hatte mit ihnen immer einen Riesenspaß!",
+        "speaker": "Sorin Popa",
+        "segmentId": "a2e2-l1-sorin-s04"
+      },
+      {
+        "de": "Hauptsache, wir konnten uns jeden Tag sehen.",
+        "speaker": "Sorin Popa",
+        "segmentId": "a2e2-l1-sorin-s05"
+      }
+    ],
+    "segments": [],
+    "source": {
+      "document": "NWn_A2E2_讲义.pdf",
+      "pdfPages": [
+        3
+      ],
+      "sourceType": "third-party-course-material",
+      "rightsStatus": "review_required"
+    },
+    "sourceAudioStatus": "available"
+  },
+  {
+    "id": "a2e2-l1-sybille",
+    "name": "Sybille Michel",
+    "lessonId": "A2E2L1",
+    "group": "schulzeit",
+    "image": "",
+    "audio": "assets/audio/a2/e2/l1/processed/a2e2-l1-sybille.mp3",
+    "audioStatus": "missing",
+    "sourceAudio": "assets/audio/a2/e2/l1/source/a2e2-l1-schulzeit.m4a",
+    "text": "Wir sollten jeden Tag 30 Wörter lernen und mussten dreimal pro Woche einen Vokabeltest schreiben. Man durfte keinen Fehler machen, die Lehrerin war sofort wütend. Zum Glück hatte ich auch tolle Lehrer und der Direktor war nett!",
+    "turns": [
+      {
+        "speaker": "Sybille Michel",
+        "text": "Wir sollten jeden Tag 30 Wörter lernen und mussten dreimal pro Woche einen Vokabeltest schreiben. Man durfte keinen Fehler machen, die Lehrerin war sofort wütend. Zum Glück hatte ich auch tolle Lehrer und der Direktor war nett!"
+      }
+    ],
+    "lines": [
+      {
+        "de": "Wir sollten jeden Tag 30 Wörter lernen und mussten dreimal pro Woche einen Vokabeltest schreiben.",
+        "speaker": "Sybille Michel",
+        "segmentId": "a2e2-l1-sybille-s01"
+      },
+      {
+        "de": "Man durfte keinen Fehler machen, die Lehrerin war sofort wütend.",
+        "speaker": "Sybille Michel",
+        "segmentId": "a2e2-l1-sybille-s02"
+      },
+      {
+        "de": "Zum Glück hatte ich auch tolle Lehrer und der Direktor war nett!",
+        "speaker": "Sybille Michel",
+        "segmentId": "a2e2-l1-sybille-s03"
+      }
+    ],
+    "segments": [],
+    "source": {
+      "document": "NWn_A2E2_讲义.pdf",
+      "pdfPages": [
+        3
+      ],
+      "sourceType": "third-party-course-material",
+      "rightsStatus": "review_required"
+    },
+    "sourceAudioStatus": "available"
+  },
+  {
+    "id": "a2e2-l1-noel",
+    "name": "Noel Sanchez",
+    "lessonId": "A2E2L1",
+    "group": "schulzeit",
+    "image": "",
+    "audio": "assets/audio/a2/e2/l1/processed/a2e2-l1-noel.mp3",
+    "audioStatus": "missing",
+    "sourceAudio": "assets/audio/a2/e2/l1/source/a2e2-l1-schulzeit.m4a",
+    "text": "Ich musste jeden Tag schon um sechs Uhr aufstehen. Schrecklich! Ich habe auf dem Land gewohnt und musste mit dem Bus um sieben Uhr zur Schule fahren.",
+    "turns": [
+      {
+        "speaker": "Noel Sanchez",
+        "text": "Ich musste jeden Tag schon um sechs Uhr aufstehen. Schrecklich! Ich habe auf dem Land gewohnt und musste mit dem Bus um sieben Uhr zur Schule fahren."
+      }
+    ],
+    "lines": [
+      {
+        "de": "Ich musste jeden Tag schon um sechs Uhr aufstehen.",
+        "speaker": "Noel Sanchez",
+        "segmentId": "a2e2-l1-noel-s01"
+      },
+      {
+        "de": "Schrecklich!",
+        "speaker": "Noel Sanchez",
+        "segmentId": "a2e2-l1-noel-s02"
+      },
+      {
+        "de": "Ich habe auf dem Land gewohnt und musste mit dem Bus um sieben Uhr zur Schule fahren.",
+        "speaker": "Noel Sanchez",
+        "segmentId": "a2e2-l1-noel-s03"
+      }
+    ],
+    "segments": [],
+    "source": {
+      "document": "NWn_A2E2_讲义.pdf",
+      "pdfPages": [
+        3
+      ],
+      "sourceType": "third-party-course-material",
+      "rightsStatus": "review_required"
+    },
+    "sourceAudioStatus": "available"
+  },
+  {
+    "id": "a2e2-l1-katja",
+    "name": "Katja Grubens",
+    "lessonId": "A2E2L1",
+    "group": "schulzeit",
+    "image": "",
+    "audio": "assets/audio/a2/e2/l1/processed/a2e2-l1-katja.mp3",
+    "audioStatus": "missing",
+    "sourceAudio": "assets/audio/a2/e2/l1/source/a2e2-l1-schulzeit.m4a",
+    "text": "Frau Lindner war sehr streng. Aber ich denke gern an die Schule. Ich hatte gute Lehrer und der Unterricht hat meistens Spaß gemacht. Mit vielen Freunden von der alten Schule habe ich heute noch Kontakt.",
+    "turns": [
+      {
+        "speaker": "Katja Grubens",
+        "text": "Frau Lindner war sehr streng. Aber ich denke gern an die Schule. Ich hatte gute Lehrer und der Unterricht hat meistens Spaß gemacht. Mit vielen Freunden von der alten Schule habe ich heute noch Kontakt."
+      }
+    ],
+    "lines": [
+      {
+        "de": "Frau Lindner war sehr streng.",
+        "speaker": "Katja Grubens",
+        "segmentId": "a2e2-l1-katja-s01"
+      },
+      {
+        "de": "Aber ich denke gern an die Schule.",
+        "speaker": "Katja Grubens",
+        "segmentId": "a2e2-l1-katja-s02"
+      },
+      {
+        "de": "Ich hatte gute Lehrer und der Unterricht hat meistens Spaß gemacht.",
+        "speaker": "Katja Grubens",
+        "segmentId": "a2e2-l1-katja-s03"
+      },
+      {
+        "de": "Mit vielen Freunden von der alten Schule habe ich heute noch Kontakt.",
+        "speaker": "Katja Grubens",
+        "segmentId": "a2e2-l1-katja-s04"
+      }
+    ],
+    "segments": [],
+    "source": {
+      "document": "NWn_A2E2_讲义.pdf",
+      "pdfPages": [
+        3
+      ],
+      "sourceType": "third-party-course-material",
+      "rightsStatus": "review_required"
+    },
+    "sourceAudioStatus": "available"
+  },
+  {
+    "id": "a2e2-l1-anna",
+    "name": "Anna Keindl",
+    "lessonId": "A2E2L1",
+    "group": "schulzeit",
+    "image": "",
+    "audio": "assets/audio/a2/e2/l1/processed/a2e2-l1-anna.mp3",
+    "audioStatus": "missing",
+    "sourceAudio": "assets/audio/a2/e2/l1/source/a2e2-l1-schulzeit.m4a",
+    "text": "Ich musste erst um Viertel nach sieben aufstehen, immer noch früh. Jetzt bin ich an der Uni und kann wenigstens an zwei Tagen später kommen.",
+    "turns": [
+      {
+        "speaker": "Anna Keindl",
+        "text": "Ich musste erst um Viertel nach sieben aufstehen, immer noch früh. Jetzt bin ich an der Uni und kann wenigstens an zwei Tagen später kommen."
+      }
+    ],
+    "lines": [
+      {
+        "de": "Ich musste erst um Viertel nach sieben aufstehen, immer noch früh.",
+        "speaker": "Anna Keindl",
+        "segmentId": "a2e2-l1-anna-s01"
+      },
+      {
+        "de": "Jetzt bin ich an der Uni und kann wenigstens an zwei Tagen später kommen.",
+        "speaker": "Anna Keindl",
+        "segmentId": "a2e2-l1-anna-s02"
+      }
+    ],
+    "segments": [],
+    "source": {
+      "document": "NWn_A2E2_讲义.pdf",
+      "pdfPages": [
+        3
+      ],
+      "sourceType": "third-party-course-material",
+      "rightsStatus": "review_required"
+    },
+    "sourceAudioStatus": "available"
+  },
+  {
+    "id": "a2e2-l1-liam",
+    "name": "Liam Davis",
+    "lessonId": "A2E2L1",
+    "group": "schulzeit",
+    "image": "",
+    "audio": "assets/audio/a2/e2/l1/processed/a2e2-l1-liam.mp3",
+    "audioStatus": "missing",
+    "sourceAudio": "assets/audio/a2/e2/l1/source/a2e2-l1-schulzeit.m4a",
+    "text": "Die Freunde waren auch für mich wichtig. Ich habe viele lustige Erinnerungen an die Schulzeit. Die Partys waren witzig. Nur das Essen in der Cafeteria war furchtbar.",
+    "turns": [
+      {
+        "speaker": "Liam Davis",
+        "text": "Die Freunde waren auch für mich wichtig. Ich habe viele lustige Erinnerungen an die Schulzeit. Die Partys waren witzig. Nur das Essen in der Cafeteria war furchtbar."
+      }
+    ],
+    "lines": [
+      {
+        "de": "Die Freunde waren auch für mich wichtig.",
+        "speaker": "Liam Davis",
+        "segmentId": "a2e2-l1-liam-s01"
+      },
+      {
+        "de": "Ich habe viele lustige Erinnerungen an die Schulzeit.",
+        "speaker": "Liam Davis",
+        "segmentId": "a2e2-l1-liam-s02"
+      },
+      {
+        "de": "Die Partys waren witzig.",
+        "speaker": "Liam Davis",
+        "segmentId": "a2e2-l1-liam-s03"
+      },
+      {
+        "de": "Nur das Essen in der Cafeteria war furchtbar.",
+        "speaker": "Liam Davis",
+        "segmentId": "a2e2-l1-liam-s04"
+      }
+    ],
+    "segments": [],
+    "source": {
+      "document": "NWn_A2E2_讲义.pdf",
+      "pdfPages": [
+        3
+      ],
+      "sourceType": "third-party-course-material",
+      "rightsStatus": "review_required"
+    },
+    "sourceAudioStatus": "available"
+  },
+  {
+    "id": "a2e2-l1-emin",
+    "name": "Emin Özer",
+    "lessonId": "A2E2L1",
+    "group": "schulzeit",
+    "image": "",
+    "audio": "assets/audio/a2/e2/l1/processed/a2e2-l1-emin.mp3",
+    "audioStatus": "missing",
+    "sourceAudio": "assets/audio/a2/e2/l1/source/a2e2-l1-schulzeit.m4a",
+    "text": "In der Schulzeit konnte ich nachmittags meine Freunde treffen und alle paar Wochen waren Ferien. Ich konnte ausschlafen! Aber heute …",
+    "turns": [
+      {
+        "speaker": "Emin Özer",
+        "text": "In der Schulzeit konnte ich nachmittags meine Freunde treffen und alle paar Wochen waren Ferien. Ich konnte ausschlafen! Aber heute …"
+      }
+    ],
+    "lines": [
+      {
+        "de": "In der Schulzeit konnte ich nachmittags meine Freunde treffen und alle paar Wochen waren Ferien.",
+        "speaker": "Emin Özer",
+        "segmentId": "a2e2-l1-emin-s01"
+      },
+      {
+        "de": "Ich konnte ausschlafen!",
+        "speaker": "Emin Özer",
+        "segmentId": "a2e2-l1-emin-s02"
+      },
+      {
+        "de": "Aber heute …",
+        "speaker": "Emin Özer",
+        "segmentId": "a2e2-l1-emin-s03"
+      }
+    ],
+    "segments": [],
+    "source": {
+      "document": "NWn_A2E2_讲义.pdf",
+      "pdfPages": [
+        3
+      ],
+      "sourceType": "third-party-course-material",
+      "rightsStatus": "review_required"
+    },
+    "sourceAudioStatus": "available"
+  },
+  {
+    "id": "a2e2-l2-ayla",
+    "name": "Ayla · Klassentreffen",
+    "lessonId": "A2E2L2",
+    "group": "klassentreffen",
+    "image": "",
+    "audio": "assets/audio/a2/e2/l2/processed/a2e2-l2-ayla.mp3",
+    "audioStatus": "missing",
+    "sourceAudio": "assets/audio/a2/e2/l2/source/a2e2-l2-klassentreffen-1.mp3",
+    "text": "○ Hallo Ayla, wie geht’s? ● Ganz gut. Und dir? ○ Auch gut. Schön so ein Klassentreffen. Jetzt sind es schon fünf Jahre, dass wir Abitur gemacht haben. Sag mal, was hast du denn nach der Schule gemacht? Du wolltest doch Kunst studieren, oder? ● Genau, ich wollte etwas Kreatives machen. Zuerst habe ich ein Praktikum bei einer Werbeagentur gemacht, also in der Grafik-Abteilung. ○ Ach, wirklich? Und, hat dir das Spaß gemacht? ● Ja, das hat mir sehr gut gefallen, und deshalb habe ich dann in Augsburg Grafik studiert. ○ Ah, gut. Und was machst du jetzt? ● Jetzt arbeite ich seit einem Jahr als Grafikerin bei einer Zeitschrift. Das ist toll. Und du? ○ Also, ich habe nach der Schule …",
+    "turns": [
+      {
+        "speaker": "○",
+        "text": "Hallo Ayla, wie geht’s?"
+      },
+      {
+        "speaker": "●",
+        "text": "Ganz gut. Und dir?"
+      },
+      {
+        "speaker": "○",
+        "text": "Auch gut. Schön so ein Klassentreffen. Jetzt sind es schon fünf Jahre, dass wir Abitur gemacht haben. Sag mal, was hast du denn nach der Schule gemacht? Du wolltest doch Kunst studieren, oder?"
+      },
+      {
+        "speaker": "●",
+        "text": "Genau, ich wollte etwas Kreatives machen. Zuerst habe ich ein Praktikum bei einer Werbeagentur gemacht, also in der Grafik-Abteilung."
+      },
+      {
+        "speaker": "○",
+        "text": "Ach, wirklich? Und, hat dir das Spaß gemacht?"
+      },
+      {
+        "speaker": "●",
+        "text": "Ja, das hat mir sehr gut gefallen, und deshalb habe ich dann in Augsburg Grafik studiert."
+      },
+      {
+        "speaker": "○",
+        "text": "Ah, gut. Und was machst du jetzt?"
+      },
+      {
+        "speaker": "●",
+        "text": "Jetzt arbeite ich seit einem Jahr als Grafikerin bei einer Zeitschrift. Das ist toll. Und du?"
+      },
+      {
+        "speaker": "○",
+        "text": "Also, ich habe nach der Schule …"
+      }
+    ],
+    "lines": [
+      {
+        "de": "Hallo Ayla, wie geht’s?",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-ayla-s01"
+      },
+      {
+        "de": "Ganz gut.",
+        "speaker": "●",
+        "segmentId": "a2e2-l2-ayla-s02"
+      },
+      {
+        "de": "Und dir?",
+        "speaker": "●",
+        "segmentId": "a2e2-l2-ayla-s03"
+      },
+      {
+        "de": "Auch gut.",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-ayla-s04"
+      },
+      {
+        "de": "Schön so ein Klassentreffen.",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-ayla-s05"
+      },
+      {
+        "de": "Jetzt sind es schon fünf Jahre, dass wir Abitur gemacht haben.",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-ayla-s06"
+      },
+      {
+        "de": "Sag mal, was hast du denn nach der Schule gemacht?",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-ayla-s07"
+      },
+      {
+        "de": "Du wolltest doch Kunst studieren, oder?",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-ayla-s08"
+      },
+      {
+        "de": "Genau, ich wollte etwas Kreatives machen.",
+        "speaker": "●",
+        "segmentId": "a2e2-l2-ayla-s09"
+      },
+      {
+        "de": "Zuerst habe ich ein Praktikum bei einer Werbeagentur gemacht, also in der Grafik-Abteilung.",
+        "speaker": "●",
+        "segmentId": "a2e2-l2-ayla-s10"
+      },
+      {
+        "de": "Ach, wirklich?",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-ayla-s11"
+      },
+      {
+        "de": "Und, hat dir das Spaß gemacht?",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-ayla-s12"
+      },
+      {
+        "de": "Ja, das hat mir sehr gut gefallen, und deshalb habe ich dann in Augsburg Grafik studiert.",
+        "speaker": "●",
+        "segmentId": "a2e2-l2-ayla-s13"
+      },
+      {
+        "de": "Ah, gut.",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-ayla-s14"
+      },
+      {
+        "de": "Und was machst du jetzt?",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-ayla-s15"
+      },
+      {
+        "de": "Jetzt arbeite ich seit einem Jahr als Grafikerin bei einer Zeitschrift.",
+        "speaker": "●",
+        "segmentId": "a2e2-l2-ayla-s16"
+      },
+      {
+        "de": "Das ist toll.",
+        "speaker": "●",
+        "segmentId": "a2e2-l2-ayla-s17"
+      },
+      {
+        "de": "Und du?",
+        "speaker": "●",
+        "segmentId": "a2e2-l2-ayla-s18"
+      },
+      {
+        "de": "Also, ich habe nach der Schule …",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-ayla-s19"
+      }
+    ],
+    "segments": [],
+    "source": {
+      "document": "NWn_A2E2_讲义.pdf",
+      "pdfPages": [
+        5,
+        6
+      ],
+      "sourceType": "third-party-course-material",
+      "rightsStatus": "review_required"
+    },
+    "sourceAudioStatus": "available"
+  },
+  {
+    "id": "a2e2-l2-luis",
+    "name": "Luis · Klassentreffen",
+    "lessonId": "A2E2L2",
+    "group": "klassentreffen",
+    "image": "",
+    "audio": "assets/audio/a2/e2/l2/processed/a2e2-l2-luis.mp3",
+    "audioStatus": "missing",
+    "sourceAudio": "assets/audio/a2/e2/l2/source/a2e2-l2-klassentreffen-2.mp3",
+    "text": "○ Du, Luis, was hast du eigentlich nach der Schule gemacht? Hast du gleich eine Ausbildung angefangen? ● Nee, nach der Schule habe ich erst mal überhaupt nicht gewusst, was ich machen soll: eine Ausbildung oder studieren? Ich hatte keine Ahnung. Dann bin ich ein Jahr durch Südamerika gereist. ○ Echt? Klingt ja interessant. Wie war das? ● Echt cool. Ich habe viel gesehen und viele Leute aus der ganzen Welt kennengelernt. ○ Und was machst du jetzt? ● Na ja, ich bin zurückgekommen und habe erst noch zwei Jahre auf Messen gejobbt. Und jetzt mache ich eine Ausbildung zum Altenpfleger. Das gefällt mir total gut. Und sag mal, was machst du denn jetzt? ○ Ich bin seit ein paar Jahren …",
+    "turns": [
+      {
+        "speaker": "○",
+        "text": "Du, Luis, was hast du eigentlich nach der Schule gemacht? Hast du gleich eine Ausbildung angefangen?"
+      },
+      {
+        "speaker": "●",
+        "text": "Nee, nach der Schule habe ich erst mal überhaupt nicht gewusst, was ich machen soll: eine Ausbildung oder studieren? Ich hatte keine Ahnung. Dann bin ich ein Jahr durch Südamerika gereist."
+      },
+      {
+        "speaker": "○",
+        "text": "Echt? Klingt ja interessant. Wie war das?"
+      },
+      {
+        "speaker": "●",
+        "text": "Echt cool. Ich habe viel gesehen und viele Leute aus der ganzen Welt kennengelernt."
+      },
+      {
+        "speaker": "○",
+        "text": "Und was machst du jetzt?"
+      },
+      {
+        "speaker": "●",
+        "text": "Na ja, ich bin zurückgekommen und habe erst noch zwei Jahre auf Messen gejobbt. Und jetzt mache ich eine Ausbildung zum Altenpfleger. Das gefällt mir total gut. Und sag mal, was machst du denn jetzt?"
+      },
+      {
+        "speaker": "○",
+        "text": "Ich bin seit ein paar Jahren …"
+      }
+    ],
+    "lines": [
+      {
+        "de": "Du, Luis, was hast du eigentlich nach der Schule gemacht?",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-luis-s01"
+      },
+      {
+        "de": "Hast du gleich eine Ausbildung angefangen?",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-luis-s02"
+      },
+      {
+        "de": "Nee, nach der Schule habe ich erst mal überhaupt nicht gewusst, was ich machen soll: eine Ausbildung oder studieren?",
+        "speaker": "●",
+        "segmentId": "a2e2-l2-luis-s03"
+      },
+      {
+        "de": "Ich hatte keine Ahnung.",
+        "speaker": "●",
+        "segmentId": "a2e2-l2-luis-s04"
+      },
+      {
+        "de": "Dann bin ich ein Jahr durch Südamerika gereist.",
+        "speaker": "●",
+        "segmentId": "a2e2-l2-luis-s05"
+      },
+      {
+        "de": "Echt?",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-luis-s06"
+      },
+      {
+        "de": "Klingt ja interessant.",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-luis-s07"
+      },
+      {
+        "de": "Wie war das?",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-luis-s08"
+      },
+      {
+        "de": "Echt cool.",
+        "speaker": "●",
+        "segmentId": "a2e2-l2-luis-s09"
+      },
+      {
+        "de": "Ich habe viel gesehen und viele Leute aus der ganzen Welt kennengelernt.",
+        "speaker": "●",
+        "segmentId": "a2e2-l2-luis-s10"
+      },
+      {
+        "de": "Und was machst du jetzt?",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-luis-s11"
+      },
+      {
+        "de": "Na ja, ich bin zurückgekommen und habe erst noch zwei Jahre auf Messen gejobbt.",
+        "speaker": "●",
+        "segmentId": "a2e2-l2-luis-s12"
+      },
+      {
+        "de": "Und jetzt mache ich eine Ausbildung zum Altenpfleger.",
+        "speaker": "●",
+        "segmentId": "a2e2-l2-luis-s13"
+      },
+      {
+        "de": "Das gefällt mir total gut.",
+        "speaker": "●",
+        "segmentId": "a2e2-l2-luis-s14"
+      },
+      {
+        "de": "Und sag mal, was machst du denn jetzt?",
+        "speaker": "●",
+        "segmentId": "a2e2-l2-luis-s15"
+      },
+      {
+        "de": "Ich bin seit ein paar Jahren …",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-luis-s16"
+      }
+    ],
+    "segments": [],
+    "source": {
+      "document": "NWn_A2E2_讲义.pdf",
+      "pdfPages": [
+        5,
+        6
+      ],
+      "sourceType": "third-party-course-material",
+      "rightsStatus": "review_required"
+    },
+    "sourceAudioStatus": "available"
+  },
+  {
+    "id": "a2e2-l2-simone",
+    "name": "Simone · Klassentreffen",
+    "lessonId": "A2E2L2",
+    "group": "klassentreffen",
+    "image": "",
+    "audio": "assets/audio/a2/e2/l2/processed/a2e2-l2-simone.mp3",
+    "audioStatus": "missing",
+    "sourceAudio": "assets/audio/a2/e2/l2/source/a2e2-l2-klassentreffen-3.mp3",
+    "text": "○ Hey Simone, was machst du denn jetzt? Hast du nicht eine Ausbildung gemacht? Was war das noch mal? ● Nee. Nach der Schule war ich erst mal ein Jahr als Au-pair in England. ○ Ach, Au-pair in England. Interessant. ● Ja, ich studiere Informatik und ohne Englisch geht da gar nichts. Und in der Schule war ich ja nicht so gut in Englisch. ○ Wo studierst du denn? ● In Dresden. Sag mal, hast du eigentlich mal Leo getroffen? ○ Ja, letzte Woche erst …",
+    "turns": [
+      {
+        "speaker": "○",
+        "text": "Hey Simone, was machst du denn jetzt? Hast du nicht eine Ausbildung gemacht? Was war das noch mal?"
+      },
+      {
+        "speaker": "●",
+        "text": "Nee. Nach der Schule war ich erst mal ein Jahr als Au-pair in England."
+      },
+      {
+        "speaker": "○",
+        "text": "Ach, Au-pair in England. Interessant."
+      },
+      {
+        "speaker": "●",
+        "text": "Ja, ich studiere Informatik und ohne Englisch geht da gar nichts. Und in der Schule war ich ja nicht so gut in Englisch."
+      },
+      {
+        "speaker": "○",
+        "text": "Wo studierst du denn?"
+      },
+      {
+        "speaker": "●",
+        "text": "In Dresden. Sag mal, hast du eigentlich mal Leo getroffen?"
+      },
+      {
+        "speaker": "○",
+        "text": "Ja, letzte Woche erst …"
+      }
+    ],
+    "lines": [
+      {
+        "de": "Hey Simone, was machst du denn jetzt?",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-simone-s01"
+      },
+      {
+        "de": "Hast du nicht eine Ausbildung gemacht?",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-simone-s02"
+      },
+      {
+        "de": "Was war das noch mal?",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-simone-s03"
+      },
+      {
+        "de": "Nee.",
+        "speaker": "●",
+        "segmentId": "a2e2-l2-simone-s04"
+      },
+      {
+        "de": "Nach der Schule war ich erst mal ein Jahr als Au-pair in England.",
+        "speaker": "●",
+        "segmentId": "a2e2-l2-simone-s05"
+      },
+      {
+        "de": "Ach, Au-pair in England.",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-simone-s06"
+      },
+      {
+        "de": "Interessant.",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-simone-s07"
+      },
+      {
+        "de": "Ja, ich studiere Informatik und ohne Englisch geht da gar nichts.",
+        "speaker": "●",
+        "segmentId": "a2e2-l2-simone-s08"
+      },
+      {
+        "de": "Und in der Schule war ich ja nicht so gut in Englisch.",
+        "speaker": "●",
+        "segmentId": "a2e2-l2-simone-s09"
+      },
+      {
+        "de": "Wo studierst du denn?",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-simone-s10"
+      },
+      {
+        "de": "In Dresden.",
+        "speaker": "●",
+        "segmentId": "a2e2-l2-simone-s11"
+      },
+      {
+        "de": "Sag mal, hast du eigentlich mal Leo getroffen?",
+        "speaker": "●",
+        "segmentId": "a2e2-l2-simone-s12"
+      },
+      {
+        "de": "Ja, letzte Woche erst …",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-simone-s13"
+      }
+    ],
+    "segments": [],
+    "source": {
+      "document": "NWn_A2E2_讲义.pdf",
+      "pdfPages": [
+        5,
+        6
+      ],
+      "sourceType": "third-party-course-material",
+      "rightsStatus": "review_required"
+    },
+    "sourceAudioStatus": "available"
+  },
+  {
+    "id": "a2e2-l2-pablo",
+    "name": "Pablo · Klassentreffen",
+    "lessonId": "A2E2L2",
+    "group": "klassentreffen",
+    "image": "",
+    "audio": "assets/audio/a2/e2/l2/processed/a2e2-l2-pablo.mp3",
+    "audioStatus": "missing",
+    "sourceAudio": "assets/audio/a2/e2/l2/source/a2e2-l2-klassentreffen-4.mp3",
+    "text": "○ Na, was hast du denn nach der Schule gemacht, Pablo? ● Na ja, ich wollte schnell Geld verdienen. Deshalb habe ich als Verkäufer in einem großen Sportgeschäft gearbeitet. ○ Und bist du da immer noch? ● Nee, nach drei Jahren wollte ich doch etwas anderes tun. ○ Und was? ● Ich mache jetzt eine Ausbildung zum Hotelkaufmann. Das ist klasse! Und ich reise ja selbst auch gern. ○ In welchem Hotel denn? Hier in der Stadt? ● Ja, im Hotel am Marktplatz. Kennst du …?",
+    "turns": [
+      {
+        "speaker": "○",
+        "text": "Na, was hast du denn nach der Schule gemacht, Pablo?"
+      },
+      {
+        "speaker": "●",
+        "text": "Na ja, ich wollte schnell Geld verdienen. Deshalb habe ich als Verkäufer in einem großen Sportgeschäft gearbeitet."
+      },
+      {
+        "speaker": "○",
+        "text": "Und bist du da immer noch?"
+      },
+      {
+        "speaker": "●",
+        "text": "Nee, nach drei Jahren wollte ich doch etwas anderes tun."
+      },
+      {
+        "speaker": "○",
+        "text": "Und was?"
+      },
+      {
+        "speaker": "●",
+        "text": "Ich mache jetzt eine Ausbildung zum Hotelkaufmann. Das ist klasse! Und ich reise ja selbst auch gern."
+      },
+      {
+        "speaker": "○",
+        "text": "In welchem Hotel denn? Hier in der Stadt?"
+      },
+      {
+        "speaker": "●",
+        "text": "Ja, im Hotel am Marktplatz. Kennst du …?"
+      }
+    ],
+    "lines": [
+      {
+        "de": "Na, was hast du denn nach der Schule gemacht, Pablo?",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-pablo-s01"
+      },
+      {
+        "de": "Na ja, ich wollte schnell Geld verdienen.",
+        "speaker": "●",
+        "segmentId": "a2e2-l2-pablo-s02"
+      },
+      {
+        "de": "Deshalb habe ich als Verkäufer in einem großen Sportgeschäft gearbeitet.",
+        "speaker": "●",
+        "segmentId": "a2e2-l2-pablo-s03"
+      },
+      {
+        "de": "Und bist du da immer noch?",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-pablo-s04"
+      },
+      {
+        "de": "Nee, nach drei Jahren wollte ich doch etwas anderes tun.",
+        "speaker": "●",
+        "segmentId": "a2e2-l2-pablo-s05"
+      },
+      {
+        "de": "Und was?",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-pablo-s06"
+      },
+      {
+        "de": "Ich mache jetzt eine Ausbildung zum Hotelkaufmann.",
+        "speaker": "●",
+        "segmentId": "a2e2-l2-pablo-s07"
+      },
+      {
+        "de": "Das ist klasse!",
+        "speaker": "●",
+        "segmentId": "a2e2-l2-pablo-s08"
+      },
+      {
+        "de": "Und ich reise ja selbst auch gern.",
+        "speaker": "●",
+        "segmentId": "a2e2-l2-pablo-s09"
+      },
+      {
+        "de": "In welchem Hotel denn?",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-pablo-s10"
+      },
+      {
+        "de": "Hier in der Stadt?",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-pablo-s11"
+      },
+      {
+        "de": "Ja, im Hotel am Marktplatz.",
+        "speaker": "●",
+        "segmentId": "a2e2-l2-pablo-s12"
+      },
+      {
+        "de": "Kennst du …?",
+        "speaker": "●",
+        "segmentId": "a2e2-l2-pablo-s13"
+      }
+    ],
+    "segments": [],
+    "source": {
+      "document": "NWn_A2E2_讲义.pdf",
+      "pdfPages": [
+        5,
+        6
+      ],
+      "sourceType": "third-party-course-material",
+      "rightsStatus": "review_required"
+    },
+    "sourceAudioStatus": "available"
+  },
+  {
+    "id": "a2e2-l2-frida",
+    "name": "Frida · Klassentreffen",
+    "lessonId": "A2E2L2",
+    "group": "klassentreffen",
+    "image": "",
+    "audio": "assets/audio/a2/e2/l2/processed/a2e2-l2-frida.mp3",
+    "audioStatus": "missing",
+    "sourceAudio": "assets/audio/a2/e2/l2/source/a2e2-l2-klassentreffen-5.mp3",
+    "text": "○ Ach, Frida, wir haben uns ja lange nicht gesehen. ● Ja, das stimmt. ○ Wolltest du nicht Medizin studieren? ● Doch. Ich wollte gleich nach der Schule an die Uni, aber ich habe ja keinen Studienplatz bekommen. ○ Echt? Wie schade! ● Ja, aber dann habe ich einfach erst mal eine Ausbildung zur Krankenschwester gemacht. ○ Und, hat dir das Spaß gemacht? ● Ja, das war gut und hat mir noch mal gezeigt, dass Medizin das Richtige für mich ist. Und nach drei Jahren Ausbildung habe ich endlich einen Studienplatz für Medizin bekommen. In Ulm. Also, jetzt studiere ich doch noch. ○ Ach, das ist ja super. ● Und du? ○ Also, ich habe erst einmal …",
+    "turns": [
+      {
+        "speaker": "○",
+        "text": "Ach, Frida, wir haben uns ja lange nicht gesehen."
+      },
+      {
+        "speaker": "●",
+        "text": "Ja, das stimmt."
+      },
+      {
+        "speaker": "○",
+        "text": "Wolltest du nicht Medizin studieren?"
+      },
+      {
+        "speaker": "●",
+        "text": "Doch. Ich wollte gleich nach der Schule an die Uni, aber ich habe ja keinen Studienplatz bekommen."
+      },
+      {
+        "speaker": "○",
+        "text": "Echt? Wie schade!"
+      },
+      {
+        "speaker": "●",
+        "text": "Ja, aber dann habe ich einfach erst mal eine Ausbildung zur Krankenschwester gemacht."
+      },
+      {
+        "speaker": "○",
+        "text": "Und, hat dir das Spaß gemacht?"
+      },
+      {
+        "speaker": "●",
+        "text": "Ja, das war gut und hat mir noch mal gezeigt, dass Medizin das Richtige für mich ist. Und nach drei Jahren Ausbildung habe ich endlich einen Studienplatz für Medizin bekommen. In Ulm. Also, jetzt studiere ich doch noch."
+      },
+      {
+        "speaker": "○",
+        "text": "Ach, das ist ja super."
+      },
+      {
+        "speaker": "●",
+        "text": "Und du?"
+      },
+      {
+        "speaker": "○",
+        "text": "Also, ich habe erst einmal …"
+      }
+    ],
+    "lines": [
+      {
+        "de": "Ach, Frida, wir haben uns ja lange nicht gesehen.",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-frida-s01"
+      },
+      {
+        "de": "Ja, das stimmt.",
+        "speaker": "●",
+        "segmentId": "a2e2-l2-frida-s02"
+      },
+      {
+        "de": "Wolltest du nicht Medizin studieren?",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-frida-s03"
+      },
+      {
+        "de": "Doch.",
+        "speaker": "●",
+        "segmentId": "a2e2-l2-frida-s04"
+      },
+      {
+        "de": "Ich wollte gleich nach der Schule an die Uni, aber ich habe ja keinen Studienplatz bekommen.",
+        "speaker": "●",
+        "segmentId": "a2e2-l2-frida-s05"
+      },
+      {
+        "de": "Echt?",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-frida-s06"
+      },
+      {
+        "de": "Wie schade!",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-frida-s07"
+      },
+      {
+        "de": "Ja, aber dann habe ich einfach erst mal eine Ausbildung zur Krankenschwester gemacht.",
+        "speaker": "●",
+        "segmentId": "a2e2-l2-frida-s08"
+      },
+      {
+        "de": "Und, hat dir das Spaß gemacht?",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-frida-s09"
+      },
+      {
+        "de": "Ja, das war gut und hat mir noch mal gezeigt, dass Medizin das Richtige für mich ist.",
+        "speaker": "●",
+        "segmentId": "a2e2-l2-frida-s10"
+      },
+      {
+        "de": "Und nach drei Jahren Ausbildung habe ich endlich einen Studienplatz für Medizin bekommen.",
+        "speaker": "●",
+        "segmentId": "a2e2-l2-frida-s11"
+      },
+      {
+        "de": "In Ulm.",
+        "speaker": "●",
+        "segmentId": "a2e2-l2-frida-s12"
+      },
+      {
+        "de": "Also, jetzt studiere ich doch noch.",
+        "speaker": "●",
+        "segmentId": "a2e2-l2-frida-s13"
+      },
+      {
+        "de": "Ach, das ist ja super.",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-frida-s14"
+      },
+      {
+        "de": "Und du?",
+        "speaker": "●",
+        "segmentId": "a2e2-l2-frida-s15"
+      },
+      {
+        "de": "Also, ich habe erst einmal …",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-frida-s16"
+      }
+    ],
+    "segments": [],
+    "source": {
+      "document": "NWn_A2E2_讲义.pdf",
+      "pdfPages": [
+        5,
+        6
+      ],
+      "sourceType": "third-party-course-material",
+      "rightsStatus": "review_required"
+    },
+    "sourceAudioStatus": "available"
+  },
+  {
+    "id": "a2e2-l2-maike-schule-aus",
+    "name": "Maike · Schule aus – und nun?",
+    "lessonId": "A2E2L2",
+    "group": "schule-aus",
+    "image": "",
+    "audio": "assets/audio/a2/e2/l2/processed/a2e2-l2-maike-schule-aus.mp3",
+    "audioStatus": "missing",
+    "sourceAudio": "assets/audio/a2/e2/l2/source/a2e2-l2-schule-aus.mp3",
+    "text": "○ Hallo zu unserer Sendung zum Thema „Schule aus – und nun?“. Letzte Woche haben wir Ihnen Schülerinnen und Schüler präsentiert, die erst einmal ein Jahr Pause gemacht haben. Diese Woche erzählen Maike, Vida und Sara von ihrer Entscheidung. Alle drei haben gleich mit einer Arbeit oder einem Studium begonnen. Maike, du hast eine Ausbildung angefangen, oder? Maike: Genau, ich mache jetzt seit einem Jahr eine Ausbildung als Gärtnerin. Die dauert insgesamt drei Jahre. ○ Warum hast du dich dafür entschieden? Maike: Das hat mehrere Gründe: Erstens wollte ich gern gleich nach der Schule Geld verdienen und allein wohnen. Und zweitens liebe ich die Natur und Blumen und bin gern draußen. Ich muss auch lernen und am Ende eine Prüfung machen, aber das ist schon okay. ○ Was gefällt dir besonders gut? Maike: Die Ausbildung ist sehr praktisch, das ist perfekt für mich.",
+    "turns": [
+      {
+        "speaker": "○",
+        "text": "Hallo zu unserer Sendung zum Thema „Schule aus – und nun?“. Letzte Woche haben wir Ihnen Schülerinnen und Schüler präsentiert, die erst einmal ein Jahr Pause gemacht haben. Diese Woche erzählen Maike, Vida und Sara von ihrer Entscheidung. Alle drei haben gleich mit einer Arbeit oder einem Studium begonnen. Maike, du hast eine Ausbildung angefangen, oder?"
+      },
+      {
+        "speaker": "Maike",
+        "text": "Genau, ich mache jetzt seit einem Jahr eine Ausbildung als Gärtnerin. Die dauert insgesamt drei Jahre."
+      },
+      {
+        "speaker": "○",
+        "text": "Warum hast du dich dafür entschieden?"
+      },
+      {
+        "speaker": "Maike",
+        "text": "Das hat mehrere Gründe: Erstens wollte ich gern gleich nach der Schule Geld verdienen und allein wohnen. Und zweitens liebe ich die Natur und Blumen und bin gern draußen. Ich muss auch lernen und am Ende eine Prüfung machen, aber das ist schon okay."
+      },
+      {
+        "speaker": "○",
+        "text": "Was gefällt dir besonders gut?"
+      },
+      {
+        "speaker": "Maike",
+        "text": "Die Ausbildung ist sehr praktisch, das ist perfekt für mich."
+      }
+    ],
+    "lines": [
+      {
+        "de": "Hallo zu unserer Sendung zum Thema „Schule aus – und nun?“.",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-maike-schule-aus-s01"
+      },
+      {
+        "de": "Letzte Woche haben wir Ihnen Schülerinnen und Schüler präsentiert, die erst einmal ein Jahr Pause gemacht haben.",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-maike-schule-aus-s02"
+      },
+      {
+        "de": "Diese Woche erzählen Maike, Vida und Sara von ihrer Entscheidung.",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-maike-schule-aus-s03"
+      },
+      {
+        "de": "Alle drei haben gleich mit einer Arbeit oder einem Studium begonnen.",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-maike-schule-aus-s04"
+      },
+      {
+        "de": "Maike, du hast eine Ausbildung angefangen, oder?",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-maike-schule-aus-s05"
+      },
+      {
+        "de": "Genau, ich mache jetzt seit einem Jahr eine Ausbildung als Gärtnerin.",
+        "speaker": "Maike",
+        "segmentId": "a2e2-l2-maike-schule-aus-s06"
+      },
+      {
+        "de": "Die dauert insgesamt drei Jahre.",
+        "speaker": "Maike",
+        "segmentId": "a2e2-l2-maike-schule-aus-s07"
+      },
+      {
+        "de": "Warum hast du dich dafür entschieden?",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-maike-schule-aus-s08"
+      },
+      {
+        "de": "Das hat mehrere Gründe: Erstens wollte ich gern gleich nach der Schule Geld verdienen und allein wohnen.",
+        "speaker": "Maike",
+        "segmentId": "a2e2-l2-maike-schule-aus-s09"
+      },
+      {
+        "de": "Und zweitens liebe ich die Natur und Blumen und bin gern draußen.",
+        "speaker": "Maike",
+        "segmentId": "a2e2-l2-maike-schule-aus-s10"
+      },
+      {
+        "de": "Ich muss auch lernen und am Ende eine Prüfung machen, aber das ist schon okay.",
+        "speaker": "Maike",
+        "segmentId": "a2e2-l2-maike-schule-aus-s11"
+      },
+      {
+        "de": "Was gefällt dir besonders gut?",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-maike-schule-aus-s12"
+      },
+      {
+        "de": "Die Ausbildung ist sehr praktisch, das ist perfekt für mich.",
+        "speaker": "Maike",
+        "segmentId": "a2e2-l2-maike-schule-aus-s13"
+      }
+    ],
+    "segments": [],
+    "source": {
+      "document": "NWn_A2E2_讲义.pdf",
+      "pdfPages": [
+        6,
+        7
+      ],
+      "sourceType": "third-party-course-material",
+      "rightsStatus": "review_required"
+    },
+    "sourceAudioStatus": "available"
+  },
+  {
+    "id": "a2e2-l2-sara-schule-aus",
+    "name": "Sara · Schule aus – und nun?",
+    "lessonId": "A2E2L2",
+    "group": "schule-aus",
+    "image": "",
+    "audio": "assets/audio/a2/e2/l2/processed/a2e2-l2-sara-schule-aus.mp3",
+    "audioStatus": "missing",
+    "sourceAudio": "assets/audio/a2/e2/l2/source/a2e2-l2-schule-aus.mp3",
+    "text": "○ Und du, Sara? Im FSJ, also dem Freiwilligen Sozialen Jahr, bekommst du auch schon etwas Geld, oder? Sara: Ja, aber nur ein bisschen und das war nicht der Grund für meine Entscheidung. Ich wollte einfach nicht gleich nach der Schule wieder lernen. Später mache ich dann wahrscheinlich eine Ausbildung oder vielleicht studiere ich. Ich weiß es noch nicht. Ich habe ja jetzt noch ein Jahr Zeit für die Entscheidung. ○ Erzähl uns doch mal kurz, was du so machst. Sara: Also, ich mache ein Soziales Jahr. Ich betreue Tatjana, sie ist 12 und sitzt im Rollstuhl. Sie ist witzig und wir verstehen uns gut. Ich bringe sie zur Schule und helfe ihr in der Freizeit. Ihre Eltern arbeiten beide und haben noch einen fünf Jahre alten Sohn. Für mich ist die soziale Arbeit eine tolle Erfahrung.",
+    "turns": [
+      {
+        "speaker": "○",
+        "text": "Und du, Sara? Im FSJ, also dem Freiwilligen Sozialen Jahr, bekommst du auch schon etwas Geld, oder?"
+      },
+      {
+        "speaker": "Sara",
+        "text": "Ja, aber nur ein bisschen und das war nicht der Grund für meine Entscheidung. Ich wollte einfach nicht gleich nach der Schule wieder lernen. Später mache ich dann wahrscheinlich eine Ausbildung oder vielleicht studiere ich. Ich weiß es noch nicht. Ich habe ja jetzt noch ein Jahr Zeit für die Entscheidung."
+      },
+      {
+        "speaker": "○",
+        "text": "Erzähl uns doch mal kurz, was du so machst."
+      },
+      {
+        "speaker": "Sara",
+        "text": "Also, ich mache ein Soziales Jahr. Ich betreue Tatjana, sie ist 12 und sitzt im Rollstuhl. Sie ist witzig und wir verstehen uns gut. Ich bringe sie zur Schule und helfe ihr in der Freizeit. Ihre Eltern arbeiten beide und haben noch einen fünf Jahre alten Sohn. Für mich ist die soziale Arbeit eine tolle Erfahrung."
+      }
+    ],
+    "lines": [
+      {
+        "de": "Und du, Sara?",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-sara-schule-aus-s01"
+      },
+      {
+        "de": "Im FSJ, also dem Freiwilligen Sozialen Jahr, bekommst du auch schon etwas Geld, oder?",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-sara-schule-aus-s02"
+      },
+      {
+        "de": "Ja, aber nur ein bisschen und das war nicht der Grund für meine Entscheidung.",
+        "speaker": "Sara",
+        "segmentId": "a2e2-l2-sara-schule-aus-s03"
+      },
+      {
+        "de": "Ich wollte einfach nicht gleich nach der Schule wieder lernen.",
+        "speaker": "Sara",
+        "segmentId": "a2e2-l2-sara-schule-aus-s04"
+      },
+      {
+        "de": "Später mache ich dann wahrscheinlich eine Ausbildung oder vielleicht studiere ich.",
+        "speaker": "Sara",
+        "segmentId": "a2e2-l2-sara-schule-aus-s05"
+      },
+      {
+        "de": "Ich weiß es noch nicht.",
+        "speaker": "Sara",
+        "segmentId": "a2e2-l2-sara-schule-aus-s06"
+      },
+      {
+        "de": "Ich habe ja jetzt noch ein Jahr Zeit für die Entscheidung.",
+        "speaker": "Sara",
+        "segmentId": "a2e2-l2-sara-schule-aus-s07"
+      },
+      {
+        "de": "Erzähl uns doch mal kurz, was du so machst.",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-sara-schule-aus-s08"
+      },
+      {
+        "de": "Also, ich mache ein Soziales Jahr.",
+        "speaker": "Sara",
+        "segmentId": "a2e2-l2-sara-schule-aus-s09"
+      },
+      {
+        "de": "Ich betreue Tatjana, sie ist 12 und sitzt im Rollstuhl.",
+        "speaker": "Sara",
+        "segmentId": "a2e2-l2-sara-schule-aus-s10"
+      },
+      {
+        "de": "Sie ist witzig und wir verstehen uns gut.",
+        "speaker": "Sara",
+        "segmentId": "a2e2-l2-sara-schule-aus-s11"
+      },
+      {
+        "de": "Ich bringe sie zur Schule und helfe ihr in der Freizeit.",
+        "speaker": "Sara",
+        "segmentId": "a2e2-l2-sara-schule-aus-s12"
+      },
+      {
+        "de": "Ihre Eltern arbeiten beide und haben noch einen fünf Jahre alten Sohn.",
+        "speaker": "Sara",
+        "segmentId": "a2e2-l2-sara-schule-aus-s13"
+      },
+      {
+        "de": "Für mich ist die soziale Arbeit eine tolle Erfahrung.",
+        "speaker": "Sara",
+        "segmentId": "a2e2-l2-sara-schule-aus-s14"
+      }
+    ],
+    "segments": [],
+    "source": {
+      "document": "NWn_A2E2_讲义.pdf",
+      "pdfPages": [
+        6,
+        7
+      ],
+      "sourceType": "third-party-course-material",
+      "rightsStatus": "review_required"
+    },
+    "sourceAudioStatus": "available"
+  },
+  {
+    "id": "a2e2-l2-vida-schule-aus",
+    "name": "Vida · Schule aus – und nun?",
+    "lessonId": "A2E2L2",
+    "group": "schule-aus",
+    "image": "",
+    "audio": "assets/audio/a2/e2/l2/processed/a2e2-l2-vida-schule-aus.mp3",
+    "audioStatus": "missing",
+    "sourceAudio": "assets/audio/a2/e2/l2/source/a2e2-l2-schule-aus.mp3",
+    "text": "○ Danke, Sara. Darüber sprechen wir gleich noch länger. Aber jetzt erst mal zu Vida. Vida, du hast direkt nach der Schule dein Studium begonnen. Jetzt bist du schon seit zwei Jahren an der Uni. Wolltest du keine Pause nach der Schule? Vida: Nein, ich habe gleich mit dem Studium angefangen. Also, ein paar Monate hatte ich schon Pause, da war ich mit Freunden in Kroatien. Aber dann bin ich von München nach Leipzig gezogen, da war für mich alles neu. Nächstes Jahr mache ich ein Auslandssemester in den Niederlanden. Also, langweilig ist mir nicht. ○ Das glaube ich. Und was studierst du? Vida: Internationales Recht, also Jura. Das klingt für andere vielleicht anstrengend und ich muss wirklich viel lernen, aber für mich ist es perfekt. Meine Eltern unterstützen mich und finanzieren die Wohnung, denn für einen Job habe ich eigentlich keine Zeit. ○ Ihr seid alle drei glücklich mit eurer Wahl. Habt ihr denn Tipps für die Schülerinnen und Schüler, die …?",
+    "turns": [
+      {
+        "speaker": "○",
+        "text": "Danke, Sara. Darüber sprechen wir gleich noch länger. Aber jetzt erst mal zu Vida. Vida, du hast direkt nach der Schule dein Studium begonnen. Jetzt bist du schon seit zwei Jahren an der Uni. Wolltest du keine Pause nach der Schule?"
+      },
+      {
+        "speaker": "Vida",
+        "text": "Nein, ich habe gleich mit dem Studium angefangen. Also, ein paar Monate hatte ich schon Pause, da war ich mit Freunden in Kroatien. Aber dann bin ich von München nach Leipzig gezogen, da war für mich alles neu. Nächstes Jahr mache ich ein Auslandssemester in den Niederlanden. Also, langweilig ist mir nicht."
+      },
+      {
+        "speaker": "○",
+        "text": "Das glaube ich. Und was studierst du?"
+      },
+      {
+        "speaker": "Vida",
+        "text": "Internationales Recht, also Jura. Das klingt für andere vielleicht anstrengend und ich muss wirklich viel lernen, aber für mich ist es perfekt. Meine Eltern unterstützen mich und finanzieren die Wohnung, denn für einen Job habe ich eigentlich keine Zeit."
+      },
+      {
+        "speaker": "○",
+        "text": "Ihr seid alle drei glücklich mit eurer Wahl. Habt ihr denn Tipps für die Schülerinnen und Schüler, die …?"
+      }
+    ],
+    "lines": [
+      {
+        "de": "Danke, Sara.",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-vida-schule-aus-s01"
+      },
+      {
+        "de": "Darüber sprechen wir gleich noch länger.",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-vida-schule-aus-s02"
+      },
+      {
+        "de": "Aber jetzt erst mal zu Vida.",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-vida-schule-aus-s03"
+      },
+      {
+        "de": "Vida, du hast direkt nach der Schule dein Studium begonnen.",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-vida-schule-aus-s04"
+      },
+      {
+        "de": "Jetzt bist du schon seit zwei Jahren an der Uni.",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-vida-schule-aus-s05"
+      },
+      {
+        "de": "Wolltest du keine Pause nach der Schule?",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-vida-schule-aus-s06"
+      },
+      {
+        "de": "Nein, ich habe gleich mit dem Studium angefangen.",
+        "speaker": "Vida",
+        "segmentId": "a2e2-l2-vida-schule-aus-s07"
+      },
+      {
+        "de": "Also, ein paar Monate hatte ich schon Pause, da war ich mit Freunden in Kroatien.",
+        "speaker": "Vida",
+        "segmentId": "a2e2-l2-vida-schule-aus-s08"
+      },
+      {
+        "de": "Aber dann bin ich von München nach Leipzig gezogen, da war für mich alles neu.",
+        "speaker": "Vida",
+        "segmentId": "a2e2-l2-vida-schule-aus-s09"
+      },
+      {
+        "de": "Nächstes Jahr mache ich ein Auslandssemester in den Niederlanden.",
+        "speaker": "Vida",
+        "segmentId": "a2e2-l2-vida-schule-aus-s10"
+      },
+      {
+        "de": "Also, langweilig ist mir nicht.",
+        "speaker": "Vida",
+        "segmentId": "a2e2-l2-vida-schule-aus-s11"
+      },
+      {
+        "de": "Das glaube ich.",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-vida-schule-aus-s12"
+      },
+      {
+        "de": "Und was studierst du?",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-vida-schule-aus-s13"
+      },
+      {
+        "de": "Internationales Recht, also Jura.",
+        "speaker": "Vida",
+        "segmentId": "a2e2-l2-vida-schule-aus-s14"
+      },
+      {
+        "de": "Das klingt für andere vielleicht anstrengend und ich muss wirklich viel lernen, aber für mich ist es perfekt.",
+        "speaker": "Vida",
+        "segmentId": "a2e2-l2-vida-schule-aus-s15"
+      },
+      {
+        "de": "Meine Eltern unterstützen mich und finanzieren die Wohnung, denn für einen Job habe ich eigentlich keine Zeit.",
+        "speaker": "Vida",
+        "segmentId": "a2e2-l2-vida-schule-aus-s16"
+      },
+      {
+        "de": "Ihr seid alle drei glücklich mit eurer Wahl.",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-vida-schule-aus-s17"
+      },
+      {
+        "de": "Habt ihr denn Tipps für die Schülerinnen und Schüler, die …?",
+        "speaker": "○",
+        "segmentId": "a2e2-l2-vida-schule-aus-s18"
+      }
+    ],
+    "segments": [],
+    "source": {
+      "document": "NWn_A2E2_讲义.pdf",
+      "pdfPages": [
+        6,
+        7
+      ],
+      "sourceType": "third-party-course-material",
+      "rightsStatus": "review_required"
+    },
+    "sourceAudioStatus": "available"
+  },
+  {
+    "id": "a2e2-l2-studium-ausbildung-pause",
+    "name": "Alex · Vida · Fabian",
+    "lessonId": "A2E2L2",
+    "group": "gespraech",
+    "image": "",
+    "audio": "assets/audio/a2/e2/l2/processed/a2e2-l2-studium-ausbildung-pause.mp3",
+    "audioStatus": "missing",
+    "sourceAudio": "assets/audio/a2/e2/l2/source/a2e2-l2-gespraech.mp3",
+    "text": "Alex: Na, Vida, wie ist es denn eigentlich an der Universität? Vida: Ach, eigentlich ist alles gut. Ich finde das Studentenleben in Leipzig toll! Ich habe viele neue Freunde gefunden und meine Kurse sind spannend. Warum fragst du denn, Alex? Alex: Ach, Fabian und ich überlegen gerade, was wir nach der Schule machen. Vida: Ach ja, ihr seid ja in zwei Monaten mit der Schule fertig. Fabian: Das stimmt und ich möchte eigentlich bald eine Ausbildung anfangen. Alex findet das nicht gut. Alex: Genau! Nach dem Schulstress braucht man doch eine Pause, zum Beispiel kann man eine Reise machen. Fabian: Das sehe ich anders. Man macht doch nach der Schule sowieso etwas ganz anderes. Deshalb braucht man keine Pause. Wie war das bei dir, Vida? Du hast doch auch gleich studiert. Vida: Also, ich habe schon acht Wochen Urlaub gemacht, danach etwas gejobbt und im Herbst dann gleich studiert. Das war für mich richtig, denke ich. Was willst du denn machen, Alex? Alex: Also, ich weiß noch gar nicht, was ich machen will. Studieren? Ausbildung? Urlaub? Vida: Hm, du kannst ja einfach jobben und reisen, da gibt es viele Programme. Das ist eine gute Alternative zum Studium, finde ich. Fabian: So einfach ist das nicht. Man verliert Zeit und alle Freunde haben später schon eine Arbeit und nur du, Alex, bist noch nicht fertig. Dann bist du traurig und unzufrieden. Alex: Das stört mich nicht. Studieren und arbeiten – das kommt früh genug. Das ist meine Meinung. Du kannst das ja anders machen. Vida: Ich habe eine Idee. Ihr könnt mich ja in Leipzig besuchen und ich zeige euch mein Studentenleben dort. Alex: Das ist eine super Idee. Fabian, hast du auch Zeit?",
+    "turns": [
+      {
+        "speaker": "Alex",
+        "text": "Na, Vida, wie ist es denn eigentlich an der Universität?"
+      },
+      {
+        "speaker": "Vida",
+        "text": "Ach, eigentlich ist alles gut. Ich finde das Studentenleben in Leipzig toll! Ich habe viele neue Freunde gefunden und meine Kurse sind spannend. Warum fragst du denn, Alex?"
+      },
+      {
+        "speaker": "Alex",
+        "text": "Ach, Fabian und ich überlegen gerade, was wir nach der Schule machen."
+      },
+      {
+        "speaker": "Vida",
+        "text": "Ach ja, ihr seid ja in zwei Monaten mit der Schule fertig."
+      },
+      {
+        "speaker": "Fabian",
+        "text": "Das stimmt und ich möchte eigentlich bald eine Ausbildung anfangen. Alex findet das nicht gut."
+      },
+      {
+        "speaker": "Alex",
+        "text": "Genau! Nach dem Schulstress braucht man doch eine Pause, zum Beispiel kann man eine Reise machen."
+      },
+      {
+        "speaker": "Fabian",
+        "text": "Das sehe ich anders. Man macht doch nach der Schule sowieso etwas ganz anderes. Deshalb braucht man keine Pause. Wie war das bei dir, Vida? Du hast doch auch gleich studiert."
+      },
+      {
+        "speaker": "Vida",
+        "text": "Also, ich habe schon acht Wochen Urlaub gemacht, danach etwas gejobbt und im Herbst dann gleich studiert. Das war für mich richtig, denke ich. Was willst du denn machen, Alex?"
+      },
+      {
+        "speaker": "Alex",
+        "text": "Also, ich weiß noch gar nicht, was ich machen will. Studieren? Ausbildung? Urlaub?"
+      },
+      {
+        "speaker": "Vida",
+        "text": "Hm, du kannst ja einfach jobben und reisen, da gibt es viele Programme. Das ist eine gute Alternative zum Studium, finde ich."
+      },
+      {
+        "speaker": "Fabian",
+        "text": "So einfach ist das nicht. Man verliert Zeit und alle Freunde haben später schon eine Arbeit und nur du, Alex, bist noch nicht fertig. Dann bist du traurig und unzufrieden."
+      },
+      {
+        "speaker": "Alex",
+        "text": "Das stört mich nicht. Studieren und arbeiten – das kommt früh genug. Das ist meine Meinung. Du kannst das ja anders machen."
+      },
+      {
+        "speaker": "Vida",
+        "text": "Ich habe eine Idee. Ihr könnt mich ja in Leipzig besuchen und ich zeige euch mein Studentenleben dort."
+      },
+      {
+        "speaker": "Alex",
+        "text": "Das ist eine super Idee. Fabian, hast du auch Zeit?"
+      }
+    ],
+    "lines": [
+      {
+        "de": "Na, Vida, wie ist es denn eigentlich an der Universität?",
+        "speaker": "Alex",
+        "segmentId": "a2e2-l2-studium-ausbildung-pause-s01"
+      },
+      {
+        "de": "Ach, eigentlich ist alles gut.",
+        "speaker": "Vida",
+        "segmentId": "a2e2-l2-studium-ausbildung-pause-s02"
+      },
+      {
+        "de": "Ich finde das Studentenleben in Leipzig toll!",
+        "speaker": "Vida",
+        "segmentId": "a2e2-l2-studium-ausbildung-pause-s03"
+      },
+      {
+        "de": "Ich habe viele neue Freunde gefunden und meine Kurse sind spannend.",
+        "speaker": "Vida",
+        "segmentId": "a2e2-l2-studium-ausbildung-pause-s04"
+      },
+      {
+        "de": "Warum fragst du denn, Alex?",
+        "speaker": "Vida",
+        "segmentId": "a2e2-l2-studium-ausbildung-pause-s05"
+      },
+      {
+        "de": "Ach, Fabian und ich überlegen gerade, was wir nach der Schule machen.",
+        "speaker": "Alex",
+        "segmentId": "a2e2-l2-studium-ausbildung-pause-s06"
+      },
+      {
+        "de": "Ach ja, ihr seid ja in zwei Monaten mit der Schule fertig.",
+        "speaker": "Vida",
+        "segmentId": "a2e2-l2-studium-ausbildung-pause-s07"
+      },
+      {
+        "de": "Das stimmt und ich möchte eigentlich bald eine Ausbildung anfangen.",
+        "speaker": "Fabian",
+        "segmentId": "a2e2-l2-studium-ausbildung-pause-s08"
+      },
+      {
+        "de": "Alex findet das nicht gut.",
+        "speaker": "Fabian",
+        "segmentId": "a2e2-l2-studium-ausbildung-pause-s09"
+      },
+      {
+        "de": "Genau!",
+        "speaker": "Alex",
+        "segmentId": "a2e2-l2-studium-ausbildung-pause-s10"
+      },
+      {
+        "de": "Nach dem Schulstress braucht man doch eine Pause, zum Beispiel kann man eine Reise machen.",
+        "speaker": "Alex",
+        "segmentId": "a2e2-l2-studium-ausbildung-pause-s11"
+      },
+      {
+        "de": "Das sehe ich anders.",
+        "speaker": "Fabian",
+        "segmentId": "a2e2-l2-studium-ausbildung-pause-s12"
+      },
+      {
+        "de": "Man macht doch nach der Schule sowieso etwas ganz anderes.",
+        "speaker": "Fabian",
+        "segmentId": "a2e2-l2-studium-ausbildung-pause-s13"
+      },
+      {
+        "de": "Deshalb braucht man keine Pause.",
+        "speaker": "Fabian",
+        "segmentId": "a2e2-l2-studium-ausbildung-pause-s14"
+      },
+      {
+        "de": "Wie war das bei dir, Vida?",
+        "speaker": "Fabian",
+        "segmentId": "a2e2-l2-studium-ausbildung-pause-s15"
+      },
+      {
+        "de": "Du hast doch auch gleich studiert.",
+        "speaker": "Fabian",
+        "segmentId": "a2e2-l2-studium-ausbildung-pause-s16"
+      },
+      {
+        "de": "Also, ich habe schon acht Wochen Urlaub gemacht, danach etwas gejobbt und im Herbst dann gleich studiert.",
+        "speaker": "Vida",
+        "segmentId": "a2e2-l2-studium-ausbildung-pause-s17"
+      },
+      {
+        "de": "Das war für mich richtig, denke ich.",
+        "speaker": "Vida",
+        "segmentId": "a2e2-l2-studium-ausbildung-pause-s18"
+      },
+      {
+        "de": "Was willst du denn machen, Alex?",
+        "speaker": "Vida",
+        "segmentId": "a2e2-l2-studium-ausbildung-pause-s19"
+      },
+      {
+        "de": "Also, ich weiß noch gar nicht, was ich machen will.",
+        "speaker": "Alex",
+        "segmentId": "a2e2-l2-studium-ausbildung-pause-s20"
+      },
+      {
+        "de": "Studieren?",
+        "speaker": "Alex",
+        "segmentId": "a2e2-l2-studium-ausbildung-pause-s21"
+      },
+      {
+        "de": "Ausbildung?",
+        "speaker": "Alex",
+        "segmentId": "a2e2-l2-studium-ausbildung-pause-s22"
+      },
+      {
+        "de": "Urlaub?",
+        "speaker": "Alex",
+        "segmentId": "a2e2-l2-studium-ausbildung-pause-s23"
+      },
+      {
+        "de": "Hm, du kannst ja einfach jobben und reisen, da gibt es viele Programme.",
+        "speaker": "Vida",
+        "segmentId": "a2e2-l2-studium-ausbildung-pause-s24"
+      },
+      {
+        "de": "Das ist eine gute Alternative zum Studium, finde ich.",
+        "speaker": "Vida",
+        "segmentId": "a2e2-l2-studium-ausbildung-pause-s25"
+      },
+      {
+        "de": "So einfach ist das nicht.",
+        "speaker": "Fabian",
+        "segmentId": "a2e2-l2-studium-ausbildung-pause-s26"
+      },
+      {
+        "de": "Man verliert Zeit und alle Freunde haben später schon eine Arbeit und nur du, Alex, bist noch nicht fertig.",
+        "speaker": "Fabian",
+        "segmentId": "a2e2-l2-studium-ausbildung-pause-s27"
+      },
+      {
+        "de": "Dann bist du traurig und unzufrieden.",
+        "speaker": "Fabian",
+        "segmentId": "a2e2-l2-studium-ausbildung-pause-s28"
+      },
+      {
+        "de": "Das stört mich nicht.",
+        "speaker": "Alex",
+        "segmentId": "a2e2-l2-studium-ausbildung-pause-s29"
+      },
+      {
+        "de": "Studieren und arbeiten – das kommt früh genug.",
+        "speaker": "Alex",
+        "segmentId": "a2e2-l2-studium-ausbildung-pause-s30"
+      },
+      {
+        "de": "Das ist meine Meinung.",
+        "speaker": "Alex",
+        "segmentId": "a2e2-l2-studium-ausbildung-pause-s31"
+      },
+      {
+        "de": "Du kannst das ja anders machen.",
+        "speaker": "Alex",
+        "segmentId": "a2e2-l2-studium-ausbildung-pause-s32"
+      },
+      {
+        "de": "Ich habe eine Idee.",
+        "speaker": "Vida",
+        "segmentId": "a2e2-l2-studium-ausbildung-pause-s33"
+      },
+      {
+        "de": "Ihr könnt mich ja in Leipzig besuchen und ich zeige euch mein Studentenleben dort.",
+        "speaker": "Vida",
+        "segmentId": "a2e2-l2-studium-ausbildung-pause-s34"
+      },
+      {
+        "de": "Das ist eine super Idee.",
+        "speaker": "Alex",
+        "segmentId": "a2e2-l2-studium-ausbildung-pause-s35"
+      },
+      {
+        "de": "Fabian, hast du auch Zeit?",
+        "speaker": "Alex",
+        "segmentId": "a2e2-l2-studium-ausbildung-pause-s36"
+      }
+    ],
+    "segments": [],
+    "source": {
+      "document": "NWn_A2E2_讲义.pdf",
+      "pdfPages": [
+        7,
+        8
+      ],
+      "sourceType": "third-party-course-material",
+      "rightsStatus": "review_required"
+    },
+    "sourceAudioStatus": "available"
+  },
+  {
+    "id": "a2e2-l3-sebastian",
+    "name": "Sebastian – Realschule",
+    "lessonId": "A2E2L3",
+    "group": "schultypen",
+    "image": "",
+    "audio": "assets/audio/a2/e2/l3/processed/a2e2-l3-sebastian.mp3",
+    "audioStatus": "missing",
+    "sourceAudio": "",
+    "text": "Ich war in der Realschule, dort hat es mir eigentlich gut gefallen. Wir haben viel gelernt, wir hatten auch Praktika und die Schule dauert nur sechs Jahre. Mathe war für mich ziemlich schwer – das muss ich jetzt nicht mehr lernen! Ich habe meinen Realschulabschluss geschafft und beginne jetzt eine Ausbildung zum Physiotherapeuten. Vielleicht mache ich später noch das Abitur und studiere.",
+    "turns": [
+      {
+        "speaker": "Sebastian",
+        "text": "Ich war in der Realschule, dort hat es mir eigentlich gut gefallen. Wir haben viel gelernt, wir hatten auch Praktika und die Schule dauert nur sechs Jahre. Mathe war für mich ziemlich schwer – das muss ich jetzt nicht mehr lernen! Ich habe meinen Realschulabschluss geschafft und beginne jetzt eine Ausbildung zum Physiotherapeuten. Vielleicht mache ich später noch das Abitur und studiere."
+      }
+    ],
+    "lines": [
+      {
+        "de": "Ich war in der Realschule, dort hat es mir eigentlich gut gefallen.",
+        "speaker": "Sebastian",
+        "segmentId": "a2e2-l3-sebastian-s01"
+      },
+      {
+        "de": "Wir haben viel gelernt, wir hatten auch Praktika und die Schule dauert nur sechs Jahre.",
+        "speaker": "Sebastian",
+        "segmentId": "a2e2-l3-sebastian-s02"
+      },
+      {
+        "de": "Mathe war für mich ziemlich schwer – das muss ich jetzt nicht mehr lernen!",
+        "speaker": "Sebastian",
+        "segmentId": "a2e2-l3-sebastian-s03"
+      },
+      {
+        "de": "Ich habe meinen Realschulabschluss geschafft und beginne jetzt eine Ausbildung zum Physiotherapeuten.",
+        "speaker": "Sebastian",
+        "segmentId": "a2e2-l3-sebastian-s04"
+      },
+      {
+        "de": "Vielleicht mache ich später noch das Abitur und studiere.",
+        "speaker": "Sebastian",
+        "segmentId": "a2e2-l3-sebastian-s05"
+      }
+    ],
+    "segments": [],
+    "source": {
+      "document": "NWn_A2E2_讲义.pdf",
+      "pdfPages": [
+        14
+      ],
+      "sourceType": "third-party-course-material",
+      "rightsStatus": "review_required"
+    }
+  },
+  {
+    "id": "a2e2-l3-vanessa",
+    "name": "Vanessa – Hauptschule",
+    "lessonId": "A2E2L3",
+    "group": "schultypen",
+    "image": "",
+    "audio": "assets/audio/a2/e2/l3/processed/a2e2-l3-vanessa.mp3",
+    "audioStatus": "missing",
+    "sourceAudio": "",
+    "text": "Ich war fünf Jahre in der Hauptschule. Wir hatten nicht so viele Fächer, zum Beispiel nur eine Fremdsprache – das ist schade. Deutsch, Mathe und die Vorbereitung auf die Arbeitswelt waren besonders wichtig. Wir haben oft Projekte gemacht, das war super. Seit dem Hauptschulabschluss bin ich Azubi in einer Arztpraxis. Bald bin ich fertig und kann zum Glück als Arzthelferin bleiben.",
+    "turns": [
+      {
+        "speaker": "Vanessa",
+        "text": "Ich war fünf Jahre in der Hauptschule. Wir hatten nicht so viele Fächer, zum Beispiel nur eine Fremdsprache – das ist schade. Deutsch, Mathe und die Vorbereitung auf die Arbeitswelt waren besonders wichtig. Wir haben oft Projekte gemacht, das war super. Seit dem Hauptschulabschluss bin ich Azubi in einer Arztpraxis. Bald bin ich fertig und kann zum Glück als Arzthelferin bleiben."
+      }
+    ],
+    "lines": [
+      {
+        "de": "Ich war fünf Jahre in der Hauptschule.",
+        "speaker": "Vanessa",
+        "segmentId": "a2e2-l3-vanessa-s01"
+      },
+      {
+        "de": "Wir hatten nicht so viele Fächer, zum Beispiel nur eine Fremdsprache – das ist schade.",
+        "speaker": "Vanessa",
+        "segmentId": "a2e2-l3-vanessa-s02"
+      },
+      {
+        "de": "Deutsch, Mathe und die Vorbereitung auf die Arbeitswelt waren besonders wichtig.",
+        "speaker": "Vanessa",
+        "segmentId": "a2e2-l3-vanessa-s03"
+      },
+      {
+        "de": "Wir haben oft Projekte gemacht, das war super.",
+        "speaker": "Vanessa",
+        "segmentId": "a2e2-l3-vanessa-s04"
+      },
+      {
+        "de": "Seit dem Hauptschulabschluss bin ich Azubi in einer Arztpraxis.",
+        "speaker": "Vanessa",
+        "segmentId": "a2e2-l3-vanessa-s05"
+      },
+      {
+        "de": "Bald bin ich fertig und kann zum Glück als Arzthelferin bleiben.",
+        "speaker": "Vanessa",
+        "segmentId": "a2e2-l3-vanessa-s06"
+      }
+    ],
+    "segments": [],
+    "source": {
+      "document": "NWn_A2E2_讲义.pdf",
+      "pdfPages": [
+        14
+      ],
+      "sourceType": "third-party-course-material",
+      "rightsStatus": "review_required"
+    }
+  },
+  {
+    "id": "a2e2-l3-defne",
+    "name": "Defne – Gymnasium",
+    "lessonId": "A2E2L3",
+    "group": "schultypen",
+    "image": "",
+    "audio": "assets/audio/a2/e2/l3/processed/a2e2-l3-defne.mp3",
+    "audioStatus": "missing",
+    "sourceAudio": "",
+    "text": "Ich habe vor zwei Monaten Abitur gemacht. Ich möchte später Biologie studieren, aber jetzt mache ich erst mal ein Praktikum. Ich möchte endlich das Berufsleben kennenlernen. Ich war acht Jahre im Gymnasium. Physik, Chemie und Biologie waren meine Lieblingsfächer. Ich habe auch zwei Sprachen gelernt: Englisch und Spanisch. Am Nachmittag hatten wir fast jeden Tag Unterricht, das war oft stressig.",
+    "turns": [
+      {
+        "speaker": "Defne",
+        "text": "Ich habe vor zwei Monaten Abitur gemacht. Ich möchte später Biologie studieren, aber jetzt mache ich erst mal ein Praktikum. Ich möchte endlich das Berufsleben kennenlernen. Ich war acht Jahre im Gymnasium. Physik, Chemie und Biologie waren meine Lieblingsfächer. Ich habe auch zwei Sprachen gelernt: Englisch und Spanisch. Am Nachmittag hatten wir fast jeden Tag Unterricht, das war oft stressig."
+      }
+    ],
+    "lines": [
+      {
+        "de": "Ich habe vor zwei Monaten Abitur gemacht.",
+        "speaker": "Defne",
+        "segmentId": "a2e2-l3-defne-s01"
+      },
+      {
+        "de": "Ich möchte später Biologie studieren, aber jetzt mache ich erst mal ein Praktikum.",
+        "speaker": "Defne",
+        "segmentId": "a2e2-l3-defne-s02"
+      },
+      {
+        "de": "Ich möchte endlich das Berufsleben kennenlernen.",
+        "speaker": "Defne",
+        "segmentId": "a2e2-l3-defne-s03"
+      },
+      {
+        "de": "Ich war acht Jahre im Gymnasium.",
+        "speaker": "Defne",
+        "segmentId": "a2e2-l3-defne-s04"
+      },
+      {
+        "de": "Physik, Chemie und Biologie waren meine Lieblingsfächer.",
+        "speaker": "Defne",
+        "segmentId": "a2e2-l3-defne-s05"
+      },
+      {
+        "de": "Ich habe auch zwei Sprachen gelernt: Englisch und Spanisch.",
+        "speaker": "Defne",
+        "segmentId": "a2e2-l3-defne-s06"
+      },
+      {
+        "de": "Am Nachmittag hatten wir fast jeden Tag Unterricht, das war oft stressig.",
+        "speaker": "Defne",
+        "segmentId": "a2e2-l3-defne-s07"
+      }
+    ],
+    "segments": [],
+    "source": {
+      "document": "NWn_A2E2_讲义.pdf",
+      "pdfPages": [
+        14
+      ],
+      "sourceType": "third-party-course-material",
+      "rightsStatus": "review_required"
+    }
+  },
+  {
+    "id": "a2e2-l3-darian",
+    "name": "Darian – Gesamtschule",
+    "lessonId": "A2E2L3",
+    "group": "schultypen",
+    "image": "",
+    "audio": "assets/audio/a2/e2/l3/processed/a2e2-l3-darian.mp3",
+    "audioStatus": "missing",
+    "sourceAudio": "",
+    "text": "Ich war nach der Grundschule sechs Jahre in einer Gesamtschule. Ich finde den Schultyp gut, weil man dort alle Abschlüsse machen kann. Man muss also nicht schon mit zehn Jahren wählen. Für mich war der Realschulabschluss perfekt, weil ich eine Ausbildung machen wollte. Wir mussten viel lernen, manchmal zu viel, finde ich. Jetzt bin ich fertig und habe eine Lehre als Bankkaufmann angefangen.",
+    "turns": [
+      {
+        "speaker": "Darian",
+        "text": "Ich war nach der Grundschule sechs Jahre in einer Gesamtschule. Ich finde den Schultyp gut, weil man dort alle Abschlüsse machen kann. Man muss also nicht schon mit zehn Jahren wählen. Für mich war der Realschulabschluss perfekt, weil ich eine Ausbildung machen wollte. Wir mussten viel lernen, manchmal zu viel, finde ich. Jetzt bin ich fertig und habe eine Lehre als Bankkaufmann angefangen."
+      }
+    ],
+    "lines": [
+      {
+        "de": "Ich war nach der Grundschule sechs Jahre in einer Gesamtschule.",
+        "speaker": "Darian",
+        "segmentId": "a2e2-l3-darian-s01"
+      },
+      {
+        "de": "Ich finde den Schultyp gut, weil man dort alle Abschlüsse machen kann.",
+        "speaker": "Darian",
+        "segmentId": "a2e2-l3-darian-s02"
+      },
+      {
+        "de": "Man muss also nicht schon mit zehn Jahren wählen.",
+        "speaker": "Darian",
+        "segmentId": "a2e2-l3-darian-s03"
+      },
+      {
+        "de": "Für mich war der Realschulabschluss perfekt, weil ich eine Ausbildung machen wollte.",
+        "speaker": "Darian",
+        "segmentId": "a2e2-l3-darian-s04"
+      },
+      {
+        "de": "Wir mussten viel lernen, manchmal zu viel, finde ich.",
+        "speaker": "Darian",
+        "segmentId": "a2e2-l3-darian-s05"
+      },
+      {
+        "de": "Jetzt bin ich fertig und habe eine Lehre als Bankkaufmann angefangen.",
+        "speaker": "Darian",
+        "segmentId": "a2e2-l3-darian-s06"
+      }
+    ],
+    "segments": [],
+    "source": {
+      "document": "NWn_A2E2_讲义.pdf",
+      "pdfPages": [
+        14
+      ],
+      "sourceType": "third-party-course-material",
+      "rightsStatus": "review_required"
+    }
+  }
+]
