@@ -790,10 +790,14 @@
     }
 
     .sheet-actions {
+      position: sticky;
+      bottom: -18px;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
       margin-top: 12px;
+      padding: 8px 0;
+      background: var(--paper);
     }
 
     .empty {
@@ -832,6 +836,7 @@
         </div>
         <div class="top-actions">
           <button class="ghost-button active" id="routeBtn" type="button">课程路线</button>
+          <button class="ghost-button" id="exportAllBtn" type="button">导出全部学习进度</button>
           <button class="ghost-button card-tools" id="gridBtn" type="button">全部卡牌</button>
           <button class="ghost-button card-tools" id="onlyReadyBtn" type="button">只看已有图</button>
           <button class="ghost-button card-tools" id="reviewOnlyBtn" type="button">只练复习</button>
@@ -858,10 +863,11 @@
   </main>
 
   <div class="sheet" id="sheet" aria-hidden="true">
-    <section class="sheet-card">
-      <h2>反馈码 / 迁移码</h2>
-      <p>正式版上线后，可以用这段记录恢复本次预习的大致状态；也可以直接发给老师查看。</p>
-      <textarea id="exportText" readonly></textarea>
+    <section class="sheet-card" role="dialog" aria-modal="true" aria-labelledby="exportTitle">
+      <h2 id="exportTitle" tabindex="-1">反馈码 / 迁移码</h2>
+      <p id="exportIntro">正式版上线后，可以用这段记录恢复本次预习的大致状态；也可以直接发给老师查看。</p>
+      <p id="exportSummary" role="status" style="white-space: pre-line; overflow-wrap: anywhere"></p>
+      <textarea id="exportText" aria-label="学习进度迁移码" readonly></textarea>
       <div class="sheet-actions">
         <button class="primary-button" id="copyBtn" type="button">复制</button>
         <button class="chip-button" id="closeSheetBtn" type="button">关闭</button>
@@ -869,6 +875,7 @@
     </section>
   </div>
 
+  <script src="progress-export.js"></script>
   <script src="data/a2e1-l1-cards.js"></script>
   <script src="data/a2e1-l1-review-cards.js"></script>
   <script src="data/a2e1-l1-review-assets.js"></script>
@@ -1087,6 +1094,10 @@
       flipBtn: document.getElementById("flipBtn"),
       resetBtn: document.getElementById("resetBtn"),
       exportBtn: document.getElementById("exportBtn"),
+      exportAllBtn: document.getElementById("exportAllBtn"),
+      exportTitle: document.getElementById("exportTitle"),
+      exportIntro: document.getElementById("exportIntro"),
+      exportSummary: document.getElementById("exportSummary"),
       routeBtn: document.getElementById("routeBtn"),
       gridBtn: document.getElementById("gridBtn"),
       lessonTitle: document.getElementById("lessonTitle"),
@@ -1534,6 +1545,10 @@
     }
 
     function exportCode() {
+      els.exportTitle.textContent = "单课反馈码 / 迁移码";
+      els.exportIntro.textContent = "仅包含当前卡牌课时的反馈；需要整体迁移时，请使用页面顶部的“导出全部学习进度”。";
+      els.exportSummary.textContent = "";
+      els.copyBtn.disabled = false;
       const knownIds = Object.keys(state.known);
       const reviewIds = Object.keys(state.review);
       const payload = {
@@ -1562,6 +1577,33 @@
       els.exportText.value = text;
       els.sheet.classList.add("open");
       els.sheet.setAttribute("aria-hidden", "false");
+    }
+
+    function exportAllProgress() {
+      els.exportTitle.textContent = "全部学习进度迁移码";
+      els.exportIntro.textContent = "包含已保存的卡牌、视频及回顾回答，可能含你填写的个人经历。迁移码不是加密文件，请仅交给老师或之后的主游戏导入页面，不要公开发布。";
+      els.exportText.value = "";
+      els.copyBtn.disabled = true;
+      try {
+        const result = window.DeutschstadtPreviewExport.build(localStorage, lessons);
+        const s = result.summary;
+        const summary = [
+          `已保存卡牌包：${s.savedLessons} 套${s.legacyPresent ? "，另含旧版 A2E1L1 记录" : ""}`,
+          `有学习标记或 XP 的卡牌：${s.touchedCards} 张（按卡牌 ID 去重）；Master：${s.masterCards} 张`,
+          `视频：${s.savedVideos} 项有记录，${s.completedVideos} 项已完成`,
+          `Rückblick：${s.rueckblickPresent ? s.rueckblickCompleted ? "已完成，含回答" : "有保存记录，尚未完成" : "无保存记录"}`,
+          "Lernnetz 自评包含在对应卡牌包中。", "", ...result.warnings
+        ].join("\n");
+        els.exportSummary.textContent = summary;
+        els.exportText.value = "Deutschstadt 全部已保存学习进度\n" + summary + "\n\n迁移码：" + window.DeutschstadtPreviewExport.encode(result.payload);
+        els.copyBtn.disabled = false;
+      } catch (error) {
+        els.exportSummary.textContent = error.message;
+      }
+      els.sheet.classList.add("open");
+      els.sheet.setAttribute("aria-hidden", "false");
+      els.exportTitle.focus({ preventScroll: true });
+      els.exportTitle.closest(".sheet-card").scrollTop = 0;
     }
 
     function copyExport() {
@@ -1618,6 +1660,7 @@
       render();
     });
     els.exportBtn.addEventListener("click", exportCode);
+    els.exportAllBtn.addEventListener("click", exportAllProgress);
     els.copyBtn.addEventListener("click", copyExport);
     els.closeSheetBtn.addEventListener("click", () => {
       els.sheet.classList.remove("open");
@@ -1642,6 +1685,8 @@
       render();
     });
     document.addEventListener("keydown", (event) => {
+      if (els.sheet.classList.contains("open")) return;
+      if (/^(INPUT|TEXTAREA|SELECT)$/.test(event.target.tagName)) return;
       if (event.key === "ArrowLeft") go(-1);
       if (event.key === "ArrowRight") go(1);
       if (event.key === " ") {
