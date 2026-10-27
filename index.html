@@ -1398,7 +1398,7 @@
           </div>
           <p class="video-task-submission">${escapeHtml(task.submission?.text || "不需要提交答案，课堂上会继续讨论。")}</p>
           ${task.choices ? `<div>${task.choices.map(choice => `<label style="display:block;padding:10px"><input type="checkbox" name="input-choice" value="${escapeHtml(choice)}"> ${escapeHtml(choice)}</label>`).join("")}</div>` : ""}
-          ${videoId.startsWith("a2e2-") ? `<button class="video-task-back" id="inputComplete" type="button">Gesehen · 完成观看任务</button><p id="inputStatus" aria-live="polite"></p>` : ""}
+          <button class="video-task-back" id="inputComplete" type="button">Gesehen · 我已观看</button><p id="inputStatus" aria-live="polite"></p>
           <button class="video-task-back" id="videoBackBtn" type="button">返回课程路线</button>
         </section>
       `;
@@ -1406,18 +1406,16 @@
         viewMode = "route";
         renderCourseRoute();
       });
-      if (videoId.startsWith("a2e2-")) {
-        const saved = progressStore.inputs?.[videoId];
-        els.stage.querySelectorAll('[name="input-choice"]').forEach(input => { input.checked = saved?.choices?.includes(input.value) || false; });
-        const status = document.getElementById("inputStatus");
-        if (saved) status.textContent = "已记录 · Bring deine Idee mit in den Unterricht.";
-        document.getElementById("inputComplete").onclick = () => {
-          progressStore.inputs ||= {};
-          progressStore.inputs[videoId] = { completed: true, choices: Array.from(els.stage.querySelectorAll('[name="input-choice"]:checked'), input => input.value), updatedAt: new Date().toISOString() };
-          saveState();
-          status.textContent = "已记录 · Bring deine Idee mit in den Unterricht.";
-        };
-      }
+      const saved = progressStore.inputs?.[videoId];
+      els.stage.querySelectorAll('[name="input-choice"]').forEach(input => { input.checked = saved?.choices?.includes(input.value) || false; });
+      const status = document.getElementById("inputStatus");
+      if (saved?.completed) status.textContent = "已记录 · Bring deine Idee mit in den Unterricht.";
+      document.getElementById("inputComplete").onclick = () => {
+        progressStore.inputs ||= {};
+        progressStore.inputs[videoId] = { completed: true, choices: Array.from(els.stage.querySelectorAll('[name="input-choice"]:checked'), input => input.value), updatedAt: new Date().toISOString() };
+        saveState();
+        status.textContent = "已记录 · Bring deine Idee mit in den Unterricht.";
+      };
     }
 
     function escapeHtml(value) {
@@ -1587,11 +1585,15 @@
       try {
         const result = window.DeutschstadtPreviewExport.build(localStorage, lessons);
         const s = result.summary;
+        const reflectionStatus = !s.rueckblickPresent ? "无保存记录" : [
+          s.rueckblickCompleted ? "已完成" : "有保存记录，尚未完成",
+          result.payload.rueckblick.reflectionAnswers.some(answer => answer.trim()) ? "含回答" : "未填写个人回答"
+        ].join("，");
         const summary = [
           `已保存卡牌包：${s.savedLessons} 套${s.legacyPresent ? "，另含旧版 A2E1L1 记录" : ""}`,
           `有学习标记或 XP 的卡牌：${s.touchedCards} 张（按卡牌 ID 去重）；Master：${s.masterCards} 张`,
           `视频：${s.savedVideos} 项有记录，${s.completedVideos} 项已完成`,
-          `Rückblick：${s.rueckblickPresent ? s.rueckblickCompleted ? "已完成，含回答" : "有保存记录，尚未完成" : "无保存记录"}`,
+          `Rückblick：${reflectionStatus}`,
           "Lernnetz 自评包含在对应卡牌包中。", "", ...result.warnings
         ].join("\n");
         els.exportSummary.textContent = summary;
